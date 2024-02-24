@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
   collection: any
   async: any
-  meta: any
+  meta: 1.11.0
 
   # Localization
   intl: 0.18.1
