@@ -1,0 +1,131 @@
+{
+  "auth": {
+    "qalam385baf80": {
+      "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "qalam385baf80CustomMessage",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "qalam385baf80PostConfirmation",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL",
+          "FAMILY_NAME",
+          "GIVEN_NAME"
+        ],
+        "socialProviders": [
+          "GOOGLE"
+        ],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "PHONE_NUMBER"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "qalam385baf80CustomMessage": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "qalam385baf80PostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_qalam385baf80CustomMessage_EMAILMESSAGE": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "qalam385baf80CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_qalam385baf80CustomMessage_EMAILSUBJECT": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "qalam385baf80CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_qalam385baf80CustomMessage_REDIRECTURL": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "qalam385baf80CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_qalam385baf80CustomMessage_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "qalam385baf80CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_qalam385baf80CustomMessage_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "qalam385baf80CustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_qalam385baf80PostConfirmation_GROUP": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "qalam385baf80PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_qalam385baf80PostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "qalam385baf80PostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_qalam385baf80PostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "qalam385baf80PostConfirmation"
+        }
+      ]
+    }
+  }
+}

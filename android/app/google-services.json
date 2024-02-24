@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "924971239933",
+    "project_id": "qalam-center",
+    "storage_bucket": "qalam-center.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924971239933:android:fda80a64616b55e24b7194",
+        "android_client_info": {
+          "package_name": "com.mubtakerspace.agate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924971239933-0ek3o43rj8erf2fishld2aekarq35gj4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRuPbVy_M-aUo3ZbcDPDx-_tmNAxKHi1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924971239933-0ek3o43rj8erf2fishld2aekarq35gj4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

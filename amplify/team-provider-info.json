@@ -1,0 +1,35 @@
+{
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-qalam-prod-175720-authRole",
+      "UnauthRoleArn": "arn:aws:iam::257338852742:role/amplify-qalam-prod-175720-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::257338852742:role/amplify-qalam-prod-175720-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-qalam-prod-175720-deployment",
+      "UnauthRoleName": "amplify-qalam-prod-175720-unauthRole",
+      "StackName": "amplify-qalam-prod-175720",
+      "StackId": "arn:aws:cloudformation:eu-central-1:257338852742:stack/amplify-qalam-prod-175720/b7458650-b9ff-11ee-a4ad-0aa904233ef3",
+      "AmplifyAppId": "d4r8i23ekcxcv",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-qalam-prod-175720-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "qalam385baf80": {}
+      },
+      "function": {
+        "qalam385baf80CustomMessage": {
+          "REDIRECTURL": "/",
+          "EMAILSUBJECT": "Email confirmation",
+          "EMAILMESSAGE": "",
+          "deploymentBucketName": "amplify-qalam-prod-175720-deployment",
+          "s3Key": "amplify-builds/qalam385baf80CustomMessage-377656426b6365675a30-build.zip"
+        },
+        "qalam385baf80PostConfirmation": {
+          "GROUP": "students",
+          "deploymentBucketName": "amplify-qalam-prod-175720-deployment",
+          "s3Key": "amplify-builds/qalam385baf80PostConfirmation-57517136457249613147-build.zip"
+        }
+      }
+    }
+  }
+}
