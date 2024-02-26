@@ -1,20 +1,10 @@
 part of 'api.dart';
 
 class ApiRoutes {
-  static const String baseUrl = 'localhost:8090/api/v1';
+  static const String baseUrl = String.fromEnvironment('API_BASE_URL');
 
   static Uri _appUri(String path, [Map<String, dynamic>? queryParameters]) =>
-      kDebugMode
-          ? Uri(
-              scheme: 'http',
-              host: '185.197.251.107',
-              port: 8090,
-              // host: '192.168.0.110',
-              // port: 3000,
-              path: '/api/v1$path',
-              queryParameters: queryParameters,
-            )
-          : Uri.https(baseUrl, path, queryParameters);
+      Uri.parse(baseUrl).replace(path: '/api/v1$path', queryParameters: queryParameters);
 
   static Uri get home => _appUri(
         '/home',
