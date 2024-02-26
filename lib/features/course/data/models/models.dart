@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../common/entities/entities.dart';
+import '../../../../common/models/models.dart';
 import '../../domain/entities/entities.dart';
 
 part 'models.freezed.dart';

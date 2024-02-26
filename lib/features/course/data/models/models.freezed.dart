@@ -23,7 +23,7 @@ mixin _$CourseDetailsModel {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<Teacher>? get teachers => throw _privateConstructorUsedError;
+  List<TeacherModel>? get teachers => throw _privateConstructorUsedError;
   int get totalLectures => throw _privateConstructorUsedError;
   int get completedLectures => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $CourseDetailsModelCopyWith<$Res> {
       {String id,
       String name,
       String? description,
-      List<Teacher>? teachers,
+      List<TeacherModel>? teachers,
       int totalLectures,
       int completedLectures,
       double price,
@@ -113,7 +113,7 @@ class _$CourseDetailsModelCopyWithImpl<$Res, $Val extends CourseDetailsModel>
       teachers: freezed == teachers
           ? _value.teachers
           : teachers // ignore: cast_nullable_to_non_nullable
-              as List<Teacher>?,
+              as List<TeacherModel>?,
       totalLectures: null == totalLectures
           ? _value.totalLectures
           : totalLectures // ignore: cast_nullable_to_non_nullable
@@ -178,7 +178,7 @@ abstract class _$$CourseDetailsModelImplCopyWith<$Res>
       {String id,
       String name,
       String? description,
-      List<Teacher>? teachers,
+      List<TeacherModel>? teachers,
       int totalLectures,
       int completedLectures,
       double price,
@@ -237,7 +237,7 @@ class __$$CourseDetailsModelImplCopyWithImpl<$Res>
       teachers: freezed == teachers
           ? _value._teachers
           : teachers // ignore: cast_nullable_to_non_nullable
-              as List<Teacher>?,
+              as List<TeacherModel>?,
       totalLectures: null == totalLectures
           ? _value.totalLectures
           : totalLectures // ignore: cast_nullable_to_non_nullable
@@ -297,7 +297,7 @@ class _$CourseDetailsModelImpl implements _CourseDetailsModel {
       {required this.id,
       required this.name,
       this.description,
-      final List<Teacher>? teachers,
+      final List<TeacherModel>? teachers,
       this.totalLectures = 0,
       this.completedLectures = 0,
       this.price = 0,
@@ -322,9 +322,9 @@ class _$CourseDetailsModelImpl implements _CourseDetailsModel {
   final String name;
   @override
   final String? description;
-  final List<Teacher>? _teachers;
+  final List<TeacherModel>? _teachers;
   @override
-  List<Teacher>? get teachers {
+  List<TeacherModel>? get teachers {
     final value = _teachers;
     if (value == null) return null;
     if (_teachers is EqualUnmodifiableListView) return _teachers;
@@ -442,7 +442,7 @@ abstract class _CourseDetailsModel implements CourseDetailsModel {
       {required final String id,
       required final String name,
       final String? description,
-      final List<Teacher>? teachers,
+      final List<TeacherModel>? teachers,
       final int totalLectures,
       final int completedLectures,
       final double price,
@@ -466,7 +466,7 @@ abstract class _CourseDetailsModel implements CourseDetailsModel {
   @override
   String? get description;
   @override
-  List<Teacher>? get teachers;
+  List<TeacherModel>? get teachers;
   @override
   int get totalLectures;
   @override

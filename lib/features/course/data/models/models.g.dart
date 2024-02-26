@@ -13,7 +13,7 @@ _$CourseDetailsModelImpl _$$CourseDetailsModelImplFromJson(
       name: json['name'] as String,
       description: json['description'] as String?,
       teachers: (json['teachers'] as List<dynamic>?)
-          ?.map((e) => Teacher.fromJson(Map<String, String?>.from(e as Map)))
+          ?.map((e) => TeacherModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalLectures: json['totalLectures'] as int? ?? 0,
       completedLectures: json['completedLectures'] as int? ?? 0,
