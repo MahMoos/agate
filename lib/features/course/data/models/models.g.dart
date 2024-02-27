@@ -34,11 +34,9 @@ _$CourseDetailsModelImpl _$$CourseDetailsModelImplFromJson(
 _$LectureModelImpl _$$LectureModelImplFromJson(Map<String, dynamic> json) =>
     _$LectureModelImpl(
       id: json['id'] as String,
-      courseId: json['courseId'] as String,
       sectionId: json['sectionId'] as String,
       name: json['name'] as String,
       subjectId: json['subjectId'] as String?,
-      courseName: json['courseName'] as String?,
       description: json['description'] as String?,
       videoUrl: json['videoUrl'] as String?,
       imageUrl: json['imageUrl'] as String?,
@@ -51,9 +49,10 @@ _$LectureModelImpl _$$LectureModelImplFromJson(Map<String, dynamic> json) =>
       isCompleted: json['isCompleted'] as bool? ?? false,
       price: (json['price'] as num?)?.toDouble() ?? 0,
       currency: json['currency'] as String? ?? 'IQD',
+      discount: (json['discount'] as num?)?.toDouble(),
       isSubscribed: json['isSubscribed'] as bool? ?? false,
       rating: (json['rating'] as num?)?.toDouble(),
-      discount: (json['discount'] as num?)?.toDouble(),
+      participants: json['participants'] as int?,
     );
 
 _$SectionModelImpl _$$SectionModelImplFromJson(Map<String, dynamic> json) =>
@@ -64,5 +63,5 @@ _$SectionModelImpl _$$SectionModelImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       teacher: json['teacher'] == null
           ? null
-          : Teacher.fromJson(Map<String, String?>.from(json['teacher'] as Map)),
+          : TeacherModel.fromJson(json['teacher'] as Map<String, dynamic>),
     );

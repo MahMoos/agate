@@ -10,6 +10,8 @@ class StatusView extends StatelessWidget {
     this.actionButtonLabel,
   });
 
+  const factory StatusView.loading() = _Loading;
+
   const factory StatusView.pageNotFound() = _PageNotFound;
 
   const factory StatusView.noResults() = _NoResults;
@@ -77,6 +79,15 @@ class _PageNotFound extends StatusView {
       action: () => context.goNamed('home'),
       actionButtonLabel: context.strings.goToHome,
     );
+  }
+}
+
+class _Loading extends StatusView {
+  const _Loading();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: CircularProgressIndicator());
   }
 }
 

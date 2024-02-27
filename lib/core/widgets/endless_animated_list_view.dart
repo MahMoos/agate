@@ -74,7 +74,7 @@ class _EndlessAnimatedListViewState<T> extends State<EndlessAnimatedListView<T>>
                     ),
                     loading: () => const SliverFillRemaining(
                       hasScrollBody: false,
-                      child: Center(child: CircularProgressIndicator()),
+                      child: StatusView.loading(),
                     ),
                   ),
             ],

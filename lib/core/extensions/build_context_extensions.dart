@@ -4,6 +4,7 @@ extension BuildContextExtensions on BuildContext {
   /// Formats [money] to a number with [currency] according to the [currency]
   /// and locale.
   String formatMoney(double money, [String? currency]) {
+    if (money == 0) return strings.free;
     currency = currency ?? 'IQD';
     return NumberFormat.currency(
       decimalDigits: currency == 'IQD' ? 0 : 2,
@@ -26,7 +27,15 @@ extension BuildContextExtensions on BuildContext {
   bool get isRTL =>
       Bidi.isRtlLanguage(Localizations.localeOf(this).languageCode);
 
-  /// Shows a [SnackBar]
-  void showSnackBar(SnackBar snackBar) =>
-      ScaffoldMessenger.of(this).showSnackBar(snackBar);
+  /// Clears SnackBars and shows a [SnackBar]
+  void showSnackBar(SnackBar snackBar) {
+    ScaffoldMessenger.of(this).clearSnackBars();
+    ScaffoldMessenger.of(this).showSnackBar(snackBar);
+  }
+
+  /// Clears SnackBars and shows a [message] in a [SnackBar]
+  void showSnackBarMessage(String message) {
+    ScaffoldMessenger.of(this).clearSnackBars();
+    ScaffoldMessenger.of(this).showSnackBar(SnackBar(content: Text(message)));
+  }
 }

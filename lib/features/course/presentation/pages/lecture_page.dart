@@ -1,77 +1,97 @@
 part of 'pages.dart';
 
-class LectureView extends ConsumerStatefulWidget {
-  const LectureView({
+class LecturePage extends ConsumerStatefulWidget {
+  const LecturePage({
     required this.courseId,
+    required this.sectionId,
     required this.lectureId,
     super.key,
   });
 
   final String courseId;
+  final String sectionId;
   final String lectureId;
 
   @override
-  ConsumerState<LectureView> createState() => _LectureViewState();
+  ConsumerState<LecturePage> createState() => _LectureViewState();
 }
 
-class _LectureViewState extends ConsumerState<LectureView> {
-  late VideoPlayerController videoPlayerController;
-  ChewieController? chewieController;
-  Lecture? cLecture;
-
-  @override
-  void dispose() {
-    videoPlayerController.dispose();
-    chewieController?.dispose();
-    super.dispose();
-  }
-
+class _LectureViewState extends ConsumerState<LecturePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(cLecture?.title ?? '...'),
-      ),
-      body: ref.watch(lectureProvider(widget.lectureId)).when(
-            data: (lecture) {
-              setState(() {
-                cLecture = lecture;
-              });
-              videoPlayerController = VideoPlayerController.networkUrl(
-                Uri.parse(lecture.videoUrl!),
-              );
-              if (lecture.videoUrl != null) {
-                videoPlayerController.initialize().then((controller) {
-                  setState(() {
-                    chewieController = ChewieController(
-                      videoPlayerController: videoPlayerController,
-                      autoPlay: true,
-                      placeholder: LectureImage(imageUrl: lecture.imageUrl),
-                      allowedScreenSleep: false,
-                    );
-                  });
-                });
-              }
-              return ListView(
+    return ref.watch(lectureControllerProvider(widget.lectureId)).when(
+          data: (lecture) {
+            return Scaffold(
+              appBar: AppBar(
+                title: Text(lecture.title),
+              ),
+              body: ListView(
                 children: [
-                  if (chewieController != null)
-                    AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: Chewie(
-                        controller: chewieController!,
-                      ),
+                  if (lecture.isSubscribed && lecture.videoUrl != null)
+                    VideoPlayer(
+                      videoUrl: lecture.videoUrl!,
+                      imageUrl: lecture.imageUrl,
+                      completedDuration: lecture.completedDuration,
+                    )
+                  else
+                    LectureImage(
+                      imageUrl: lecture.imageUrl,
+                      width: context.width,
                     ),
+                  if (!lecture.isSubscribed)
+                    SubscriptionTile(
+                      price: lecture.price,
+                      currency: lecture.currency,
+                      discount: lecture.discount,
+                      onSubscribed: () async {
+                        context.showSnackBar(
+                          const SnackBar(content: LinearProgressIndicator()),
+                        );
+                        try {
+                          final result = await ref
+                              .read(
+                                lectureControllerProvider(widget.lectureId)
+                                    .notifier,
+                              )
+                              .subscribe(widget.courseId);
+                          if (mounted && result) {
+                            context.showSnackBarMessage(
+                              context.strings.subscriptionSuccessful,
+                            );
+                          }
+                        } on Exception catch (e) {
+                          if (mounted) {
+                            handleSubscriptionException(context, e);
+                          }
+                        }
+                      },
+                    ),
+                  InteractionsTile(
+                    rating: lecture.rating,
+                    participants: lecture.participants,
+                    onTap: () {},
+                  ),
                   if (lecture.description != null)
                     Text(lecture.description!).paddingAll(16),
                 ],
-              );
-            },
-            error: (err, stack) => StatusView.anErrorOccurred(
-              action: () =>
-                  ref.refresh(courseControllerProvider(widget.courseId).future),
+              ),
+            );
+          },
+          error: (err, stack) => Scaffold(
+            appBar: AppBar(
+              title: const Text('...'),
             ),
-            loading: () => const Center(child: CircularProgressIndicator()),
+            body: StatusView.anErrorOccurred(
+              action: () => ref
+                  .refresh(lectureControllerProvider(widget.lectureId).future),
+            ),
           ),
-    );
+          loading: () => Scaffold(
+            appBar: AppBar(
+              title: const Text('...'),
+            ),
+            body: const StatusView.loading(),
+          ),
+        );
   }
 }

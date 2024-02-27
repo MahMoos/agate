@@ -4,11 +4,9 @@ part of 'models.dart';
 class LectureModel with _$LectureModel {
   const factory LectureModel({
     required String id,
-    required String courseId,
     required String sectionId,
     required String name,
     String? subjectId,
-    String? courseName,
     String? description,
     String? videoUrl,
     String? imageUrl,
@@ -18,9 +16,10 @@ class LectureModel with _$LectureModel {
     @Default(false) bool isCompleted,
     @Default(0) double price,
     @Default('IQD') String currency,
+    double? discount,
     @Default(false) bool isSubscribed,
     double? rating,
-    double? discount,
+    int? participants,
   }) = _LectureModel;
 
   factory LectureModel.fromJson(Map<String, dynamic> json) =>
@@ -30,12 +29,10 @@ class LectureModel with _$LectureModel {
 extension LectureModelEx on LectureModel {
   Lecture toEntity() => Lecture(
         id: id,
-        courseId: courseId,
         title: name,
         description: description,
         imageUrl: imageUrl,
         videoUrl: videoUrl,
-        courseName: courseName ?? '',
         sectionId: sectionId,
         subjectId: subjectId,
         completedDuration: completedDuration,
@@ -46,5 +43,6 @@ extension LectureModelEx on LectureModel {
         price: price,
         discount: discount,
         rating: rating,
+        participants: participants,
       );
 }

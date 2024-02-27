@@ -504,11 +504,9 @@ LectureModel _$LectureModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LectureModel {
   String get id => throw _privateConstructorUsedError;
-  String get courseId => throw _privateConstructorUsedError;
   String get sectionId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get subjectId => throw _privateConstructorUsedError;
-  String? get courseName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get videoUrl => throw _privateConstructorUsedError;
   String? get imageUrl =>
@@ -518,9 +516,14 @@ mixin _$LectureModel {
   bool get isCompleted => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   String get currency => throw _privateConstructorUsedError;
-  bool get isSubscribed => throw _privateConstructorUsedError;
-  double? get rating => throw _privateConstructorUsedError;
+
   double? get discount => throw _privateConstructorUsedError;
+
+  bool get isSubscribed => throw _privateConstructorUsedError;
+
+  double? get rating => throw _privateConstructorUsedError;
+
+  int? get participants => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LectureModelCopyWith<LectureModel> get copyWith =>
@@ -535,11 +538,9 @@ abstract class $LectureModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String courseId,
       String sectionId,
       String name,
       String? subjectId,
-      String? courseName,
       String? description,
       String? videoUrl,
       String? imageUrl,
@@ -548,9 +549,10 @@ abstract class $LectureModelCopyWith<$Res> {
       bool isCompleted,
       double price,
       String currency,
+      double? discount,
       bool isSubscribed,
       double? rating,
-      double? discount});
+      int? participants});
 }
 
 /// @nodoc
@@ -567,11 +569,9 @@ class _$LectureModelCopyWithImpl<$Res, $Val extends LectureModel>
   @override
   $Res call({
     Object? id = null,
-    Object? courseId = null,
     Object? sectionId = null,
     Object? name = null,
     Object? subjectId = freezed,
-    Object? courseName = freezed,
     Object? description = freezed,
     Object? videoUrl = freezed,
     Object? imageUrl = freezed,
@@ -580,18 +580,15 @@ class _$LectureModelCopyWithImpl<$Res, $Val extends LectureModel>
     Object? isCompleted = null,
     Object? price = null,
     Object? currency = null,
+    Object? discount = freezed,
     Object? isSubscribed = null,
     Object? rating = freezed,
-    Object? discount = freezed,
+    Object? participants = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      courseId: null == courseId
-          ? _value.courseId
-          : courseId // ignore: cast_nullable_to_non_nullable
               as String,
       sectionId: null == sectionId
           ? _value.sectionId
@@ -604,10 +601,6 @@ class _$LectureModelCopyWithImpl<$Res, $Val extends LectureModel>
       subjectId: freezed == subjectId
           ? _value.subjectId
           : subjectId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      courseName: freezed == courseName
-          ? _value.courseName
-          : courseName // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
           ? _value.description
@@ -641,6 +634,10 @@ class _$LectureModelCopyWithImpl<$Res, $Val extends LectureModel>
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
       isSubscribed: null == isSubscribed
           ? _value.isSubscribed
           : isSubscribed // ignore: cast_nullable_to_non_nullable
@@ -649,10 +646,10 @@ class _$LectureModelCopyWithImpl<$Res, $Val extends LectureModel>
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double?,
-      discount: freezed == discount
-          ? _value.discount
-          : discount // ignore: cast_nullable_to_non_nullable
-              as double?,
+      participants: freezed == participants
+          ? _value.participants
+          : participants // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -667,11 +664,9 @@ abstract class _$$LectureModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String courseId,
       String sectionId,
       String name,
       String? subjectId,
-      String? courseName,
       String? description,
       String? videoUrl,
       String? imageUrl,
@@ -680,9 +675,10 @@ abstract class _$$LectureModelImplCopyWith<$Res>
       bool isCompleted,
       double price,
       String currency,
+      double? discount,
       bool isSubscribed,
       double? rating,
-      double? discount});
+      int? participants});
 }
 
 /// @nodoc
@@ -697,11 +693,9 @@ class __$$LectureModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? courseId = null,
     Object? sectionId = null,
     Object? name = null,
     Object? subjectId = freezed,
-    Object? courseName = freezed,
     Object? description = freezed,
     Object? videoUrl = freezed,
     Object? imageUrl = freezed,
@@ -710,18 +704,15 @@ class __$$LectureModelImplCopyWithImpl<$Res>
     Object? isCompleted = null,
     Object? price = null,
     Object? currency = null,
+    Object? discount = freezed,
     Object? isSubscribed = null,
     Object? rating = freezed,
-    Object? discount = freezed,
+    Object? participants = freezed,
   }) {
     return _then(_$LectureModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      courseId: null == courseId
-          ? _value.courseId
-          : courseId // ignore: cast_nullable_to_non_nullable
               as String,
       sectionId: null == sectionId
           ? _value.sectionId
@@ -734,10 +725,6 @@ class __$$LectureModelImplCopyWithImpl<$Res>
       subjectId: freezed == subjectId
           ? _value.subjectId
           : subjectId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      courseName: freezed == courseName
-          ? _value.courseName
-          : courseName // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
           ? _value.description
@@ -771,6 +758,10 @@ class __$$LectureModelImplCopyWithImpl<$Res>
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
       isSubscribed: null == isSubscribed
           ? _value.isSubscribed
           : isSubscribed // ignore: cast_nullable_to_non_nullable
@@ -779,10 +770,10 @@ class __$$LectureModelImplCopyWithImpl<$Res>
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double?,
-      discount: freezed == discount
-          ? _value.discount
-          : discount // ignore: cast_nullable_to_non_nullable
-              as double?,
+      participants: freezed == participants
+          ? _value.participants
+          : participants // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -792,11 +783,9 @@ class __$$LectureModelImplCopyWithImpl<$Res>
 class _$LectureModelImpl implements _LectureModel {
   const _$LectureModelImpl(
       {required this.id,
-      required this.courseId,
       required this.sectionId,
       required this.name,
       this.subjectId,
-      this.courseName,
       this.description,
       this.videoUrl,
       this.imageUrl,
@@ -805,9 +794,10 @@ class _$LectureModelImpl implements _LectureModel {
       this.isCompleted = false,
       this.price = 0,
       this.currency = 'IQD',
+      this.discount,
       this.isSubscribed = false,
       this.rating,
-      this.discount});
+      this.participants});
 
   factory _$LectureModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LectureModelImplFromJson(json);
@@ -815,15 +805,11 @@ class _$LectureModelImpl implements _LectureModel {
   @override
   final String id;
   @override
-  final String courseId;
-  @override
   final String sectionId;
   @override
   final String name;
   @override
   final String? subjectId;
-  @override
-  final String? courseName;
   @override
   final String? description;
   @override
@@ -845,16 +831,18 @@ class _$LectureModelImpl implements _LectureModel {
   @JsonKey()
   final String currency;
   @override
+  final double? discount;
+  @override
   @JsonKey()
   final bool isSubscribed;
   @override
   final double? rating;
   @override
-  final double? discount;
+  final int? participants;
 
   @override
   String toString() {
-    return 'LectureModel(id: $id, courseId: $courseId, sectionId: $sectionId, name: $name, subjectId: $subjectId, courseName: $courseName, description: $description, videoUrl: $videoUrl, imageUrl: $imageUrl, duration: $duration, completedDuration: $completedDuration, isCompleted: $isCompleted, price: $price, currency: $currency, isSubscribed: $isSubscribed, rating: $rating, discount: $discount)';
+    return 'LectureModel(id: $id, sectionId: $sectionId, name: $name, subjectId: $subjectId, description: $description, videoUrl: $videoUrl, imageUrl: $imageUrl, duration: $duration, completedDuration: $completedDuration, isCompleted: $isCompleted, price: $price, currency: $currency, discount: $discount, isSubscribed: $isSubscribed, rating: $rating, participants: $participants)';
   }
 
   @override
@@ -863,15 +851,11 @@ class _$LectureModelImpl implements _LectureModel {
         (other.runtimeType == runtimeType &&
             other is _$LectureModelImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.courseId, courseId) ||
-                other.courseId == courseId) &&
             (identical(other.sectionId, sectionId) ||
                 other.sectionId == sectionId) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.subjectId, subjectId) ||
                 other.subjectId == subjectId) &&
-            (identical(other.courseName, courseName) ||
-                other.courseName == courseName) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.videoUrl, videoUrl) ||
@@ -887,11 +871,13 @@ class _$LectureModelImpl implements _LectureModel {
             (identical(other.price, price) || other.price == price) &&
             (identical(other.currency, currency) ||
                 other.currency == currency) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
             (identical(other.isSubscribed, isSubscribed) ||
                 other.isSubscribed == isSubscribed) &&
             (identical(other.rating, rating) || other.rating == rating) &&
-            (identical(other.discount, discount) ||
-                other.discount == discount));
+            (identical(other.participants, participants) ||
+                other.participants == participants));
   }
 
   @JsonKey(ignore: true)
@@ -899,11 +885,9 @@ class _$LectureModelImpl implements _LectureModel {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      courseId,
       sectionId,
       name,
       subjectId,
-      courseName,
       description,
       videoUrl,
       imageUrl,
@@ -912,9 +896,10 @@ class _$LectureModelImpl implements _LectureModel {
       isCompleted,
       price,
       currency,
+      discount,
       isSubscribed,
       rating,
-      discount);
+      participants);
 
   @JsonKey(ignore: true)
   @override
@@ -926,11 +911,9 @@ class _$LectureModelImpl implements _LectureModel {
 abstract class _LectureModel implements LectureModel {
   const factory _LectureModel(
       {required final String id,
-      required final String courseId,
       required final String sectionId,
       required final String name,
       final String? subjectId,
-      final String? courseName,
       final String? description,
       final String? videoUrl,
       final String? imageUrl,
@@ -939,9 +922,10 @@ abstract class _LectureModel implements LectureModel {
       final bool isCompleted,
       final double price,
       final String currency,
+      final double? discount,
       final bool isSubscribed,
       final double? rating,
-      final double? discount}) = _$LectureModelImpl;
+      final int? participants}) = _$LectureModelImpl;
 
   factory _LectureModel.fromJson(Map<String, dynamic> json) =
       _$LectureModelImpl.fromJson;
@@ -949,37 +933,45 @@ abstract class _LectureModel implements LectureModel {
   @override
   String get id;
   @override
-  String get courseId;
-  @override
   String get sectionId;
   @override
   String get name;
   @override
   String? get subjectId;
   @override
-  String? get courseName;
-  @override
   String? get description;
   @override
   String? get videoUrl;
   @override
   String? get imageUrl;
+
   @override // List<LectureFile>? files,
   Duration? get duration;
+
   @override
   Duration? get completedDuration;
+
   @override
   bool get isCompleted;
+
   @override
   double get price;
+
   @override
   String get currency;
-  @override
-  bool get isSubscribed;
-  @override
-  double? get rating;
+
   @override
   double? get discount;
+
+  @override
+  bool get isSubscribed;
+
+  @override
+  double? get rating;
+
+  @override
+  int? get participants;
+
   @override
   @JsonKey(ignore: true)
   _$$LectureModelImplCopyWith<_$LectureModelImpl> get copyWith =>
@@ -995,8 +987,10 @@ mixin _$SectionModel {
   String get id => throw _privateConstructorUsedError;
   String get courseId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+
   String? get description => throw _privateConstructorUsedError;
-  Teacher? get teacher => throw _privateConstructorUsedError;
+
+  TeacherModel? get teacher => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SectionModelCopyWith<SectionModel> get copyWith =>
@@ -1008,13 +1002,16 @@ abstract class $SectionModelCopyWith<$Res> {
   factory $SectionModelCopyWith(
           SectionModel value, $Res Function(SectionModel) then) =
       _$SectionModelCopyWithImpl<$Res, SectionModel>;
+
   @useResult
   $Res call(
       {String id,
       String courseId,
       String name,
       String? description,
-      Teacher? teacher});
+      TeacherModel? teacher});
+
+  $TeacherModelCopyWith<$Res>? get teacher;
 }
 
 /// @nodoc
@@ -1056,8 +1053,20 @@ class _$SectionModelCopyWithImpl<$Res, $Val extends SectionModel>
       teacher: freezed == teacher
           ? _value.teacher
           : teacher // ignore: cast_nullable_to_non_nullable
-              as Teacher?,
+              as TeacherModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TeacherModelCopyWith<$Res>? get teacher {
+    if (_value.teacher == null) {
+      return null;
+    }
+
+    return $TeacherModelCopyWith<$Res>(_value.teacher!, (value) {
+      return _then(_value.copyWith(teacher: value) as $Val);
+    });
   }
 }
 
@@ -1067,6 +1076,7 @@ abstract class _$$SectionModelImplCopyWith<$Res>
   factory _$$SectionModelImplCopyWith(
           _$SectionModelImpl value, $Res Function(_$SectionModelImpl) then) =
       __$$SectionModelImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -1074,7 +1084,10 @@ abstract class _$$SectionModelImplCopyWith<$Res>
       String courseId,
       String name,
       String? description,
-      Teacher? teacher});
+      TeacherModel? teacher});
+
+  @override
+  $TeacherModelCopyWith<$Res>? get teacher;
 }
 
 /// @nodoc
@@ -1114,7 +1127,7 @@ class __$$SectionModelImplCopyWithImpl<$Res>
       teacher: freezed == teacher
           ? _value.teacher
           : teacher // ignore: cast_nullable_to_non_nullable
-              as Teacher?,
+              as TeacherModel?,
     ));
   }
 }
@@ -1141,7 +1154,7 @@ class _$SectionModelImpl implements _SectionModel {
   @override
   final String? description;
   @override
-  final Teacher? teacher;
+  final TeacherModel? teacher;
 
   @override
   String toString() {
@@ -1180,7 +1193,7 @@ abstract class _SectionModel implements SectionModel {
       required final String courseId,
       required final String name,
       final String? description,
-      final Teacher? teacher}) = _$SectionModelImpl;
+      final TeacherModel? teacher}) = _$SectionModelImpl;
 
   factory _SectionModel.fromJson(Map<String, dynamic> json) =
       _$SectionModelImpl.fromJson;
@@ -1191,10 +1204,13 @@ abstract class _SectionModel implements SectionModel {
   String get courseId;
   @override
   String get name;
+
   @override
   String? get description;
+
   @override
-  Teacher? get teacher;
+  TeacherModel? get teacher;
+
   @override
   @JsonKey(ignore: true)
   _$$SectionModelImplCopyWith<_$SectionModelImpl> get copyWith =>

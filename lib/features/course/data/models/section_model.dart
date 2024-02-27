@@ -7,7 +7,7 @@ class SectionModel with _$SectionModel {
     required String courseId,
     required String name,
     String? description,
-    Teacher? teacher,
+    TeacherModel? teacher,
   }) = _SectionModel;
 
   factory SectionModel.fromJson(Map<String, dynamic> json) =>
@@ -16,10 +16,10 @@ class SectionModel with _$SectionModel {
 
 extension SectionModelEx on SectionModel {
   Section toEntity() => Section(
-        id: id,
+    id: id,
         courseId: courseId,
         name: name,
         description: description,
-        teacher: teacher,
+        teacher: teacher?.toEntity(),
       );
 }

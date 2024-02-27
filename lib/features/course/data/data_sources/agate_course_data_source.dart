@@ -45,4 +45,37 @@ class AgateCourseDataSource extends CourseDataSource {
       parser: (json) => SectionModel.fromJson(json as Map<String, dynamic>),
     );
   }
+
+  @override
+  Future<bool> subscribeToCourse(String courseId) {
+    return client.post<bool>(
+      ApiRoutes.subscribeToCourse(courseId),
+      data: null,
+      parser: (data) => true,
+    );
+  }
+
+  @override
+  Future<bool> subscribeToLecture({
+    required String courseId,
+    required String lectureId,
+  }) {
+    return client.post<bool>(
+      ApiRoutes.subscribeToLecture(courseId: courseId, lectureId: lectureId),
+      data: null,
+      parser: (data) => true,
+    );
+  }
+
+  @override
+  Future<bool> watchLecture({
+    required String courseId,
+    required String lectureId,
+  }) {
+    return client.post<bool>(
+      ApiRoutes.watchLecture(courseId: courseId, lectureId: lectureId),
+      data: null,
+      parser: (data) => true,
+    );
+  }
 }

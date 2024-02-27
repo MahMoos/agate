@@ -10,6 +10,10 @@
       }
     }
   },
+  "free": "Free",
+  "@free": {
+    "description": "Price free label"
+  },
   "selectedLanguage": "{status, select, ar {Arabic} en {English} other {English}}",
   "@selectedLanguage": {
     "description": "Selected Language label",
@@ -133,5 +137,17 @@
   "errorOccurred": "An unexpected error occurred",
   "@errorOccurred": {
     "description": "error without message"
+  },
+  "subscriptionSuccessful": "Subscribed successfully",
+  "@subscriptionSuccessful": {
+    "description": "Subscribed successfully message"
+  },
+  "walletEmpty": "Your balance is not enough!",
+  "@walletEmpty": {
+    "description": "not enough balance error message"
+  },
+  "deposit": "Deposit",
+  "@deposit": {
+    "description": "Deposit button label"
   }
 }

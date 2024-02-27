@@ -34,4 +34,25 @@ class AgateCourseRepository extends BaseRepository implements CourseRepository {
   Future<List<Section>> getSections(SectionsParams params) async {
     return (await remote.getSections(params)).map((e) => e.toEntity()).toList();
   }
+
+  @override
+  Future<bool> subscribeToCourse(String courseId) async {
+    return remote.subscribeToCourse(courseId);
+  }
+
+  @override
+  Future<bool> subscribeToLecture({
+    required String courseId,
+    required String lectureId,
+  }) async {
+    return remote.subscribeToLecture(courseId: courseId, lectureId: lectureId);
+  }
+
+  @override
+  Future<bool> watchLecture({
+    required String courseId,
+    required String lectureId,
+  }) async {
+    return remote.watchLecture(courseId: courseId, lectureId: lectureId);
+  }
 }

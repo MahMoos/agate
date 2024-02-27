@@ -10,12 +10,12 @@ _$CourseModelImpl _$$CourseModelImplFromJson(Map<String, dynamic> json) =>
     _$CourseModelImpl(
       id: json['id'] as String,
       name: json['name'] as String,
+      price: (json['price'] as num?)?.toDouble() ?? 0,
       totalLectures: json['totalLectures'] as int?,
       teachers: (json['teachers'] as List<dynamic>?)
           ?.map((e) => TeacherModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       imageUrl: json['imageUrl'] as String?,
-      price: (json['price'] as num?)?.toDouble(),
       discount: (json['discount'] as num?)?.toDouble(),
       participants: json['participants'] as int?,
       rating: (json['rating'] as num?)?.toDouble(),
@@ -25,10 +25,10 @@ Map<String, dynamic> _$$CourseModelImplToJson(_$CourseModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'price': instance.price,
       'totalLectures': instance.totalLectures,
       'teachers': instance.teachers,
       'imageUrl': instance.imageUrl,
-      'price': instance.price,
       'discount': instance.discount,
       'participants': instance.participants,
       'rating': instance.rating,
@@ -98,11 +98,16 @@ _$MyCourseModelImpl _$$MyCourseModelImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       completedLectures: json['completedLectures'] as int,
       totalLectures: json['totalLectures'] as int,
+      price: (json['price'] as num?)?.toDouble() ?? 0,
+      currency: json['currency'] as String? ?? 'IQD',
+      discount: (json['discount'] as num?)?.toDouble(),
       teachers: (json['teachers'] as List<dynamic>?)
           ?.map((e) => TeacherModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       currentLectureId: json['currentLectureId'] as String?,
       imageUrl: json['imageUrl'] as String?,
+      participants: json['participants'] as int?,
+      rating: (json['rating'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$MyCourseModelImplToJson(_$MyCourseModelImpl instance) =>
@@ -111,7 +116,12 @@ Map<String, dynamic> _$$MyCourseModelImplToJson(_$MyCourseModelImpl instance) =>
       'name': instance.name,
       'completedLectures': instance.completedLectures,
       'totalLectures': instance.totalLectures,
+      'price': instance.price,
+      'currency': instance.currency,
+      'discount': instance.discount,
       'teachers': instance.teachers,
       'currentLectureId': instance.currentLectureId,
       'imageUrl': instance.imageUrl,
+      'participants': instance.participants,
+      'rating': instance.rating,
     };

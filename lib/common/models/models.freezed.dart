@@ -22,10 +22,12 @@ CourseModel _$CourseModelFromJson(Map<String, dynamic> json) {
 mixin _$CourseModel {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+
+  double get price => throw _privateConstructorUsedError;
+
   int? get totalLectures => throw _privateConstructorUsedError;
   List<TeacherModel>? get teachers => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
-  double? get price => throw _privateConstructorUsedError;
   double? get discount => throw _privateConstructorUsedError;
   int? get participants => throw _privateConstructorUsedError;
   double? get rating => throw _privateConstructorUsedError;
@@ -45,10 +47,10 @@ abstract class $CourseModelCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
+      double price,
       int? totalLectures,
       List<TeacherModel>? teachers,
       String? imageUrl,
-      double? price,
       double? discount,
       int? participants,
       double? rating});
@@ -69,10 +71,10 @@ class _$CourseModelCopyWithImpl<$Res, $Val extends CourseModel>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? price = null,
     Object? totalLectures = freezed,
     Object? teachers = freezed,
     Object? imageUrl = freezed,
-    Object? price = freezed,
     Object? discount = freezed,
     Object? participants = freezed,
     Object? rating = freezed,
@@ -86,6 +88,10 @@ class _$CourseModelCopyWithImpl<$Res, $Val extends CourseModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
       totalLectures: freezed == totalLectures
           ? _value.totalLectures
           : totalLectures // ignore: cast_nullable_to_non_nullable
@@ -98,10 +104,6 @@ class _$CourseModelCopyWithImpl<$Res, $Val extends CourseModel>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      price: freezed == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -129,10 +131,10 @@ abstract class _$$CourseModelImplCopyWith<$Res>
   $Res call(
       {String id,
       String name,
+      double price,
       int? totalLectures,
       List<TeacherModel>? teachers,
       String? imageUrl,
-      double? price,
       double? discount,
       int? participants,
       double? rating});
@@ -151,10 +153,10 @@ class __$$CourseModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? price = null,
     Object? totalLectures = freezed,
     Object? teachers = freezed,
     Object? imageUrl = freezed,
-    Object? price = freezed,
     Object? discount = freezed,
     Object? participants = freezed,
     Object? rating = freezed,
@@ -168,6 +170,10 @@ class __$$CourseModelImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
       totalLectures: freezed == totalLectures
           ? _value.totalLectures
           : totalLectures // ignore: cast_nullable_to_non_nullable
@@ -180,10 +186,6 @@ class __$$CourseModelImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      price: freezed == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -206,10 +208,10 @@ class _$CourseModelImpl implements _CourseModel {
   const _$CourseModelImpl(
       {required this.id,
       required this.name,
+      this.price = 0,
       this.totalLectures,
       final List<TeacherModel>? teachers,
       this.imageUrl,
-      this.price,
       this.discount,
       this.participants,
       this.rating})
@@ -223,8 +225,12 @@ class _$CourseModelImpl implements _CourseModel {
   @override
   final String name;
   @override
+  @JsonKey()
+  final double price;
+  @override
   final int? totalLectures;
   final List<TeacherModel>? _teachers;
+
   @override
   List<TeacherModel>? get teachers {
     final value = _teachers;
@@ -237,8 +243,6 @@ class _$CourseModelImpl implements _CourseModel {
   @override
   final String? imageUrl;
   @override
-  final double? price;
-  @override
   final double? discount;
   @override
   final int? participants;
@@ -247,7 +251,7 @@ class _$CourseModelImpl implements _CourseModel {
 
   @override
   String toString() {
-    return 'CourseModel(id: $id, name: $name, totalLectures: $totalLectures, teachers: $teachers, imageUrl: $imageUrl, price: $price, discount: $discount, participants: $participants, rating: $rating)';
+    return 'CourseModel(id: $id, name: $name, price: $price, totalLectures: $totalLectures, teachers: $teachers, imageUrl: $imageUrl, discount: $discount, participants: $participants, rating: $rating)';
   }
 
   @override
@@ -257,12 +261,12 @@ class _$CourseModelImpl implements _CourseModel {
             other is _$CourseModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.price, price) || other.price == price) &&
             (identical(other.totalLectures, totalLectures) ||
                 other.totalLectures == totalLectures) &&
             const DeepCollectionEquality().equals(other._teachers, _teachers) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
-            (identical(other.price, price) || other.price == price) &&
             (identical(other.discount, discount) ||
                 other.discount == discount) &&
             (identical(other.participants, participants) ||
@@ -276,10 +280,10 @@ class _$CourseModelImpl implements _CourseModel {
       runtimeType,
       id,
       name,
+      price,
       totalLectures,
       const DeepCollectionEquality().hash(_teachers),
       imageUrl,
-      price,
       discount,
       participants,
       rating);
@@ -302,10 +306,10 @@ abstract class _CourseModel implements CourseModel {
   const factory _CourseModel(
       {required final String id,
       required final String name,
+      final double price,
       final int? totalLectures,
       final List<TeacherModel>? teachers,
       final String? imageUrl,
-      final double? price,
       final double? discount,
       final int? participants,
       final double? rating}) = _$CourseModelImpl;
@@ -315,20 +319,28 @@ abstract class _CourseModel implements CourseModel {
 
   @override
   String get id;
+
   @override
   String get name;
+
+  @override
+  double get price;
+
   @override
   int? get totalLectures;
+
   @override
   List<TeacherModel>? get teachers;
+
   @override
   String? get imageUrl;
-  @override
-  double? get price;
+
   @override
   double? get discount;
+
   @override
   int? get participants;
+
   @override
   double? get rating;
   @override
@@ -1011,14 +1023,31 @@ MyCourseModel _$MyCourseModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MyCourseModel {
   String get id => throw _privateConstructorUsedError;
+
   String get name => throw _privateConstructorUsedError;
+
   int get completedLectures => throw _privateConstructorUsedError;
+
   int get totalLectures => throw _privateConstructorUsedError;
+
+  double get price => throw _privateConstructorUsedError;
+
+  String get currency => throw _privateConstructorUsedError;
+
+  double? get discount => throw _privateConstructorUsedError;
+
   List<TeacherModel>? get teachers => throw _privateConstructorUsedError;
+
   String? get currentLectureId => throw _privateConstructorUsedError;
+
   String? get imageUrl => throw _privateConstructorUsedError;
 
+  int? get participants => throw _privateConstructorUsedError;
+
+  double? get rating => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $MyCourseModelCopyWith<MyCourseModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1035,9 +1064,14 @@ abstract class $MyCourseModelCopyWith<$Res> {
       String name,
       int completedLectures,
       int totalLectures,
+      double price,
+      String currency,
+      double? discount,
       List<TeacherModel>? teachers,
       String? currentLectureId,
-      String? imageUrl});
+      String? imageUrl,
+      int? participants,
+      double? rating});
 }
 
 /// @nodoc
@@ -1057,9 +1091,14 @@ class _$MyCourseModelCopyWithImpl<$Res, $Val extends MyCourseModel>
     Object? name = null,
     Object? completedLectures = null,
     Object? totalLectures = null,
+    Object? price = null,
+    Object? currency = null,
+    Object? discount = freezed,
     Object? teachers = freezed,
     Object? currentLectureId = freezed,
     Object? imageUrl = freezed,
+    Object? participants = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -1078,6 +1117,18 @@ class _$MyCourseModelCopyWithImpl<$Res, $Val extends MyCourseModel>
           ? _value.totalLectures
           : totalLectures // ignore: cast_nullable_to_non_nullable
               as int,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
       teachers: freezed == teachers
           ? _value.teachers
           : teachers // ignore: cast_nullable_to_non_nullable
@@ -1090,6 +1141,14 @@ class _$MyCourseModelCopyWithImpl<$Res, $Val extends MyCourseModel>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      participants: freezed == participants
+          ? _value.participants
+          : participants // ignore: cast_nullable_to_non_nullable
+              as int?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 }
@@ -1107,9 +1166,14 @@ abstract class _$$MyCourseModelImplCopyWith<$Res>
       String name,
       int completedLectures,
       int totalLectures,
+      double price,
+      String currency,
+      double? discount,
       List<TeacherModel>? teachers,
       String? currentLectureId,
-      String? imageUrl});
+      String? imageUrl,
+      int? participants,
+      double? rating});
 }
 
 /// @nodoc
@@ -1127,9 +1191,14 @@ class __$$MyCourseModelImplCopyWithImpl<$Res>
     Object? name = null,
     Object? completedLectures = null,
     Object? totalLectures = null,
+    Object? price = null,
+    Object? currency = null,
+    Object? discount = freezed,
     Object? teachers = freezed,
     Object? currentLectureId = freezed,
     Object? imageUrl = freezed,
+    Object? participants = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_$MyCourseModelImpl(
       id: null == id
@@ -1148,6 +1217,18 @@ class __$$MyCourseModelImplCopyWithImpl<$Res>
           ? _value.totalLectures
           : totalLectures // ignore: cast_nullable_to_non_nullable
               as int,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
       teachers: freezed == teachers
           ? _value._teachers
           : teachers // ignore: cast_nullable_to_non_nullable
@@ -1160,6 +1241,14 @@ class __$$MyCourseModelImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      participants: freezed == participants
+          ? _value.participants
+          : participants // ignore: cast_nullable_to_non_nullable
+              as int?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -1172,9 +1261,14 @@ class _$MyCourseModelImpl implements _MyCourseModel {
       required this.name,
       required this.completedLectures,
       required this.totalLectures,
+      this.price = 0,
+      this.currency = 'IQD',
+      this.discount,
       final List<TeacherModel>? teachers,
       this.currentLectureId,
-      this.imageUrl})
+      this.imageUrl,
+      this.participants,
+      this.rating})
       : _teachers = teachers;
 
   factory _$MyCourseModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -1188,7 +1282,16 @@ class _$MyCourseModelImpl implements _MyCourseModel {
   final int completedLectures;
   @override
   final int totalLectures;
+  @override
+  @JsonKey()
+  final double price;
+  @override
+  @JsonKey()
+  final String currency;
+  @override
+  final double? discount;
   final List<TeacherModel>? _teachers;
+
   @override
   List<TeacherModel>? get teachers {
     final value = _teachers;
@@ -1202,10 +1305,14 @@ class _$MyCourseModelImpl implements _MyCourseModel {
   final String? currentLectureId;
   @override
   final String? imageUrl;
+  @override
+  final int? participants;
+  @override
+  final double? rating;
 
   @override
   String toString() {
-    return 'MyCourseModel(id: $id, name: $name, completedLectures: $completedLectures, totalLectures: $totalLectures, teachers: $teachers, currentLectureId: $currentLectureId, imageUrl: $imageUrl)';
+    return 'MyCourseModel(id: $id, name: $name, completedLectures: $completedLectures, totalLectures: $totalLectures, price: $price, currency: $currency, discount: $discount, teachers: $teachers, currentLectureId: $currentLectureId, imageUrl: $imageUrl, participants: $participants, rating: $rating)';
   }
 
   @override
@@ -1219,11 +1326,19 @@ class _$MyCourseModelImpl implements _MyCourseModel {
                 other.completedLectures == completedLectures) &&
             (identical(other.totalLectures, totalLectures) ||
                 other.totalLectures == totalLectures) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.currency, currency) ||
+                other.currency == currency) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
             const DeepCollectionEquality().equals(other._teachers, _teachers) &&
             (identical(other.currentLectureId, currentLectureId) ||
                 other.currentLectureId == currentLectureId) &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            (identical(other.participants, participants) ||
+                other.participants == participants) &&
+            (identical(other.rating, rating) || other.rating == rating));
   }
 
   @JsonKey(ignore: true)
@@ -1234,9 +1349,14 @@ class _$MyCourseModelImpl implements _MyCourseModel {
       name,
       completedLectures,
       totalLectures,
+      price,
+      currency,
+      discount,
       const DeepCollectionEquality().hash(_teachers),
       currentLectureId,
-      imageUrl);
+      imageUrl,
+      participants,
+      rating);
 
   @JsonKey(ignore: true)
   @override
@@ -1258,27 +1378,54 @@ abstract class _MyCourseModel implements MyCourseModel {
       required final String name,
       required final int completedLectures,
       required final int totalLectures,
+      final double price,
+      final String currency,
+      final double? discount,
       final List<TeacherModel>? teachers,
       final String? currentLectureId,
-      final String? imageUrl}) = _$MyCourseModelImpl;
+      final String? imageUrl,
+      final int? participants,
+      final double? rating}) = _$MyCourseModelImpl;
 
   factory _MyCourseModel.fromJson(Map<String, dynamic> json) =
       _$MyCourseModelImpl.fromJson;
 
   @override
   String get id;
+
   @override
   String get name;
+
   @override
   int get completedLectures;
+
   @override
   int get totalLectures;
+
+  @override
+  double get price;
+
+  @override
+  String get currency;
+
+  @override
+  double? get discount;
+
   @override
   List<TeacherModel>? get teachers;
+
   @override
   String? get currentLectureId;
+
   @override
   String? get imageUrl;
+
+  @override
+  int? get participants;
+
+  @override
+  double? get rating;
+
   @override
   @JsonKey(ignore: true)
   _$$MyCourseModelImplCopyWith<_$MyCourseModelImpl> get copyWith =>

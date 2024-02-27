@@ -5,9 +5,7 @@ class Lecture with _$Lecture {
   const factory Lecture({
     required String id,
     required String title,
-    required String courseId,
     required String sectionId,
-    required String courseName,
     String? subjectId,
     String? description,
     String? videoUrl,
@@ -21,5 +19,6 @@ class Lecture with _$Lecture {
     double? discount,
     @Default(false) bool isSubscribed,
     double? rating,
+    int? participants,
   }) = _Lecture;
 }

@@ -5,10 +5,10 @@ class CourseModel with _$CourseModel {
   const factory CourseModel({
     required String id,
     required String name,
+    @Default(0) double price,
     int? totalLectures,
     List<TeacherModel>? teachers,
     String? imageUrl,
-    double? price,
     double? discount,
     int? participants,
     double? rating,

@@ -1,6 +1,7 @@
 {
   "@@locale": "ar",
   "currency": "{currency, select, USD {دولار} IQD {دينار} other {#}}",
+  "free": "مجاناً",
   "selectedLanguage": "{status, select, ar {العربية} en {الإنجليزية} other {العربية}}",
   "light": "نهاري",
   "dark": "ليلي",
@@ -10,7 +11,7 @@
   "close": "إغلاق",
   "apply": "حفظ",
   "notFound": "لم يتم العثور على الصفحة، الرجاء التحقق من الرابط أولاَ.",
-"tryAgain": "المحاولة مجدداً",
+  "tryAgain": "المحاولة مجدداً",
   "ok": "حسنا",
   "goToHome": "الذهاب إلى الرئيسية",
   "home": "الرئيسية",
@@ -28,5 +29,8 @@
   "subjects": "المواضيع",
   "courses": "الدورات",
   "noResults": "لا يوجد نتائج...",
-  "errorOccurred": "حدث خطأ غير متوقع."
+  "errorOccurred": "حدث خطأ غير متوقع.",
+  "subscriptionSuccessful": "تم الاشتراك بنجاح!",
+  "walletEmpty": "رصيدك لا يكفي!",
+  "deposit": "إيداع"
 }

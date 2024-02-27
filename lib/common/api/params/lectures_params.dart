@@ -39,5 +39,5 @@ class LecturesParams extends PaginatedParams {
       };
 
   @override
-  PaginatedParams nextPage() => copyWith(page: page + 1);
+  LecturesParams nextPage() => copyWith(page: page + 1);
 }

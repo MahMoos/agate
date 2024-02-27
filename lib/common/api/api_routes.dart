@@ -4,7 +4,8 @@ class ApiRoutes {
   static const String baseUrl = String.fromEnvironment('API_BASE_URL');
 
   static Uri _appUri(String path, [Map<String, dynamic>? queryParameters]) =>
-      Uri.parse(baseUrl).replace(path: '/api/v1$path', queryParameters: queryParameters);
+      Uri.parse(baseUrl)
+          .replace(path: '/api/v1$path', queryParameters: queryParameters);
 
   static Uri get home => _appUri(
         '/home',
@@ -54,5 +55,25 @@ class ApiRoutes {
   static Uri subjects(PaginatedParams params) => _appUri(
         '/subjects',
         params.toJson(),
+      );
+
+  static Uri subscribeToCourse(String courseId) => _appUri(
+        '/courses/$courseId/subscribe',
+      );
+
+  static Uri subscribeToLecture({
+    required String courseId,
+    required String lectureId,
+  }) =>
+      _appUri(
+        '/courses/$courseId/lectures/$lectureId/subscribe',
+      );
+
+  static Uri watchLecture({
+    required String courseId,
+    required String lectureId,
+  }) =>
+      _appUri(
+        '/courses/$courseId/lectures/$lectureId/watch',
       );
 }

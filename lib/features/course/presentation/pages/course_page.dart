@@ -21,7 +21,8 @@ class _CoursePageState extends ConsumerState<CoursePage> {
                 SliverAppBar(
                   expandedHeight: _imageHeight,
                   // title: Text(course.name),
-                  floating: true, pinned: true,
+                  floating: true,
+                  pinned: true,
                   centerTitle: false,
                   flexibleSpace: FlexibleSpaceBar(
                     centerTitle: false,
@@ -38,71 +39,68 @@ class _CoursePageState extends ConsumerState<CoursePage> {
                   ),
                 ),
                 SliverList(
-                  delegate: SliverChildListDelegate(<Widget>[
-                    if (course.teachers != null && course.teachers!.isNotEmpty)
-                      UserTile(
-                        name: course.teachers!.first.name!,
-                        photoUrl: course.teachers!.first.photoUrl,
-                        bio: course.teachers!.first.specialization,
-                      ).paddingSymmetric(horizontal: 8, vertical: 4),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        if (course.rating != null)
-                          RatingBarIndicator(
-                            rating: course.rating!,
-                            itemBuilder: (context, index) => const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            itemSize: 20,
-                          ),
-                        const SizedBox(width: 8),
-                        if (course.participants != null) ...[
-                          const Icon(
-                            Icons.people_alt_rounded,
-                            color: Colors.grey,
-                            size: 18,
-                          ).paddingSymmetric(horizontal: 4),
-                          Text(
-                            context.formatIntCompact(course.participants!),
-                            style: context.textTheme.bodySmall,
-                          ).paddingOnly(top: 4),
-                        ],
-                        const Spacer(),
-                        ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: const Icon(Icons.how_to_reg_rounded),
-                          label: Text(
-                            context.strings.subscribe,
-                          ).paddingOnly(top: 4),
+                  delegate: SliverChildListDelegate(
+                    <Widget>[
+                      if (course.teachers != null &&
+                          course.teachers!.isNotEmpty)
+                        ...course.teachers!.map(
+                          (teacher) => UserTile(
+                            name: teacher.name!,
+                            photoUrl: teacher.photoUrl,
+                            bio: teacher.specialization,
+                          ).paddingSymmetric(horizontal: 8, vertical: 4),
                         ),
-                      ],
-                    ).paddingSymmetric(horizontal: 16),
-                    if (course.description != null)
-                      ReadMoreText(
-                        course.description!,
-                        trimCollapsedText: context.strings.showMore,
-                        trimExpandedText: '',
-                        moreStyle: context.labelSmall!
-                            .copyWith(color: context.theme.colorScheme.primary),
-                      ).paddingAll(16),
-                    const Divider(),
-                    SectionTitle(title: context.strings.sections),
-                    if (course.sections == null)
-                      const StatusView(
-                        illustration: UnDrawIllustration.blank_canvas,
+                      SubscriptionTile(
+                        price: course.price,
+                        currency: course.currency,
+                        discount: course.discount,
+                        onSubscribed: () async {
+                          context.showSnackBar(
+                            const SnackBar(content: LinearProgressIndicator()),
+                          );
+                          try {
+                            final result = await ref
+                                .read(
+                                  courseControllerProvider(widget.courseId)
+                                      .notifier,
+                                )
+                                .subscribe();
+                            if (mounted && result) {
+                              context.showSnackBarMessage(
+                                context.strings.subscriptionSuccessful,
+                              );
+                            }
+                          } on Exception catch (e) {
+                            if (mounted) {
+                              handleSubscriptionException(context, e);
+                            }
+                          }
+                        },
                       ),
-                    if (course.sections != null)
-                      ...course.sections!
-                          .map((section) => SectionTile(section: section)),
-                    // if (course.sections != null)
-                    //   ElevatedButton(
-                    //       onPressed: () =>
-                    //           context.push('/courses/${course.id}/sections/'),
-                    //       child: Text(context.strings.viewAll))
-                    //       .paddingSymmetric(horizontal: 16, vertical: 8)
-                  ]),
+                      InteractionsTile(
+                        rating: course.rating,
+                        participants: course.participants,
+                        onTap: () {},
+                      ),
+                      if (course.description != null &&
+                          course.description!.isNotEmpty)
+                        DescriptionParagraph(description: course.description!),
+                      const Divider(),
+                      SectionTitle(
+                        title: context.strings.sections,
+                        onPressed: () =>
+                            context.push('/courses/${course.id}/sections'),
+                      ),
+                      if (course.sections == null)
+                        const StatusView(
+                          illustration: UnDrawIllustration.blank_canvas,
+                        ),
+                      if (course.sections != null)
+                        ...course.sections!.map(
+                          (section) => SectionTile(section: section),
+                        ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -110,7 +108,7 @@ class _CoursePageState extends ConsumerState<CoursePage> {
               action: () =>
                   ref.refresh(courseControllerProvider(widget.courseId).future),
             ),
-            loading: () => const Center(child: CircularProgressIndicator()),
+            loading: () => const StatusView.loading(),
           ),
     );
   }

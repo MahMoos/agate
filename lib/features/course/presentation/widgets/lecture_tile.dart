@@ -1,31 +1,55 @@
 part of 'widgets.dart';
 
 class LectureTile extends StatelessWidget {
-  const LectureTile({required this.lecture, super.key});
+  const LectureTile({
+    required this.courseId,
+    required this.lecture,
+    super.key,
+  });
 
+  final String courseId;
   final Lecture lecture;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        lecture.title,
-        style: context.textTheme.displaySmall,
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
-      ).withHero(
-        '${lecture.id}-name',
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: ListTile(
+        title: Text(
+          lecture.title,
+          style: context.textTheme.displaySmall,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ).withHero(
+          '${lecture.id}-name',
+        ),
+        subtitle: lecture.isSubscribed
+            ? LinearProgressIndicator(
+                value: (lecture.completedDuration?.inSeconds ?? 0) /
+                    (lecture.duration?.inSeconds ?? 1),
+              )
+            : Text(
+                lecture.description ?? '',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+          side: BorderSide(color: context.dividerColor),
+        ),
+        leading: LectureImage(
+          imageUrl: lecture.imageUrl,
+          duration: lecture.duration,
+        ),
+        horizontalTitleGap: 4,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+        titleAlignment: ListTileTitleAlignment.top,
+        onTap: () {
+          context.push(
+            '/courses/$courseId/sections/${lecture.sectionId}/lectures/${lecture.id}',
+          );
+        },
       ),
-      // subtitle: Text(lecture.description ?? ""),
-      leading: LectureImage(
-        imageUrl: lecture.imageUrl,
-        duration: lecture.duration,
-      ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      titleAlignment: ListTileTitleAlignment.top,
-      onTap: () {
-        context.push('/courses/${lecture.courseId}/lectures/${lecture.id}');
-      },
     );
   }
 }
