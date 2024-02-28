@@ -22,9 +22,7 @@ CourseModel _$CourseModelFromJson(Map<String, dynamic> json) {
 mixin _$CourseModel {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-
   double get price => throw _privateConstructorUsedError;
-
   int? get totalLectures => throw _privateConstructorUsedError;
   List<TeacherModel>? get teachers => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
@@ -230,7 +228,6 @@ class _$CourseModelImpl implements _CourseModel {
   @override
   final int? totalLectures;
   final List<TeacherModel>? _teachers;
-
   @override
   List<TeacherModel>? get teachers {
     final value = _teachers;
@@ -319,28 +316,20 @@ abstract class _CourseModel implements CourseModel {
 
   @override
   String get id;
-
   @override
   String get name;
-
   @override
   double get price;
-
   @override
   int? get totalLectures;
-
   @override
   List<TeacherModel>? get teachers;
-
   @override
   String? get imageUrl;
-
   @override
   double? get discount;
-
   @override
   int? get participants;
-
   @override
   double? get rating;
   @override
@@ -1023,31 +1012,19 @@ MyCourseModel _$MyCourseModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MyCourseModel {
   String get id => throw _privateConstructorUsedError;
-
   String get name => throw _privateConstructorUsedError;
-
   int get completedLectures => throw _privateConstructorUsedError;
-
   int get totalLectures => throw _privateConstructorUsedError;
-
   double get price => throw _privateConstructorUsedError;
-
   String get currency => throw _privateConstructorUsedError;
-
   double? get discount => throw _privateConstructorUsedError;
-
   List<TeacherModel>? get teachers => throw _privateConstructorUsedError;
-
   String? get currentLectureId => throw _privateConstructorUsedError;
-
   String? get imageUrl => throw _privateConstructorUsedError;
-
   int? get participants => throw _privateConstructorUsedError;
-
   double? get rating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $MyCourseModelCopyWith<MyCourseModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1291,7 +1268,6 @@ class _$MyCourseModelImpl implements _MyCourseModel {
   @override
   final double? discount;
   final List<TeacherModel>? _teachers;
-
   @override
   List<TeacherModel>? get teachers {
     final value = _teachers;
@@ -1392,40 +1368,28 @@ abstract class _MyCourseModel implements MyCourseModel {
 
   @override
   String get id;
-
   @override
   String get name;
-
   @override
   int get completedLectures;
-
   @override
   int get totalLectures;
-
   @override
   double get price;
-
   @override
   String get currency;
-
   @override
   double? get discount;
-
   @override
   List<TeacherModel>? get teachers;
-
   @override
   String? get currentLectureId;
-
   @override
   String? get imageUrl;
-
   @override
   int? get participants;
-
   @override
   double? get rating;
-
   @override
   @JsonKey(ignore: true)
   _$$MyCourseModelImplCopyWith<_$MyCourseModelImpl> get copyWith =>

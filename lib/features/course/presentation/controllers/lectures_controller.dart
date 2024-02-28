@@ -26,6 +26,7 @@ class LectureController extends _$LectureController {
     return result;
   }
 
+  // TODO(MahMoos): add duration to watchLecture
   Future<bool> watch(String courseId) async {
     final result = await _watchLecture([courseId, id]);
     return result;

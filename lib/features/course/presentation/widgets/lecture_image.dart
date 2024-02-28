@@ -31,8 +31,8 @@ class LectureImage extends StatelessWidget {
             ),
           if (duration != null)
             PositionedDirectional(
-              end: 4,
-              bottom: 4,
+              end: 8,
+              bottom: 0,
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 decoration: BoxDecoration(

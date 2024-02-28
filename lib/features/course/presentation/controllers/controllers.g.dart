@@ -21,7 +21,6 @@ final courseRepositoryProvider = Provider<CourseRepository>.internal(
 );
 
 typedef CourseRepositoryRef = ProviderRef<CourseRepository>;
-
 String _$sectionHash() => r'6beaec26918550497155cd0e5bd9d1cba3ef188c';
 
 /// Copied from Dart SDK
@@ -170,7 +169,7 @@ class _SectionProviderElement extends FutureProviderElement<Section>
   String get id => (origin as SectionProvider).id;
 }
 
-String _$courseControllerHash() => r'64e05529b3d8b3489281d6fd24c9722c45d22ece';
+String _$courseControllerHash() => r'e6a3616719edffb8a31822717117246454eb9b5c';
 
 abstract class _$CourseController
     extends BuildlessAsyncNotifier<CourseDetails> {
@@ -314,7 +313,7 @@ class _CourseControllerProviderElement
   String get id => (origin as CourseControllerProvider).id;
 }
 
-String _$lectureControllerHash() => r'34f9948b688b16d57d61f8d625e0fc0b979814a2';
+String _$lectureControllerHash() => r'561208545fa18511c5e647b1e3977fa3e2dc1655';
 
 abstract class _$LectureController extends BuildlessAsyncNotifier<Lecture> {
   late final String id;
@@ -616,7 +615,6 @@ class _LecturesProviderElement
 
   @override
   String get courseId => (origin as LecturesProvider).courseId;
-
   @override
   String get sectionId => (origin as LecturesProvider).sectionId;
 }

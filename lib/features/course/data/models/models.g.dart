@@ -40,12 +40,8 @@ _$LectureModelImpl _$$LectureModelImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       videoUrl: json['videoUrl'] as String?,
       imageUrl: json['imageUrl'] as String?,
-      duration: json['duration'] == null
-          ? null
-          : Duration(microseconds: json['duration'] as int),
-      completedDuration: json['completedDuration'] == null
-          ? null
-          : Duration(microseconds: json['completedDuration'] as int),
+      duration: json['duration'] as String?,
+      completedDuration: json['completedDuration'] as String?,
       isCompleted: json['isCompleted'] as bool? ?? false,
       price: (json['price'] as num?)?.toDouble() ?? 0,
       currency: json['currency'] as String? ?? 'IQD',

@@ -3,6 +3,7 @@ part of 'widgets.dart';
 class VideoPlayer extends StatefulWidget {
   const VideoPlayer({
     required this.videoUrl,
+    required this.onProgress,
     this.imageUrl,
     this.completedDuration,
     super.key,
@@ -11,6 +12,7 @@ class VideoPlayer extends StatefulWidget {
   final String videoUrl;
   final String? imageUrl;
   final Duration? completedDuration;
+  final void Function(Duration watchedDuration) onProgress;
 
   @override
   State<VideoPlayer> createState() => _VideoPlayerState();
@@ -25,12 +27,14 @@ class _VideoPlayerState extends State<VideoPlayer> {
     videoPlayerController = VideoPlayerController.networkUrl(
       Uri.parse(widget.videoUrl),
     );
-    // chewieController = initializeController();
     super.initState();
   }
 
   Future<ChewieController> get initializeController async {
     await videoPlayerController.initialize();
+    videoPlayerController.addListener(() {
+      widget.onProgress(videoPlayerController.value.position);
+    });
     return ChewieController(
       videoPlayerController: videoPlayerController,
       autoPlay: true,

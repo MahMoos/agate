@@ -13,10 +13,12 @@ class LecturePage extends ConsumerStatefulWidget {
   final String lectureId;
 
   @override
-  ConsumerState<LecturePage> createState() => _LectureViewState();
+  ConsumerState<LecturePage> createState() => LecturePageState();
 }
 
-class _LectureViewState extends ConsumerState<LecturePage> {
+class LecturePageState extends ConsumerState<LecturePage> {
+  Duration? completedDuration;
+
   @override
   Widget build(BuildContext context) {
     return ref.watch(lectureControllerProvider(widget.lectureId)).when(
@@ -32,6 +34,15 @@ class _LectureViewState extends ConsumerState<LecturePage> {
                       videoUrl: lecture.videoUrl!,
                       imageUrl: lecture.imageUrl,
                       completedDuration: lecture.completedDuration,
+                      onProgress: (duration) {
+                        completedDuration = duration;
+                        // ref
+                        //     .read(
+                        //   lectureControllerProvider(widget.lectureId)
+                        //       .notifier,
+                        // )
+                        //     .watch(widget.courseId);
+                      },
                     )
                   else
                     LectureImage(
@@ -65,7 +76,9 @@ class _LectureViewState extends ConsumerState<LecturePage> {
                           }
                         }
                       },
-                    ),
+                    )
+                  else
+                    const SizedBox(height: 16),
                   InteractionsTile(
                     rating: lecture.rating,
                     participants: lecture.participants,

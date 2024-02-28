@@ -81,4 +81,14 @@ extension StringExtensions on String {
       Colors.deepPurple,
     ][hash % 8];
   }
+
+  /// Parses a [Duration] from a [String] in the format `HH:MM:SS`
+  Duration parseHHMMSSDuration() {
+    final digits = split(':');
+    return Duration(
+      hours: int.parse(digits[0]),
+      minutes: int.parse(digits[1]),
+      seconds: int.parse(digits[2]),
+    );
+  }
 }

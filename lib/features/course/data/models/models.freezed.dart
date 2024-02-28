@@ -504,17 +504,27 @@ LectureModel _$LectureModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LectureModel {
   String get id => throw _privateConstructorUsedError;
+
   String get sectionId => throw _privateConstructorUsedError;
+
   String get name => throw _privateConstructorUsedError;
+
   String? get subjectId => throw _privateConstructorUsedError;
+
   String? get description => throw _privateConstructorUsedError;
+
   String? get videoUrl => throw _privateConstructorUsedError;
+
   String? get imageUrl =>
       throw _privateConstructorUsedError; // List<LectureFile>? files,
-  Duration? get duration => throw _privateConstructorUsedError;
-  Duration? get completedDuration => throw _privateConstructorUsedError;
+  String? get duration => throw _privateConstructorUsedError;
+
+  String? get completedDuration => throw _privateConstructorUsedError;
+
   bool get isCompleted => throw _privateConstructorUsedError;
+
   double get price => throw _privateConstructorUsedError;
+
   String get currency => throw _privateConstructorUsedError;
 
   double? get discount => throw _privateConstructorUsedError;
@@ -544,8 +554,8 @@ abstract class $LectureModelCopyWith<$Res> {
       String? description,
       String? videoUrl,
       String? imageUrl,
-      Duration? duration,
-      Duration? completedDuration,
+      String? duration,
+      String? completedDuration,
       bool isCompleted,
       double price,
       String currency,
@@ -617,11 +627,11 @@ class _$LectureModelCopyWithImpl<$Res, $Val extends LectureModel>
       duration: freezed == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as Duration?,
+              as String?,
       completedDuration: freezed == completedDuration
           ? _value.completedDuration
           : completedDuration // ignore: cast_nullable_to_non_nullable
-              as Duration?,
+              as String?,
       isCompleted: null == isCompleted
           ? _value.isCompleted
           : isCompleted // ignore: cast_nullable_to_non_nullable
@@ -670,8 +680,8 @@ abstract class _$$LectureModelImplCopyWith<$Res>
       String? description,
       String? videoUrl,
       String? imageUrl,
-      Duration? duration,
-      Duration? completedDuration,
+      String? duration,
+      String? completedDuration,
       bool isCompleted,
       double price,
       String currency,
@@ -741,11 +751,11 @@ class __$$LectureModelImplCopyWithImpl<$Res>
       duration: freezed == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as Duration?,
+              as String?,
       completedDuration: freezed == completedDuration
           ? _value.completedDuration
           : completedDuration // ignore: cast_nullable_to_non_nullable
-              as Duration?,
+              as String?,
       isCompleted: null == isCompleted
           ? _value.isCompleted
           : isCompleted // ignore: cast_nullable_to_non_nullable
@@ -816,11 +826,12 @@ class _$LectureModelImpl implements _LectureModel {
   final String? videoUrl;
   @override
   final String? imageUrl;
+
 // List<LectureFile>? files,
   @override
-  final Duration? duration;
+  final String? duration;
   @override
-  final Duration? completedDuration;
+  final String? completedDuration;
   @override
   @JsonKey()
   final bool isCompleted;
@@ -917,8 +928,8 @@ abstract class _LectureModel implements LectureModel {
       final String? description,
       final String? videoUrl,
       final String? imageUrl,
-      final Duration? duration,
-      final Duration? completedDuration,
+      final String? duration,
+      final String? completedDuration,
       final bool isCompleted,
       final double price,
       final String currency,
@@ -942,36 +953,30 @@ abstract class _LectureModel implements LectureModel {
   String? get description;
   @override
   String? get videoUrl;
+
   @override
   String? get imageUrl;
 
   @override // List<LectureFile>? files,
-  Duration? get duration;
+  String? get duration;
 
   @override
-  Duration? get completedDuration;
+  String? get completedDuration;
 
   @override
   bool get isCompleted;
-
   @override
   double get price;
-
   @override
   String get currency;
-
   @override
   double? get discount;
-
   @override
   bool get isSubscribed;
-
   @override
   double? get rating;
-
   @override
   int? get participants;
-
   @override
   @JsonKey(ignore: true)
   _$$LectureModelImplCopyWith<_$LectureModelImpl> get copyWith =>
@@ -987,9 +992,7 @@ mixin _$SectionModel {
   String get id => throw _privateConstructorUsedError;
   String get courseId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-
   String? get description => throw _privateConstructorUsedError;
-
   TeacherModel? get teacher => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1002,7 +1005,6 @@ abstract class $SectionModelCopyWith<$Res> {
   factory $SectionModelCopyWith(
           SectionModel value, $Res Function(SectionModel) then) =
       _$SectionModelCopyWithImpl<$Res, SectionModel>;
-
   @useResult
   $Res call(
       {String id,
@@ -1076,7 +1078,6 @@ abstract class _$$SectionModelImplCopyWith<$Res>
   factory _$$SectionModelImplCopyWith(
           _$SectionModelImpl value, $Res Function(_$SectionModelImpl) then) =
       __$$SectionModelImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -1204,13 +1205,10 @@ abstract class _SectionModel implements SectionModel {
   String get courseId;
   @override
   String get name;
-
   @override
   String? get description;
-
   @override
   TeacherModel? get teacher;
-
   @override
   @JsonKey(ignore: true)
   _$$SectionModelImplCopyWith<_$SectionModelImpl> get copyWith =>
