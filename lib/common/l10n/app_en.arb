@@ -1,5 +1,9 @@
 {
   "@@locale": "en",
+  "appName": "Qalam Academy",
+  "@appName": {
+    "description": "App name label"
+  },
   "currency": "{currency, select, USD {USD} IQD {IQD} other {#}}",
   "@currency": {
     "description": "Currency label",

@@ -7,7 +7,6 @@ import '../../extensions/extensions.dart';
 import '../auth/auth_service.dart';
 
 part 'dio_http_service.dart';
-
 part 'http_service.g.dart';
 
 /// Provider that maps an [HttpService] interface to implementation
@@ -18,9 +17,9 @@ HttpService httpService(HttpServiceRef ref) {
       Fresh.oAuth2(
         tokenStorage: InMemoryTokenStorage<OAuth2Token>(),
         refreshToken: (token, client) async {
+          final authService = await ref.watch(authServiceProvider.future);
           return OAuth2Token(
-            accessToken:
-                await ref.watch(authServiceProvider).renewToken() ?? '',
+            accessToken: await authService.renewToken() ?? '',
           );
         },
       ),

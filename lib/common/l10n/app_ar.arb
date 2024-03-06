@@ -1,5 +1,6 @@
 {
   "@@locale": "ar",
+  "appName": "أكادمية قلم",
   "currency": "{currency, select, USD {دولار} IQD {دينار} other {#}}",
   "free": "مجاناً",
   "selectedLanguage": "{status, select, ar {العربية} en {الإنجليزية} other {العربية}}",

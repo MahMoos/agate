@@ -12,8 +12,10 @@ part 'auth_service.g.dart';
 part 'firebase_auth_service.dart';
 
 @Riverpod(keepAlive: true)
-AuthService authService(AuthServiceRef ref) {
-  return AmplifyAuthService()..initialize();
+Future<AuthService> authService(AuthServiceRef ref) async {
+  final service = AmplifyAuthService();
+  await service.initialize();
+  return service;
 }
 
 abstract class AuthService {

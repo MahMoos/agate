@@ -12,12 +12,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../common/design_kit/app_theme.dart';
+import '../common/gen/assets.gen.dart';
 import '../common/router/agate_router.dart';
+import '../core/extensions/extensions.dart';
 import '../core/widgets/widgets.dart';
 import '../features/user/presentation/controllers/controllers.dart';
 import 'amplifyconfiguration.dart';
 import 'firebase_options.dart';
 
 part 'bootstrap.dart';
-
 part 'view/app.dart';
