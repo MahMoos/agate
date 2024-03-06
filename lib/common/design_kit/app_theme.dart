@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:system_theme/system_theme.dart';
 
 class AppTheme {
   static TextTheme lightTextTheme({String font = 'Tajawal'}) {
@@ -164,10 +161,8 @@ class AppTheme {
   }
 
   static ThemeData light() {
-    final primaryColor =
-        Platform.isIOS ? Colors.orange : SystemTheme.accentColor.accent;
+    const primaryColor = Color(0xff25c3ce);
     return ThemeData(
-      useMaterial3: true,
       colorSchemeSeed: primaryColor,
       brightness: Brightness.light,
       textTheme: lightTextTheme(),
@@ -177,10 +172,8 @@ class AppTheme {
   }
 
   static ThemeData dark() {
-    final primaryColor =
-        Platform.isIOS ? Colors.orange : SystemTheme.accentColor.accent;
+    const primaryColor = Color(0xff25c3ce);
     return ThemeData(
-      useMaterial3: true,
       colorSchemeSeed: primaryColor,
       brightness: Brightness.dark,
       textTheme: darkTextTheme(),
