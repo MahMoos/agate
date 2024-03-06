@@ -7,7 +7,7 @@ part of 'controllers.dart';
 // **************************************************************************
 
 String _$preferencesControllerHash() =>
-    r'48f5731683db27faa6e7f99b276ca52859c89640';
+    r'2e4ce27306b0b423a9397a38c4b9401ae14fbb19';
 
 /// See also [PreferencesController].
 @ProviderFor(PreferencesController)

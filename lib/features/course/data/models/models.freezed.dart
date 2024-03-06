@@ -504,35 +504,21 @@ LectureModel _$LectureModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$LectureModel {
   String get id => throw _privateConstructorUsedError;
-
   String get sectionId => throw _privateConstructorUsedError;
-
   String get name => throw _privateConstructorUsedError;
-
   String? get subjectId => throw _privateConstructorUsedError;
-
   String? get description => throw _privateConstructorUsedError;
-
   String? get videoUrl => throw _privateConstructorUsedError;
-
   String? get imageUrl =>
       throw _privateConstructorUsedError; // List<LectureFile>? files,
   String? get duration => throw _privateConstructorUsedError;
-
   String? get completedDuration => throw _privateConstructorUsedError;
-
   bool get isCompleted => throw _privateConstructorUsedError;
-
   double get price => throw _privateConstructorUsedError;
-
   String get currency => throw _privateConstructorUsedError;
-
   double? get discount => throw _privateConstructorUsedError;
-
   bool get isSubscribed => throw _privateConstructorUsedError;
-
   double? get rating => throw _privateConstructorUsedError;
-
   int? get participants => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -826,7 +812,6 @@ class _$LectureModelImpl implements _LectureModel {
   final String? videoUrl;
   @override
   final String? imageUrl;
-
 // List<LectureFile>? files,
   @override
   final String? duration;
@@ -953,16 +938,12 @@ abstract class _LectureModel implements LectureModel {
   String? get description;
   @override
   String? get videoUrl;
-
   @override
   String? get imageUrl;
-
   @override // List<LectureFile>? files,
   String? get duration;
-
   @override
   String? get completedDuration;
-
   @override
   bool get isCompleted;
   @override

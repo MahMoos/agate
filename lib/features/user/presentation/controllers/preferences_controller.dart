@@ -29,7 +29,6 @@ class PreferencesController extends _$PreferencesController {
   }
 
   Future<void> setPreferences(Preferences preferences) async {
-    state = const AsyncValue.loading();
     final storage = await ref.read(storageServiceProvider.future);
     _updatePrivateParams(preferences);
     state = await AsyncValue.guard(() async {
@@ -40,6 +39,28 @@ class PreferencesController extends _$PreferencesController {
       ).call(preferences);
       return preferences;
     });
+  }
+
+  Future<void> toggleBrightness() async {
+    final preferences =
+        state.value ?? Preferences(themeMode: themeMode, language: language);
+    await setPreferences(
+      preferences.copyWith(
+        themeMode: preferences.themeMode == ThemeMode.dark
+            ? ThemeMode.light
+            : ThemeMode.dark,
+      ),
+    );
+  }
+
+  Future<void> toggleLanguage() async {
+    final preferences =
+        state.value ?? Preferences(themeMode: themeMode, language: language);
+    await setPreferences(
+      preferences.copyWith(
+        language: preferences.language == 'ar' ? 'en' : 'ar',
+      ),
+    );
   }
 
   void _updatePrivateParams(Preferences preferences) {

@@ -33,5 +33,8 @@
   "errorOccurred": "حدث خطأ غير متوقع.",
   "subscriptionSuccessful": "تم الاشتراك بنجاح!",
   "walletEmpty": "رصيدك لا يكفي!",
-  "deposit": "إيداع"
+  "deposit": "إيداع",
+  "profile": "الملف الشخصي",
+  "language": "اللغة",
+  "brightness": "الإضاءة"
 }

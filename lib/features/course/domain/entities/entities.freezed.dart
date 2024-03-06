@@ -32,7 +32,6 @@ mixin _$Lecture {
   double? get discount => throw _privateConstructorUsedError;
   bool get isSubscribed => throw _privateConstructorUsedError;
   double? get rating => throw _privateConstructorUsedError;
-
   int? get participants => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -478,25 +477,18 @@ abstract class _Lecture implements Lecture {
   Duration? get completedDuration;
   @override
   bool get isCompleted;
-
   @override
   double get price;
-
   @override
   String get currency;
-
   @override
   double? get discount;
-
   @override
   bool get isSubscribed;
-
   @override
   double? get rating;
-
   @override
   int? get participants;
-
   @override
   @JsonKey(ignore: true)
   _$$LectureImplCopyWith<_$LectureImpl> get copyWith =>

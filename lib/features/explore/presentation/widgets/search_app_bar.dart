@@ -26,7 +26,7 @@ class SearchAppBar extends ConsumerWidget {
               hintText: context.strings.search,
               isDense: true,
               contentPadding: EdgeInsets.zero,
-              constraints: const BoxConstraints(maxHeight: 42),
+              constraints: const BoxConstraints(maxHeight: 48),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(28),
               ),
@@ -57,20 +57,20 @@ class SearchAppBar extends ConsumerWidget {
                         icon: const Icon(Icons.filter_list_rounded),
                       )
                     : GestureDetector(
-                        onTap: () => context.pushNamed('profile'),
-                        child: UserAvatar(
-                          photoUrl: ref
-                              .watch(authServiceProvider)
-                              .currentUser
-                              ?.photoUrl,
-                          name:
-                              ref.watch(authServiceProvider).currentUser?.name,
-                        ),
+                  onTap: () => context.pushNamed('profile'),
+                        child: ref.watch(authServiceProvider).when(
+                              data: (data) => UserAvatar(
+                                photoUrl: data.currentUser?.photoUrl,
+                                name: data.currentUser?.name,
+                              ),
+                              error: (_, __) => const UserAvatar(),
+                              loading: () => const CircularProgressIndicator(),
+                            ),
                       ),
               ),
             ),
             autofocus: isInSearch &&
-                !(ref.read(coursesParamsProvider).isFeatured ?? false),
+                !(ref.watch(coursesParamsProvider).isFeatured ?? false),
             canRequestFocus: isInSearch,
             onTap: !isInSearch
                 ? () {

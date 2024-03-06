@@ -153,5 +153,17 @@
   "deposit": "Deposit",
   "@deposit": {
     "description": "Deposit button label"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile title"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Language label"
+  },
+  "brightness": "Brightness",
+  "@brightness": {
+    "description": "Brightness label"
   }
 }
