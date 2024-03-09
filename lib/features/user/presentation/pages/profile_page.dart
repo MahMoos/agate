@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../../../common/widgets/widgets.dart';
-import '../../../../core/extensions/extensions.dart';
-import '../../../../core/services/auth/auth_service.dart';
-import '../../../../core/widgets/widgets.dart';
-import '../controllers/controllers.dart';
+part of 'pages.dart';
 
 class ProfilePage extends ConsumerStatefulWidget {
   const ProfilePage({super.key});
@@ -25,94 +18,93 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
             body: SizedBox(
               width: double.maxFinite,
               child: ref.watch(preferencesControllerProvider).when(
-                    data: (data) => SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              UserAvatar(
-                                size: 72,
-                                photoUrl: auth.currentUser?.photoUrl,
-                                name: auth.currentUser?.name,
-                              ).paddingAll(16),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      auth.currentUser?.name ?? '',
-                                      style: context.displayLarge,
-                                    ),
-                                    Text(
-                                      auth.currentUser?.email ?? '',
-                                      style: context.labelLarge,
-                                    ),
-                                  ],
-                                ),
-                              ).paddingSymmetric(vertical: 24),
-                            ],
-                          ),
-                          ListTile(
-                            leading: const Icon(Icons.language_rounded),
-                            title: Text(
-                              context.strings.language,
-                              style: context.titleLarge,
-                            ),
-                            trailing: Text(
-                              data.language == 'en' ? '🇬🇧' : '🇮🇶',
-                              style: context.displayMedium,
-                            ),
-                            shape: StadiumBorder(
-                              side: BorderSide(color: context.primaryColor),
-                            ),
-                            tileColor:
-                                context.theme.colorScheme.secondaryContainer,
-                            onTap: () => ref
-                                .read(preferencesControllerProvider.notifier)
-                                .toggleLanguage(),
-                          ).paddingSymmetric(horizontal: 16, vertical: 8),
-                          ListTile(
-                            leading: const Icon(Icons.light_rounded),
-                            title: Text(
-                              context.strings.brightness,
-                              style: context.titleLarge,
-                            ),
-                            trailing: Icon(
-                              data.themeMode == ThemeMode.light
-                                  ? Icons.light_mode_rounded
-                                  : Icons.dark_mode_rounded,
-                            ),
-                            shape: StadiumBorder(
-                              side: BorderSide(color: context.primaryColor),
-                            ),
-                            tileColor:
-                                context.theme.colorScheme.secondaryContainer,
-                            onTap: () => ref
-                                .read(preferencesControllerProvider.notifier)
-                                .toggleBrightness(),
-                          ).paddingSymmetric(horizontal: 16, vertical: 8),
-                          ElevatedButton.icon(
-                            onPressed: auth.signOut,
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll(
-                                context.theme.colorScheme.error,
+                    data: (data) => Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            UserAvatar(
+                              size: 72,
+                              photoUrl: auth.currentUser?.photoUrl,
+                              name: auth.currentUser?.name,
+                            ).paddingAll(16),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    auth.currentUser?.name ?? '',
+                                    style: context.displayLarge,
+                                  ),
+                                  Text(
+                                    auth.currentUser?.email ?? '',
+                                    style: context.labelLarge,
+                                  ),
+                                ],
                               ),
-                              tapTargetSize: MaterialTapTargetSize.padded,
+                            ).paddingSymmetric(vertical: 24),
+                          ],
+                        ),
+                        const Divider(indent: 24, endIndent: 24, thickness: 2),
+                        StadiumTile(
+                          prefixIcon: Icons.wallet_rounded,
+                          label: context.strings.wallet,
+                          trailing: ref.watch(walletControllerProvider).when(
+                                data: (balance) => Text(
+                                  balance.toStringFormatted(context),
+                                ),
+                                error: (_, __) =>
+                                    const CircularProgressIndicator(),
+                                loading: () =>
+                                    const CircularProgressIndicator(),
+                              ),
+                          onTap: () => GoRouter.of(context).pushNamed('wallet'),
+                        ),
+                        const Divider(indent: 24, endIndent: 24, thickness: 2),
+                        StadiumTile(
+                          prefixIcon: Icons.language_rounded,
+                          label: context.strings.language,
+                          trailing: Text(
+                            data.language == 'en' ? '🇬🇧' : '🇮🇶',
+                            style: context.displayMedium,
+                          ),
+                          onTap: () => ref
+                              .read(preferencesControllerProvider.notifier)
+                              .toggleLanguage(),
+                        ),
+                        StadiumTile(
+                          prefixIcon: Icons.light_rounded,
+                          label: context.strings.brightness,
+                          trailing: Icon(
+                            data.themeMode == ThemeMode.light
+                                ? Icons.light_mode_rounded
+                                : Icons.dark_mode_rounded,
+                          ),
+                          onTap: () => ref
+                              .read(preferencesControllerProvider.notifier)
+                              .toggleBrightness(),
+                        ),
+                        const Spacer(),
+                        ElevatedButton.icon(
+                          onPressed: auth.signOut,
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll(
+                              context.theme.colorScheme.error,
                             ),
-                            label: Text(
-                              context.strings.signOut,
-                              style: context.titleLarge!
-                                  .copyWith(color: Colors.white),
-                            ),
-                            icon: const Icon(
-                              Icons.logout_rounded,
-                              color: Colors.white,
-                            ),
-                          ).paddingSymmetric(horizontal: 16, vertical: 8),
-                        ],
-                      ),
+                            tapTargetSize: MaterialTapTargetSize.padded,
+                          ),
+                          label: Text(
+                            context.strings.signOut,
+                            style: context.titleLarge!
+                                .copyWith(color: Colors.white),
+                          ),
+                          icon: const Icon(
+                            Icons.logout_rounded,
+                            color: Colors.white,
+                          ),
+                        ).paddingAll(16),
+                      ],
                     ),
                     error: (err, stack) => StatusView.anErrorOccurred(
                       action: () =>

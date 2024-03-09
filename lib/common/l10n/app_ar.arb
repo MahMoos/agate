@@ -32,8 +32,12 @@
   "noResults": "لا يوجد نتائج...",
   "errorOccurred": "حدث خطأ غير متوقع.",
   "subscriptionSuccessful": "تم الاشتراك بنجاح!",
+  "wallet": "المحفظة",
   "walletEmpty": "رصيدك لا يكفي!",
   "deposit": "إيداع",
+  "pin": "الرمز السري",
+  "availableBalance": "الرصيد المتوفر",
+  "depositSuccessfully": "تم شحن مبلغ {amount} بنجاح. الرصيد الجديد: {balance}",
   "profile": "الملف الشخصي",
   "language": "اللغة",
   "brightness": "الإضاءة"

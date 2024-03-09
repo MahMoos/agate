@@ -2,11 +2,15 @@ part of 'controllers.dart';
 
 @Riverpod(keepAlive: true)
 class PreferencesController extends _$PreferencesController {
+  late SetPreferences _setPreferences;
+  late GetPreferences _getPreferences;
+
   @override
   Future<Preferences> build() async {
-    final prefs = await _getPreferences();
-    _updatePrivateParams(prefs);
-    return prefs;
+    final repository = await ref.read(userRepositoryProvider.future);
+    _setPreferences = SetPreferences(repository);
+    _getPreferences = GetPreferences(repository);
+    return getPreferences();
   }
 
   ThemeMode _themeMode = ThemeMode.system;
@@ -17,26 +21,16 @@ class PreferencesController extends _$PreferencesController {
 
   String get language => _language;
 
-  Future<Preferences> _getPreferences() async {
-    final storage = await ref.read(storageServiceProvider.future);
-    final prefs = await GetPreferences(
-      AgateUserRepository(
-        storage: LocalUserDataSource(storage),
-      ),
-    ).call();
+  Future<Preferences> getPreferences() async {
+    final prefs = await _getPreferences();
     _updatePrivateParams(prefs);
     return prefs;
   }
 
   Future<void> setPreferences(Preferences preferences) async {
-    final storage = await ref.read(storageServiceProvider.future);
     _updatePrivateParams(preferences);
     state = await AsyncValue.guard(() async {
-      await SetPreferences(
-        AgateUserRepository(
-          storage: LocalUserDataSource(storage),
-        ),
-      ).call(preferences);
+      await _setPreferences(preferences);
       return preferences;
     });
   }

@@ -7,7 +7,7 @@ import '../../core/extensions/extensions.dart';
 import '../../core/widgets/widgets.dart';
 import '../../features/course/presentation/pages/pages.dart';
 import '../../features/explore/presentation/pages/pages.dart';
-import '../../features/user/presentation/pages/profile_page.dart';
+import '../../features/user/presentation/pages/pages.dart';
 import '../widgets/widgets.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
@@ -115,6 +115,30 @@ class AgateRouter {
                   child: ProfilePage(),
                 ),
               ),
+              routes: [
+                GoRoute(
+                  parentNavigatorKey: _shellNavigatorKey,
+                  name: 'wallet',
+                  path: 'wallet',
+                  pageBuilder: (context, state) => MaterialPage(
+                    key: state.pageKey,
+                    name: context.strings.wallet,
+                    child: const WalletPage(),
+                  ),
+                  routes: [
+                    GoRoute(
+                      parentNavigatorKey: _shellNavigatorKey,
+                      name: 'deposit',
+                      path: 'deposit',
+                      pageBuilder: (context, state) => MaterialPage(
+                        key: state.pageKey,
+                        name: context.strings.deposit,
+                        child: const DepositPage(),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
             GoRoute(
               parentNavigatorKey: _shellNavigatorKey,

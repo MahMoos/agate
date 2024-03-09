@@ -146,6 +146,10 @@
   "@subscriptionSuccessful": {
     "description": "Subscribed successfully message"
   },
+  "wallet": "Wallet",
+  "@wallet": {
+    "description": "Wallet title"
+  },
   "walletEmpty": "Your balance is not enough!",
   "@walletEmpty": {
     "description": "not enough balance error message"
@@ -153,6 +157,26 @@
   "deposit": "Deposit",
   "@deposit": {
     "description": "Deposit button label"
+  },
+  "pin": "PIN",
+  "@pin": {
+    "description": "PIN label"
+  },
+  "availableBalance": "Available balance",
+  "@availableBalance": {
+    "description": "Available balance label"
+  },
+  "depositSuccessfully": "{amount} was successfully deposited. New balance: {balance}",
+  "@depositSuccessfully": {
+    "description": "Deposit successfully message",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "balance": {
+        "type": "String"
+      }
+    }
   },
   "profile": "Profile",
   "@profile": {

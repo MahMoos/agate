@@ -19,11 +19,11 @@ class SubscriptionTile extends StatelessWidget {
     return ListTile(
       title: Text(
         discount != null
-            ? context.formatMoney(
+            ? context.formatPrice(
                 price - discount!,
                 currency,
               )
-            : context.formatMoney(
+            : context.formatPrice(
                 price,
                 currency,
               ),
@@ -32,7 +32,7 @@ class SubscriptionTile extends StatelessWidget {
       ),
       subtitle: discount != null
           ? Text(
-              context.formatMoney(
+        context.formatPrice(
                 price,
                 currency,
               ),

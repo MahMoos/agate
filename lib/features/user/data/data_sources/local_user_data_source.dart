@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../../../core/models/models.dart';
-import '../../../../core/services/storage/storage_service.dart';
-import '../models/models.dart';
-import 'user_data_source.dart';
+part of 'user_data_source.dart';
 
 class LocalUserDataSource extends UserDataSource implements LocalDataSource {
   const LocalUserDataSource(this.storage);

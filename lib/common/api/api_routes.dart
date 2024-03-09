@@ -76,4 +76,18 @@ class ApiRoutes {
       _appUri(
         '/courses/$courseId/lectures/$lectureId/watch',
       );
+
+  static Uri get wallet => _appUri(
+        '/profiles/wallet',
+      );
+
+  static Uri transactions(TransactionsParams params) => _appUri(
+        '/profiles/wallet/transactions',
+        params.toJson(),
+      );
+
+  static Uri deposit(String cardId) => _appUri(
+        '/profiles/wallet/deposit',
+        {'cardId': cardId},
+      );
 }

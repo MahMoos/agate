@@ -1,17 +1,22 @@
 part of 'extensions.dart';
 
 extension BuildContextExtensions on BuildContext {
-  /// Formats [money] to a number with [currency] according to the [currency]
+  /// Formats [amount] to a number with [currency] according to the [currency]
+  /// and locale. Returns "Free" if [amount] equals zero.
+  String formatPrice(double amount, [String currency = 'IQD']) {
+    if (amount == 0) return strings.free;
+    return formatBalance(amount, currency);
+  }
+
+  /// Formats [amount] to a number with [currency] according to the [currency]
   /// and locale.
-  String formatMoney(double money, [String? currency]) {
-    if (money == 0) return strings.free;
-    currency = currency ?? 'IQD';
+  String formatBalance(double amount, [String currency = 'IQD']) {
     return NumberFormat.currency(
       decimalDigits: currency == 'IQD' ? 0 : 2,
       customPattern: currency == 'IQD'
           ? '##,### ${AppLocalizations.of(this).currency(currency)}'
           : '##,###.## ${AppLocalizations.of(this).currency(currency)}',
-    ).format(money);
+    ).format(amount);
   }
 
   /// A number format for compact representations, e.g. "1.2M" instead
@@ -22,6 +27,13 @@ extension BuildContextExtensions on BuildContext {
 
   /// All app localizations strings
   AppLocalizations get strings => AppLocalizations.of(this);
+
+  /// The locale of the Localizations widget for the widget tree that
+  /// corresponds to [BuildContext] `context`.
+  ///
+  /// If no [Localizations] widget is in scope then the [Localizations.localeOf]
+  /// method will throw an exception.
+  Locale get locale => Localizations.localeOf(this);
 
   /// Returns true if the current locale is RTL (e.g. Arabic).
   bool get isRTL =>
