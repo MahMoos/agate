@@ -24,7 +24,7 @@ class TransactionsParams extends PaginatedParams {
   @override
   Map<String, dynamic> toJson() => {
         ...super.toJson(),
-        if (language != null) 'Language': language == 'en' ? '0' : '1',
+        if (language != null) 'Language': language == 'ar' ? '0' : '1',
         if (type != null) 'Type': type!.index.toString(),
       };
 

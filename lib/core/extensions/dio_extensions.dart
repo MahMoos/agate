@@ -59,7 +59,7 @@ extension DioExceptionExtension on DioException {
           response?.data.toString() ?? message ?? error.toString(),
         );
       case DioExceptionType.cancel:
-        return CancellationException(
+        return Exception(
           message ?? response?.data.toString() ?? error.toString(),
         );
       case DioExceptionType.unknown:

@@ -16,15 +16,15 @@ class TransactionCard extends StatelessWidget {
         children: [
           ListTile(
             leading: switch (transaction.type) {
-              TransactionType.DEPOSIT => const Icon(
+              TransactionType.deposit => const Icon(
                   Icons.arrow_circle_down_rounded,
                   color: Colors.green,
                 ),
-              TransactionType.SUBSCRIBTION => const Icon(
+              TransactionType.subscription => const Icon(
                   Icons.subscriptions_rounded,
                   color: Colors.amber,
                 ),
-              TransactionType.WITHDRAW => const Icon(
+              TransactionType.withdrawal => const Icon(
                   Icons.arrow_circle_up_rounded,
                   color: Colors.red,
                 ),
