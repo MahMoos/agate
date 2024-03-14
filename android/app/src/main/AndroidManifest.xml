@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mubtakerspace.agate">
    <application
-        android:label="${appName}"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
-        android:enableOnBackInvokedCallback="true"
+       android:enableOnBackInvokedCallback="true"
+       android:icon="@mipmap/launcher_icon"
+       android:label="Qalam Academy"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
