@@ -24,6 +24,7 @@ class _DepositPageState extends ConsumerState<DepositPage> {
                 borderRadius: BorderRadius.all(Radius.circular(16)),
               ),
             ),
+            keyboardType: TextInputType.number,
             controller:
                 ref.read(walletControllerProvider.notifier).pinController,
           ).paddingAll(16),
