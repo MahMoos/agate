@@ -57,8 +57,7 @@ class _AuthAppState extends State<AuthApp> {
                   state: state,
                   body: SignUpForm.custom(
                     fields: [
-                      SignUpFormField.email(
-                        required: true,
+                      SignUpFormField.username(
                         autofillHints: [AutofillHints.email],
                       ),
                       SignUpFormField.password(
