@@ -39,25 +39,27 @@ class SearchAppBar extends ConsumerWidget {
               suffixIcon: Padding(
                 padding: isInSearch ? EdgeInsets.zero : const EdgeInsets.all(4),
                 child: isInSearch
-                    ? IconButton(
-                        onPressed: () {
-                          showModalBottomSheet<void>(
-                            context: context,
-                            isScrollControlled: true,
-                            builder: (BuildContext context) {
-                              return FiltersBottomSheet(
-                                onFiltersChange: (departments, subjects) =>
-                                    debugPrint(
-                                  departments.toString() + subjects.toString(),
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        icon: const Icon(Icons.filter_list_rounded),
-                      )
+                    // FIXME(MahMoos)
+                    ? null
+                    // ? IconButton(
+                    //     onPressed: () {
+                    //       showModalBottomSheet<void>(
+                    //         context: context,
+                    //         isScrollControlled: true,
+                    //         builder: (BuildContext context) {
+                    //           return FiltersBottomSheet(
+                    //             onFiltersChange: (departments, subjects) =>
+                    //                 debugPrint(
+                    //               departments.toString() + subjects.toString(),
+                    //             ),
+                    //           );
+                    //         },
+                    //       );
+                    //     },
+                    //     icon: const Icon(Icons.filter_list_rounded),
+                    //   )
                     : GestureDetector(
-                  onTap: () => context.pushNamed('profile'),
+                        onTap: () => context.pushNamed('profile'),
                         child: ref.watch(authServiceProvider).when(
                               data: (data) => UserAvatar(
                                 photoUrl: data.currentUser?.photoUrl,

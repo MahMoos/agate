@@ -29,20 +29,18 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                               photoUrl: auth.currentUser?.photoUrl,
                               name: auth.currentUser?.name,
                             ).paddingAll(16),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    auth.currentUser?.name ?? '',
-                                    style: context.displayLarge,
-                                  ),
-                                  Text(
-                                    auth.currentUser?.email ?? '',
-                                    style: context.labelLarge,
-                                  ),
-                                ],
-                              ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  auth.currentUser?.name ?? '',
+                                  style: context.displayLarge,
+                                ),
+                                Text(
+                                  auth.currentUser?.email ?? '',
+                                  style: context.labelLarge,
+                                ),
+                              ],
                             ).paddingSymmetric(vertical: 24),
                           ],
                         ),
