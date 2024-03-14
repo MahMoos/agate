@@ -134,6 +134,14 @@
   "@courses": {
     "description": "Courses label"
   },
+  "books": "Books",
+  "@books": {
+    "description": "Books label"
+  },
+  "mcqs": "MCQs",
+  "@mcqs": {
+    "description": "MCQs label"
+  },
   "noResults": "No results...",
   "@noResults": {
     "description": "No results msg"

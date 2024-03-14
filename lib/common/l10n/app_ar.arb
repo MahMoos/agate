@@ -29,6 +29,8 @@
   "sections": "الفصول",
   "subjects": "المواضيع",
   "courses": "الدورات",
+  "books": "الكتب",
+  "mcqs": "الإختبارات",
   "noResults": "لا يوجد نتائج...",
   "errorOccurred": "حدث خطأ غير متوقع.",
   "subscriptionSuccessful": "تم الاشتراك بنجاح!",

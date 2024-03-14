@@ -21,7 +21,6 @@ final userRepositoryProvider = FutureProvider<UserRepository>.internal(
 );
 
 typedef UserRepositoryRef = FutureProviderRef<UserRepository>;
-
 String _$preferencesControllerHash() =>
     r'8f113fd6108a8352cc86f50090c6bdc5365cf7d1';
 
@@ -39,7 +38,6 @@ final preferencesControllerProvider =
 );
 
 typedef _$PreferencesController = AsyncNotifier<Preferences>;
-
 String _$transactionsHash() => r'7717d1cb3fcd075b1a38d5bdbee91219b890d98e';
 
 /// Copied from Dart SDK
@@ -224,7 +222,6 @@ class _TransactionsProviderElement
 
   @override
   String get language => (origin as TransactionsProvider).language;
-
   @override
   TransactionType? get type => (origin as TransactionsProvider).type;
 }

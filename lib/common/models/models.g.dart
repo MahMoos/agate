@@ -52,6 +52,34 @@ Map<String, dynamic> _$$DepartmentModelImplToJson(
       'parentId': instance.parentId,
     };
 
+_$FileModelImpl _$$FileModelImplFromJson(Map<String, dynamic> json) =>
+    _$FileModelImpl(
+      id: json['id'] as String,
+      url: json['url'] as String,
+      name: json['name'] as String?,
+      description: json['description'] as String?,
+      extension: json['extension'] as String?,
+      size: (json['size'] as num?)?.toDouble(),
+      type: $enumDecodeNullable(_$FileTypeEnumMap, json['type']),
+    );
+
+Map<String, dynamic> _$$FileModelImplToJson(_$FileModelImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'url': instance.url,
+      'name': instance.name,
+      'description': instance.description,
+      'extension': instance.extension,
+      'size': instance.size,
+      'type': _$FileTypeEnumMap[instance.type],
+    };
+
+const _$FileTypeEnumMap = {
+  FileType.document: 'document',
+  FileType.image: 'image',
+  FileType.video: 'video',
+};
+
 _$SubjectModelImpl _$$SubjectModelImplFromJson(Map<String, dynamic> json) =>
     _$SubjectModelImpl(
       id: json['id'] as String,

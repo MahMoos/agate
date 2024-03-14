@@ -21,11 +21,9 @@ BalanceModel _$BalanceModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BalanceModel {
   num get balance => throw _privateConstructorUsedError;
-
   String get currency => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $BalanceModelCopyWith<BalanceModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -36,7 +34,6 @@ abstract class $BalanceModelCopyWith<$Res> {
   factory $BalanceModelCopyWith(
           BalanceModel value, $Res Function(BalanceModel) then) =
       _$BalanceModelCopyWithImpl<$Res, BalanceModel>;
-
   @useResult
   $Res call({num balance, String currency});
 }
@@ -48,7 +45,6 @@ class _$BalanceModelCopyWithImpl<$Res, $Val extends BalanceModel>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -77,7 +73,6 @@ abstract class _$$BalanceModelImplCopyWith<$Res>
   factory _$$BalanceModelImplCopyWith(
           _$BalanceModelImpl value, $Res Function(_$BalanceModelImpl) then) =
       __$$BalanceModelImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({num balance, String currency});
@@ -166,10 +161,8 @@ abstract class _BalanceModel implements BalanceModel {
 
   @override
   num get balance;
-
   @override
   String get currency;
-
   @override
   @JsonKey(ignore: true)
   _$$BalanceModelImplCopyWith<_$BalanceModelImpl> get copyWith =>
@@ -183,7 +176,6 @@ PreferencesModel _$PreferencesModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PreferencesModel {
   ThemeMode get themeMode => throw _privateConstructorUsedError;
-
   String get language => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -327,10 +319,8 @@ abstract class _PreferencesModel implements PreferencesModel {
 
   @override
   ThemeMode get themeMode;
-
   @override
   String get language;
-
   @override
   @JsonKey(ignore: true)
   _$$PreferencesModelImplCopyWith<_$PreferencesModelImpl> get copyWith =>
@@ -344,17 +334,12 @@ TransactionModel _$TransactionModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TransactionModel {
   num get amount => throw _privateConstructorUsedError;
-
   int get type => throw _privateConstructorUsedError;
-
   String get currency => throw _privateConstructorUsedError;
-
   String? get note => throw _privateConstructorUsedError;
-
   DateTime? get createdDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $TransactionModelCopyWith<TransactionModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -365,7 +350,6 @@ abstract class $TransactionModelCopyWith<$Res> {
   factory $TransactionModelCopyWith(
           TransactionModel value, $Res Function(TransactionModel) then) =
       _$TransactionModelCopyWithImpl<$Res, TransactionModel>;
-
   @useResult
   $Res call(
       {num amount,
@@ -382,7 +366,6 @@ class _$TransactionModelCopyWithImpl<$Res, $Val extends TransactionModel>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -426,7 +409,6 @@ abstract class _$$TransactionModelImplCopyWith<$Res>
   factory _$$TransactionModelImplCopyWith(_$TransactionModelImpl value,
           $Res Function(_$TransactionModelImpl) then) =
       __$$TransactionModelImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -556,19 +538,14 @@ abstract class _TransactionModel implements TransactionModel {
 
   @override
   num get amount;
-
   @override
   int get type;
-
   @override
   String get currency;
-
   @override
   String? get note;
-
   @override
   DateTime? get createdDate;
-
   @override
   @JsonKey(ignore: true)
   _$$TransactionModelImplCopyWith<_$TransactionModelImpl> get copyWith =>

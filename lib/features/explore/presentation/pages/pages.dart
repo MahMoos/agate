@@ -11,13 +11,9 @@ import '../controllers/controllers.dart';
 import '../widgets/widgets.dart';
 
 part 'department_page.dart';
-
 part 'departments_page.dart';
-
 part 'home_page.dart';
-
 part 'my_courses_page.dart';
-
 part 'search_page.dart';
-
+part 'subject_page.dart';
 part 'subjects_page.dart';

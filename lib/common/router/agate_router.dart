@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/extensions/extensions.dart';
 import '../../core/widgets/widgets.dart';
+import '../../features/course/presentation/controllers/controllers.dart';
 import '../../features/course/presentation/pages/pages.dart';
 import '../../features/explore/presentation/pages/pages.dart';
 import '../../features/user/presentation/pages/pages.dart';
@@ -179,11 +180,26 @@ class AgateRouter {
               parentNavigatorKey: _shellNavigatorKey,
               name: 'subjects',
               path: '/subjects',
-              pageBuilder: (context, state) => MaterialPage(
+              pageBuilder: (context, state) => AppTransitionPage.fadeIn(
                 key: state.pageKey,
                 name: context.strings.subjects,
                 child: const SubjectsPage(),
               ),
+              routes: [
+                GoRoute(
+                  parentNavigatorKey: _shellNavigatorKey,
+                  name: 'subject',
+                  path: ':id',
+                  pageBuilder: (context, state) {
+                    final sectionId = state.pathParameters['id']!;
+                    return AppTransitionPage.fadeIn(
+                      key: state.pageKey,
+                      name: context.strings.departments,
+                      child: SubjectPage(sectionId),
+                    );
+                  },
+                ),
+              ],
             ),
             GoRoute(
               parentNavigatorKey: _shellNavigatorKey,
@@ -226,7 +242,10 @@ class AgateRouter {
               path: '/courses/:courseId/sections/:sectionId',
               pageBuilder: (context, state) => MaterialPage(
                 key: state.pageKey,
-                name: 'Lecture',
+                name: ref
+                    .watch(sectionProvider(state.pathParameters['sectionId']!))
+                    .value
+                    ?.name,
                 child: SectionPage(
                   courseId: state.pathParameters['courseId']!,
                   sectionId: state.pathParameters['sectionId']!,
@@ -253,7 +272,14 @@ class AgateRouter {
                   '/courses/:courseId/sections/:sectionId/lectures/:lectureId',
               pageBuilder: (context, state) => MaterialPage(
                 key: state.pageKey,
-                name: 'Lecture',
+                name: ref
+                    .watch(
+                      lectureControllerProvider(
+                        state.pathParameters['lectureId']!,
+                      ),
+                    )
+                    .value
+                    ?.title,
                 child: LecturePage(
                   courseId: state.pathParameters['courseId']!,
                   sectionId: state.pathParameters['sectionId']!,

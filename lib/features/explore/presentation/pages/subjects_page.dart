@@ -17,7 +17,7 @@ class SubjectsPage extends StatelessWidget {
             imageFit: BoxFit.contain,
             imageAlignment:
                 context.isRTL ? Alignment.centerLeft : Alignment.centerRight,
-            onTap: () => context.push('subjects/${subject.id}'),
+            onTap: () => context.push('/subjects/${subject.id}'),
           ).paddingSymmetric(horizontal: 12, vertical: 4),
         );
       },

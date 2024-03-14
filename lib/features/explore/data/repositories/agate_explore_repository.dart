@@ -69,7 +69,32 @@ class AgateExploreRepository extends BaseRepository
   }
 
   @override
+  Future<Subject> getSubject(String id) async {
+    return (await remote.getSubject(id)).toEntity();
+  }
+
+  @override
   Future<List<Subject>> getSubjects(PaginatedParams params) async {
     return (await remote.getSubjects(params)).map((e) => e.toEntity()).toList();
+  }
+
+  @override
+  Future<Book> getBook(String id) async {
+    return (await remote.getBook(id)).toEntity();
+  }
+
+  @override
+  Future<List<Book>> getBooks(BooksParams params) async {
+    return (await remote.getBooks(params)).map((e) => e.toEntity()).toList();
+  }
+
+  @override
+  Future<McqGame> getMcqGame(String id) async {
+    return (await remote.getMcqGame(id)).toEntity();
+  }
+
+  @override
+  Future<List<McqGame>> getMcqGames(McqGamesParams params) async {
+    return (await remote.getMcqGames(params)).map((e) => e.toEntity()).toList();
   }
 }

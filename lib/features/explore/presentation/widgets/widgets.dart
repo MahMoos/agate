@@ -15,17 +15,12 @@ import '../../domain/entities/entities.dart';
 import '../controllers/controllers.dart';
 
 part 'ad_slide.dart';
-
 part 'ad_slider.dart';
-
+part 'book_tile.dart';
 part 'course_card.dart';
-
 part 'filters_bottom_sheet.dart';
-
+part 'mcq_view.dart';
 part 'my_course_card.dart';
-
 part 'my_courses_slider.dart';
-
 part 'search_app_bar.dart';
-
 part 'shortcut_card.dart';

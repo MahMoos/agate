@@ -17,7 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Balance {
   double get amount => throw _privateConstructorUsedError;
-
   String get currency => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -28,7 +27,6 @@ mixin _$Balance {
 abstract class $BalanceCopyWith<$Res> {
   factory $BalanceCopyWith(Balance value, $Res Function(Balance) then) =
       _$BalanceCopyWithImpl<$Res, Balance>;
-
   @useResult
   $Res call({double amount, String currency});
 }
@@ -40,7 +38,6 @@ class _$BalanceCopyWithImpl<$Res, $Val extends Balance>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -68,7 +65,6 @@ abstract class _$$BalanceImplCopyWith<$Res> implements $BalanceCopyWith<$Res> {
   factory _$$BalanceImplCopyWith(
           _$BalanceImpl value, $Res Function(_$BalanceImpl) then) =
       __$$BalanceImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({double amount, String currency});
@@ -143,10 +139,8 @@ abstract class _Balance implements Balance {
 
   @override
   double get amount;
-
   @override
   String get currency;
-
   @override
   @JsonKey(ignore: true)
   _$$BalanceImplCopyWith<_$BalanceImpl> get copyWith =>
@@ -156,7 +150,6 @@ abstract class _Balance implements Balance {
 /// @nodoc
 mixin _$Preferences {
   ThemeMode get themeMode => throw _privateConstructorUsedError;
-
   String get language => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -283,10 +276,8 @@ abstract class _Preferences implements Preferences {
 
   @override
   ThemeMode get themeMode;
-
   @override
   String get language;
-
   @override
   @JsonKey(ignore: true)
   _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
@@ -296,13 +287,9 @@ abstract class _Preferences implements Preferences {
 /// @nodoc
 mixin _$Transaction {
   double get amount => throw _privateConstructorUsedError;
-
   TransactionType get type => throw _privateConstructorUsedError;
-
   String get currency => throw _privateConstructorUsedError;
-
   String? get note => throw _privateConstructorUsedError;
-
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -315,7 +302,6 @@ abstract class $TransactionCopyWith<$Res> {
   factory $TransactionCopyWith(
           Transaction value, $Res Function(Transaction) then) =
       _$TransactionCopyWithImpl<$Res, Transaction>;
-
   @useResult
   $Res call(
       {double amount,
@@ -332,7 +318,6 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -376,7 +361,6 @@ abstract class _$$TransactionImplCopyWith<$Res>
   factory _$$TransactionImplCopyWith(
           _$TransactionImpl value, $Res Function(_$TransactionImpl) then) =
       __$$TransactionImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -491,19 +475,14 @@ abstract class _Transaction implements Transaction {
 
   @override
   double get amount;
-
   @override
   TransactionType get type;
-
   @override
   String get currency;
-
   @override
   String? get note;
-
   @override
   DateTime? get createdAt;
-
   @override
   @JsonKey(ignore: true)
   _$$TransactionImplCopyWith<_$TransactionImpl> get copyWith =>

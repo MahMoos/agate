@@ -48,10 +48,50 @@ class AgateExploreDataSource extends ExploreDataSource {
   }
 
   @override
+  Future<SubjectModel> getSubject(String id) {
+    return client.get<SubjectModel>(
+      ApiRoutes.subject(id),
+      parser: (json) => SubjectModel.fromJson(json as Map<String, dynamic>),
+    );
+  }
+
+  @override
   Future<List<SubjectModel>> getSubjects(PaginatedParams params) {
     return client.getList<SubjectModel>(
       ApiRoutes.subjects(params),
       parser: (json) => SubjectModel.fromJson(json as Map<String, dynamic>),
+    );
+  }
+
+  @override
+  Future<BookModel> getBook(String id) {
+    return client.get<BookModel>(
+      ApiRoutes.book(id),
+      parser: (json) => BookModel.fromJson(json as Map<String, dynamic>),
+    );
+  }
+
+  @override
+  Future<List<BookModel>> getBooks(BooksParams params) {
+    return client.getList<BookModel>(
+      ApiRoutes.books(params),
+      parser: (json) => BookModel.fromJson(json as Map<String, dynamic>),
+    );
+  }
+
+  @override
+  Future<McqGameModel> getMcqGame(String id) {
+    return client.get<McqGameModel>(
+      ApiRoutes.mcqGame(id),
+      parser: (json) => McqGameModel.fromJson(json as Map<String, dynamic>),
+    );
+  }
+
+  @override
+  Future<List<McqGameModel>> getMcqGames(McqGamesParams params) {
+    return client.getList<McqGameModel>(
+      ApiRoutes.mcqGames(params),
+      parser: (json) => McqGameModel.fromJson(json as Map<String, dynamic>),
     );
   }
 }

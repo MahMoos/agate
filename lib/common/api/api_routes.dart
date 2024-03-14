@@ -57,6 +57,28 @@ class ApiRoutes {
         params.toJson(),
       );
 
+  static Uri subject(String id) => _appUri(
+        '/subjects/$id}',
+      );
+
+  static Uri books(BooksParams params) => _appUri(
+        '/books',
+        params.toJson(),
+      );
+
+  static Uri book(String id) => _appUri(
+        '/books/$id}',
+      );
+
+  static Uri mcqGames(McqGamesParams params) => _appUri(
+        '/mcqgames',
+        params.toJson(),
+      );
+
+  static Uri mcqGame(String id) => _appUri(
+        '/mcqgames/$id}',
+      );
+
   static Uri subscribeToCourse(String courseId) => _appUri(
         '/courses/$courseId/subscribe',
       );
@@ -87,7 +109,6 @@ class ApiRoutes {
       );
 
   static Uri deposit(String cardId) => _appUri(
-        '/profiles/wallet/deposit',
-        {'cardId': cardId},
+    '/profiles/wallet/deposit/$cardId',
       );
 }

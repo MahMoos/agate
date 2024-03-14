@@ -4,9 +4,14 @@ import '../../../../core/models/models.dart';
 import '../entities/entities.dart';
 import '../repositories/explore_repository.dart';
 
+part 'get_book.dart';
+part 'get_books.dart';
 part 'get_courses.dart';
 part 'get_department.dart';
 part 'get_departments.dart';
 part 'get_home.dart';
+part 'get_mcq_game.dart';
+part 'get_mcq_games.dart';
 part 'get_my_courses.dart';
+part 'get_subject.dart';
 part 'get_subjects.dart';

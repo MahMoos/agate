@@ -15,9 +15,336 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
+mixin _$Book {
+  String get id => throw _privateConstructorUsedError;
+
+  String? get imageUrl => throw _privateConstructorUsedError;
+
+  String? get title => throw _privateConstructorUsedError;
+
+  String? get description => throw _privateConstructorUsedError;
+
+  String? get author => throw _privateConstructorUsedError;
+
+  int? get numberOfPages => throw _privateConstructorUsedError;
+
+  DateTime? get publishedAt => throw _privateConstructorUsedError;
+
+  String? get url => throw _privateConstructorUsedError;
+
+  String? get extension => throw _privateConstructorUsedError;
+
+  double? get size => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $BookCopyWith<Book> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BookCopyWith<$Res> {
+  factory $BookCopyWith(Book value, $Res Function(Book) then) =
+      _$BookCopyWithImpl<$Res, Book>;
+
+  @useResult
+  $Res call(
+      {String id,
+      String? imageUrl,
+      String? title,
+      String? description,
+      String? author,
+      int? numberOfPages,
+      DateTime? publishedAt,
+      String? url,
+      String? extension,
+      double? size});
+}
+
+/// @nodoc
+class _$BookCopyWithImpl<$Res, $Val extends Book>
+    implements $BookCopyWith<$Res> {
+  _$BookCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? imageUrl = freezed,
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? author = freezed,
+    Object? numberOfPages = freezed,
+    Object? publishedAt = freezed,
+    Object? url = freezed,
+    Object? extension = freezed,
+    Object? size = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: freezed == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      numberOfPages: freezed == numberOfPages
+          ? _value.numberOfPages
+          : numberOfPages // ignore: cast_nullable_to_non_nullable
+              as int?,
+      publishedAt: freezed == publishedAt
+          ? _value.publishedAt
+          : publishedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      extension: freezed == extension
+          ? _value.extension
+          : extension // ignore: cast_nullable_to_non_nullable
+              as String?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$BookImplCopyWith<$Res> implements $BookCopyWith<$Res> {
+  factory _$$BookImplCopyWith(
+          _$BookImpl value, $Res Function(_$BookImpl) then) =
+      __$$BookImplCopyWithImpl<$Res>;
+
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String? imageUrl,
+      String? title,
+      String? description,
+      String? author,
+      int? numberOfPages,
+      DateTime? publishedAt,
+      String? url,
+      String? extension,
+      double? size});
+}
+
+/// @nodoc
+class __$$BookImplCopyWithImpl<$Res>
+    extends _$BookCopyWithImpl<$Res, _$BookImpl>
+    implements _$$BookImplCopyWith<$Res> {
+  __$$BookImplCopyWithImpl(_$BookImpl _value, $Res Function(_$BookImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? imageUrl = freezed,
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? author = freezed,
+    Object? numberOfPages = freezed,
+    Object? publishedAt = freezed,
+    Object? url = freezed,
+    Object? extension = freezed,
+    Object? size = freezed,
+  }) {
+    return _then(_$BookImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: freezed == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      numberOfPages: freezed == numberOfPages
+          ? _value.numberOfPages
+          : numberOfPages // ignore: cast_nullable_to_non_nullable
+              as int?,
+      publishedAt: freezed == publishedAt
+          ? _value.publishedAt
+          : publishedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      extension: freezed == extension
+          ? _value.extension
+          : extension // ignore: cast_nullable_to_non_nullable
+              as String?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$BookImpl implements _Book {
+  const _$BookImpl(
+      {required this.id,
+      this.imageUrl,
+      this.title,
+      this.description,
+      this.author,
+      this.numberOfPages,
+      this.publishedAt,
+      this.url,
+      this.extension,
+      this.size});
+
+  @override
+  final String id;
+  @override
+  final String? imageUrl;
+  @override
+  final String? title;
+  @override
+  final String? description;
+  @override
+  final String? author;
+  @override
+  final int? numberOfPages;
+  @override
+  final DateTime? publishedAt;
+  @override
+  final String? url;
+  @override
+  final String? extension;
+  @override
+  final double? size;
+
+  @override
+  String toString() {
+    return 'Book(id: $id, imageUrl: $imageUrl, title: $title, description: $description, author: $author, numberOfPages: $numberOfPages, publishedAt: $publishedAt, url: $url, extension: $extension, size: $size)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BookImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.numberOfPages, numberOfPages) ||
+                other.numberOfPages == numberOfPages) &&
+            (identical(other.publishedAt, publishedAt) ||
+                other.publishedAt == publishedAt) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.extension, extension) ||
+                other.extension == extension) &&
+            (identical(other.size, size) || other.size == size));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, imageUrl, title, description,
+      author, numberOfPages, publishedAt, url, extension, size);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BookImplCopyWith<_$BookImpl> get copyWith =>
+      __$$BookImplCopyWithImpl<_$BookImpl>(this, _$identity);
+}
+
+abstract class _Book implements Book {
+  const factory _Book(
+      {required final String id,
+      final String? imageUrl,
+      final String? title,
+      final String? description,
+      final String? author,
+      final int? numberOfPages,
+      final DateTime? publishedAt,
+      final String? url,
+      final String? extension,
+      final double? size}) = _$BookImpl;
+
+  @override
+  String get id;
+
+  @override
+  String? get imageUrl;
+
+  @override
+  String? get title;
+
+  @override
+  String? get description;
+
+  @override
+  String? get author;
+
+  @override
+  int? get numberOfPages;
+
+  @override
+  DateTime? get publishedAt;
+
+  @override
+  String? get url;
+
+  @override
+  String? get extension;
+
+  @override
+  double? get size;
+
+  @override
+  @JsonKey(ignore: true)
+  _$$BookImplCopyWith<_$BookImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$Home {
   List<Slide>? get slides => throw _privateConstructorUsedError;
+
   List<MyCourse>? get myCourses => throw _privateConstructorUsedError;
+
   List<Course>? get specialCourses => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -193,10 +520,13 @@ abstract class _Home implements Home {
 
   @override
   List<Slide>? get slides;
+
   @override
   List<MyCourse>? get myCourses;
+
   @override
   List<Course>? get specialCourses;
+
   @override
   @JsonKey(ignore: true)
   _$$HomeImplCopyWith<_$HomeImpl> get copyWith =>
@@ -204,10 +534,397 @@ abstract class _Home implements Home {
 }
 
 /// @nodoc
+mixin _$McqGame {
+  String get id => throw _privateConstructorUsedError;
+
+  String get question => throw _privateConstructorUsedError;
+
+  int get correctAnswerId => throw _privateConstructorUsedError;
+
+  List<McqAnswer> get answerOptions => throw _privateConstructorUsedError;
+
+  String? get subjectId => throw _privateConstructorUsedError;
+
+  int? get rate => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $McqGameCopyWith<McqGame> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $McqGameCopyWith<$Res> {
+  factory $McqGameCopyWith(McqGame value, $Res Function(McqGame) then) =
+      _$McqGameCopyWithImpl<$Res, McqGame>;
+
+  @useResult
+  $Res call(
+      {String id,
+      String question,
+      int correctAnswerId,
+      List<McqAnswer> answerOptions,
+      String? subjectId,
+      int? rate});
+}
+
+/// @nodoc
+class _$McqGameCopyWithImpl<$Res, $Val extends McqGame>
+    implements $McqGameCopyWith<$Res> {
+  _$McqGameCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? question = null,
+    Object? correctAnswerId = null,
+    Object? answerOptions = null,
+    Object? subjectId = freezed,
+    Object? rate = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      question: null == question
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
+              as String,
+      correctAnswerId: null == correctAnswerId
+          ? _value.correctAnswerId
+          : correctAnswerId // ignore: cast_nullable_to_non_nullable
+              as int,
+      answerOptions: null == answerOptions
+          ? _value.answerOptions
+          : answerOptions // ignore: cast_nullable_to_non_nullable
+              as List<McqAnswer>,
+      subjectId: freezed == subjectId
+          ? _value.subjectId
+          : subjectId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      rate: freezed == rate
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$McqGameImplCopyWith<$Res> implements $McqGameCopyWith<$Res> {
+  factory _$$McqGameImplCopyWith(
+          _$McqGameImpl value, $Res Function(_$McqGameImpl) then) =
+      __$$McqGameImplCopyWithImpl<$Res>;
+
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String question,
+      int correctAnswerId,
+      List<McqAnswer> answerOptions,
+      String? subjectId,
+      int? rate});
+}
+
+/// @nodoc
+class __$$McqGameImplCopyWithImpl<$Res>
+    extends _$McqGameCopyWithImpl<$Res, _$McqGameImpl>
+    implements _$$McqGameImplCopyWith<$Res> {
+  __$$McqGameImplCopyWithImpl(
+      _$McqGameImpl _value, $Res Function(_$McqGameImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? question = null,
+    Object? correctAnswerId = null,
+    Object? answerOptions = null,
+    Object? subjectId = freezed,
+    Object? rate = freezed,
+  }) {
+    return _then(_$McqGameImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      question: null == question
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
+              as String,
+      correctAnswerId: null == correctAnswerId
+          ? _value.correctAnswerId
+          : correctAnswerId // ignore: cast_nullable_to_non_nullable
+              as int,
+      answerOptions: null == answerOptions
+          ? _value._answerOptions
+          : answerOptions // ignore: cast_nullable_to_non_nullable
+              as List<McqAnswer>,
+      subjectId: freezed == subjectId
+          ? _value.subjectId
+          : subjectId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      rate: freezed == rate
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$McqGameImpl implements _McqGame {
+  const _$McqGameImpl(
+      {required this.id,
+      required this.question,
+      required this.correctAnswerId,
+      required final List<McqAnswer> answerOptions,
+      this.subjectId,
+      this.rate})
+      : _answerOptions = answerOptions;
+
+  @override
+  final String id;
+  @override
+  final String question;
+  @override
+  final int correctAnswerId;
+  final List<McqAnswer> _answerOptions;
+
+  @override
+  List<McqAnswer> get answerOptions {
+    if (_answerOptions is EqualUnmodifiableListView) return _answerOptions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_answerOptions);
+  }
+
+  @override
+  final String? subjectId;
+  @override
+  final int? rate;
+
+  @override
+  String toString() {
+    return 'McqGame(id: $id, question: $question, correctAnswerId: $correctAnswerId, answerOptions: $answerOptions, subjectId: $subjectId, rate: $rate)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$McqGameImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.question, question) ||
+                other.question == question) &&
+            (identical(other.correctAnswerId, correctAnswerId) ||
+                other.correctAnswerId == correctAnswerId) &&
+            const DeepCollectionEquality()
+                .equals(other._answerOptions, _answerOptions) &&
+            (identical(other.subjectId, subjectId) ||
+                other.subjectId == subjectId) &&
+            (identical(other.rate, rate) || other.rate == rate));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, question, correctAnswerId,
+      const DeepCollectionEquality().hash(_answerOptions), subjectId, rate);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$McqGameImplCopyWith<_$McqGameImpl> get copyWith =>
+      __$$McqGameImplCopyWithImpl<_$McqGameImpl>(this, _$identity);
+}
+
+abstract class _McqGame implements McqGame {
+  const factory _McqGame(
+      {required final String id,
+      required final String question,
+      required final int correctAnswerId,
+      required final List<McqAnswer> answerOptions,
+      final String? subjectId,
+      final int? rate}) = _$McqGameImpl;
+
+  @override
+  String get id;
+
+  @override
+  String get question;
+
+  @override
+  int get correctAnswerId;
+
+  @override
+  List<McqAnswer> get answerOptions;
+
+  @override
+  String? get subjectId;
+
+  @override
+  int? get rate;
+
+  @override
+  @JsonKey(ignore: true)
+  _$$McqGameImplCopyWith<_$McqGameImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$McqAnswer {
+  int get id => throw _privateConstructorUsedError;
+
+  String get text => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $McqAnswerCopyWith<McqAnswer> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $McqAnswerCopyWith<$Res> {
+  factory $McqAnswerCopyWith(McqAnswer value, $Res Function(McqAnswer) then) =
+      _$McqAnswerCopyWithImpl<$Res, McqAnswer>;
+
+  @useResult
+  $Res call({int id, String text});
+}
+
+/// @nodoc
+class _$McqAnswerCopyWithImpl<$Res, $Val extends McqAnswer>
+    implements $McqAnswerCopyWith<$Res> {
+  _$McqAnswerCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? text = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$McqAnswerImplCopyWith<$Res>
+    implements $McqAnswerCopyWith<$Res> {
+  factory _$$McqAnswerImplCopyWith(
+          _$McqAnswerImpl value, $Res Function(_$McqAnswerImpl) then) =
+      __$$McqAnswerImplCopyWithImpl<$Res>;
+
+  @override
+  @useResult
+  $Res call({int id, String text});
+}
+
+/// @nodoc
+class __$$McqAnswerImplCopyWithImpl<$Res>
+    extends _$McqAnswerCopyWithImpl<$Res, _$McqAnswerImpl>
+    implements _$$McqAnswerImplCopyWith<$Res> {
+  __$$McqAnswerImplCopyWithImpl(
+      _$McqAnswerImpl _value, $Res Function(_$McqAnswerImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? text = null,
+  }) {
+    return _then(_$McqAnswerImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$McqAnswerImpl implements _McqAnswer {
+  const _$McqAnswerImpl({required this.id, required this.text});
+
+  @override
+  final int id;
+  @override
+  final String text;
+
+  @override
+  String toString() {
+    return 'McqAnswer(id: $id, text: $text)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$McqAnswerImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$McqAnswerImplCopyWith<_$McqAnswerImpl> get copyWith =>
+      __$$McqAnswerImplCopyWithImpl<_$McqAnswerImpl>(this, _$identity);
+}
+
+abstract class _McqAnswer implements McqAnswer {
+  const factory _McqAnswer(
+      {required final int id, required final String text}) = _$McqAnswerImpl;
+
+  @override
+  int get id;
+
+  @override
+  String get text;
+
+  @override
+  @JsonKey(ignore: true)
+  _$$McqAnswerImplCopyWith<_$McqAnswerImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$Slide {
   String get id => throw _privateConstructorUsedError;
+
   String? get imageUrl => throw _privateConstructorUsedError;
+
   String? get title => throw _privateConstructorUsedError;
+
   String? get actionUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)

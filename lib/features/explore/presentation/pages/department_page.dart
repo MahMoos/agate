@@ -59,7 +59,7 @@ class _DepartmentPageState extends State<DepartmentPage>
                         imageAlignment: context.isRTL
                             ? Alignment.centerLeft
                             : Alignment.centerRight,
-                        onTap: () => context.push('subjects/${subject.id}'),
+                        onTap: () => context.push('/subjects/${subject.id}'),
                       ).paddingSymmetric(horizontal: 12, vertical: 4),
                     ),
                   ),

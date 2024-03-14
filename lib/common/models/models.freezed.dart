@@ -520,13 +520,295 @@ abstract class _DepartmentModel implements DepartmentModel {
   String get id;
   @override
   String get name;
+
   @override
   String? get imageUrl;
+
   @override
   String? get parentId;
+
   @override
   @JsonKey(ignore: true)
   _$$DepartmentModelImplCopyWith<_$DepartmentModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+FileModel _$FileModelFromJson(Map<String, dynamic> json) {
+  return _FileModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$FileModel {
+  String get id => throw _privateConstructorUsedError;
+
+  String get url => throw _privateConstructorUsedError;
+
+  String? get name => throw _privateConstructorUsedError;
+
+  String? get description => throw _privateConstructorUsedError;
+
+  String? get extension => throw _privateConstructorUsedError;
+
+  double? get size => throw _privateConstructorUsedError;
+
+  FileType? get type => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $FileModelCopyWith<FileModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FileModelCopyWith<$Res> {
+  factory $FileModelCopyWith(FileModel value, $Res Function(FileModel) then) =
+      _$FileModelCopyWithImpl<$Res, FileModel>;
+
+  @useResult
+  $Res call(
+      {String id,
+      String url,
+      String? name,
+      String? description,
+      String? extension,
+      double? size,
+      FileType? type});
+}
+
+/// @nodoc
+class _$FileModelCopyWithImpl<$Res, $Val extends FileModel>
+    implements $FileModelCopyWith<$Res> {
+  _$FileModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? url = null,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? extension = freezed,
+    Object? size = freezed,
+    Object? type = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      extension: freezed == extension
+          ? _value.extension
+          : extension // ignore: cast_nullable_to_non_nullable
+              as String?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as double?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as FileType?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$FileModelImplCopyWith<$Res>
+    implements $FileModelCopyWith<$Res> {
+  factory _$$FileModelImplCopyWith(
+          _$FileModelImpl value, $Res Function(_$FileModelImpl) then) =
+      __$$FileModelImplCopyWithImpl<$Res>;
+
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String url,
+      String? name,
+      String? description,
+      String? extension,
+      double? size,
+      FileType? type});
+}
+
+/// @nodoc
+class __$$FileModelImplCopyWithImpl<$Res>
+    extends _$FileModelCopyWithImpl<$Res, _$FileModelImpl>
+    implements _$$FileModelImplCopyWith<$Res> {
+  __$$FileModelImplCopyWithImpl(
+      _$FileModelImpl _value, $Res Function(_$FileModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? url = null,
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? extension = freezed,
+    Object? size = freezed,
+    Object? type = freezed,
+  }) {
+    return _then(_$FileModelImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      extension: freezed == extension
+          ? _value.extension
+          : extension // ignore: cast_nullable_to_non_nullable
+              as String?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as double?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as FileType?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FileModelImpl implements _FileModel {
+  const _$FileModelImpl(
+      {required this.id,
+      required this.url,
+      this.name,
+      this.description,
+      this.extension,
+      this.size,
+      this.type});
+
+  factory _$FileModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FileModelImplFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String url;
+  @override
+  final String? name;
+  @override
+  final String? description;
+  @override
+  final String? extension;
+  @override
+  final double? size;
+  @override
+  final FileType? type;
+
+  @override
+  String toString() {
+    return 'FileModel(id: $id, url: $url, name: $name, description: $description, extension: $extension, size: $size, type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FileModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.extension, extension) ||
+                other.extension == extension) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, url, name, description, extension, size, type);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FileModelImplCopyWith<_$FileModelImpl> get copyWith =>
+      __$$FileModelImplCopyWithImpl<_$FileModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FileModelImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _FileModel implements FileModel {
+  const factory _FileModel(
+      {required final String id,
+      required final String url,
+      final String? name,
+      final String? description,
+      final String? extension,
+      final double? size,
+      final FileType? type}) = _$FileModelImpl;
+
+  factory _FileModel.fromJson(Map<String, dynamic> json) =
+      _$FileModelImpl.fromJson;
+
+  @override
+  String get id;
+
+  @override
+  String get url;
+
+  @override
+  String? get name;
+
+  @override
+  String? get description;
+
+  @override
+  String? get extension;
+
+  @override
+  double? get size;
+
+  @override
+  FileType? get type;
+
+  @override
+  @JsonKey(ignore: true)
+  _$$FileModelImplCopyWith<_$FileModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -537,7 +819,9 @@ SubjectModel _$SubjectModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SubjectModel {
   String get id => throw _privateConstructorUsedError;
+
   String get name => throw _privateConstructorUsedError;
+
   String? get description => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
 
