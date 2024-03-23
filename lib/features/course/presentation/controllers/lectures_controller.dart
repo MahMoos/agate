@@ -36,7 +36,6 @@ class LectureController extends _$LectureController {
 @Riverpod(keepAlive: true)
 class Lectures extends _$Lectures with PaginationController<Lecture> {
   late GetLectures _getLectures;
-  late LecturesParams _paginatedParams;
 
   @override
   Future<List<Lecture>> build({
@@ -44,12 +43,12 @@ class Lectures extends _$Lectures with PaginationController<Lecture> {
     required String sectionId,
   }) async {
     _getLectures = GetLectures(ref.watch(courseRepositoryProvider));
-    _paginatedParams = LecturesParams(courseId: courseId, sectionId: sectionId);
+    paginatedParams = LecturesParams(courseId: courseId, sectionId: sectionId);
     return loadData();
   }
 
   @override
   FutureOr<List<Lecture>> loadData() async {
-    return _getLectures(_paginatedParams);
+    return _getLectures(paginatedParams as LecturesParams);
   }
 }

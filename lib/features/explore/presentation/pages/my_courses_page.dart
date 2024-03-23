@@ -8,7 +8,7 @@ class MyCoursesPage extends StatelessWidget {
     return EndlessAnimatedListView(
       provider: myCoursesProvider,
       sliverAppBar: const SearchAppBar(),
-      builder: (context, course) {
+      itemBuilder: (context, course) {
         return MyCourseCard(
           myCourse: course,
         ).paddingSymmetric(horizontal: 12, vertical: 4);

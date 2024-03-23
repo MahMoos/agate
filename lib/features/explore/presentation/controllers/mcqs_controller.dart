@@ -2,21 +2,21 @@ part of 'controllers.dart';
 
 @Riverpod(keepAlive: true)
 class McqGames extends _$McqGames with PaginationController<McqGame> {
-  late McqGamesParams _paginatedParams;
-  late ExploreRepository _repo;
+  late GetMcqGames _getMcqGames;
 
   @override
   Future<List<McqGame>> build([
     McqGamesParams params = const McqGamesParams(),
   ]) async {
-    _repo = await ref.watch(exploreRepositoryProvider.future);
-    _paginatedParams = params;
+    final repository = await ref.watch(exploreRepositoryProvider.future);
+    _getMcqGames = GetMcqGames(repository);
+    paginatedParams = params;
     return loadData();
   }
 
   @override
   FutureOr<List<McqGame>> loadData() async {
-    return GetMcqGames(_repo).call(_paginatedParams);
+    return _getMcqGames(paginatedParams as McqGamesParams);
   }
 }
 

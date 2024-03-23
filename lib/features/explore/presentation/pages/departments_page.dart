@@ -8,7 +8,7 @@ class DepartmentsPage extends StatelessWidget {
     return EndlessAnimatedListView(
       provider: departmentsProvider,
       sliverAppBar: const SearchAppBar(),
-      builder: (context, department) {
+      itemBuilder: (context, department) {
         return SizedBox(
           height: 178,
           child: ShortcutCard(

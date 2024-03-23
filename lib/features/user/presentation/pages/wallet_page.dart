@@ -35,7 +35,7 @@ class WalletPage extends ConsumerWidget {
           ).paddingSymmetric(horizontal: 16, vertical: 8),
         ),
       ),
-      builder: (context, transaction) =>
+      itemBuilder: (context, transaction) =>
           TransactionCard(transaction: transaction),
     );
   }

@@ -50,7 +50,7 @@ class _DepartmentPageState extends State<DepartmentPage>
                 children: [
                   EndlessAnimatedListView(
                     provider: subjectsProvider,
-                    builder: (context, subject) => SizedBox(
+                    itemBuilder: (context, subject) => SizedBox(
                       height: 178,
                       child: ShortcutCard(
                         title: subject.name,
@@ -67,7 +67,7 @@ class _DepartmentPageState extends State<DepartmentPage>
                     provider: coursesProvider(
                       CoursesParams(divisionIds: [department.id]),
                     ),
-                    builder: (context, course) => CourseCard(
+                    itemBuilder: (context, course) => CourseCard(
                       details: course,
                     ).paddingSymmetric(horizontal: 12, vertical: 4),
                   ),

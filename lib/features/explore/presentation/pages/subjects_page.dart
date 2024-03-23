@@ -8,7 +8,7 @@ class SubjectsPage extends StatelessWidget {
     return EndlessAnimatedListView(
       provider: subjectsProvider,
       sliverAppBar: const SearchAppBar(),
-      builder: (context, subject) {
+      itemBuilder: (context, subject) {
         return SizedBox(
           height: 178,
           child: ShortcutCard(

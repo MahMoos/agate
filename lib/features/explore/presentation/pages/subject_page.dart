@@ -34,7 +34,7 @@ class SubjectPage extends StatelessWidget {
                     provider: booksProvider(
                       BooksParams(subjectId: subject.id),
                     ),
-                    builder: (context, book) => BookTile(
+                    itemBuilder: (context, book) => BookTile(
                       book: book,
                     ).paddingSymmetric(horizontal: 12, vertical: 4),
                   ),
@@ -42,7 +42,7 @@ class SubjectPage extends StatelessWidget {
                     provider: mcqGamesProvider(
                       McqGamesParams(subjectId: subject.id),
                     ),
-                    builder: (context, mcqGame) => McqView(
+                    itemBuilder: (context, mcqGame) => McqView(
                       mcq: mcqGame,
                     ).paddingSymmetric(horizontal: 12, vertical: 4),
                   ),

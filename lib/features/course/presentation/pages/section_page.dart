@@ -18,7 +18,7 @@ class SectionPage extends StatelessWidget {
         sectionId: sectionId,
       ),
       sliverAppBar: SectionAppBar(sectionId: sectionId),
-      builder: (context, lecture) =>
+      itemBuilder: (context, lecture) =>
           LectureTile(courseId: courseId, lecture: lecture),
     );
   }

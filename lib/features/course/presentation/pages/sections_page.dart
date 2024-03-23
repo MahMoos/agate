@@ -19,7 +19,7 @@ class SectionsPage extends ConsumerWidget {
               loading: () => const Text('...'),
             ),
       ),
-      builder: (context, section) => SectionTile(section: section),
+      itemBuilder: (context, section) => SectionTile(section: section),
     );
   }
 }

@@ -2,19 +2,19 @@ part of 'controllers.dart';
 
 @Riverpod(keepAlive: true)
 class Courses extends _$Courses with PaginationController<Course> {
-  late CoursesParams _paginatedParams;
-  late ExploreRepository _repo;
+  late GetCourses _getCourses;
 
   @override
   Future<List<Course>> build(CoursesParams params) async {
-    _repo = await ref.watch(exploreRepositoryProvider.future);
-    _paginatedParams = params;
+    final repository = await ref.watch(exploreRepositoryProvider.future);
+    paginatedParams = params;
+    _getCourses = GetCourses(repository);
     return loadData();
   }
 
   @override
   FutureOr<List<Course>> loadData() async {
-    return GetCourses(_repo).call(_paginatedParams);
+    return _getCourses(paginatedParams as CoursesParams);
   }
 }
 

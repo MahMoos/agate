@@ -8,7 +8,7 @@ class SearchPage extends ConsumerWidget {
     return EndlessAnimatedListView(
       provider: coursesProvider(ref.watch(coursesParamsProvider)),
       sliverAppBar: const SearchAppBar(isInSearch: true),
-      builder: (context, course) {
+      itemBuilder: (context, course) {
         return CourseCard(
           details: course,
         ).paddingSymmetric(horizontal: 12, vertical: 4);

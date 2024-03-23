@@ -24,7 +24,7 @@ extension DebounceAndCancelExtension<T> on Ref<T> {
 
 // ignore: invalid_use_of_internal_member
 mixin PaginationController<T> on AsyncNotifierBase<List<T>> {
-  late PaginatedParams _paginatedParams;
+  PaginatedParams paginatedParams = const PaginatedParams();
 
   List<T>? get data {
     try {
@@ -35,26 +35,27 @@ mixin PaginationController<T> on AsyncNotifierBase<List<T>> {
     }
   }
 
-  int get pageSize => _paginatedParams.pageSize;
+  int get pageSize => paginatedParams.pageSize;
 
   FutureOr<List<T>> loadData();
 
-  Future<void> loadMore() async {
+  Future<List<T>> loadMore() async {
+    if (!canLoadMore) return [];
     final oldState = state;
-    if (oldState.requireValue.length % _paginatedParams.pageSize != 0) return;
     state = AsyncLoading<List<T>>().copyWithPrevious(oldState);
+    late List<T> result;
     state = await AsyncValue.guard<List<T>>(() async {
-      _paginatedParams = _paginatedParams.nextPage();
-      final res = await loadData();
-      res.insertAll(0, state.requireValue);
-      return res;
+      paginatedParams = paginatedParams.nextPage();
+      result = await loadData();
+      return [...state.requireValue, ...result];
     });
+    return result;
   }
 
   bool get canLoadMore {
     if (state.isLoading) return false;
     if (!state.hasValue) return false;
-    if (state.requireValue.length % _paginatedParams.pageSize != 0) {
+    if (state.requireValue.length % paginatedParams.pageSize != 0) {
       return false;
     }
     return true;
