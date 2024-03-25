@@ -23,7 +23,7 @@ dependencies:
   flutter_riverpod: ^2.4.10
 
   # Codegen
-  riverpod_annotation: ^2.3.4
+  riverpod_annotation: ^2.3.5
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
 
