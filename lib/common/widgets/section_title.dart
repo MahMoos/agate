@@ -23,7 +23,7 @@ class SectionTitle extends StatelessWidget {
           TextButton(
             onPressed: onPressed,
             style: const ButtonStyle(
-              padding: MaterialStatePropertyAll(EdgeInsets.only(top: 2)),
+              padding: WidgetStatePropertyAll(EdgeInsets.only(top: 2)),
             ),
             child: Text(
               context.strings.viewAll,

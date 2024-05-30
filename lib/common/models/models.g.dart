@@ -11,13 +11,13 @@ _$CourseModelImpl _$$CourseModelImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       name: json['name'] as String,
       price: (json['price'] as num?)?.toDouble() ?? 0,
-      totalLectures: json['totalLectures'] as int?,
+      totalLectures: (json['totalLectures'] as num?)?.toInt(),
       teachers: (json['teachers'] as List<dynamic>?)
           ?.map((e) => TeacherModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       imageUrl: json['imageUrl'] as String?,
       discount: (json['discount'] as num?)?.toDouble(),
-      participants: json['participants'] as int?,
+      participants: (json['participants'] as num?)?.toInt(),
       rating: (json['rating'] as num?)?.toDouble(),
     );
 
@@ -80,6 +80,40 @@ const _$FileTypeEnumMap = {
   FileType.video: 'video',
 };
 
+_$MyCourseModelImpl _$$MyCourseModelImplFromJson(Map<String, dynamic> json) =>
+    _$MyCourseModelImpl(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      completedLectures: (json['completedLectures'] as num).toInt(),
+      totalLectures: (json['totalLectures'] as num).toInt(),
+      price: (json['price'] as num?)?.toDouble() ?? 0,
+      currency: json['currency'] as String? ?? 'IQD',
+      discount: (json['discount'] as num?)?.toDouble(),
+      teachers: (json['teachers'] as List<dynamic>?)
+          ?.map((e) => TeacherModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      currentLectureId: json['currentLectureId'] as String?,
+      imageUrl: json['imageUrl'] as String?,
+      participants: (json['participants'] as num?)?.toInt(),
+      rating: (json['rating'] as num?)?.toDouble(),
+    );
+
+Map<String, dynamic> _$$MyCourseModelImplToJson(_$MyCourseModelImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'completedLectures': instance.completedLectures,
+      'totalLectures': instance.totalLectures,
+      'price': instance.price,
+      'currency': instance.currency,
+      'discount': instance.discount,
+      'teachers': instance.teachers,
+      'currentLectureId': instance.currentLectureId,
+      'imageUrl': instance.imageUrl,
+      'participants': instance.participants,
+      'rating': instance.rating,
+    };
+
 _$SubjectModelImpl _$$SubjectModelImplFromJson(Map<String, dynamic> json) =>
     _$SubjectModelImpl(
       id: json['id'] as String,
@@ -118,38 +152,4 @@ Map<String, dynamic> _$$TeacherModelImplToJson(_$TeacherModelImpl instance) =>
       'imageUrl': instance.imageUrl,
       'phoneNumber': instance.phoneNumber,
       'email': instance.email,
-    };
-
-_$MyCourseModelImpl _$$MyCourseModelImplFromJson(Map<String, dynamic> json) =>
-    _$MyCourseModelImpl(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      completedLectures: json['completedLectures'] as int,
-      totalLectures: json['totalLectures'] as int,
-      price: (json['price'] as num?)?.toDouble() ?? 0,
-      currency: json['currency'] as String? ?? 'IQD',
-      discount: (json['discount'] as num?)?.toDouble(),
-      teachers: (json['teachers'] as List<dynamic>?)
-          ?.map((e) => TeacherModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      currentLectureId: json['currentLectureId'] as String?,
-      imageUrl: json['imageUrl'] as String?,
-      participants: json['participants'] as int?,
-      rating: (json['rating'] as num?)?.toDouble(),
-    );
-
-Map<String, dynamic> _$$MyCourseModelImplToJson(_$MyCourseModelImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'completedLectures': instance.completedLectures,
-      'totalLectures': instance.totalLectures,
-      'price': instance.price,
-      'currency': instance.currency,
-      'discount': instance.discount,
-      'teachers': instance.teachers,
-      'currentLectureId': instance.currentLectureId,
-      'imageUrl': instance.imageUrl,
-      'participants': instance.participants,
-      'rating': instance.rating,
     };

@@ -455,7 +455,7 @@ class _LectureControllerProviderElement
   String get id => (origin as LectureControllerProvider).id;
 }
 
-String _$lecturesHash() => r'b4099056c892604994b52dcc10dd3ca7997b5131';
+String _$lecturesHash() => r'affbba6e1cf67a4151737b2aea4c533baa107474';
 
 abstract class _$Lectures extends BuildlessAsyncNotifier<List<Lecture>> {
   late final String courseId;
@@ -619,7 +619,7 @@ class _LecturesProviderElement
   String get sectionId => (origin as LecturesProvider).sectionId;
 }
 
-String _$sectionsHash() => r'96d12e65bc64dc61f1387956ea95b652dbab372f';
+String _$sectionsHash() => r'1f2b88cec0e58220b6d27dc90a3393a3c0b13800';
 
 abstract class _$Sections extends BuildlessAsyncNotifier<List<Section>> {
   late final String courseId;

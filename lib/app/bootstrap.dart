@@ -21,25 +21,11 @@ class Logger extends ProviderObserver {
   }
 }
 
-Future<void> _configureAmplify() async {
-  try {
-    final auth = AmplifyAuthCognito();
-    await Amplify.addPlugin(auth);
-
-    // call Amplify.configure to use the initialized categories in your app
-    await Amplify.configure(amplifyconfig);
-  } on Exception catch (e, stack) {
-    log('An error occurred configuring Amplify: $e', stackTrace: stack);
-  }
-}
-
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
   WidgetsFlutterBinding.ensureInitialized();
-  await _configureAmplify();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(ProviderScope(observers: const [Logger()], child: await builder()));
 }

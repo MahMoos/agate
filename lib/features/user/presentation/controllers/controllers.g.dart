@@ -38,7 +38,7 @@ final preferencesControllerProvider =
 );
 
 typedef _$PreferencesController = AsyncNotifier<Preferences>;
-String _$transactionsHash() => r'7717d1cb3fcd075b1a38d5bdbee91219b890d98e';
+String _$transactionsHash() => r'dc3236cb6e616a8ac9f13c228004e6f685f8e00d';
 
 /// Copied from Dart SDK
 class _SystemHash {

@@ -7,6 +7,13 @@ class ApiRoutes {
       Uri.parse(baseUrl)
           .replace(path: '/api/v1$path', queryParameters: queryParameters);
 
+  static Uri _authUri(String path, [Map<String, dynamic>? queryParameters]) =>
+      _appUri('/auth$path', queryParameters);
+
+  static Uri get login => _authUri('/login');
+
+  static Uri get register => _authUri('/register');
+
   static Uri get home => _appUri(
         '/home',
       );

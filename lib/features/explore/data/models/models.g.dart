@@ -13,7 +13,7 @@ _$BookModelImpl _$$BookModelImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String?,
       description: json['description'] as String?,
       author: json['author'] as String?,
-      numberOfPages: json['numberOfPages'] as int?,
+      numberOfPages: (json['numberOfPages'] as num?)?.toInt(),
       publication: json['publication'] == null
           ? null
           : DateTime.parse(json['publication'] as String),
@@ -56,14 +56,14 @@ Map<String, dynamic> _$$HomeModelImplToJson(_$HomeModelImpl instance) =>
 
 _$McqGameModelImpl _$$McqGameModelImplFromJson(Map<String, dynamic> json) =>
     _$McqGameModelImpl(
-      id: json['id'] as String,
+          id: json['id'] as String,
       question: json['question'] as String,
-      correctAnswerId: json['correctAnswerId'] as int,
+      correctAnswerId: (json['correctAnswerId'] as num).toInt(),
       answerOptions: (json['answerOptions'] as List<dynamic>)
           .map((e) => McqAnswerModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       subjectId: json['subjectId'] as String?,
-      rate: json['rate'] as int?,
+      rate: (json['rate'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$McqGameModelImplToJson(_$McqGameModelImpl instance) =>
@@ -78,7 +78,7 @@ Map<String, dynamic> _$$McqGameModelImplToJson(_$McqGameModelImpl instance) =>
 
 _$McqAnswerModelImpl _$$McqAnswerModelImplFromJson(Map<String, dynamic> json) =>
     _$McqAnswerModelImpl(
-      id: json['id'] as int,
+          id: (json['id'] as num).toInt(),
       text: json['text'] as String,
     );
 

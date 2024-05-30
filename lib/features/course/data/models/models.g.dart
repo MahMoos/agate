@@ -15,12 +15,12 @@ _$CourseDetailsModelImpl _$$CourseDetailsModelImplFromJson(
       teachers: (json['teachers'] as List<dynamic>?)
           ?.map((e) => TeacherModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      totalLectures: json['totalLectures'] as int? ?? 0,
-      completedLectures: json['completedLectures'] as int? ?? 0,
+      totalLectures: (json['totalLectures'] as num?)?.toInt() ?? 0,
+      completedLectures: (json['completedLectures'] as num?)?.toInt() ?? 0,
       price: (json['price'] as num?)?.toDouble() ?? 0,
       currency: json['currency'] as String? ?? 'IQD',
       discount: (json['discount'] as num?)?.toDouble(),
-      participants: json['participants'] as int? ?? 0,
+      participants: (json['participants'] as num?)?.toInt() ?? 0,
       rating: (json['rating'] as num?)?.toDouble(),
       sections: (json['sections'] as List<dynamic>?)
           ?.map((e) => SectionModel.fromJson(e as Map<String, dynamic>))
@@ -48,7 +48,7 @@ _$LectureModelImpl _$$LectureModelImplFromJson(Map<String, dynamic> json) =>
       discount: (json['discount'] as num?)?.toDouble(),
       isSubscribed: json['isSubscribed'] as bool? ?? false,
       rating: (json['rating'] as num?)?.toDouble(),
-      participants: json['participants'] as int?,
+      participants: (json['participants'] as num?)?.toInt(),
     );
 
 _$SectionModelImpl _$$SectionModelImplFromJson(Map<String, dynamic> json) =>

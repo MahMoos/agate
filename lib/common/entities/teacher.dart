@@ -14,7 +14,7 @@ class Teacher extends User {
 
   factory Teacher.fromJson(Map<String, String?> json) {
     return Teacher(
-      id: json['id']!,
+      id: json['id'],
       name: json['name'],
       photoUrl: json['imageUrl'],
       email: json['email'],

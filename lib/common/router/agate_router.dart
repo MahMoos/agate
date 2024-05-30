@@ -1,4 +1,3 @@
-import 'package:amplify_authenticator/amplify_authenticator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -41,7 +40,7 @@ class AgateRouter {
               pageBuilder: (context, state) => AppTransitionPage.fadeIn(
                 key: state.pageKey,
                 name: context.strings.home,
-                child: const AuthenticatedView(child: HomePage()),
+                child: const HomePage(),
               ),
             ),
             // GoRoute(
@@ -112,9 +111,7 @@ class AgateRouter {
               pageBuilder: (context, state) => MaterialPage(
                 key: state.pageKey,
                 name: 'Profile',
-                child: const AuthenticatedView(
-                  child: ProfilePage(),
-                ),
+                child: const ProfilePage(),
               ),
               routes: [
                 GoRoute(

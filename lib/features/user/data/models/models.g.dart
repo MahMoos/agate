@@ -42,7 +42,7 @@ _$TransactionModelImpl _$$TransactionModelImplFromJson(
         Map<String, dynamic> json) =>
     _$TransactionModelImpl(
       amount: json['amount'] as num,
-      type: json['type'] as int,
+      type: (json['type'] as num).toInt(),
       currency: json['currency'] as String? ?? 'IQD',
       note: json['note'] as String?,
       createdDate: json['createdDate'] == null

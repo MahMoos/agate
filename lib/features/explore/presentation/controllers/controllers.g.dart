@@ -21,7 +21,6 @@ final exploreRepositoryProvider = FutureProvider<ExploreRepository>.internal(
 );
 
 typedef ExploreRepositoryRef = FutureProviderRef<ExploreRepository>;
-
 String _$bookHash() => r'9deafaaf0a2fa9527dcac7c6edbb0e86552aa8cf';
 
 /// Copied from Dart SDK
@@ -310,7 +309,6 @@ final homeProvider = AutoDisposeFutureProvider<Home>.internal(
 );
 
 typedef HomeRef = AutoDisposeFutureProviderRef<Home>;
-
 String _$mcqGameHash() => r'5ce493ebaa9d02f1c299f3b7767f986b95d7dbb4';
 
 /// See also [mcqGame].
@@ -565,7 +563,7 @@ class _SubjectProviderElement extends AutoDisposeFutureProviderElement<Subject>
   String get id => (origin as SubjectProvider).id;
 }
 
-String _$booksHash() => r'daee28e6b4db3f391d265c652f3a599a8e22fb07';
+String _$booksHash() => r'2e4c2c6e447f5f9b6e7f531d4d395c2016351a43';
 
 abstract class _$Books extends BuildlessAsyncNotifier<List<Book>> {
   late final BooksParams params;
@@ -704,7 +702,7 @@ class _BooksProviderElement
   BooksParams get params => (origin as BooksProvider).params;
 }
 
-String _$coursesHash() => r'9b30ec88188908e9b21ae6a4601bccc379b194f3';
+String _$coursesHash() => r'cd9eba43ab76ee96b01a42cee00b656863bae99c';
 
 abstract class _$Courses extends BuildlessAsyncNotifier<List<Course>> {
   late final CoursesParams params;
@@ -844,7 +842,7 @@ class _CoursesProviderElement
   CoursesParams get params => (origin as CoursesProvider).params;
 }
 
-String _$departmentsHash() => r'820ef3d3de218388f98f7bc4915c17b3ea6685dc';
+String _$departmentsHash() => r'2bf054f6578255deecb1a403de6a508ee4032cde';
 
 /// See also [Departments].
 @ProviderFor(Departments)
@@ -860,7 +858,7 @@ final departmentsProvider =
 
 typedef _$Departments = AsyncNotifier<List<Department>>;
 
-String _$mcqGamesHash() => r'8fa3e8d738d0445bd199a169b17733b1d3ad529b';
+String _$mcqGamesHash() => r'198e714a43342b15ca89d4d332e93c3643976f99';
 
 abstract class _$McqGames extends BuildlessAsyncNotifier<List<McqGame>> {
   late final McqGamesParams params;
@@ -1001,7 +999,7 @@ class _McqGamesProviderElement
   McqGamesParams get params => (origin as McqGamesProvider).params;
 }
 
-String _$myCoursesHash() => r'a4f31d07f1efa37ccce00d303eaa5f79cf51dc36';
+String _$myCoursesHash() => r'7e322199aa8efde14f528ea415e45df120647e1e';
 
 /// See also [MyCourses].
 @ProviderFor(MyCourses)
@@ -1017,7 +1015,7 @@ final myCoursesProvider =
 
 typedef _$MyCourses = AsyncNotifier<List<MyCourse>>;
 
-String _$subjectsHash() => r'a9f027900cf19a9d131b88777d68969885f182ad';
+String _$subjectsHash() => r'0531b55a21433156bd4571317eeb6edcc2aaf0de';
 
 /// See also [Subjects].
 @ProviderFor(Subjects)

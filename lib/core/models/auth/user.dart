@@ -1,58 +1,63 @@
 part of '../models.dart';
 
+enum SupportedLanguages {
+  ar('ar'),
+  en('en');
+
+  const SupportedLanguages(this.value);
+
+  final String value;
+}
+
 class User {
   const User({
-    required this.id,
-    this.isAnonymous = false,
-    this.refreshToken,
-    this.name,
+    this.id,
+    this.token,
     this.email,
+    this.name,
+    this.username,
+    this.password,
     this.photoUrl,
     this.phoneNumber,
+    this.language = SupportedLanguages.ar,
   });
 
-  final String id;
-  final bool isAnonymous;
-  final String? refreshToken;
+  // fromJson
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'] as String?,
+      token: json['token'] as String?,
+      email: json['email'] as String?,
+      name: json['name'] as String?,
+      username: json['userName'] as String?,
+      password: json['password'] as String?,
+      photoUrl: json['photoUrl'] as String?,
+      phoneNumber: json['phone'] as String?,
+      language: SupportedLanguages.values[json['language'] as int],
+    );
+  }
+
+  final String? id;
+  final String? token;
   final String? name;
+  final String? username;
+  final String? password;
   final String? email;
   final String? photoUrl;
   final String? phoneNumber;
+  final SupportedLanguages language;
 
-  static User? fromFirebaseUser(firebase.User? firebaseUser) {
-    return firebaseUser != null
-        ? User(
-            id: firebaseUser.uid,
-            isAnonymous: firebaseUser.isAnonymous,
-            refreshToken: firebaseUser.refreshToken,
-            name: firebaseUser.displayName,
-            email: firebaseUser.email,
-            photoUrl: firebaseUser.photoURL,
-            phoneNumber: firebaseUser.phoneNumber,
-          )
-        : null;
-  }
-
-  static User? fromAmplifyUser(
-    CognitoAuthSession authSession,
-    List<AuthUserAttribute> userAttributes,
-  ) {
-    if (authSession.isSignedIn) {
-      final givenName =
-          userAttributes.getUserAttribute(AuthUserAttributeKey.givenName);
-      final familyName =
-          userAttributes.getUserAttribute(AuthUserAttributeKey.familyName);
-      return User(
-        id: authSession.identityIdResult.value,
-        refreshToken: authSession.userPoolTokensResult.value.refreshToken,
-        name: '${givenName != null ? '$givenName ' : ''}${familyName ?? ''}',
-        email: userAttributes.getUserAttribute(AuthUserAttributeKey.email),
-        photoUrl: userAttributes.getUserAttribute(AuthUserAttributeKey.picture),
-        phoneNumber:
-            userAttributes.getUserAttribute(AuthUserAttributeKey.phoneNumber),
-      );
-    } else {
-      return null;
-    }
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'token': token,
+      'name': name,
+      'username': username,
+      'password': password,
+      'email': email,
+      'photoUrl': photoUrl,
+      'phone': phoneNumber,
+      'language': language.index,
+    };
   }
 }

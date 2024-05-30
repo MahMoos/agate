@@ -21,23 +21,15 @@ BookModel _$BookModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BookModel {
   String get id => throw _privateConstructorUsedError;
-
   String? get imageUrl => throw _privateConstructorUsedError;
-
   String? get title => throw _privateConstructorUsedError;
-
   String? get description => throw _privateConstructorUsedError;
-
   String? get author => throw _privateConstructorUsedError;
-
   int? get numberOfPages => throw _privateConstructorUsedError;
-
   DateTime? get publication => throw _privateConstructorUsedError;
-
   List<FileModel>? get files => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $BookModelCopyWith<BookModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -47,7 +39,6 @@ mixin _$BookModel {
 abstract class $BookModelCopyWith<$Res> {
   factory $BookModelCopyWith(BookModel value, $Res Function(BookModel) then) =
       _$BookModelCopyWithImpl<$Res, BookModel>;
-
   @useResult
   $Res call(
       {String id,
@@ -67,7 +58,6 @@ class _$BookModelCopyWithImpl<$Res, $Val extends BookModel>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -126,7 +116,6 @@ abstract class _$$BookModelImplCopyWith<$Res>
   factory _$$BookModelImplCopyWith(
           _$BookModelImpl value, $Res Function(_$BookModelImpl) then) =
       __$$BookModelImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -229,7 +218,6 @@ class _$BookModelImpl implements _BookModel {
   @override
   final DateTime? publication;
   final List<FileModel>? _files;
-
   @override
   List<FileModel>? get files {
     final value = _files;
@@ -306,28 +294,20 @@ abstract class _BookModel implements BookModel {
 
   @override
   String get id;
-
   @override
   String? get imageUrl;
-
   @override
   String? get title;
-
   @override
   String? get description;
-
   @override
   String? get author;
-
   @override
   int? get numberOfPages;
-
   @override
   DateTime? get publication;
-
   @override
   List<FileModel>? get files;
-
   @override
   @JsonKey(ignore: true)
   _$$BookModelImplCopyWith<_$BookModelImpl> get copyWith =>
@@ -341,9 +321,7 @@ HomeModel _$HomeModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$HomeModel {
   List<SlideModel>? get slides => throw _privateConstructorUsedError;
-
   List<MyCourseModel>? get myCourses => throw _privateConstructorUsedError;
-
   List<CourseModel>? get specialCourses => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -537,13 +515,10 @@ abstract class _HomeModel implements HomeModel {
 
   @override
   List<SlideModel>? get slides;
-
   @override
   List<MyCourseModel>? get myCourses;
-
   @override
   List<CourseModel>? get specialCourses;
-
   @override
   @JsonKey(ignore: true)
   _$$HomeModelImplCopyWith<_$HomeModelImpl> get copyWith =>
@@ -557,19 +532,13 @@ McqGameModel _$McqGameModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$McqGameModel {
   String get id => throw _privateConstructorUsedError;
-
   String get question => throw _privateConstructorUsedError;
-
   int get correctAnswerId => throw _privateConstructorUsedError;
-
   List<McqAnswerModel> get answerOptions => throw _privateConstructorUsedError;
-
   String? get subjectId => throw _privateConstructorUsedError;
-
   int? get rate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $McqGameModelCopyWith<McqGameModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -580,7 +549,6 @@ abstract class $McqGameModelCopyWith<$Res> {
   factory $McqGameModelCopyWith(
           McqGameModel value, $Res Function(McqGameModel) then) =
       _$McqGameModelCopyWithImpl<$Res, McqGameModel>;
-
   @useResult
   $Res call(
       {String id,
@@ -598,7 +566,6 @@ class _$McqGameModelCopyWithImpl<$Res, $Val extends McqGameModel>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -647,7 +614,6 @@ abstract class _$$McqGameModelImplCopyWith<$Res>
   factory _$$McqGameModelImplCopyWith(
           _$McqGameModelImpl value, $Res Function(_$McqGameModelImpl) then) =
       __$$McqGameModelImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -728,7 +694,6 @@ class _$McqGameModelImpl implements _McqGameModel {
   @override
   final int correctAnswerId;
   final List<McqAnswerModel> _answerOptions;
-
   @override
   List<McqAnswerModel> get answerOptions {
     if (_answerOptions is EqualUnmodifiableListView) return _answerOptions;
@@ -796,22 +761,16 @@ abstract class _McqGameModel implements McqGameModel {
 
   @override
   String get id;
-
   @override
   String get question;
-
   @override
   int get correctAnswerId;
-
   @override
   List<McqAnswerModel> get answerOptions;
-
   @override
   String? get subjectId;
-
   @override
   int? get rate;
-
   @override
   @JsonKey(ignore: true)
   _$$McqGameModelImplCopyWith<_$McqGameModelImpl> get copyWith =>
@@ -825,11 +784,9 @@ McqAnswerModel _$McqAnswerModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$McqAnswerModel {
   int get id => throw _privateConstructorUsedError;
-
   String get text => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $McqAnswerModelCopyWith<McqAnswerModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -840,7 +797,6 @@ abstract class $McqAnswerModelCopyWith<$Res> {
   factory $McqAnswerModelCopyWith(
           McqAnswerModel value, $Res Function(McqAnswerModel) then) =
       _$McqAnswerModelCopyWithImpl<$Res, McqAnswerModel>;
-
   @useResult
   $Res call({int id, String text});
 }
@@ -852,7 +808,6 @@ class _$McqAnswerModelCopyWithImpl<$Res, $Val extends McqAnswerModel>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -881,7 +836,6 @@ abstract class _$$McqAnswerModelImplCopyWith<$Res>
   factory _$$McqAnswerModelImplCopyWith(_$McqAnswerModelImpl value,
           $Res Function(_$McqAnswerModelImpl) then) =
       __$$McqAnswerModelImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({int id, String text});
@@ -970,10 +924,8 @@ abstract class _McqAnswerModel implements McqAnswerModel {
 
   @override
   int get id;
-
   @override
   String get text;
-
   @override
   @JsonKey(ignore: true)
   _$$McqAnswerModelImplCopyWith<_$McqAnswerModelImpl> get copyWith =>
@@ -987,9 +939,7 @@ SlideModel _$SlideModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SlideModel {
   String get id => throw _privateConstructorUsedError;
-
   String? get imageUrl => throw _privateConstructorUsedError;
-
   String? get title => throw _privateConstructorUsedError;
   String? get actionUrl => throw _privateConstructorUsedError;
 

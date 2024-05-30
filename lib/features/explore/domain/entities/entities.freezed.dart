@@ -17,23 +17,14 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Book {
   String get id => throw _privateConstructorUsedError;
-
   String? get imageUrl => throw _privateConstructorUsedError;
-
   String? get title => throw _privateConstructorUsedError;
-
   String? get description => throw _privateConstructorUsedError;
-
   String? get author => throw _privateConstructorUsedError;
-
   int? get numberOfPages => throw _privateConstructorUsedError;
-
   DateTime? get publishedAt => throw _privateConstructorUsedError;
-
   String? get url => throw _privateConstructorUsedError;
-
   String? get extension => throw _privateConstructorUsedError;
-
   double? get size => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -44,7 +35,6 @@ mixin _$Book {
 abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res, Book>;
-
   @useResult
   $Res call(
       {String id,
@@ -66,7 +56,6 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -134,7 +123,6 @@ abstract class _$$BookImplCopyWith<$Res> implements $BookCopyWith<$Res> {
   factory _$$BookImplCopyWith(
           _$BookImpl value, $Res Function(_$BookImpl) then) =
       __$$BookImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -305,34 +293,24 @@ abstract class _Book implements Book {
 
   @override
   String get id;
-
   @override
   String? get imageUrl;
-
   @override
   String? get title;
-
   @override
   String? get description;
-
   @override
   String? get author;
-
   @override
   int? get numberOfPages;
-
   @override
   DateTime? get publishedAt;
-
   @override
   String? get url;
-
   @override
   String? get extension;
-
   @override
   double? get size;
-
   @override
   @JsonKey(ignore: true)
   _$$BookImplCopyWith<_$BookImpl> get copyWith =>
@@ -342,9 +320,7 @@ abstract class _Book implements Book {
 /// @nodoc
 mixin _$Home {
   List<Slide>? get slides => throw _privateConstructorUsedError;
-
   List<MyCourse>? get myCourses => throw _privateConstructorUsedError;
-
   List<Course>? get specialCourses => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -520,13 +496,10 @@ abstract class _Home implements Home {
 
   @override
   List<Slide>? get slides;
-
   @override
   List<MyCourse>? get myCourses;
-
   @override
   List<Course>? get specialCourses;
-
   @override
   @JsonKey(ignore: true)
   _$$HomeImplCopyWith<_$HomeImpl> get copyWith =>
@@ -536,15 +509,10 @@ abstract class _Home implements Home {
 /// @nodoc
 mixin _$McqGame {
   String get id => throw _privateConstructorUsedError;
-
   String get question => throw _privateConstructorUsedError;
-
   int get correctAnswerId => throw _privateConstructorUsedError;
-
   List<McqAnswer> get answerOptions => throw _privateConstructorUsedError;
-
   String? get subjectId => throw _privateConstructorUsedError;
-
   int? get rate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -555,7 +523,6 @@ mixin _$McqGame {
 abstract class $McqGameCopyWith<$Res> {
   factory $McqGameCopyWith(McqGame value, $Res Function(McqGame) then) =
       _$McqGameCopyWithImpl<$Res, McqGame>;
-
   @useResult
   $Res call(
       {String id,
@@ -573,7 +540,6 @@ class _$McqGameCopyWithImpl<$Res, $Val extends McqGame>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -621,7 +587,6 @@ abstract class _$$McqGameImplCopyWith<$Res> implements $McqGameCopyWith<$Res> {
   factory _$$McqGameImplCopyWith(
           _$McqGameImpl value, $Res Function(_$McqGameImpl) then) =
       __$$McqGameImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -699,7 +664,6 @@ class _$McqGameImpl implements _McqGame {
   @override
   final int correctAnswerId;
   final List<McqAnswer> _answerOptions;
-
   @override
   List<McqAnswer> get answerOptions {
     if (_answerOptions is EqualUnmodifiableListView) return _answerOptions;
@@ -756,22 +720,16 @@ abstract class _McqGame implements McqGame {
 
   @override
   String get id;
-
   @override
   String get question;
-
   @override
   int get correctAnswerId;
-
   @override
   List<McqAnswer> get answerOptions;
-
   @override
   String? get subjectId;
-
   @override
   int? get rate;
-
   @override
   @JsonKey(ignore: true)
   _$$McqGameImplCopyWith<_$McqGameImpl> get copyWith =>
@@ -781,7 +739,6 @@ abstract class _McqGame implements McqGame {
 /// @nodoc
 mixin _$McqAnswer {
   int get id => throw _privateConstructorUsedError;
-
   String get text => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -793,7 +750,6 @@ mixin _$McqAnswer {
 abstract class $McqAnswerCopyWith<$Res> {
   factory $McqAnswerCopyWith(McqAnswer value, $Res Function(McqAnswer) then) =
       _$McqAnswerCopyWithImpl<$Res, McqAnswer>;
-
   @useResult
   $Res call({int id, String text});
 }
@@ -805,7 +761,6 @@ class _$McqAnswerCopyWithImpl<$Res, $Val extends McqAnswer>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -834,7 +789,6 @@ abstract class _$$McqAnswerImplCopyWith<$Res>
   factory _$$McqAnswerImplCopyWith(
           _$McqAnswerImpl value, $Res Function(_$McqAnswerImpl) then) =
       __$$McqAnswerImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({int id, String text});
@@ -907,10 +861,8 @@ abstract class _McqAnswer implements McqAnswer {
 
   @override
   int get id;
-
   @override
   String get text;
-
   @override
   @JsonKey(ignore: true)
   _$$McqAnswerImplCopyWith<_$McqAnswerImpl> get copyWith =>
@@ -920,11 +872,8 @@ abstract class _McqAnswer implements McqAnswer {
 /// @nodoc
 mixin _$Slide {
   String get id => throw _privateConstructorUsedError;
-
   String? get imageUrl => throw _privateConstructorUsedError;
-
   String? get title => throw _privateConstructorUsedError;
-
   String? get actionUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)

@@ -87,7 +87,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                         ElevatedButton.icon(
                           onPressed: auth.signOut,
                           style: ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(
+                            backgroundColor: WidgetStatePropertyAll(
                               context.theme.colorScheme.error,
                             ),
                             tapTargetSize: MaterialTapTargetSize.padded,
