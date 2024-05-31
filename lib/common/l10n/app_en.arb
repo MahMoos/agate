@@ -40,9 +40,53 @@
   "@welcome": {
     "description": "Welcome label"
   },
+  "login": "Login",
+  "@login": {
+    "description": "Login button label"
+  },
+  "register": "Register",
+  "@register": {
+    "description": "Register button label"
+  },
   "signOut": "Sign out",
   "@signOut": {
-    "description": "Sign Out button label"
+    "description": "Sign out button label"
+  },
+  "forgetPassword": "Forget Password?",
+  "@forgetPassword": {
+    "description": "Forget Password button label"
+  },
+  "noAccount": "Don't have an account?",
+  "@noAccount": {
+    "description": "Don't have an account label"
+  },
+  "haveAccount": "Already have an account?",
+  "@haveAccount": {
+    "description": "Already have an account label"
+  },
+  "fullName": "Full Name",
+  "@fullName": {
+    "description": "Full Name label"
+  },
+  "username": "Username",
+  "@username": {
+    "description": "Username label"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password label"
+  },
+  "confirmPassword": "Confirm Password",
+  "@confirmPassword": {
+    "description": "Confirm Password label"
+  },
+  "email": "Email Address",
+  "@email": {
+    "description": "Email Address label"
+  },
+  "phone": "Phone Number",
+  "@phone": {
+    "description": "Phone Number label"
   },
   "viewAll": "View All",
   "@viewAll": {

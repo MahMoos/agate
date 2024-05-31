@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/extensions/extensions.dart';
+import '../../core/services/auth/auth_service.dart';
 import '../../core/widgets/widgets.dart';
 import '../../features/course/presentation/controllers/controllers.dart';
 import '../../features/course/presentation/pages/pages.dart';
@@ -43,67 +44,26 @@ class AgateRouter {
                 child: const HomePage(),
               ),
             ),
-            // GoRoute(
-            //   parentNavigatorKey: _shellNavigatorKey,
-            //   name: 'login',
-            //   path: '/login',
-            //   pageBuilder: (context, state) => MaterialPage(
-            //     key: state.pageKey,
-            //     name: 'Login',
-            //     child: Scaffold(body: SingleChildScrollView(child: Padding(
-            //       padding: const EdgeInsets.all(32.0),
-            //       child: SignUpForm(),
-            //     ))),
-            //     // child: SignInScreen(
-            //     //   auth: (ref.watch(authServiceProvider) as FirebaseAuthService)
-            //     //       .instance,
-            //     //   providers: providers,
-            //     //   headerBuilder: (context, _, __) {
-            //     //     return Row(
-            //     //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     //       children: [
-            //     //         Text(
-            //     //           context.strings.welcome,
-            //     //           style: context.textTheme.headlineLarge,
-            //     //         ),
-            //     //         IconButton(
-            //     //           icon: const Icon(Icons.language),
-            //     //           onPressed: () {},
-            //     //         ),
-            //     //       ],
-            //     //     ).paddingSymmetric(vertical: 32, horizontal: 24);
-            //     //   },
-            //     //   sideBuilder: (context, _) {
-            //     //     return Column(
-            //     //       children: [
-            //     //         Row(
-            //     //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     //           children: [
-            //     //             Text(
-            //     //               context.strings.welcome,
-            //     //               style: context.textTheme.headlineLarge,
-            //     //             ),
-            //     //             IconButton(
-            //     //               icon: const Icon(Icons.language),
-            //     //               onPressed: () {},
-            //     //             ),
-            //     //           ],
-            //     //         ).paddingSymmetric(vertical: 32, horizontal: 24),
-            //     //         UnDraw(
-            //     //           illustration: UnDrawIllustration.login,
-            //     //           color: context.primaryColor,
-            //     //         ),
-            //     //       ],
-            //     //     );
-            //     //   },
-            //     //   actions: [
-            //     //     AuthStateChangeAction<SignedIn>((context, state) {
-            //     //       context.goNamed('home');
-            //     //     }),
-            //     //   ],
-            //     // ),
-            //   ),
-            // ),
+            GoRoute(
+              parentNavigatorKey: _shellNavigatorKey,
+              name: 'login',
+              path: '/login',
+              pageBuilder: (context, state) => MaterialPage(
+                key: state.pageKey,
+                name: 'Login',
+                child: const LoginPage(),
+              ),
+            ),
+            GoRoute(
+              parentNavigatorKey: _shellNavigatorKey,
+              name: 'register',
+              path: '/register',
+              pageBuilder: (context, state) => MaterialPage(
+                key: state.pageKey,
+                name: 'Register',
+                child: const RegisterPage(),
+              ),
+            ),
             GoRoute(
               parentNavigatorKey: _shellNavigatorKey,
               name: 'profile',
@@ -287,11 +247,17 @@ class AgateRouter {
           ],
         ),
       ],
-      // redirect: (context, state) {
-      //   final user = null; // ref.watch(authServiceProvider).currentUser;
-      //   if (user == null) return '/login';
-      //   return null;
-      // },
+      redirect: (context, state) async {
+        final user = (await ref.watch(authServiceProvider.future)).currentUser;
+        final goingToLogin = state.fullPath == '/login';
+        final goingToRegister = state.fullPath == '/register';
+        if (user == null && !goingToRegister && !goingToLogin) {
+          return '/login';
+        } else if (user != null && (goingToRegister || goingToLogin)) {
+          return '/';
+        }
+        return null;
+      },
       errorPageBuilder: (context, state) => MaterialPage<void>(
         key: state.pageKey,
         name: 'Not Found',

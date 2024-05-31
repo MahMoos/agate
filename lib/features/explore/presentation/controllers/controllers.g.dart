@@ -857,7 +857,6 @@ final departmentsProvider =
 );
 
 typedef _$Departments = AsyncNotifier<List<Department>>;
-
 String _$mcqGamesHash() => r'198e714a43342b15ca89d4d332e93c3643976f99';
 
 abstract class _$McqGames extends BuildlessAsyncNotifier<List<McqGame>> {
@@ -1014,7 +1013,6 @@ final myCoursesProvider =
 );
 
 typedef _$MyCourses = AsyncNotifier<List<MyCourse>>;
-
 String _$subjectsHash() => r'0531b55a21433156bd4571317eeb6edcc2aaf0de';
 
 /// See also [Subjects].

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:core';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_keychain/flutter_keychain.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -15,6 +16,7 @@ part 'mock_auth_service.dart';
 @Riverpod(keepAlive: true)
 Future<AuthService> authService(AuthServiceRef ref) async {
   final service = AgateAuthService();
+  await service.initialize();
   return service;
 }
 

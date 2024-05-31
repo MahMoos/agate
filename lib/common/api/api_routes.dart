@@ -106,16 +106,20 @@ class ApiRoutes {
         '/courses/$courseId/lectures/$lectureId/watch',
       );
 
+  static Uri get myProfile => _appUri(
+        '/users/mine',
+      );
+
   static Uri get wallet => _appUri(
-        '/profiles/wallet',
+        '/users/wallet',
       );
 
   static Uri transactions(TransactionsParams params) => _appUri(
-        '/profiles/wallet/transactions',
+        '/users/wallet/transactions',
         params.toJson(),
       );
 
   static Uri deposit(String cardId) => _appUri(
-    '/profiles/wallet/deposit/$cardId',
+    '/users/wallet/deposit/$cardId',
       );
 }

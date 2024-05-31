@@ -782,13 +782,10 @@ abstract class _FileModel implements FileModel {
   String? get description;
   @override
   String? get extension;
-
   @override
   double? get size;
-
   @override
   FileType? get type;
-
   @override
   @JsonKey(ignore: true)
   _$$FileModelImplCopyWith<_$FileModelImpl> get copyWith =>
@@ -802,31 +799,19 @@ MyCourseModel _$MyCourseModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MyCourseModel {
   String get id => throw _privateConstructorUsedError;
-
   String get name => throw _privateConstructorUsedError;
-
   int get completedLectures => throw _privateConstructorUsedError;
-
   int get totalLectures => throw _privateConstructorUsedError;
-
   double get price => throw _privateConstructorUsedError;
-
   String get currency => throw _privateConstructorUsedError;
-
   double? get discount => throw _privateConstructorUsedError;
-
   List<TeacherModel>? get teachers => throw _privateConstructorUsedError;
-
   String? get currentLectureId => throw _privateConstructorUsedError;
-
   String? get imageUrl => throw _privateConstructorUsedError;
-
   int? get participants => throw _privateConstructorUsedError;
-
   double? get rating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $MyCourseModelCopyWith<MyCourseModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -837,7 +822,6 @@ abstract class $MyCourseModelCopyWith<$Res> {
   factory $MyCourseModelCopyWith(
           MyCourseModel value, $Res Function(MyCourseModel) then) =
       _$MyCourseModelCopyWithImpl<$Res, MyCourseModel>;
-
   @useResult
   $Res call(
       {String id,
@@ -861,7 +845,6 @@ class _$MyCourseModelCopyWithImpl<$Res, $Val extends MyCourseModel>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -940,7 +923,6 @@ abstract class _$$MyCourseModelImplCopyWith<$Res>
   factory _$$MyCourseModelImplCopyWith(
           _$MyCourseModelImpl value, $Res Function(_$MyCourseModelImpl) then) =
       __$$MyCourseModelImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -1073,7 +1055,6 @@ class _$MyCourseModelImpl implements _MyCourseModel {
   @override
   final double? discount;
   final List<TeacherModel>? _teachers;
-
   @override
   List<TeacherModel>? get teachers {
     final value = _teachers;
@@ -1174,40 +1155,28 @@ abstract class _MyCourseModel implements MyCourseModel {
 
   @override
   String get id;
-
   @override
   String get name;
-
   @override
   int get completedLectures;
-
   @override
   int get totalLectures;
-
   @override
   double get price;
-
   @override
   String get currency;
-
   @override
   double? get discount;
-
   @override
   List<TeacherModel>? get teachers;
-
   @override
   String? get currentLectureId;
-
   @override
   String? get imageUrl;
-
   @override
   int? get participants;
-
   @override
   double? get rating;
-
   @override
   @JsonKey(ignore: true)
   _$$MyCourseModelImplCopyWith<_$MyCourseModelImpl> get copyWith =>
@@ -1221,9 +1190,7 @@ SubjectModel _$SubjectModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SubjectModel {
   String get id => throw _privateConstructorUsedError;
-
   String get name => throw _privateConstructorUsedError;
-
   String? get description => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
 

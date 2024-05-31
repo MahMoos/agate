@@ -168,6 +168,18 @@ class AppTheme {
       textTheme: lightTextTheme(),
       floatingActionButtonTheme:
           const FloatingActionButtonThemeData(foregroundColor: Colors.white),
+      inputDecorationTheme: InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(24),
+          borderSide: BorderSide.none,
+        ),
+        filled: true,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 24),
+        ),
+      ),
     );
   }
 
@@ -177,6 +189,18 @@ class AppTheme {
       colorSchemeSeed: primaryColor,
       brightness: Brightness.dark,
       textTheme: darkTextTheme(),
+      inputDecorationTheme: InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(24),
+          borderSide: BorderSide.none,
+        ),
+        filled: true,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 24),
+        ),
+      ),
     );
   }
 }

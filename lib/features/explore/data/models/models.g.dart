@@ -56,7 +56,7 @@ Map<String, dynamic> _$$HomeModelImplToJson(_$HomeModelImpl instance) =>
 
 _$McqGameModelImpl _$$McqGameModelImplFromJson(Map<String, dynamic> json) =>
     _$McqGameModelImpl(
-          id: json['id'] as String,
+      id: json['id'] as String,
       question: json['question'] as String,
       correctAnswerId: (json['correctAnswerId'] as num).toInt(),
       answerOptions: (json['answerOptions'] as List<dynamic>)

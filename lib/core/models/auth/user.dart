@@ -33,7 +33,7 @@ class User {
       password: json['password'] as String?,
       photoUrl: json['photoUrl'] as String?,
       phoneNumber: json['phone'] as String?,
-      language: SupportedLanguages.values[json['language'] as int],
+      language: SupportedLanguages.values[json['language'] as int? ?? 0],
     );
   }
 
