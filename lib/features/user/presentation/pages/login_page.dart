@@ -26,11 +26,31 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: const EdgeInsets.all(24),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () => ref
+                .read(preferencesControllerProvider.notifier)
+                .toggleBrightness(),
+            icon: Icon(
+              ref.read(preferencesControllerProvider.notifier).themeMode ==
+                      ThemeMode.light
+                  ? Icons.light_mode_rounded
+                  : Icons.dark_mode_rounded,
+            ),
+          ),
+          IconButton(
+            onPressed: () => ref
+                .read(preferencesControllerProvider.notifier)
+                .toggleLanguage(),
+            icon: const Icon(Icons.language),
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            Assets.images.logoTransparent.image(height: 320),
             Text(
               context.strings.welcome,
               style: context.headlineLarge,
@@ -46,6 +66,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       hintText: context.strings.username,
                       prefixIcon: const Icon(Icons.alternate_email_rounded),
                     ),
+                    onSubmitted: (_) => form.focus('password'),
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'password',
@@ -53,6 +74,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       hintText: context.strings.password,
                       prefixIcon: const Icon(Icons.password_rounded),
                     ),
+                    onSubmitted: (_) => form.valid ? _submit() : null,
                     obscureText: true,
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   if (!_isLoading)
@@ -74,7 +96,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 ],
               ),
             ),
-            _forgotPassword(context),
+            // _forgotPassword(context),
             _signup(context),
           ],
         ),
@@ -87,12 +109,17 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     try {
       setState(() => _isLoading = true);
       await auth.signInWithCredentials(
-        form.control('username').value as String,
+        (form.control('username').value as String).trim(),
         form.control('password').value as String,
       );
-    } on Exception {
+      ref.invalidate(authServiceProvider);
+    } on Exception catch (e) {
       if (mounted) {
-        context.showSnackBarMessage(context.strings.errorOccurred);
+        context.showSnackBarMessage(
+          e is HttpException && e.statusCode == 400
+              ? context.strings.wrongCredentials
+              : context.strings.errorOccurred,
+        );
       }
     } finally {
       setState(() => _isLoading = false);

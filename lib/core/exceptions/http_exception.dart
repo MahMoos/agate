@@ -16,3 +16,8 @@ class HttpException implements Exception {
   /// Exception http response code
   final int? statusCode;
 }
+
+class UnauthorizedException extends HttpException {
+  UnauthorizedException(String? message)
+      : super(message: message, title: 'Unauthorized', statusCode: 401);
+}

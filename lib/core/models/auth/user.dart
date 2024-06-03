@@ -49,14 +49,14 @@ class User {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
-      'token': token,
-      'name': name,
-      'username': username,
-      'password': password,
-      'email': email,
-      'photoUrl': photoUrl,
-      'phone': phoneNumber,
+      if (id != null) 'id': id,
+      if (token != null) 'token': token,
+      if (name != null) 'name': name,
+      if (username != null) 'username': username,
+      if (password != null) 'password': password,
+      if (email != null) 'email': email,
+      if (photoUrl != null) 'photoUrl': photoUrl,
+      if (phoneNumber != null) 'phone': phoneNumber,
       'language': language.index,
     };
   }

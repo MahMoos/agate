@@ -166,8 +166,6 @@ class AppTheme {
       colorSchemeSeed: primaryColor,
       brightness: Brightness.light,
       textTheme: lightTextTheme(),
-      floatingActionButtonTheme:
-          const FloatingActionButtonThemeData(foregroundColor: Colors.white),
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(24),
@@ -177,7 +175,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 24),
+          padding: const EdgeInsets.symmetric(vertical: 16),
         ),
       ),
     );
@@ -198,7 +196,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 24),
+          padding: const EdgeInsets.symmetric(vertical: 16),
         ),
       ),
     );

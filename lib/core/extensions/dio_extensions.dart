@@ -45,6 +45,9 @@ extension FutureResponseExtension on Future<Response<dynamic>> {
 extension DioExceptionExtension on DioException {
   /// Handles the [DioException] and returns the appropriate [Exception]
   Exception toException() {
+    if (response?.statusCode == 401) {
+      return UnauthorizedException(message);
+    }
     switch (type) {
       case DioExceptionType.connectionError:
         return SocketException(
@@ -56,15 +59,19 @@ extension DioExceptionExtension on DioException {
         return TimeoutException(message);
       case DioExceptionType.badResponse || DioExceptionType.badCertificate:
         return HttpException(
-          response?.data.toString() ?? message ?? error.toString(),
+          title: response?.data?['title']?.toString(),
+          message: response?.data.toString() ??
+              response?.statusMessage ??
+              message ??
+              error.toString(),
+          statusCode: response?.statusCode,
         );
       case DioExceptionType.cancel:
-        return Exception(
-          message ?? response?.data.toString() ?? error.toString(),
-        );
       case DioExceptionType.unknown:
-        return Exception(
-          message ?? response?.data.toString() ?? error.toString(),
+        return HttpException(
+          title: response?.data?['title']?.toString(),
+          message: message ?? response?.data.toString() ?? error.toString(),
+          statusCode: response?.statusCode,
         );
     }
   }

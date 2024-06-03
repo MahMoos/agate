@@ -78,7 +78,7 @@ Map<String, dynamic> _$$McqGameModelImplToJson(_$McqGameModelImpl instance) =>
 
 _$McqAnswerModelImpl _$$McqAnswerModelImplFromJson(Map<String, dynamic> json) =>
     _$McqAnswerModelImpl(
-          id: (json['id'] as num).toInt(),
+      id: (json['id'] as num).toInt(),
       text: json['text'] as String,
     );
 

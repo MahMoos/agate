@@ -1,29 +1,20 @@
 import 'package:dio/dio.dart';
-import 'package:fresh_dio/fresh_dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../extensions/extensions.dart';
 import '../auth/auth_service.dart';
+import 'interceptors/auth_interceptor.dart';
 
 part 'dio_http_service.dart';
 part 'http_service.g.dart';
 
 /// Provider that maps an [HttpService] interface to implementation
 @Riverpod(keepAlive: true)
-HttpService httpService(HttpServiceRef ref) {
+Future<HttpService> httpService(HttpServiceRef ref) async {
+  final authService = await ref.watch(authServiceProvider.future);
   final service = DioHttpService()
-    ..addInterceptor(
-      Fresh.oAuth2(
-        tokenStorage: InMemoryTokenStorage<OAuth2Token>(),
-        refreshToken: (token, client) async {
-          final authService = await ref.watch(authServiceProvider.future);
-          return OAuth2Token(
-            accessToken: await authService.renewToken() ?? '',
-          );
-        },
-      ),
-    );
+    ..addInterceptor(AuthInterceptor(authService));
   return service;
 }
 

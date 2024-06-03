@@ -25,7 +25,9 @@ class UserAvatar extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(size / 3),
                 child: Text(
-                  name![0] + name!.split(' ').last[0],
+                  name!.trim().split(' ').length > 1
+                      ? name![0] + name!.split(' ').elementAt(1)[0]
+                      : name![0],
                   style: TextStyle(
                     fontSize: size,
                     color: context.scaffoldBackgroundColor,

@@ -22,8 +22,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       'phone': [
         '',
         Validators.required,
-        Validators.minLength(11),
-        Validators.maxLength(15),
+        Validators.pattern(r'^(((?:\+|00)964)|(0)*)7\d{9}'),
       ],
       'password': ['', Validators.required, Validators.minLength(8)],
       'passwordConfirmation': '',
@@ -35,6 +34,27 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () => ref
+                .read(preferencesControllerProvider.notifier)
+                .toggleBrightness(),
+            icon: Icon(
+              ref.read(preferencesControllerProvider.notifier).themeMode ==
+                      ThemeMode.light
+                  ? Icons.light_mode_rounded
+                  : Icons.dark_mode_rounded,
+            ),
+          ),
+          IconButton(
+            onPressed: () => ref
+                .read(preferencesControllerProvider.notifier)
+                .toggleLanguage(),
+            icon: const Icon(Icons.language),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -54,6 +74,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       hintText: context.strings.fullName,
                       prefixIcon: const Icon(Icons.perm_identity_rounded),
                     ),
+                    onSubmitted: (_) => form.focus('username'),
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'username',
@@ -61,6 +82,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       hintText: context.strings.username,
                       prefixIcon: const Icon(Icons.alternate_email_rounded),
                     ),
+                    onSubmitted: (_) => form.focus('email'),
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'email',
@@ -68,6 +90,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       hintText: context.strings.email,
                       prefixIcon: const Icon(Icons.email_rounded),
                     ),
+                    onSubmitted: (_) => form.focus('phone'),
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'phone',
@@ -75,6 +98,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       hintText: context.strings.phone,
                       prefixIcon: const Icon(Icons.phone_rounded),
                     ),
+                    keyboardType: TextInputType.phone,
+                    onSubmitted: (_) => form.focus('password'),
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'password',
@@ -83,6 +108,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       prefixIcon: const Icon(Icons.password_rounded),
                     ),
                     obscureText: true,
+                    onSubmitted: (_) => form.focus('passwordConfirmation'),
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'passwordConfirmation',
@@ -91,6 +117,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       prefixIcon: const Icon(Icons.password_rounded),
                     ),
                     obscureText: true,
+                    onSubmitted: (_) => form.valid ? _submit() : null,
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   if (!_isLoading)
                     ReactiveFormConsumer(
@@ -142,6 +169,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           password: form.control('password').value as String,
         ),
       );
+      ref.invalidate(authServiceProvider);
     } on Exception {
       if (mounted) {
         context.showSnackBarMessage(context.strings.errorOccurred);

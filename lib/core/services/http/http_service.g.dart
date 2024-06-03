@@ -6,13 +6,13 @@ part of 'http_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$httpServiceHash() => r'799cbfcb2a5f20e85e3e52398aa244462e44177a';
+String _$httpServiceHash() => r'2820151718f49d4b81a54a71b5f1de5028565f44';
 
 /// Provider that maps an [HttpService] interface to implementation
 ///
 /// Copied from [httpService].
 @ProviderFor(httpService)
-final httpServiceProvider = Provider<HttpService>.internal(
+final httpServiceProvider = FutureProvider<HttpService>.internal(
   httpService,
   name: r'httpServiceProvider',
   debugGetCreateSourceHash:
@@ -21,6 +21,6 @@ final httpServiceProvider = Provider<HttpService>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef HttpServiceRef = ProviderRef<HttpService>;
+typedef HttpServiceRef = FutureProviderRef<HttpService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

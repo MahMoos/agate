@@ -6,6 +6,7 @@ import 'package:flutter_keychain/flutter_keychain.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../common/api/api.dart';
+import '../../exceptions/http_exception.dart';
 import '../../models/models.dart';
 import '../http/http_service.dart';
 

@@ -6,11 +6,11 @@ part of 'controllers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$courseRepositoryHash() => r'6cadad2df6c78d26ac92c4d4df5934ce54011b86';
+String _$courseRepositoryHash() => r'e786585eec2bfbda14a43cac3781103461ac8d76';
 
 /// See also [courseRepository].
 @ProviderFor(courseRepository)
-final courseRepositoryProvider = Provider<CourseRepository>.internal(
+final courseRepositoryProvider = FutureProvider<CourseRepository>.internal(
   courseRepository,
   name: r'courseRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -20,8 +20,9 @@ final courseRepositoryProvider = Provider<CourseRepository>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef CourseRepositoryRef = ProviderRef<CourseRepository>;
-String _$sectionHash() => r'6beaec26918550497155cd0e5bd9d1cba3ef188c';
+typedef CourseRepositoryRef = FutureProviderRef<CourseRepository>;
+
+String _$sectionHash() => r'cac14e57d2269d106e24697521ca44e27bb1d4ac';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -169,7 +170,7 @@ class _SectionProviderElement extends FutureProviderElement<Section>
   String get id => (origin as SectionProvider).id;
 }
 
-String _$courseControllerHash() => r'e6a3616719edffb8a31822717117246454eb9b5c';
+String _$courseControllerHash() => r'59746ec30dba58a964a90bd3812b6435e8d2f5a6';
 
 abstract class _$CourseController
     extends BuildlessAsyncNotifier<CourseDetails> {
@@ -313,7 +314,7 @@ class _CourseControllerProviderElement
   String get id => (origin as CourseControllerProvider).id;
 }
 
-String _$lectureControllerHash() => r'561208545fa18511c5e647b1e3977fa3e2dc1655';
+String _$lectureControllerHash() => r'ad529ac391d713bdf1595ecbd7a7bbdab5b2cb13';
 
 abstract class _$LectureController extends BuildlessAsyncNotifier<Lecture> {
   late final String id;
@@ -455,7 +456,7 @@ class _LectureControllerProviderElement
   String get id => (origin as LectureControllerProvider).id;
 }
 
-String _$lecturesHash() => r'affbba6e1cf67a4151737b2aea4c533baa107474';
+String _$lecturesHash() => r'c541f53a831635c6b9578983b0a279286455a9c8';
 
 abstract class _$Lectures extends BuildlessAsyncNotifier<List<Lecture>> {
   late final String courseId;
@@ -619,7 +620,7 @@ class _LecturesProviderElement
   String get sectionId => (origin as LecturesProvider).sectionId;
 }
 
-String _$sectionsHash() => r'1f2b88cec0e58220b6d27dc90a3393a3c0b13800';
+String _$sectionsHash() => r'e40ab060ff1e5b008d0faf84681335f144556a5c';
 
 abstract class _$Sections extends BuildlessAsyncNotifier<List<Section>> {
   late final String courseId;

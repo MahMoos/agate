@@ -12,6 +12,7 @@ import 'package:intl/intl.dart';
 //ignore: depend_on_referenced_packages, implementation_imports
 import 'package:riverpod/src/async_notifier.dart';
 
+import '../exceptions/http_exception.dart';
 import '../models/models.dart';
 import '../services/http/http_service.dart';
 

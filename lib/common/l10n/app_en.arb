@@ -88,6 +88,10 @@
   "@phone": {
     "description": "Phone Number label"
   },
+  "wrongCredentials": "Username or password is incorrect.",
+  "@wrongCredentials": {
+    "description": "Wrong credentials message"
+  },
   "viewAll": "View All",
   "@viewAll": {
     "description": "View All label"

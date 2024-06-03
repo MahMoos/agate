@@ -8,13 +8,10 @@ class LectureController extends _$LectureController {
 
   @override
   Future<Lecture> build(String id) async {
-    _getLecture = GetLecture(ref.watch(courseRepositoryProvider));
-    _subscribeToLecture = SubscribeToLecture(
-      ref.watch(courseRepositoryProvider),
-    );
-    _watchLecture = WatchLecture(
-      ref.watch(courseRepositoryProvider),
-    );
+    final repository = await ref.read(courseRepositoryProvider.future);
+    _getLecture = GetLecture(repository);
+    _subscribeToLecture = SubscribeToLecture(repository);
+    _watchLecture = WatchLecture(repository);
     return _getLecture(id);
   }
 
@@ -42,7 +39,8 @@ class Lectures extends _$Lectures with PaginationController<Lecture> {
     required String courseId,
     required String sectionId,
   }) async {
-    _getLectures = GetLectures(ref.watch(courseRepositoryProvider));
+    _getLectures =
+        GetLectures(await ref.watch(courseRepositoryProvider.future));
     paginatedParams = LecturesParams(courseId: courseId, sectionId: sectionId);
     return loadData();
   }

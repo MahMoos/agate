@@ -85,7 +85,10 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                         ),
                         const Spacer(),
                         ElevatedButton.icon(
-                          onPressed: auth.signOut,
+                          onPressed: () async {
+                            await auth.signOut();
+                            ref.invalidate(authServiceProvider);
+                          },
                           style: ButtonStyle(
                             backgroundColor: WidgetStatePropertyAll(
                               context.theme.colorScheme.error,

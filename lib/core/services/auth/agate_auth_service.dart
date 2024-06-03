@@ -78,13 +78,17 @@ class AgateAuthService implements AuthService {
 
   Future<User?> _getUser() async {
     try {
-      return DioHttpService().get<User>(
+      final user = await DioHttpService().get<User>(
         ApiRoutes.myProfile,
         parser: (json) => User.fromJson(json as Map<String, dynamic>),
         headers: {'Authorization': 'Bearer $_accessToken'},
       );
+      return user;
     } on Exception catch (e) {
       if (kDebugMode) print(e);
+      if (e is UnauthorizedException) {
+        await signOut();
+      }
     }
     return null;
   }

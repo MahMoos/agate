@@ -35,17 +35,15 @@ class App extends ConsumerStatefulWidget {
 }
 
 class _AppState extends ConsumerState<App> {
-  late GoRouter _router;
-
   @override
   void initState() {
     super.initState();
-    _router = AgateRouter.router(ref);
     initApp();
   }
 
   Future<void> initApp() async {
     await ref.read(preferencesControllerProvider.future);
+    await ref.read(authServiceProvider.future);
   }
 
   @override
@@ -57,11 +55,17 @@ class _AppState extends ConsumerState<App> {
       locale: Locale(
         ref.watch(preferencesControllerProvider).value?.language ?? 'ar',
       ),
+      builder: (context, child) => ColoredBox(
+        color: Theme.of(context).brightness == Brightness.light
+            ? AppTheme.light().scaffoldBackgroundColor
+            : AppTheme.dark().scaffoldBackgroundColor,
+        child: child,
+      ),
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       themeMode: ref.watch(preferencesControllerProvider).value?.themeMode,
       debugShowCheckedModeBanner: false,
-      routerConfig: _router,
+      routerConfig: ref.watch(routerProvider),
     );
   }
 }

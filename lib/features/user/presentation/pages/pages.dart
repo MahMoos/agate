@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
+import '../../../../common/gen/assets.gen.dart';
 import '../../../../common/widgets/widgets.dart';
+import '../../../../core/exceptions/http_exception.dart';
 import '../../../../core/extensions/extensions.dart';
 import '../../../../core/models/models.dart';
 import '../../../../core/services/auth/auth_service.dart';

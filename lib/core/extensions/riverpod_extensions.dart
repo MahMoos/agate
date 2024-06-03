@@ -16,7 +16,7 @@ extension DebounceAndCancelExtension<T> on Ref<T> {
     if (didDispose) {
       throw Exception('Cancelled');
     }
-    final service = read(httpServiceProvider);
+    final service = await read(httpServiceProvider.future);
     onDispose(service.close);
     return service;
   }

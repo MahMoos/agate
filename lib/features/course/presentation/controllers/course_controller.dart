@@ -7,16 +7,13 @@ class CourseController extends _$CourseController {
 
   @override
   Future<CourseDetails> build(String id) async {
-    _getCourse = GetCourse(ref.watch(courseRepositoryProvider));
-    _subscribeToCourse = SubscribeToCourse(ref.watch(courseRepositoryProvider));
+    final repository = await ref.read(courseRepositoryProvider.future);
+    _getCourse = GetCourse(repository);
+    _subscribeToCourse = SubscribeToCourse(repository);
     return _getCourse(id);
   }
 
   Future<bool> subscribe() async {
-    final result = await _subscribeToCourse(id);
-    if (result) {
-      ref.invalidate(courseControllerProvider(id));
-    }
-    return result;
+    return _subscribeToCourse(id);
   }
 }
