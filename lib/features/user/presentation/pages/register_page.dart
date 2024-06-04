@@ -17,13 +17,13 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     super.didChangeDependencies();
     form = fb.group({
       'name': ['', Validators.required],
-      'username': ['', Validators.required],
       'email': ['', Validators.email],
       'phone': [
         '',
         Validators.required,
         Validators.pattern(r'^(((?:\+|00)964)|(0)*)7\d{9}'),
       ],
+      'username': ['', Validators.required, Validators.maxLength(16)],
       'password': ['', Validators.required, Validators.minLength(8)],
       'passwordConfirmation': '',
     }, [
@@ -70,22 +70,16 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                 children: <Widget>[
                   ReactiveTextField<String>(
                     formControlName: 'name',
+                    autofillHints: const [AutofillHints.name],
                     decoration: InputDecoration(
                       hintText: context.strings.fullName,
                       prefixIcon: const Icon(Icons.perm_identity_rounded),
-                    ),
-                    onSubmitted: (_) => form.focus('username'),
-                  ).paddingSymmetric(vertical: 8, horizontal: 16),
-                  ReactiveTextField<String>(
-                    formControlName: 'username',
-                    decoration: InputDecoration(
-                      hintText: context.strings.username,
-                      prefixIcon: const Icon(Icons.alternate_email_rounded),
                     ),
                     onSubmitted: (_) => form.focus('email'),
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'email',
+                    autofillHints: const [AutofillHints.email],
                     decoration: InputDecoration(
                       hintText: context.strings.email,
                       prefixIcon: const Icon(Icons.email_rounded),
@@ -94,15 +88,28 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'phone',
+                    autofillHints: const [
+                      AutofillHints.telephoneNumberNational
+                    ],
                     decoration: InputDecoration(
                       hintText: context.strings.phone,
                       prefixIcon: const Icon(Icons.phone_rounded),
                     ),
                     keyboardType: TextInputType.phone,
+                    onSubmitted: (_) => form.focus('username'),
+                  ).paddingSymmetric(vertical: 8, horizontal: 16),
+                  ReactiveTextField<String>(
+                    formControlName: 'username',
+                    autofillHints: const [AutofillHints.newUsername],
+                    decoration: InputDecoration(
+                      hintText: context.strings.username,
+                      prefixIcon: const Icon(Icons.alternate_email_rounded),
+                    ),
                     onSubmitted: (_) => form.focus('password'),
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'password',
+                    autofillHints: const [AutofillHints.newPassword],
                     decoration: InputDecoration(
                       hintText: context.strings.password,
                       prefixIcon: const Icon(Icons.password_rounded),
@@ -112,6 +119,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'passwordConfirmation',
+                    autofillHints: const [AutofillHints.password],
                     decoration: InputDecoration(
                       hintText: context.strings.confirmPassword,
                       prefixIcon: const Icon(Icons.password_rounded),
@@ -157,6 +165,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   }
 
   Future<void> _submit() async {
+    TextInput.finishAutofillContext();
     final auth = await ref.watch(authServiceProvider.future);
     try {
       setState(() => _isLoading = true);

@@ -62,6 +62,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 children: [
                   ReactiveTextField<String>(
                     formControlName: 'username',
+                    autofillHints: const [AutofillHints.username],
                     decoration: InputDecoration(
                       hintText: context.strings.username,
                       prefixIcon: const Icon(Icons.alternate_email_rounded),
@@ -70,6 +71,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveTextField<String>(
                     formControlName: 'password',
+                    autofillHints: const [AutofillHints.password],
                     decoration: InputDecoration(
                       hintText: context.strings.password,
                       prefixIcon: const Icon(Icons.password_rounded),
@@ -105,6 +107,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Future<void> _submit() async {
+    TextInput.finishAutofillContext();
     final auth = await ref.watch(authServiceProvider.future);
     try {
       setState(() => _isLoading = true);
