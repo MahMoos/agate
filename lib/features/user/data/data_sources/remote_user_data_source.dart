@@ -29,11 +29,11 @@ class RemoteUserDataSource extends UserDataSource implements RemoteDataSource {
       parser: (json) => (
         BalanceModel(
           balance: (json as Map<String, dynamic>)['amount'] as num,
-          currency: json['currency'] as String,
+          currency: json['currency'] as String? ?? 'IQD',
         ),
         BalanceModel(
           balance: json['balance'] as num,
-          currency: json['currency'] as String,
+          currency: json['currency'] as String? ?? 'IQD',
         )
       ),
       data: null,

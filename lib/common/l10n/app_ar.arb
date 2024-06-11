@@ -51,8 +51,9 @@
   "deposit": "إيداع",
   "pin": "الرمز السري",
   "availableBalance": "الرصيد المتوفر",
-  "depositSuccessfully": "تم شحن مبلغ {amount} بنجاح. الرصيد الجديد: {balance}",
+  "depositSuccessfully": "تم شحن مبلغ {balance} بنجاح. الرصيد الجديد: {amount}",
   "profile": "الملف الشخصي",
   "language": "اللغة",
-  "brightness": "الإضاءة"
+  "brightness": "الإضاءة",
+  "couponNotFound": "هذا الرمز غير موجود"
 }

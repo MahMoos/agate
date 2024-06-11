@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../common/api/api.dart';
+import '../../../../common/router/agate_router.dart';
+import '../../../../core/exceptions/http_exception.dart';
 import '../../../../core/extensions/extensions.dart';
 import '../../data/data_sources/agate_course_data_source.dart';
 import '../../data/repositories/agate_course_repository.dart';
@@ -21,8 +23,12 @@ Future<CourseRepository> courseRepository(CourseRepositoryRef ref) async {
   );
 }
 
-void handleSubscriptionException(BuildContext context, Exception e) {
-  if (e.toString().contains('wallet') || e.toString().contains('balance')) {
+FutureOr<Null> handleSubscriptionException(Object e) {
+  final context = rootNavigatorKey.currentContext;
+  if (context == null) return null;
+  if (e is HttpException &&
+      e.message != null &&
+      (e.message!.contains('wallet') || e.message!.contains('balance'))) {
     context.showSnackBar(
       SnackBar(
         content: Text(context.strings.walletEmpty),

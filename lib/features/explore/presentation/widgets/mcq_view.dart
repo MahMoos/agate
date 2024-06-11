@@ -26,35 +26,38 @@ class _McqViewState extends State<McqView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      width: double.infinity,
+    return Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             widget.mcq.question,
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.displaySmall,
             textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 16),
+          ).paddingAll(8),
           ...widget.mcq.answerOptions.map(
             (answer) => RadioListTile(
-              title: Text(answer.text),
+              title: Text(
+                answer.text,
+                style: context.bodyMedium,
+              ),
               value: answer.id,
               groupValue: selectedOption,
               tileColor: selectedOption != null
                   ? answer.id == widget.mcq.correctAnswerId
                       ? Colors.green[300]
                       : Colors.red[300]
-                  : context.theme.colorScheme.secondary,
+                  : context.theme.cardColor,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(16)),
+              ),
               onChanged: (value) {
                 setState(() {
                   selectedOption = value;
                   widget.onOptionSelected?.call(value!);
                 });
               },
-            ),
+            ).paddingAll(4),
           ),
         ],
       ),

@@ -29,6 +29,7 @@ _$CourseDetailsModelImpl _$$CourseDetailsModelImplFromJson(
       currentSectionId: json['currentSectionId'] as String?,
       promoUrl: json['promoUrl'] as String?,
       imageUrl: json['imageUrl'] as String?,
+      isSubscribed: json['isSubscribed'] as bool? ?? false,
     );
 
 _$LectureModelImpl _$$LectureModelImplFromJson(Map<String, dynamic> json) =>
@@ -40,7 +41,7 @@ _$LectureModelImpl _$$LectureModelImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       videoUrl: json['videoUrl'] as String?,
       imageUrl: json['imageUrl'] as String?,
-      duration: json['duration'] as String?,
+      duration: (json['duration'] as num?)?.toDouble() ?? 0,
       completedDuration: json['completedDuration'] as String?,
       isCompleted: json['isCompleted'] as bool? ?? false,
       price: (json['price'] as num?)?.toDouble() ?? 0,

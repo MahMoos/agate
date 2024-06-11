@@ -30,7 +30,7 @@ class SearchAppBar extends ConsumerWidget {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(28),
               ),
-              prefixIcon: context.canPop()
+              prefixIcon: rootNavigatorKey.currentContext!.canPop()
                   ? IconButton(
                       onPressed: () => context.pop(),
                       icon: const Icon(Icons.arrow_back),

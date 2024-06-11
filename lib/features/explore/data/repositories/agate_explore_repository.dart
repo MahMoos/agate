@@ -57,9 +57,12 @@ class AgateExploreRepository extends BaseRepository
           lookup[department.parentId!] =
               parent.copyWith(subDepartments: [lookup[department.id]!]);
         } else {
-          lookup[department.parentId]!
-              .subDepartments!
-              .add(lookup[department.id]!);
+          lookup[department.parentId!] = parent.copyWith(
+            subDepartments: [
+              ...parent.subDepartments!,
+              lookup[department.id]!,
+            ],
+          );
         }
       } else {
         treeList.add(lookup[department.id]!);
@@ -74,7 +77,7 @@ class AgateExploreRepository extends BaseRepository
   }
 
   @override
-  Future<List<Subject>> getSubjects(PaginatedParams params) async {
+  Future<List<Subject>> getSubjects(SubjectsParams params) async {
     return (await remote.getSubjects(params)).map((e) => e.toEntity()).toList();
   }
 

@@ -25,5 +25,6 @@ abstract class CourseDataSource extends RemoteDataSource {
   Future<bool> watchLecture({
     required String courseId,
     required String lectureId,
+    required Duration duration,
   });
 }

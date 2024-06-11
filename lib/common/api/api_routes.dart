@@ -65,7 +65,7 @@ class ApiRoutes {
       );
 
   static Uri subject(String id) => _appUri(
-        '/subjects/$id}',
+        '/subjects/$id',
       );
 
   static Uri books(BooksParams params) => _appUri(
@@ -74,7 +74,7 @@ class ApiRoutes {
       );
 
   static Uri book(String id) => _appUri(
-        '/books/$id}',
+    '/books/$id',
       );
 
   static Uri mcqGames(McqGamesParams params) => _appUri(
@@ -83,7 +83,7 @@ class ApiRoutes {
       );
 
   static Uri mcqGame(String id) => _appUri(
-        '/mcqgames/$id}',
+    '/mcqgames/$id',
       );
 
   static Uri subscribeToCourse(String courseId) => _appUri(

@@ -14,18 +14,8 @@ class MyCoursesSlider extends StatelessWidget {
       primary: false,
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: [
-          const SizedBox(width: 8),
-          ...myCourses.map(
-            (e) => MyCourseCard(
-              myCourse: e,
-            ),
-          ),
-          // TODO(MahMoos): get rid of this.
-          if (myCourses.length == 1) SizedBox(width: context.width - 304),
-          const SizedBox(width: 8),
-        ],
-      ),
+        children: myCourses.map((e) => MyCourseCard(myCourse: e)).toList(),
+      ).paddingSymmetric(horizontal: 8),
     );
   }
 }

@@ -24,6 +24,9 @@ mixin _$Lecture {
   String? get videoUrl => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   List<LectureFile>? get files => throw _privateConstructorUsedError;
+
+  List<McqGame>? get mcqGames => throw _privateConstructorUsedError;
+
   Duration? get duration => throw _privateConstructorUsedError;
   Duration? get completedDuration => throw _privateConstructorUsedError;
   bool get isCompleted => throw _privateConstructorUsedError;
@@ -52,6 +55,7 @@ abstract class $LectureCopyWith<$Res> {
       String? videoUrl,
       String? imageUrl,
       List<LectureFile>? files,
+      List<McqGame>? mcqGames,
       Duration? duration,
       Duration? completedDuration,
       bool isCompleted,
@@ -84,6 +88,7 @@ class _$LectureCopyWithImpl<$Res, $Val extends Lecture>
     Object? videoUrl = freezed,
     Object? imageUrl = freezed,
     Object? files = freezed,
+    Object? mcqGames = freezed,
     Object? duration = freezed,
     Object? completedDuration = freezed,
     Object? isCompleted = null,
@@ -127,6 +132,10 @@ class _$LectureCopyWithImpl<$Res, $Val extends Lecture>
           ? _value.files
           : files // ignore: cast_nullable_to_non_nullable
               as List<LectureFile>?,
+      mcqGames: freezed == mcqGames
+          ? _value.mcqGames
+          : mcqGames // ignore: cast_nullable_to_non_nullable
+              as List<McqGame>?,
       duration: freezed == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
@@ -183,6 +192,7 @@ abstract class _$$LectureImplCopyWith<$Res> implements $LectureCopyWith<$Res> {
       String? videoUrl,
       String? imageUrl,
       List<LectureFile>? files,
+      List<McqGame>? mcqGames,
       Duration? duration,
       Duration? completedDuration,
       bool isCompleted,
@@ -213,6 +223,7 @@ class __$$LectureImplCopyWithImpl<$Res>
     Object? videoUrl = freezed,
     Object? imageUrl = freezed,
     Object? files = freezed,
+    Object? mcqGames = freezed,
     Object? duration = freezed,
     Object? completedDuration = freezed,
     Object? isCompleted = null,
@@ -256,6 +267,10 @@ class __$$LectureImplCopyWithImpl<$Res>
           ? _value._files
           : files // ignore: cast_nullable_to_non_nullable
               as List<LectureFile>?,
+      mcqGames: freezed == mcqGames
+          ? _value._mcqGames
+          : mcqGames // ignore: cast_nullable_to_non_nullable
+              as List<McqGame>?,
       duration: freezed == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
@@ -308,6 +323,7 @@ class _$LectureImpl implements _Lecture {
       this.videoUrl,
       this.imageUrl,
       final List<LectureFile>? files,
+      final List<McqGame>? mcqGames,
       this.duration,
       this.completedDuration,
       this.isCompleted = false,
@@ -317,7 +333,8 @@ class _$LectureImpl implements _Lecture {
       this.isSubscribed = false,
       this.rating,
       this.participants})
-      : _files = files;
+      : _files = files,
+        _mcqGames = mcqGames;
 
   @override
   final String id;
@@ -334,11 +351,23 @@ class _$LectureImpl implements _Lecture {
   @override
   final String? imageUrl;
   final List<LectureFile>? _files;
+
   @override
   List<LectureFile>? get files {
     final value = _files;
     if (value == null) return null;
     if (_files is EqualUnmodifiableListView) return _files;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<McqGame>? _mcqGames;
+
+  @override
+  List<McqGame>? get mcqGames {
+    final value = _mcqGames;
+    if (value == null) return null;
+    if (_mcqGames is EqualUnmodifiableListView) return _mcqGames;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -368,7 +397,7 @@ class _$LectureImpl implements _Lecture {
 
   @override
   String toString() {
-    return 'Lecture(id: $id, title: $title, sectionId: $sectionId, subjectId: $subjectId, description: $description, videoUrl: $videoUrl, imageUrl: $imageUrl, files: $files, duration: $duration, completedDuration: $completedDuration, isCompleted: $isCompleted, price: $price, currency: $currency, discount: $discount, isSubscribed: $isSubscribed, rating: $rating, participants: $participants)';
+    return 'Lecture(id: $id, title: $title, sectionId: $sectionId, subjectId: $subjectId, description: $description, videoUrl: $videoUrl, imageUrl: $imageUrl, files: $files, mcqGames: $mcqGames, duration: $duration, completedDuration: $completedDuration, isCompleted: $isCompleted, price: $price, currency: $currency, discount: $discount, isSubscribed: $isSubscribed, rating: $rating, participants: $participants)';
   }
 
   @override
@@ -389,6 +418,7 @@ class _$LectureImpl implements _Lecture {
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             const DeepCollectionEquality().equals(other._files, _files) &&
+            const DeepCollectionEquality().equals(other._mcqGames, _mcqGames) &&
             (identical(other.duration, duration) ||
                 other.duration == duration) &&
             (identical(other.completedDuration, completedDuration) ||
@@ -418,6 +448,7 @@ class _$LectureImpl implements _Lecture {
       videoUrl,
       imageUrl,
       const DeepCollectionEquality().hash(_files),
+      const DeepCollectionEquality().hash(_mcqGames),
       duration,
       completedDuration,
       isCompleted,
@@ -445,6 +476,7 @@ abstract class _Lecture implements Lecture {
       final String? videoUrl,
       final String? imageUrl,
       final List<LectureFile>? files,
+      final List<McqGame>? mcqGames,
       final Duration? duration,
       final Duration? completedDuration,
       final bool isCompleted,
@@ -461,24 +493,37 @@ abstract class _Lecture implements Lecture {
   String get title;
   @override
   String get sectionId;
+
   @override
   String? get subjectId;
+
   @override
   String? get description;
+
   @override
   String? get videoUrl;
+
   @override
   String? get imageUrl;
+
   @override
   List<LectureFile>? get files;
+
+  @override
+  List<McqGame>? get mcqGames;
+
   @override
   Duration? get duration;
+
   @override
   Duration? get completedDuration;
+
   @override
   bool get isCompleted;
+
   @override
   double get price;
+
   @override
   String get currency;
   @override

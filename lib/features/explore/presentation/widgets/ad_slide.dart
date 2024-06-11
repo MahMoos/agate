@@ -17,7 +17,7 @@ class AdSlide extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
         onTap: () {
-          if (url != null) {
+          if (url != null && url!.isNotEmpty) {
             final uri = Uri.tryParse(url!);
             uri != null && !url!.startsWith('/')
                 ? launchUrl(uri)

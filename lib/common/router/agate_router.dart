@@ -233,6 +233,7 @@ class AgateRouter {
                     .watch(
                       lectureControllerProvider(
                         state.pathParameters['lectureId']!,
+                        state.pathParameters['courseId']!,
                       ),
                     )
                     .value

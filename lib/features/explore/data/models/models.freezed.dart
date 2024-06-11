@@ -534,6 +534,8 @@ mixin _$McqGameModel {
   String get id => throw _privateConstructorUsedError;
   String get question => throw _privateConstructorUsedError;
   int get correctAnswerId => throw _privateConstructorUsedError;
+
+  @JsonKey(name: 'answerOption')
   List<McqAnswerModel> get answerOptions => throw _privateConstructorUsedError;
   String? get subjectId => throw _privateConstructorUsedError;
   int? get rate => throw _privateConstructorUsedError;
@@ -554,7 +556,7 @@ abstract class $McqGameModelCopyWith<$Res> {
       {String id,
       String question,
       int correctAnswerId,
-      List<McqAnswerModel> answerOptions,
+      @JsonKey(name: 'answerOption') List<McqAnswerModel> answerOptions,
       String? subjectId,
       int? rate});
 }
@@ -620,7 +622,7 @@ abstract class _$$McqGameModelImplCopyWith<$Res>
       {String id,
       String question,
       int correctAnswerId,
-      List<McqAnswerModel> answerOptions,
+      @JsonKey(name: 'answerOption') List<McqAnswerModel> answerOptions,
       String? subjectId,
       int? rate});
 }
@@ -679,6 +681,7 @@ class _$McqGameModelImpl implements _McqGameModel {
       {required this.id,
       required this.question,
       required this.correctAnswerId,
+        @JsonKey(name: 'answerOption')
       required final List<McqAnswerModel> answerOptions,
       this.subjectId,
       this.rate})
@@ -694,7 +697,9 @@ class _$McqGameModelImpl implements _McqGameModel {
   @override
   final int correctAnswerId;
   final List<McqAnswerModel> _answerOptions;
+
   @override
+  @JsonKey(name: 'answerOption')
   List<McqAnswerModel> get answerOptions {
     if (_answerOptions is EqualUnmodifiableListView) return _answerOptions;
     // ignore: implicit_dynamic_type
@@ -752,6 +757,7 @@ abstract class _McqGameModel implements McqGameModel {
       {required final String id,
       required final String question,
       required final int correctAnswerId,
+        @JsonKey(name: 'answerOption')
       required final List<McqAnswerModel> answerOptions,
       final String? subjectId,
       final int? rate}) = _$McqGameModelImpl;
@@ -765,7 +771,9 @@ abstract class _McqGameModel implements McqGameModel {
   String get question;
   @override
   int get correctAnswerId;
+
   @override
+  @JsonKey(name: 'answerOption')
   List<McqAnswerModel> get answerOptions;
   @override
   String? get subjectId;

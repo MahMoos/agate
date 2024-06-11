@@ -16,7 +16,7 @@ abstract class ExploreRepository {
 
   Future<Subject> getSubject(String id);
 
-  Future<List<Subject>> getSubjects(PaginatedParams params);
+  Future<List<Subject>> getSubjects(SubjectsParams params);
 
   Future<Book> getBook(String id);
 

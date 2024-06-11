@@ -19,6 +19,7 @@ class CourseDetailsModel with _$CourseDetailsModel {
     String? currentSectionId,
     String? promoUrl,
     String? imageUrl,
+    @Default(false) bool isSubscribed,
   }) = _CourseDetailsModel;
 
   factory CourseDetailsModel.fromJson(Map<String, dynamic> json) =>
@@ -43,5 +44,6 @@ extension CourseDetailsModelEx on CourseDetailsModel {
         currentSectionId: currentSectionId,
         promoUrl: promoUrl,
         imageUrl: imageUrl,
+        isSubscribed: isSubscribed,
       );
 }

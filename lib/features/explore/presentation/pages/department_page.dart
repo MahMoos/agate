@@ -49,7 +49,8 @@ class _DepartmentPageState extends State<DepartmentPage>
               body: TabBarView(
                 children: [
                   EndlessAnimatedListView(
-                    provider: subjectsProvider,
+                    provider:
+                        subjectsProvider(SubjectsParams(divisionId: widget.id)),
                     itemBuilder: (context, subject) => SizedBox(
                       height: 178,
                       child: ShortcutCard(

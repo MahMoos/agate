@@ -21,7 +21,6 @@ final courseRepositoryProvider = FutureProvider<CourseRepository>.internal(
 );
 
 typedef CourseRepositoryRef = FutureProviderRef<CourseRepository>;
-
 String _$sectionHash() => r'cac14e57d2269d106e24697521ca44e27bb1d4ac';
 
 /// Copied from Dart SDK
@@ -314,13 +313,15 @@ class _CourseControllerProviderElement
   String get id => (origin as CourseControllerProvider).id;
 }
 
-String _$lectureControllerHash() => r'ad529ac391d713bdf1595ecbd7a7bbdab5b2cb13';
+String _$lectureControllerHash() => r'66221a408282e6cbaca633b0e298c25de67fb39c';
 
 abstract class _$LectureController extends BuildlessAsyncNotifier<Lecture> {
   late final String id;
+  late final String courseId;
 
   FutureOr<Lecture> build(
     String id,
+    String courseId,
   );
 }
 
@@ -336,9 +337,11 @@ class LectureControllerFamily extends Family<AsyncValue<Lecture>> {
   /// See also [LectureController].
   LectureControllerProvider call(
     String id,
+    String courseId,
   ) {
     return LectureControllerProvider(
       id,
+      courseId,
     );
   }
 
@@ -348,6 +351,7 @@ class LectureControllerFamily extends Family<AsyncValue<Lecture>> {
   ) {
     return call(
       provider.id,
+      provider.courseId,
     );
   }
 
@@ -372,8 +376,11 @@ class LectureControllerProvider
   /// See also [LectureController].
   LectureControllerProvider(
     String id,
+    String courseId,
   ) : this._internal(
-          () => LectureController()..id = id,
+          () => LectureController()
+            ..id = id
+            ..courseId = courseId,
           from: lectureControllerProvider,
           name: r'lectureControllerProvider',
           debugGetCreateSourceHash:
@@ -384,6 +391,7 @@ class LectureControllerProvider
           allTransitiveDependencies:
               LectureControllerFamily._allTransitiveDependencies,
           id: id,
+          courseId: courseId,
         );
 
   LectureControllerProvider._internal(
@@ -394,9 +402,11 @@ class LectureControllerProvider
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.id,
+    required this.courseId,
   }) : super.internal();
 
   final String id;
+  final String courseId;
 
   @override
   FutureOr<Lecture> runNotifierBuild(
@@ -404,6 +414,7 @@ class LectureControllerProvider
   ) {
     return notifier.build(
       id,
+      courseId,
     );
   }
 
@@ -412,13 +423,16 @@ class LectureControllerProvider
     return ProviderOverride(
       origin: this,
       override: LectureControllerProvider._internal(
-        () => create()..id = id,
+        () => create()
+          ..id = id
+          ..courseId = courseId,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         id: id,
+        courseId: courseId,
       ),
     );
   }
@@ -430,13 +444,16 @@ class LectureControllerProvider
 
   @override
   bool operator ==(Object other) {
-    return other is LectureControllerProvider && other.id == id;
+    return other is LectureControllerProvider &&
+        other.id == id &&
+        other.courseId == courseId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, id.hashCode);
+    hash = _SystemHash.combine(hash, courseId.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -445,6 +462,9 @@ class LectureControllerProvider
 mixin LectureControllerRef on AsyncNotifierProviderRef<Lecture> {
   /// The parameter `id` of this provider.
   String get id;
+
+  /// The parameter `courseId` of this provider.
+  String get courseId;
 }
 
 class _LectureControllerProviderElement
@@ -454,6 +474,9 @@ class _LectureControllerProviderElement
 
   @override
   String get id => (origin as LectureControllerProvider).id;
+
+  @override
+  String get courseId => (origin as LectureControllerProvider).courseId;
 }
 
 String _$lecturesHash() => r'c541f53a831635c6b9578983b0a279286455a9c8';

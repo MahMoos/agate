@@ -6,7 +6,7 @@ class SubjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EndlessAnimatedListView(
-      provider: subjectsProvider,
+      provider: subjectsProvider(const SubjectsParams()),
       sliverAppBar: const SearchAppBar(),
       itemBuilder: (context, subject) {
         return SizedBox(

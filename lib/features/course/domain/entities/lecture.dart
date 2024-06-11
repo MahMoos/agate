@@ -11,6 +11,7 @@ class Lecture with _$Lecture {
     String? videoUrl,
     String? imageUrl,
     List<LectureFile>? files,
+    List<McqGame>? mcqGames,
     Duration? duration,
     Duration? completedDuration,
     @Default(false) bool isCompleted,

@@ -21,7 +21,12 @@ class LecturePageState extends ConsumerState<LecturePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ref.watch(lectureControllerProvider(widget.lectureId)).when(
+    final lectureController = ref.read(
+      lectureControllerProvider(widget.lectureId, widget.courseId).notifier,
+    );
+    return ref
+        .watch(lectureControllerProvider(widget.lectureId, widget.courseId))
+        .when(
           data: (lecture) {
             return Scaffold(
               appBar: AppBar(
@@ -36,15 +41,18 @@ class LecturePageState extends ConsumerState<LecturePage> {
                       completedDuration: lecture.completedDuration,
                       onProgress: (duration) {
                         completedDuration = duration;
-                        // ref
-                        //     .read(
-                        //   lectureControllerProvider(widget.lectureId)
-                        //       .notifier,
-                        // )
-                        //     .watch(widget.courseId);
+                        try {
+                          EasyThrottle.throttle(
+                            'watch_lecture:${lecture.id}',
+                            const Duration(seconds: 10),
+                            () => lectureController.watch(duration),
+                          );
+                        } on Exception catch (e) {
+                          debugPrint(e.toString());
+                        }
                       },
                     )
-                  else
+                  else if (lecture.videoUrl != null)
                     LectureImage(
                       imageUrl: lecture.imageUrl,
                       width: context.width,
@@ -54,27 +62,18 @@ class LecturePageState extends ConsumerState<LecturePage> {
                       price: lecture.price,
                       currency: lecture.currency,
                       discount: lecture.discount,
-                      onSubscribed: () async {
+                      onSubscribed: () {
                         context.showSnackBar(
                           const SnackBar(content: LinearProgressIndicator()),
                         );
-                        try {
-                          final result = await ref
-                              .read(
-                                lectureControllerProvider(widget.lectureId)
-                                    .notifier,
-                              )
-                              .subscribe(widget.courseId);
-                          if (mounted && result) {
-                            context.showSnackBarMessage(
-                              context.strings.subscriptionSuccessful,
-                            );
-                          }
-                        } on Exception catch (e) {
-                          if (mounted) {
-                            handleSubscriptionException(context, e);
-                          }
-                        }
+                        lectureController
+                            .subscribe()
+                            .then(
+                              (result) => context.showSnackBarMessage(
+                                context.strings.subscriptionSuccessful,
+                              ),
+                            )
+                            .catchError(handleSubscriptionException);
                       },
                     )
                   else
@@ -95,8 +94,10 @@ class LecturePageState extends ConsumerState<LecturePage> {
               title: const Text('...'),
             ),
             body: StatusView.anErrorOccurred(
-              action: () => ref
-                  .refresh(lectureControllerProvider(widget.lectureId).future),
+              action: () => ref.refresh(
+                lectureControllerProvider(widget.lectureId, widget.courseId)
+                    .future,
+              ),
             ),
           ),
           loading: () => Scaffold(

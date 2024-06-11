@@ -14,9 +14,7 @@ class SubjectPage extends StatelessWidget {
       length: 2,
       child: Consumer(
         builder: (context, ref, child) {
-          final subject = ref.watch(
-            subjectProvider(id),
-          );
+          final subject = ref.watch(subjectProvider(id));
           return subject.when(
             data: (subject) => Scaffold(
               appBar: AppBar(

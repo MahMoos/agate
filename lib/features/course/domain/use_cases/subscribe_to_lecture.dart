@@ -1,15 +1,15 @@
 part of 'use_cases.dart';
 
-class SubscribeToLecture with UseCase<bool, List<String>> {
+class SubscribeToLecture with UseCase<bool, LectureParams> {
   const SubscribeToLecture(this.repository);
 
   final CourseRepository repository;
 
   @override
-  Future<bool> call(List<String> params) {
+  Future<bool> call(LectureParams params) {
     return repository.subscribeToLecture(
-      courseId: params[0],
-      lectureId: params[1],
+      courseId: params.courseId,
+      lectureId: params.lectureId,
     );
   }
 }

@@ -6,7 +6,7 @@ class McqGameModel with _$McqGameModel {
     required String id,
     required String question,
     required int correctAnswerId,
-    required List<McqAnswerModel> answerOptions,
+    @JsonKey(name: 'answerOption') required List<McqAnswerModel> answerOptions,
     String? subjectId,
     int? rate,
   }) = _McqGameModel;

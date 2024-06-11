@@ -6,26 +6,36 @@ class LectureController extends _$LectureController {
   late SubscribeToLecture _subscribeToLecture;
   late WatchLecture _watchLecture;
 
+  late String _courseId;
+
   @override
-  Future<Lecture> build(String id) async {
+  Future<Lecture> build(String id, String courseId) async {
     final repository = await ref.read(courseRepositoryProvider.future);
     _getLecture = GetLecture(repository);
     _subscribeToLecture = SubscribeToLecture(repository);
     _watchLecture = WatchLecture(repository);
+    _courseId = courseId;
     return _getLecture(id);
   }
 
-  Future<bool> subscribe(String courseId) async {
-    final result = await _subscribeToLecture([courseId, id]);
+  Future<bool> subscribe() async {
+    final result = await _subscribeToLecture(
+      LectureParams(lectureId: id, courseId: _courseId),
+    );
     if (result) {
-      ref.invalidate(lectureControllerProvider(id));
+      ref.invalidate(lectureControllerProvider(id, _courseId));
     }
     return result;
   }
 
-  // TODO(MahMoos): add duration to watchLecture
-  Future<bool> watch(String courseId) async {
-    final result = await _watchLecture([courseId, id]);
+  Future<bool> watch(Duration duration) async {
+    final result = await _watchLecture(
+      LectureParams(
+        lectureId: id,
+        courseId: _courseId,
+        completedDuration: duration,
+      ),
+    );
     return result;
   }
 }

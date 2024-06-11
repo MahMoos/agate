@@ -7,4 +7,5 @@ part 'params/courses_params.dart';
 part 'params/lectures_params.dart';
 part 'params/mcq_games_params.dart';
 part 'params/sections_params.dart';
+part 'params/subjects_params.dart';
 part 'params/transactions_params.dart';

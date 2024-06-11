@@ -52,7 +52,12 @@ class AgateCourseRepository extends BaseRepository implements CourseRepository {
   Future<bool> watchLecture({
     required String courseId,
     required String lectureId,
+    required Duration duration,
   }) async {
-    return remote.watchLecture(courseId: courseId, lectureId: lectureId);
+    return remote.watchLecture(
+      courseId: courseId,
+      lectureId: lectureId,
+      duration: duration,
+    );
   }
 }

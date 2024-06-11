@@ -37,6 +37,8 @@ mixin _$CourseDetailsModel {
   String? get promoUrl => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
 
+  bool get isSubscribed => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $CourseDetailsModelCopyWith<CourseDetailsModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -64,7 +66,8 @@ abstract class $CourseDetailsModelCopyWith<$Res> {
       String? currentLectureId,
       String? currentSectionId,
       String? promoUrl,
-      String? imageUrl});
+      String? imageUrl,
+      bool isSubscribed});
 }
 
 /// @nodoc
@@ -96,6 +99,7 @@ class _$CourseDetailsModelCopyWithImpl<$Res, $Val extends CourseDetailsModel>
     Object? currentSectionId = freezed,
     Object? promoUrl = freezed,
     Object? imageUrl = freezed,
+    Object? isSubscribed = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -162,6 +166,10 @@ class _$CourseDetailsModelCopyWithImpl<$Res, $Val extends CourseDetailsModel>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSubscribed: null == isSubscribed
+          ? _value.isSubscribed
+          : isSubscribed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -190,7 +198,8 @@ abstract class _$$CourseDetailsModelImplCopyWith<$Res>
       String? currentLectureId,
       String? currentSectionId,
       String? promoUrl,
-      String? imageUrl});
+      String? imageUrl,
+      bool isSubscribed});
 }
 
 /// @nodoc
@@ -220,6 +229,7 @@ class __$$CourseDetailsModelImplCopyWithImpl<$Res>
     Object? currentSectionId = freezed,
     Object? promoUrl = freezed,
     Object? imageUrl = freezed,
+    Object? isSubscribed = null,
   }) {
     return _then(_$CourseDetailsModelImpl(
       id: null == id
@@ -286,6 +296,10 @@ class __$$CourseDetailsModelImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSubscribed: null == isSubscribed
+          ? _value.isSubscribed
+          : isSubscribed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -309,7 +323,8 @@ class _$CourseDetailsModelImpl implements _CourseDetailsModel {
       this.currentLectureId,
       this.currentSectionId,
       this.promoUrl,
-      this.imageUrl})
+      this.imageUrl,
+      this.isSubscribed = false})
       : _teachers = teachers,
         _sections = sections;
 
@@ -369,10 +384,13 @@ class _$CourseDetailsModelImpl implements _CourseDetailsModel {
   final String? promoUrl;
   @override
   final String? imageUrl;
+  @override
+  @JsonKey()
+  final bool isSubscribed;
 
   @override
   String toString() {
-    return 'CourseDetailsModel(id: $id, name: $name, description: $description, teachers: $teachers, totalLectures: $totalLectures, completedLectures: $completedLectures, price: $price, currency: $currency, discount: $discount, participants: $participants, rating: $rating, sections: $sections, currentLectureId: $currentLectureId, currentSectionId: $currentSectionId, promoUrl: $promoUrl, imageUrl: $imageUrl)';
+    return 'CourseDetailsModel(id: $id, name: $name, description: $description, teachers: $teachers, totalLectures: $totalLectures, completedLectures: $completedLectures, price: $price, currency: $currency, discount: $discount, participants: $participants, rating: $rating, sections: $sections, currentLectureId: $currentLectureId, currentSectionId: $currentSectionId, promoUrl: $promoUrl, imageUrl: $imageUrl, isSubscribed: $isSubscribed)';
   }
 
   @override
@@ -405,7 +423,9 @@ class _$CourseDetailsModelImpl implements _CourseDetailsModel {
             (identical(other.promoUrl, promoUrl) ||
                 other.promoUrl == promoUrl) &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            (identical(other.isSubscribed, isSubscribed) ||
+                other.isSubscribed == isSubscribed));
   }
 
   @JsonKey(ignore: true)
@@ -427,7 +447,8 @@ class _$CourseDetailsModelImpl implements _CourseDetailsModel {
       currentLectureId,
       currentSectionId,
       promoUrl,
-      imageUrl);
+      imageUrl,
+      isSubscribed);
 
   @JsonKey(ignore: true)
   @override
@@ -454,7 +475,8 @@ abstract class _CourseDetailsModel implements CourseDetailsModel {
       final String? currentLectureId,
       final String? currentSectionId,
       final String? promoUrl,
-      final String? imageUrl}) = _$CourseDetailsModelImpl;
+      final String? imageUrl,
+      final bool isSubscribed}) = _$CourseDetailsModelImpl;
 
   factory _CourseDetailsModel.fromJson(Map<String, dynamic> json) =
       _$CourseDetailsModelImpl.fromJson;
@@ -483,14 +505,22 @@ abstract class _CourseDetailsModel implements CourseDetailsModel {
   double? get rating;
   @override
   List<SectionModel>? get sections;
+
   @override
   String? get currentLectureId;
+
   @override
   String? get currentSectionId;
+
   @override
   String? get promoUrl;
+
   @override
   String? get imageUrl;
+
+  @override
+  bool get isSubscribed;
+
   @override
   @JsonKey(ignore: true)
   _$$CourseDetailsModelImplCopyWith<_$CourseDetailsModelImpl> get copyWith =>
@@ -511,7 +541,8 @@ mixin _$LectureModel {
   String? get videoUrl => throw _privateConstructorUsedError;
   String? get imageUrl =>
       throw _privateConstructorUsedError; // List<LectureFile>? files,
-  String? get duration => throw _privateConstructorUsedError;
+  double get duration => throw _privateConstructorUsedError;
+
   String? get completedDuration => throw _privateConstructorUsedError;
   bool get isCompleted => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
@@ -540,7 +571,7 @@ abstract class $LectureModelCopyWith<$Res> {
       String? description,
       String? videoUrl,
       String? imageUrl,
-      String? duration,
+      double duration,
       String? completedDuration,
       bool isCompleted,
       double price,
@@ -571,7 +602,7 @@ class _$LectureModelCopyWithImpl<$Res, $Val extends LectureModel>
     Object? description = freezed,
     Object? videoUrl = freezed,
     Object? imageUrl = freezed,
-    Object? duration = freezed,
+    Object? duration = null,
     Object? completedDuration = freezed,
     Object? isCompleted = null,
     Object? price = null,
@@ -610,10 +641,10 @@ class _$LectureModelCopyWithImpl<$Res, $Val extends LectureModel>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      duration: freezed == duration
+      duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double,
       completedDuration: freezed == completedDuration
           ? _value.completedDuration
           : completedDuration // ignore: cast_nullable_to_non_nullable
@@ -666,7 +697,7 @@ abstract class _$$LectureModelImplCopyWith<$Res>
       String? description,
       String? videoUrl,
       String? imageUrl,
-      String? duration,
+      double duration,
       String? completedDuration,
       bool isCompleted,
       double price,
@@ -695,7 +726,7 @@ class __$$LectureModelImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? videoUrl = freezed,
     Object? imageUrl = freezed,
-    Object? duration = freezed,
+    Object? duration = null,
     Object? completedDuration = freezed,
     Object? isCompleted = null,
     Object? price = null,
@@ -734,10 +765,10 @@ class __$$LectureModelImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      duration: freezed == duration
+      duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double,
       completedDuration: freezed == completedDuration
           ? _value.completedDuration
           : completedDuration // ignore: cast_nullable_to_non_nullable
@@ -785,7 +816,7 @@ class _$LectureModelImpl implements _LectureModel {
       this.description,
       this.videoUrl,
       this.imageUrl,
-      this.duration,
+      this.duration = 0,
       this.completedDuration,
       this.isCompleted = false,
       this.price = 0,
@@ -812,9 +843,11 @@ class _$LectureModelImpl implements _LectureModel {
   final String? videoUrl;
   @override
   final String? imageUrl;
+
 // List<LectureFile>? files,
   @override
-  final String? duration;
+  @JsonKey()
+  final double duration;
   @override
   final String? completedDuration;
   @override
@@ -913,7 +946,7 @@ abstract class _LectureModel implements LectureModel {
       final String? description,
       final String? videoUrl,
       final String? imageUrl,
-      final String? duration,
+      final double duration,
       final String? completedDuration,
       final bool isCompleted,
       final double price,
@@ -938,10 +971,13 @@ abstract class _LectureModel implements LectureModel {
   String? get description;
   @override
   String? get videoUrl;
+
   @override
   String? get imageUrl;
+
   @override // List<LectureFile>? files,
-  String? get duration;
+  double get duration;
+
   @override
   String? get completedDuration;
   @override

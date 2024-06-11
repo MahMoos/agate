@@ -56,7 +56,7 @@ class AgateExploreDataSource extends ExploreDataSource {
   }
 
   @override
-  Future<List<SubjectModel>> getSubjects(PaginatedParams params) {
+  Future<List<SubjectModel>> getSubjects(SubjectsParams params) {
     return client.getList<SubjectModel>(
       ApiRoutes.subjects(params),
       parser: (json) => SubjectModel.fromJson(json as Map<String, dynamic>),

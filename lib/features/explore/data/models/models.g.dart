@@ -59,7 +59,7 @@ _$McqGameModelImpl _$$McqGameModelImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       question: json['question'] as String,
       correctAnswerId: (json['correctAnswerId'] as num).toInt(),
-      answerOptions: (json['answerOptions'] as List<dynamic>)
+      answerOptions: (json['answerOption'] as List<dynamic>)
           .map((e) => McqAnswerModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       subjectId: json['subjectId'] as String?,
@@ -71,7 +71,7 @@ Map<String, dynamic> _$$McqGameModelImplToJson(_$McqGameModelImpl instance) =>
       'id': instance.id,
       'question': instance.question,
       'correctAnswerId': instance.correctAnswerId,
-      'answerOptions': instance.answerOptions,
+      'answerOption': instance.answerOptions,
       'subjectId': instance.subjectId,
       'rate': instance.rate,
     };

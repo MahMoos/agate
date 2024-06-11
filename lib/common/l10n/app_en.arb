@@ -245,5 +245,9 @@
   "brightness": "Brightness",
   "@brightness": {
     "description": "Brightness label"
+  },
+  "couponNotFound": "Coupon not found",
+  "@couponNotFound": {
+    "description": "Coupon not found message"
   }
 }

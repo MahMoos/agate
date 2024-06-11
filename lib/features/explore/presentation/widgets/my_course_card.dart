@@ -15,7 +15,7 @@ class MyCourseCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 4),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
-        onTap: () {},
+        onTap: () => context.push('/courses/${myCourse.id}'),
         child: Card(
           clipBehavior: Clip.antiAlias,
           child: Column(

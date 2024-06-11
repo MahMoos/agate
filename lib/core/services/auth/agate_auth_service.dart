@@ -41,6 +41,7 @@ class AgateAuthService implements AuthService {
       parser: (json) => User.fromJson(json as Map<String, dynamic>),
       data: user.toJson(),
     );
+    _currentUser = await _getUser();
     _setUser(_currentUser);
     return Future.value(_currentUser);
   }
@@ -55,6 +56,7 @@ class AgateAuthService implements AuthService {
         'password': password,
       },
     );
+    _currentUser = await _getUser();
     _setUser(_currentUser);
     return Future.value(_currentUser);
   }

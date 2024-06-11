@@ -1,21 +1,15 @@
 part of 'pages.dart';
 
-class CoursePage extends ConsumerStatefulWidget {
+class CoursePage extends ConsumerWidget {
   const CoursePage({required this.courseId, super.key});
 
   final String courseId;
-
-  @override
-  ConsumerState<CoursePage> createState() => _CoursePageState();
-}
-
-class _CoursePageState extends ConsumerState<CoursePage> {
   static const _imageHeight = 246.0;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: ref.watch(courseControllerProvider(widget.courseId)).when(
+      body: ref.watch(courseControllerProvider(courseId)).when(
             data: (course) => CustomScrollView(
               slivers: [
                 SliverAppBar(
@@ -50,33 +44,34 @@ class _CoursePageState extends ConsumerState<CoursePage> {
                             bio: teacher.specialization,
                           ).paddingSymmetric(horizontal: 8, vertical: 4),
                         ),
-                      SubscriptionTile(
-                        price: course.price,
-                        currency: course.currency,
-                        discount: course.discount,
-                        onSubscribed: () async {
-                          context.showSnackBar(
-                            const SnackBar(content: LinearProgressIndicator()),
-                          );
-                          try {
-                            final result = await ref
+                      if (!course.isSubscribed)
+                        SubscriptionTile(
+                          price: course.price,
+                          currency: course.currency,
+                          discount: course.discount,
+                          onSubscribed: () {
+                            context.showSnackBar(
+                              const SnackBar(
+                                content: LinearProgressIndicator(),
+                              ),
+                            );
+                            ref
                                 .read(
-                                  courseControllerProvider(widget.courseId)
-                                      .notifier,
+                                  courseControllerProvider(courseId).notifier,
                                 )
-                                .subscribe();
-                            if (mounted && result) {
-                              context.showSnackBarMessage(
-                                context.strings.subscriptionSuccessful,
-                              );
-                            }
-                          } on Exception catch (e) {
-                            if (mounted) {
-                              handleSubscriptionException(context, e);
-                            }
-                          }
-                        },
-                      ),
+                                .subscribe()
+                                .then((result) {
+                              if (result) {
+                                context.showSnackBarMessage(
+                                  context.strings.subscriptionSuccessful,
+                                );
+                                ref.invalidate(
+                                  courseControllerProvider(courseId),
+                                );
+                              }
+                            }).catchError(handleSubscriptionException);
+                          },
+                        ),
                       InteractionsTile(
                         rating: course.rating,
                         participants: course.participants,
@@ -106,7 +101,7 @@ class _CoursePageState extends ConsumerState<CoursePage> {
             ),
             error: (err, stack) => StatusView.anErrorOccurred(
               action: () =>
-                  ref.refresh(courseControllerProvider(widget.courseId).future),
+                  ref.refresh(courseControllerProvider(courseId).future),
             ),
             loading: () => const StatusView.loading(),
           ),

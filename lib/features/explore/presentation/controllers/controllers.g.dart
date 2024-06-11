@@ -436,7 +436,7 @@ class _McqGameProviderElement extends AutoDisposeFutureProviderElement<McqGame>
   String get id => (origin as McqGameProvider).id;
 }
 
-String _$subjectHash() => r'cce978acb1521fbff9c1322586031bf9da351712';
+String _$subjectHash() => r'f907f1016575b0d852dc7b307d4bb6d5b844f5be';
 
 /// See also [subject].
 @ProviderFor(subject)
@@ -1013,20 +1013,146 @@ final myCoursesProvider =
 );
 
 typedef _$MyCourses = AsyncNotifier<List<MyCourse>>;
-String _$subjectsHash() => r'0531b55a21433156bd4571317eeb6edcc2aaf0de';
+
+String _$subjectsHash() => r'86cad2fb00e5060564a2b43650d936fe5cf6dd19';
+
+abstract class _$Subjects extends BuildlessAsyncNotifier<List<Subject>> {
+  late final SubjectsParams params;
+
+  FutureOr<List<Subject>> build(
+    SubjectsParams params,
+  );
+}
 
 /// See also [Subjects].
 @ProviderFor(Subjects)
-final subjectsProvider =
-    AsyncNotifierProvider<Subjects, List<Subject>>.internal(
-  Subjects.new,
-  name: r'subjectsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$subjectsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const subjectsProvider = SubjectsFamily();
 
-typedef _$Subjects = AsyncNotifier<List<Subject>>;
+/// See also [Subjects].
+class SubjectsFamily extends Family<AsyncValue<List<Subject>>> {
+  /// See also [Subjects].
+  const SubjectsFamily();
+
+  /// See also [Subjects].
+  SubjectsProvider call(
+    SubjectsParams params,
+  ) {
+    return SubjectsProvider(
+      params,
+    );
+  }
+
+  @override
+  SubjectsProvider getProviderOverride(
+    covariant SubjectsProvider provider,
+  ) {
+    return call(
+      provider.params,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'subjectsProvider';
+}
+
+/// See also [Subjects].
+class SubjectsProvider
+    extends AsyncNotifierProviderImpl<Subjects, List<Subject>> {
+  /// See also [Subjects].
+  SubjectsProvider(
+    SubjectsParams params,
+  ) : this._internal(
+          () => Subjects()..params = params,
+          from: subjectsProvider,
+          name: r'subjectsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$subjectsHash,
+          dependencies: SubjectsFamily._dependencies,
+          allTransitiveDependencies: SubjectsFamily._allTransitiveDependencies,
+          params: params,
+        );
+
+  SubjectsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.params,
+  }) : super.internal();
+
+  final SubjectsParams params;
+
+  @override
+  FutureOr<List<Subject>> runNotifierBuild(
+    covariant Subjects notifier,
+  ) {
+    return notifier.build(
+      params,
+    );
+  }
+
+  @override
+  Override overrideWith(Subjects Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: SubjectsProvider._internal(
+        () => create()..params = params,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        params: params,
+      ),
+    );
+  }
+
+  @override
+  AsyncNotifierProviderElement<Subjects, List<Subject>> createElement() {
+    return _SubjectsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is SubjectsProvider && other.params == params;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, params.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin SubjectsRef on AsyncNotifierProviderRef<List<Subject>> {
+  /// The parameter `params` of this provider.
+  SubjectsParams get params;
+}
+
+class _SubjectsProviderElement
+    extends AsyncNotifierProviderElement<Subjects, List<Subject>>
+    with SubjectsRef {
+  _SubjectsProviderElement(super.provider);
+
+  @override
+  SubjectsParams get params => (origin as SubjectsProvider).params;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
