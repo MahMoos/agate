@@ -35,9 +35,12 @@ class App extends ConsumerStatefulWidget {
 }
 
 class _AppState extends ConsumerState<App> {
+  late GoRouter _router;
+
   @override
   void initState() {
     super.initState();
+    _router = AgateRouter.router(ref);
     initApp();
   }
 
@@ -65,7 +68,7 @@ class _AppState extends ConsumerState<App> {
       darkTheme: AppTheme.dark(),
       themeMode: ref.watch(preferencesControllerProvider).value?.themeMode,
       debugShowCheckedModeBanner: false,
-      routerConfig: ref.watch(routerProvider),
+      routerConfig: _router,
     );
   }
 }

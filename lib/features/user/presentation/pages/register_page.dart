@@ -178,7 +178,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           password: form.control('password').value as String,
         ),
       );
-      ref.invalidate(authServiceProvider);
+      if (mounted) context.goNamed('home');
     } on Exception {
       if (mounted) {
         context.showSnackBarMessage(context.strings.errorOccurred);

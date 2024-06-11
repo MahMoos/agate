@@ -115,7 +115,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         (form.control('username').value as String).trim(),
         form.control('password').value as String,
       );
-      ref.invalidate(authServiceProvider);
+      if (mounted) context.goNamed('home');
     } on Exception catch (e) {
       if (mounted) {
         context.showSnackBarMessage(
