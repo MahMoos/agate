@@ -89,7 +89,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   ReactiveTextField<String>(
                     formControlName: 'phone',
                     autofillHints: const [
-                      AutofillHints.telephoneNumberNational
+                      AutofillHints.telephoneNumberNational,
                     ],
                     decoration: InputDecoration(
                       hintText: context.strings.phone,
@@ -132,9 +132,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       builder: (context, form, child) {
                         return ElevatedButton(
                           onPressed: form.valid ? _submit : null,
-                          child: Text(
-                            context.strings.register,
-                          ),
+                          child: Text(context.strings.register),
                         ).paddingAll(16);
                       },
                     )
@@ -152,9 +150,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                 Text(context.strings.haveAccount),
                 TextButton(
                   onPressed: () => context.goNamed('login'),
-                  child: Text(
-                    context.strings.login,
-                  ),
+                  child: Text(context.strings.login),
                 ),
               ],
             ).paddingAll(16),
@@ -178,7 +174,11 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           password: form.control('password').value as String,
         ),
       );
-      if (mounted) context.goNamed('home');
+      if (mounted) {
+        auth.currentUser != null
+            ? context.goNamed('home')
+            : context.goNamed('login');
+      }
     } on Exception {
       if (mounted) {
         context.showSnackBarMessage(context.strings.errorOccurred);

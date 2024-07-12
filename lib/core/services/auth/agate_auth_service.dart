@@ -36,14 +36,19 @@ class AgateAuthService implements AuthService {
 
   @override
   Future<User> register(User user) async {
-    _currentUser = await DioHttpService().post<User>(
+    User? newUser = await DioHttpService().post<User>(
       ApiRoutes.register,
       parser: (json) => User.fromJson(json as Map<String, dynamic>),
       data: user.toJson(),
     );
-    _currentUser = await _getUser();
-    _setUser(_currentUser);
-    return Future.value(_currentUser);
+    await _setToken(newUser.token);
+    if (_accessToken != null) {
+      newUser = await _getUser();
+      _setUser(newUser);
+    } else {
+      _setUser(null);
+    }
+    return Future.value(newUser);
   }
 
   @override
@@ -56,6 +61,7 @@ class AgateAuthService implements AuthService {
         'password': password,
       },
     );
+    await _setToken(_currentUser?.token);
     _currentUser = await _getUser();
     _setUser(_currentUser);
     return Future.value(_currentUser);
@@ -74,7 +80,6 @@ class AgateAuthService implements AuthService {
 
   void _setUser(User? user) {
     _currentUser = user;
-    _setToken(user?.token);
     _userStreamController.sink.add(user);
   }
 
