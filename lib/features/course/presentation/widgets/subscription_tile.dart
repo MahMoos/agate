@@ -18,7 +18,7 @@ class SubscriptionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        discount != null
+        discount != null && discount != 0
             ? context.formatPrice(
                 price - discount!,
                 currency,
@@ -30,9 +30,9 @@ class SubscriptionTile extends StatelessWidget {
         style: context.displayMedium!
             .copyWith(color: discount != null ? Colors.green : null),
       ),
-      subtitle: discount != null
+      subtitle: discount != null && discount != 0
           ? Text(
-        context.formatPrice(
+              context.formatPrice(
                 price,
                 currency,
               ),
