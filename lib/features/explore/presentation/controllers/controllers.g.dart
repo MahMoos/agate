@@ -1013,7 +1013,6 @@ final myCoursesProvider =
 );
 
 typedef _$MyCourses = AsyncNotifier<List<MyCourse>>;
-
 String _$subjectsHash() => r'86cad2fb00e5060564a2b43650d936fe5cf6dd19';
 
 abstract class _$Subjects extends BuildlessAsyncNotifier<List<Subject>> {

@@ -10,7 +10,8 @@ class WatchLecture with UseCase<bool, LectureParams> {
     return repository.watchLecture(
       courseId: params.courseId,
       lectureId: params.lectureId,
-      duration: params.completedDuration!,
+      progress: params.progress!,
+      duration: params.duration!,
     );
   }
 }

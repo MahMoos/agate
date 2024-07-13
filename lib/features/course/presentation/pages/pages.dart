@@ -7,6 +7,7 @@ import 'package:ms_undraw/ms_undraw.dart';
 import '../../../../common/widgets/widgets.dart';
 import '../../../../core/extensions/extensions.dart';
 import '../../../../core/widgets/widgets.dart';
+import '../../../explore/presentation/widgets/widgets.dart';
 import '../controllers/controllers.dart';
 import '../widgets/widgets.dart';
 

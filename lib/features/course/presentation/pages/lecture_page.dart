@@ -45,7 +45,10 @@ class LecturePageState extends ConsumerState<LecturePage> {
                           EasyThrottle.throttle(
                             'watch_lecture:${lecture.id}',
                             const Duration(seconds: 10),
-                            () => lectureController.watch(duration),
+                            () => lectureController.watch(
+                              lecture.duration!,
+                              completedDuration!,
+                            ),
                           );
                         } on Exception catch (e) {
                           debugPrint(e.toString());
@@ -85,6 +88,70 @@ class LecturePageState extends ConsumerState<LecturePage> {
                   ),
                   if (lecture.description != null)
                     Text(lecture.description!).paddingAll(16),
+                  if (lecture.isSubscribed &&
+                      lecture.mcqGames != null &&
+                      lecture.mcqGames!.isNotEmpty)
+                    NavigationTile(
+                      title: context.strings.mcqs,
+                      subtitle: lecture.mcqGames!.length.toString(),
+                      onTap: () {
+                        showModalBottomSheet<void>(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (BuildContext context) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                title: Text(context.strings.mcqs),
+                              ),
+                              body: ListView(
+                                children: lecture.mcqGames!
+                                    .map(
+                                      (mcqGame) => McqView(
+                                        mcq: mcqGame,
+                                      ).paddingSymmetric(
+                                        horizontal: 12,
+                                        vertical: 4,
+                                      ),
+                                    )
+                                    .toList(),
+                              ),
+                            ).paddingLTRB(0, 48, 0, 0);
+                          },
+                        );
+                      },
+                    ),
+                  if (lecture.isSubscribed &&
+                      lecture.files != null &&
+                      lecture.files!.isNotEmpty)
+                    NavigationTile(
+                      title: context.strings.files,
+                      subtitle: lecture.files!.length.toString(),
+                      onTap: () {
+                        showModalBottomSheet<void>(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (BuildContext context) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                title: Text(context.strings.files),
+                              ),
+                              body: ListView(
+                                children: lecture.files!
+                                    .map(
+                                      (file) => FileTile(
+                                        file: file,
+                                      ).paddingSymmetric(
+                                        horizontal: 12,
+                                        vertical: 4,
+                                      ),
+                                    )
+                                    .toList(),
+                              ),
+                            ).paddingLTRB(0, 48, 0, 0);
+                          },
+                        );
+                      },
+                    ),
                 ],
               ),
             );

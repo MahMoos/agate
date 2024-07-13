@@ -22,6 +22,7 @@ abstract class CourseRepository {
   Future<bool> watchLecture({
     required String courseId,
     required String lectureId,
+    required Duration progress,
     required Duration duration,
   });
 }

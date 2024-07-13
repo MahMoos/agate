@@ -71,12 +71,14 @@ class AgateCourseDataSource extends CourseDataSource {
   Future<bool> watchLecture({
     required String courseId,
     required String lectureId,
+    required Duration progress,
     required Duration duration,
   }) {
     return client.post<bool>(
       ApiRoutes.watchLecture(courseId: courseId, lectureId: lectureId),
       data: {
         'duration': duration.inSeconds,
+        'progress': progress.inSeconds,
       },
       parser: (data) => true,
     );

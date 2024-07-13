@@ -4,10 +4,12 @@ class LectureParams {
   const LectureParams({
     required this.lectureId,
     required this.courseId,
-    this.completedDuration,
+    this.progress,
+    this.duration,
   });
 
   final String lectureId;
   final String courseId;
-  final Duration? completedDuration;
+  final Duration? progress;
+  final Duration? duration;
 }

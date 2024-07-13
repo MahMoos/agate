@@ -1,6 +1,6 @@
 part of 'entities.dart';
 
-enum FileType {
+enum FileTypes {
   document,
   image,
   video,
@@ -10,7 +10,7 @@ enum FileType {
 class LectureFile with _$LectureFile {
   const factory LectureFile({
     required String id,
-    required FileType type,
+    required FileTypes type,
     required String url,
     required String extension,
     required String name,

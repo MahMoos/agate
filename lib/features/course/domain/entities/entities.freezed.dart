@@ -24,9 +24,7 @@ mixin _$Lecture {
   String? get videoUrl => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   List<LectureFile>? get files => throw _privateConstructorUsedError;
-
   List<McqGame>? get mcqGames => throw _privateConstructorUsedError;
-
   Duration? get duration => throw _privateConstructorUsedError;
   Duration? get completedDuration => throw _privateConstructorUsedError;
   bool get isCompleted => throw _privateConstructorUsedError;
@@ -351,7 +349,6 @@ class _$LectureImpl implements _Lecture {
   @override
   final String? imageUrl;
   final List<LectureFile>? _files;
-
   @override
   List<LectureFile>? get files {
     final value = _files;
@@ -362,7 +359,6 @@ class _$LectureImpl implements _Lecture {
   }
 
   final List<McqGame>? _mcqGames;
-
   @override
   List<McqGame>? get mcqGames {
     final value = _mcqGames;
@@ -493,37 +489,26 @@ abstract class _Lecture implements Lecture {
   String get title;
   @override
   String get sectionId;
-
   @override
   String? get subjectId;
-
   @override
   String? get description;
-
   @override
   String? get videoUrl;
-
   @override
   String? get imageUrl;
-
   @override
   List<LectureFile>? get files;
-
   @override
   List<McqGame>? get mcqGames;
-
   @override
   Duration? get duration;
-
   @override
   Duration? get completedDuration;
-
   @override
   bool get isCompleted;
-
   @override
   double get price;
-
   @override
   String get currency;
   @override
@@ -543,7 +528,7 @@ abstract class _Lecture implements Lecture {
 /// @nodoc
 mixin _$LectureFile {
   String get id => throw _privateConstructorUsedError;
-  FileType get type => throw _privateConstructorUsedError;
+  FileTypes get type => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get extension => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -560,7 +545,7 @@ abstract class $LectureFileCopyWith<$Res> {
       _$LectureFileCopyWithImpl<$Res, LectureFile>;
   @useResult
   $Res call(
-      {String id, FileType type, String url, String extension, String name});
+      {String id, FileTypes type, String url, String extension, String name});
 }
 
 /// @nodoc
@@ -590,7 +575,7 @@ class _$LectureFileCopyWithImpl<$Res, $Val extends LectureFile>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as FileType,
+              as FileTypes,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -616,7 +601,7 @@ abstract class _$$LectureFileImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id, FileType type, String url, String extension, String name});
+      {String id, FileTypes type, String url, String extension, String name});
 }
 
 /// @nodoc
@@ -644,7 +629,7 @@ class __$$LectureFileImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as FileType,
+              as FileTypes,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -674,7 +659,7 @@ class _$LectureFileImpl implements _LectureFile {
   @override
   final String id;
   @override
-  final FileType type;
+  final FileTypes type;
   @override
   final String url;
   @override
@@ -713,7 +698,7 @@ class _$LectureFileImpl implements _LectureFile {
 abstract class _LectureFile implements LectureFile {
   const factory _LectureFile(
       {required final String id,
-      required final FileType type,
+      required final FileTypes type,
       required final String url,
       required final String extension,
       required final String name}) = _$LectureFileImpl;
@@ -721,7 +706,7 @@ abstract class _LectureFile implements LectureFile {
   @override
   String get id;
   @override
-  FileType get type;
+  FileTypes get type;
   @override
   String get url;
   @override

@@ -474,7 +474,6 @@ class _LectureControllerProviderElement
 
   @override
   String get id => (origin as LectureControllerProvider).id;
-
   @override
   String get courseId => (origin as LectureControllerProvider).courseId;
 }

@@ -186,6 +186,10 @@
   "@books": {
     "description": "Books label"
   },
+  "files": "Files",
+  "@files": {
+    "description": "Files label"
+  },
   "mcqs": "MCQs",
   "@mcqs": {
     "description": "MCQs label"

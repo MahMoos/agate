@@ -36,7 +36,6 @@ mixin _$CourseDetailsModel {
   String? get currentSectionId => throw _privateConstructorUsedError;
   String? get promoUrl => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
-
   bool get isSubscribed => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -505,25 +504,231 @@ abstract class _CourseDetailsModel implements CourseDetailsModel {
   double? get rating;
   @override
   List<SectionModel>? get sections;
-
   @override
   String? get currentLectureId;
-
   @override
   String? get currentSectionId;
-
   @override
   String? get promoUrl;
-
   @override
   String? get imageUrl;
-
   @override
   bool get isSubscribed;
-
   @override
   @JsonKey(ignore: true)
   _$$CourseDetailsModelImplCopyWith<_$CourseDetailsModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+LectureFileModel _$LectureFileModelFromJson(Map<String, dynamic> json) {
+  return _LectureFileModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$LectureFileModel {
+  String get id => throw _privateConstructorUsedError;
+  int get type => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
+  String get extension => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LectureFileModelCopyWith<LectureFileModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $LectureFileModelCopyWith<$Res> {
+  factory $LectureFileModelCopyWith(
+          LectureFileModel value, $Res Function(LectureFileModel) then) =
+      _$LectureFileModelCopyWithImpl<$Res, LectureFileModel>;
+  @useResult
+  $Res call({String id, int type, String url, String extension, String name});
+}
+
+/// @nodoc
+class _$LectureFileModelCopyWithImpl<$Res, $Val extends LectureFileModel>
+    implements $LectureFileModelCopyWith<$Res> {
+  _$LectureFileModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? url = null,
+    Object? extension = null,
+    Object? name = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as int,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      extension: null == extension
+          ? _value.extension
+          : extension // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$LectureFileModelImplCopyWith<$Res>
+    implements $LectureFileModelCopyWith<$Res> {
+  factory _$$LectureFileModelImplCopyWith(_$LectureFileModelImpl value,
+          $Res Function(_$LectureFileModelImpl) then) =
+      __$$LectureFileModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id, int type, String url, String extension, String name});
+}
+
+/// @nodoc
+class __$$LectureFileModelImplCopyWithImpl<$Res>
+    extends _$LectureFileModelCopyWithImpl<$Res, _$LectureFileModelImpl>
+    implements _$$LectureFileModelImplCopyWith<$Res> {
+  __$$LectureFileModelImplCopyWithImpl(_$LectureFileModelImpl _value,
+      $Res Function(_$LectureFileModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? url = null,
+    Object? extension = null,
+    Object? name = null,
+  }) {
+    return _then(_$LectureFileModelImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as int,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
+      extension: null == extension
+          ? _value.extension
+          : extension // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$LectureFileModelImpl implements _LectureFileModel {
+  const _$LectureFileModelImpl(
+      {required this.id,
+      required this.type,
+      required this.url,
+      required this.extension,
+      required this.name});
+
+  factory _$LectureFileModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LectureFileModelImplFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final int type;
+  @override
+  final String url;
+  @override
+  final String extension;
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'LectureFileModel(id: $id, type: $type, url: $url, extension: $extension, name: $name)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LectureFileModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.extension, extension) ||
+                other.extension == extension) &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, type, url, extension, name);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LectureFileModelImplCopyWith<_$LectureFileModelImpl> get copyWith =>
+      __$$LectureFileModelImplCopyWithImpl<_$LectureFileModelImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$LectureFileModelImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _LectureFileModel implements LectureFileModel {
+  const factory _LectureFileModel(
+      {required final String id,
+      required final int type,
+      required final String url,
+      required final String extension,
+      required final String name}) = _$LectureFileModelImpl;
+
+  factory _LectureFileModel.fromJson(Map<String, dynamic> json) =
+      _$LectureFileModelImpl.fromJson;
+
+  @override
+  String get id;
+  @override
+  int get type;
+  @override
+  String get url;
+  @override
+  String get extension;
+  @override
+  String get name;
+  @override
+  @JsonKey(ignore: true)
+  _$$LectureFileModelImplCopyWith<_$LectureFileModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -539,10 +744,10 @@ mixin _$LectureModel {
   String? get subjectId => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get videoUrl => throw _privateConstructorUsedError;
-  String? get imageUrl =>
-      throw _privateConstructorUsedError; // List<LectureFile>? files,
+  String? get imageUrl => throw _privateConstructorUsedError;
+  List<LectureFileModel>? get files => throw _privateConstructorUsedError;
+  List<McqGameModel>? get mcqGames => throw _privateConstructorUsedError;
   double get duration => throw _privateConstructorUsedError;
-
   String? get completedDuration => throw _privateConstructorUsedError;
   bool get isCompleted => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
@@ -571,6 +776,8 @@ abstract class $LectureModelCopyWith<$Res> {
       String? description,
       String? videoUrl,
       String? imageUrl,
+      List<LectureFileModel>? files,
+      List<McqGameModel>? mcqGames,
       double duration,
       String? completedDuration,
       bool isCompleted,
@@ -602,6 +809,8 @@ class _$LectureModelCopyWithImpl<$Res, $Val extends LectureModel>
     Object? description = freezed,
     Object? videoUrl = freezed,
     Object? imageUrl = freezed,
+    Object? files = freezed,
+    Object? mcqGames = freezed,
     Object? duration = null,
     Object? completedDuration = freezed,
     Object? isCompleted = null,
@@ -641,6 +850,14 @@ class _$LectureModelCopyWithImpl<$Res, $Val extends LectureModel>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      files: freezed == files
+          ? _value.files
+          : files // ignore: cast_nullable_to_non_nullable
+              as List<LectureFileModel>?,
+      mcqGames: freezed == mcqGames
+          ? _value.mcqGames
+          : mcqGames // ignore: cast_nullable_to_non_nullable
+              as List<McqGameModel>?,
       duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
@@ -697,6 +914,8 @@ abstract class _$$LectureModelImplCopyWith<$Res>
       String? description,
       String? videoUrl,
       String? imageUrl,
+      List<LectureFileModel>? files,
+      List<McqGameModel>? mcqGames,
       double duration,
       String? completedDuration,
       bool isCompleted,
@@ -726,6 +945,8 @@ class __$$LectureModelImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? videoUrl = freezed,
     Object? imageUrl = freezed,
+    Object? files = freezed,
+    Object? mcqGames = freezed,
     Object? duration = null,
     Object? completedDuration = freezed,
     Object? isCompleted = null,
@@ -765,6 +986,14 @@ class __$$LectureModelImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      files: freezed == files
+          ? _value._files
+          : files // ignore: cast_nullable_to_non_nullable
+              as List<LectureFileModel>?,
+      mcqGames: freezed == mcqGames
+          ? _value._mcqGames
+          : mcqGames // ignore: cast_nullable_to_non_nullable
+              as List<McqGameModel>?,
       duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
@@ -816,6 +1045,8 @@ class _$LectureModelImpl implements _LectureModel {
       this.description,
       this.videoUrl,
       this.imageUrl,
+      final List<LectureFileModel>? files,
+      final List<McqGameModel>? mcqGames,
       this.duration = 0,
       this.completedDuration,
       this.isCompleted = false,
@@ -824,7 +1055,9 @@ class _$LectureModelImpl implements _LectureModel {
       this.discount,
       this.isSubscribed = false,
       this.rating,
-      this.participants});
+      this.participants})
+      : _files = files,
+        _mcqGames = mcqGames;
 
   factory _$LectureModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LectureModelImplFromJson(json);
@@ -843,8 +1076,26 @@ class _$LectureModelImpl implements _LectureModel {
   final String? videoUrl;
   @override
   final String? imageUrl;
+  final List<LectureFileModel>? _files;
+  @override
+  List<LectureFileModel>? get files {
+    final value = _files;
+    if (value == null) return null;
+    if (_files is EqualUnmodifiableListView) return _files;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
-// List<LectureFile>? files,
+  final List<McqGameModel>? _mcqGames;
+  @override
+  List<McqGameModel>? get mcqGames {
+    final value = _mcqGames;
+    if (value == null) return null;
+    if (_mcqGames is EqualUnmodifiableListView) return _mcqGames;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey()
   final double duration;
@@ -871,7 +1122,7 @@ class _$LectureModelImpl implements _LectureModel {
 
   @override
   String toString() {
-    return 'LectureModel(id: $id, sectionId: $sectionId, name: $name, subjectId: $subjectId, description: $description, videoUrl: $videoUrl, imageUrl: $imageUrl, duration: $duration, completedDuration: $completedDuration, isCompleted: $isCompleted, price: $price, currency: $currency, discount: $discount, isSubscribed: $isSubscribed, rating: $rating, participants: $participants)';
+    return 'LectureModel(id: $id, sectionId: $sectionId, name: $name, subjectId: $subjectId, description: $description, videoUrl: $videoUrl, imageUrl: $imageUrl, files: $files, mcqGames: $mcqGames, duration: $duration, completedDuration: $completedDuration, isCompleted: $isCompleted, price: $price, currency: $currency, discount: $discount, isSubscribed: $isSubscribed, rating: $rating, participants: $participants)';
   }
 
   @override
@@ -891,6 +1142,8 @@ class _$LectureModelImpl implements _LectureModel {
                 other.videoUrl == videoUrl) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
+            const DeepCollectionEquality().equals(other._files, _files) &&
+            const DeepCollectionEquality().equals(other._mcqGames, _mcqGames) &&
             (identical(other.duration, duration) ||
                 other.duration == duration) &&
             (identical(other.completedDuration, completedDuration) ||
@@ -920,6 +1173,8 @@ class _$LectureModelImpl implements _LectureModel {
       description,
       videoUrl,
       imageUrl,
+      const DeepCollectionEquality().hash(_files),
+      const DeepCollectionEquality().hash(_mcqGames),
       duration,
       completedDuration,
       isCompleted,
@@ -946,6 +1201,8 @@ abstract class _LectureModel implements LectureModel {
       final String? description,
       final String? videoUrl,
       final String? imageUrl,
+      final List<LectureFileModel>? files,
+      final List<McqGameModel>? mcqGames,
       final double duration,
       final String? completedDuration,
       final bool isCompleted,
@@ -971,13 +1228,14 @@ abstract class _LectureModel implements LectureModel {
   String? get description;
   @override
   String? get videoUrl;
-
   @override
   String? get imageUrl;
-
-  @override // List<LectureFile>? files,
+  @override
+  List<LectureFileModel>? get files;
+  @override
+  List<McqGameModel>? get mcqGames;
+  @override
   double get duration;
-
   @override
   String? get completedDuration;
   @override

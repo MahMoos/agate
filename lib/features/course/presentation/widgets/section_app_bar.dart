@@ -18,14 +18,15 @@ class SectionAppBar extends ConsumerWidget {
                     photoUrl: section.teacher!.photoUrl,
                   ).paddingSymmetric(horizontal: 24),
               ],
-              bottom: section.description != null
-                  ? PreferredSize(
-                      preferredSize: Size(context.width, 98),
-                      child: DescriptionParagraph(
-                        description: section.description!,
-                      ),
-                    )
-                  : null,
+              bottom:
+                  section.description != null && section.description!.isNotEmpty
+                      ? PreferredSize(
+                          preferredSize: Size(context.width, 98),
+                          child: DescriptionParagraph(
+                            description: section.description!,
+                          ),
+                        )
+                      : null,
             );
           },
           error: (_, __) => SliverAppBar(

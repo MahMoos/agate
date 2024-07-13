@@ -7,23 +7,9 @@ class SectionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        section.name,
-        style: context.displayMedium,
-      ),
-      subtitle: section.description != null
-          ? Text(
-              section.description!,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            )
-          : null,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-        side: BorderSide(color: context.dividerColor),
-      ),
-      trailing: const Icon(Icons.navigate_next),
+    return NavigationTile(
+      title: section.name,
+      subtitle: section.description,
       onTap: () =>
           context.push('/courses/${section.courseId}/sections/${section.id}'),
     ).paddingSymmetric(vertical: 8, horizontal: 16);

@@ -32,6 +32,26 @@ _$CourseDetailsModelImpl _$$CourseDetailsModelImplFromJson(
       isSubscribed: json['isSubscribed'] as bool? ?? false,
     );
 
+_$LectureFileModelImpl _$$LectureFileModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$LectureFileModelImpl(
+      id: json['id'] as String,
+      type: (json['type'] as num).toInt(),
+      url: json['url'] as String,
+      extension: json['extension'] as String,
+      name: json['name'] as String,
+    );
+
+Map<String, dynamic> _$$LectureFileModelImplToJson(
+        _$LectureFileModelImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'type': instance.type,
+      'url': instance.url,
+      'extension': instance.extension,
+      'name': instance.name,
+    };
+
 _$LectureModelImpl _$$LectureModelImplFromJson(Map<String, dynamic> json) =>
     _$LectureModelImpl(
       id: json['id'] as String,
@@ -41,6 +61,12 @@ _$LectureModelImpl _$$LectureModelImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       videoUrl: json['videoUrl'] as String?,
       imageUrl: json['imageUrl'] as String?,
+      files: (json['files'] as List<dynamic>?)
+          ?.map((e) => LectureFileModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      mcqGames: (json['mcqGames'] as List<dynamic>?)
+          ?.map((e) => McqGameModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       duration: (json['duration'] as num?)?.toDouble() ?? 0,
       completedDuration: json['completedDuration'] as String?,
       isCompleted: json['isCompleted'] as bool? ?? false,

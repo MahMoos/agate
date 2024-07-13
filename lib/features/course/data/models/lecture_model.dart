@@ -10,7 +10,8 @@ class LectureModel with _$LectureModel {
     String? description,
     String? videoUrl,
     String? imageUrl,
-    // List<LectureFile>? files,
+    List<LectureFileModel>? files,
+    List<McqGameModel>? mcqGames,
     @Default(0) double duration,
     String? completedDuration,
     @Default(false) bool isCompleted,
@@ -28,13 +29,15 @@ class LectureModel with _$LectureModel {
 
 extension LectureModelEx on LectureModel {
   Lecture toEntity() => Lecture(
-    id: id,
+        id: id,
         title: name,
         description: description,
         imageUrl: imageUrl,
         videoUrl: videoUrl,
         sectionId: sectionId,
         subjectId: subjectId,
+        files: files?.map((file) => file.toEntity()).toList(),
+        mcqGames: mcqGames?.map((mcqGame) => mcqGame.toEntity()).toList(),
         duration: Duration(milliseconds: (duration * 1000).round()),
         completedDuration: completedDuration?.parseHHMMSSDuration(),
         isCompleted: isCompleted,

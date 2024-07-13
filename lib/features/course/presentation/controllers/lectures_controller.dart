@@ -28,12 +28,13 @@ class LectureController extends _$LectureController {
     return result;
   }
 
-  Future<bool> watch(Duration duration) async {
+  Future<bool> watch(Duration duration, Duration progress) async {
     final result = await _watchLecture(
       LectureParams(
         lectureId: id,
         courseId: _courseId,
-        completedDuration: duration,
+        progress: progress,
+        duration: duration,
       ),
     );
     return result;

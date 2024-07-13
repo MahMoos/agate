@@ -534,7 +534,6 @@ mixin _$McqGameModel {
   String get id => throw _privateConstructorUsedError;
   String get question => throw _privateConstructorUsedError;
   int get correctAnswerId => throw _privateConstructorUsedError;
-
   @JsonKey(name: 'answerOption')
   List<McqAnswerModel> get answerOptions => throw _privateConstructorUsedError;
   String? get subjectId => throw _privateConstructorUsedError;
@@ -681,7 +680,7 @@ class _$McqGameModelImpl implements _McqGameModel {
       {required this.id,
       required this.question,
       required this.correctAnswerId,
-        @JsonKey(name: 'answerOption')
+      @JsonKey(name: 'answerOption')
       required final List<McqAnswerModel> answerOptions,
       this.subjectId,
       this.rate})
@@ -697,7 +696,6 @@ class _$McqGameModelImpl implements _McqGameModel {
   @override
   final int correctAnswerId;
   final List<McqAnswerModel> _answerOptions;
-
   @override
   @JsonKey(name: 'answerOption')
   List<McqAnswerModel> get answerOptions {
@@ -757,7 +755,7 @@ abstract class _McqGameModel implements McqGameModel {
       {required final String id,
       required final String question,
       required final int correctAnswerId,
-        @JsonKey(name: 'answerOption')
+      @JsonKey(name: 'answerOption')
       required final List<McqAnswerModel> answerOptions,
       final String? subjectId,
       final int? rate}) = _$McqGameModelImpl;
@@ -771,7 +769,6 @@ abstract class _McqGameModel implements McqGameModel {
   String get question;
   @override
   int get correctAnswerId;
-
   @override
   @JsonKey(name: 'answerOption')
   List<McqAnswerModel> get answerOptions;

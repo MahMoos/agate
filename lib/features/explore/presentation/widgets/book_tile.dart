@@ -48,10 +48,19 @@ class BookTile extends StatelessWidget {
                   color: context.theme.disabledColor.withAlpha(200),
                 ),
         ),
+        onTap: book.url != null ? _launchUrl : null,
         horizontalTitleGap: 4,
         contentPadding: const EdgeInsets.symmetric(horizontal: 8),
         titleAlignment: ListTileTitleAlignment.top,
       ),
     );
+  }
+
+  Future<void> _launchUrl() async {
+    final uri = Uri.tryParse(book.url!);
+    if (uri != null &&
+        !await launchUrl(uri, mode: LaunchMode.externalNonBrowserApplication)) {
+      throw Exception('Could not launch ${book.url}');
+    }
   }
 }
