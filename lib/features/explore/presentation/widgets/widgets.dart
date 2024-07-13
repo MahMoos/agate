@@ -4,14 +4,15 @@ import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:tree_select/tree_select.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../common/api/api.dart';
 import '../../../../common/entities/entities.dart';
 import '../../../../common/router/agate_router.dart';
 import '../../../../common/widgets/widgets.dart';
 import '../../../../core/extensions/extensions.dart';
 import '../../../../core/services/auth/auth_service.dart';
+import '../../../../core/widgets/widgets.dart';
 import '../../domain/entities/entities.dart';
 import '../controllers/controllers.dart';
 
@@ -25,3 +26,5 @@ part 'my_course_card.dart';
 part 'my_courses_slider.dart';
 part 'search_app_bar.dart';
 part 'shortcut_card.dart';
+part 'title_checkbox.dart';
+part 'tree_view.dart';

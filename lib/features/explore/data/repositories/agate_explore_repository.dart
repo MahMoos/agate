@@ -45,7 +45,6 @@ class AgateExploreRepository extends BaseRepository
 
   List<Department> _processDepartments(List<Department> departments) {
     if (departments.isEmpty) return departments;
-    final treeList = List<Department>.empty(growable: true);
     final lookup = <String, Department>{};
     for (final department in departments) {
       lookup[department.id] = department;
@@ -53,22 +52,22 @@ class AgateExploreRepository extends BaseRepository
     for (final department in departments) {
       if (department.parentId != null) {
         final parent = lookup[department.parentId]!;
-        if (parent.subDepartments == null) {
+        if (parent.subDepartments == null || parent.subDepartments!.isEmpty) {
           lookup[department.parentId!] =
-              parent.copyWith(subDepartments: [lookup[department.id]!]);
+              parent.copyWith(subDepartments: [department]);
         } else {
           lookup[department.parentId!] = parent.copyWith(
             subDepartments: [
               ...parent.subDepartments!,
-              lookup[department.id]!,
+              department,
             ],
           );
         }
-      } else {
-        treeList.add(lookup[department.id]!);
       }
     }
-    return treeList;
+    return lookup.values
+        .where((department) => department.parentId == null)
+        .toList();
   }
 
   @override

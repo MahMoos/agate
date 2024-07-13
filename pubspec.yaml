@@ -61,7 +61,6 @@ dependencies:
   flutter_image_slideshow: ^0.1.6
   flutter_rating_bar: ^4.0.1
   google_fonts: ^6.2.1
-  tree_select: ^0.0.1
   readmore: ^3.0.0
   endless: ^1.6.3
   chewie: ^1.8.1

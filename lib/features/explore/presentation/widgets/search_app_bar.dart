@@ -10,11 +10,6 @@ class SearchAppBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final params = ref.watch(coursesParamsProvider);
-    // final isInSearch = (params.query?.isNotEmpty ?? false) ||
-    //     (params.divisionIds?.isNotEmpty ?? false) ||
-    //     (params.subjectIds?.isNotEmpty ?? false) ||
-    //     false;
     return SliverAppBar(
       toolbarHeight: 64,
       title: Padding(
@@ -39,25 +34,29 @@ class SearchAppBar extends ConsumerWidget {
               suffixIcon: Padding(
                 padding: isInSearch ? EdgeInsets.zero : const EdgeInsets.all(4),
                 child: isInSearch
-                    // FIXME(MahMoos)
-                    ? null
-                    // ? IconButton(
-                    //     onPressed: () {
-                    //       showModalBottomSheet<void>(
-                    //         context: context,
-                    //         isScrollControlled: true,
-                    //         builder: (BuildContext context) {
-                    //           return FiltersBottomSheet(
-                    //             onFiltersChange: (departments, subjects) =>
-                    //                 debugPrint(
-                    //               departments.toString() + subjects.toString(),
-                    //             ),
-                    //           );
-                    //         },
-                    //       );
-                    //     },
-                    //     icon: const Icon(Icons.filter_list_rounded),
-                    //   )
+                    ? IconButton(
+                        onPressed: () {
+                          showModalBottomSheet<void>(
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (BuildContext context) {
+                              return FiltersBottomSheet(
+                                onFiltersChange: (departments, subjects) => ref
+                                        .read(coursesParamsProvider.notifier)
+                                        .state =
+                                    ref
+                                        .read(coursesParamsProvider.notifier)
+                                        .state
+                                        .copyWith(
+                                          divisionIds: departments,
+                                          subjectIds: subjects,
+                                        ),
+                              );
+                            },
+                          );
+                        },
+                        icon: const Icon(Icons.filter_list_rounded),
+                      )
                     : GestureDetector(
                         onTap: () => context.pushNamed('profile'),
                         child: ref.watch(authServiceProvider).when(
@@ -74,15 +73,10 @@ class SearchAppBar extends ConsumerWidget {
             autofocus: isInSearch &&
                 !(ref.watch(coursesParamsProvider).isFeatured ?? false),
             canRequestFocus: isInSearch,
-            onTap: !isInSearch
-                ? () {
-                    context.pushNamed('search');
-                  }
-                : null,
+            onTap: !isInSearch ? () => context.pushNamed('search') : null,
             onChanged: (value) =>
                 ref.read(coursesParamsProvider.notifier).state =
                     ref.read(coursesParamsProvider.notifier).state.copyWith(
-                          // TODO(MahMoos): Change this to query later
                           name: value,
                         ),
           ),

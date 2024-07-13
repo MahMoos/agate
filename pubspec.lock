@@ -1131,14 +1131,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
-  tree_select:
-    dependency: "direct main"
-    description:
-      name: tree_select
-      sha256: d767795d6c41b9a6e3cca79b86b9b8b906eb527e39aca356f678826573a0ff47
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1"
   typed_data:
     dependency: transitive
     description:
