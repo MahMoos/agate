@@ -253,5 +253,17 @@
   "couponNotFound": "Coupon not found",
   "@couponNotFound": {
     "description": "Coupon not found message"
+  },
+  "reviews": "Reviews",
+  "@reviews": {
+    "description": "Reviews label"
+  },
+  "addReview": "Add a Review:",
+  "@addReview": {
+    "description": "Add a Review label"
+  },
+  "publish": "Publish",
+  "@publish": {
+    "description": "Publish a Review button label"
   }
 }

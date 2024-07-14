@@ -78,6 +78,16 @@ _$LectureModelImpl _$$LectureModelImplFromJson(Map<String, dynamic> json) =>
       participants: (json['participants'] as num?)?.toInt(),
     );
 
+_$ReviewModelImpl _$$ReviewModelImplFromJson(Map<String, dynamic> json) =>
+    _$ReviewModelImpl(
+      rate: (json['rate'] as num).toDouble(),
+      id: json['id'] as String?,
+      date:
+          json['date'] == null ? null : DateTime.parse(json['date'] as String),
+      createdBy: json['createdBy'] as String?,
+      text: json['text'] as String?,
+    );
+
 _$SectionModelImpl _$$SectionModelImplFromJson(Map<String, dynamic> json) =>
     _$SectionModelImpl(
       id: json['id'] as String,

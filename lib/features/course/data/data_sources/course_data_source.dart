@@ -1,5 +1,6 @@
 import '../../../../common/api/api.dart';
 import '../../../../core/models/models.dart';
+import '../../domain/entities/entities.dart';
 import '../models/models.dart';
 
 abstract class CourseDataSource extends RemoteDataSource {
@@ -21,6 +22,10 @@ abstract class CourseDataSource extends RemoteDataSource {
     required String courseId,
     required String lectureId,
   });
+
+  Future<ReviewModel> addReview(ReviewsParams review);
+
+  Future<List<ReviewModel>> getReviews(ReviewsParams params);
 
   Future<bool> watchLecture({
     required String courseId,

@@ -15,6 +15,7 @@ class EndlessAnimatedListView<T> extends ConsumerStatefulWidget {
     this.errorBuilder,
     this.loadingMoreErrorBuilder,
     this.endOfItemsWidget,
+    this.persistentFooterButtons,
     super.key,
   });
 
@@ -29,6 +30,7 @@ class EndlessAnimatedListView<T> extends ConsumerStatefulWidget {
   final Widget Function(BuildContext, Object error, StackTrace)?
       loadingMoreErrorBuilder;
   final Widget? endOfItemsWidget;
+  final List<Widget>? persistentFooterButtons;
 
   @override
   ConsumerState<EndlessAnimatedListView<T>> createState() =>
@@ -152,6 +154,7 @@ class _EndlessAnimatedListViewState<T>
           ),
         ],
       ),
+      persistentFooterButtons: widget.persistentFooterButtons,
     );
   }
 

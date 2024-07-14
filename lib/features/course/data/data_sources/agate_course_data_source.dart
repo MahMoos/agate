@@ -1,4 +1,5 @@
 import '../../../../common/api/api.dart';
+import '../../domain/entities/entities.dart';
 import '../models/models.dart';
 import 'course_data_source.dart';
 
@@ -64,6 +65,26 @@ class AgateCourseDataSource extends CourseDataSource {
       ApiRoutes.subscribeToLecture(courseId: courseId, lectureId: lectureId),
       data: null,
       parser: (data) => true,
+    );
+  }
+
+  @override
+  Future<ReviewModel> addReview(ReviewsParams review) {
+    return client.post<ReviewModel>(
+      ApiRoutes.reviews(courseId: review.courseId, lectureId: review.lectureId),
+      data: {
+        'rate': review.rating,
+        'text': review.text,
+      },
+      parser: (json) => ReviewModel.fromJson(json as Map<String, dynamic>),
+    );
+  }
+
+  @override
+  Future<List<ReviewModel>> getReviews(ReviewsParams params) {
+    return client.getList<ReviewModel>(
+      ApiRoutes.reviews(courseId: params.courseId, lectureId: params.lectureId),
+      parser: (json) => ReviewModel.fromJson(json as Map<String, dynamic>),
     );
   }
 

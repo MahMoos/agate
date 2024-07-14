@@ -10,4 +10,5 @@ part 'lecture_file_model.dart';
 part 'lecture_model.dart';
 part 'models.freezed.dart';
 part 'models.g.dart';
+part 'review_model.dart';
 part 'section_model.dart';

@@ -84,7 +84,19 @@ class LecturePageState extends ConsumerState<LecturePage> {
                   InteractionsTile(
                     rating: lecture.rating,
                     participants: lecture.participants,
-                    onTap: () {},
+                    onTap: () {
+                      showModalBottomSheet<void>(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (BuildContext context) {
+                          return ReviewsBottomSheet(
+                            isSubscribed: lecture.isSubscribed,
+                            courseId: widget.courseId,
+                            lectureId: lecture.id,
+                          );
+                        },
+                      );
+                    },
                   ),
                   if (lecture.description != null)
                     Text(lecture.description!).paddingAll(16),

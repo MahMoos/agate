@@ -19,6 +19,10 @@ abstract class CourseRepository {
     required String lectureId,
   });
 
+  Future<Review> addReview(ReviewsParams review);
+
+  Future<List<Review>> getReviews(ReviewsParams params);
+
   Future<bool> watchLecture({
     required String courseId,
     required String lectureId,

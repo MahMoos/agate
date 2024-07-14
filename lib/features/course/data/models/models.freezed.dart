@@ -1258,6 +1258,215 @@ abstract class _LectureModel implements LectureModel {
       throw _privateConstructorUsedError;
 }
 
+ReviewModel _$ReviewModelFromJson(Map<String, dynamic> json) {
+  return _ReviewModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ReviewModel {
+  double get rate => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
+  String? get createdBy => throw _privateConstructorUsedError;
+  String? get text => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ReviewModelCopyWith<ReviewModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ReviewModelCopyWith<$Res> {
+  factory $ReviewModelCopyWith(
+          ReviewModel value, $Res Function(ReviewModel) then) =
+      _$ReviewModelCopyWithImpl<$Res, ReviewModel>;
+  @useResult
+  $Res call(
+      {double rate,
+      String? id,
+      DateTime? date,
+      String? createdBy,
+      String? text});
+}
+
+/// @nodoc
+class _$ReviewModelCopyWithImpl<$Res, $Val extends ReviewModel>
+    implements $ReviewModelCopyWith<$Res> {
+  _$ReviewModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rate = null,
+    Object? id = freezed,
+    Object? date = freezed,
+    Object? createdBy = freezed,
+    Object? text = freezed,
+  }) {
+    return _then(_value.copyWith(
+      rate: null == rate
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as double,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createdBy: freezed == createdBy
+          ? _value.createdBy
+          : createdBy // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ReviewModelImplCopyWith<$Res>
+    implements $ReviewModelCopyWith<$Res> {
+  factory _$$ReviewModelImplCopyWith(
+          _$ReviewModelImpl value, $Res Function(_$ReviewModelImpl) then) =
+      __$$ReviewModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {double rate,
+      String? id,
+      DateTime? date,
+      String? createdBy,
+      String? text});
+}
+
+/// @nodoc
+class __$$ReviewModelImplCopyWithImpl<$Res>
+    extends _$ReviewModelCopyWithImpl<$Res, _$ReviewModelImpl>
+    implements _$$ReviewModelImplCopyWith<$Res> {
+  __$$ReviewModelImplCopyWithImpl(
+      _$ReviewModelImpl _value, $Res Function(_$ReviewModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rate = null,
+    Object? id = freezed,
+    Object? date = freezed,
+    Object? createdBy = freezed,
+    Object? text = freezed,
+  }) {
+    return _then(_$ReviewModelImpl(
+      rate: null == rate
+          ? _value.rate
+          : rate // ignore: cast_nullable_to_non_nullable
+              as double,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createdBy: freezed == createdBy
+          ? _value.createdBy
+          : createdBy // ignore: cast_nullable_to_non_nullable
+              as String?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable(createToJson: false)
+class _$ReviewModelImpl implements _ReviewModel {
+  const _$ReviewModelImpl(
+      {required this.rate, this.id, this.date, this.createdBy, this.text});
+
+  factory _$ReviewModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReviewModelImplFromJson(json);
+
+  @override
+  final double rate;
+  @override
+  final String? id;
+  @override
+  final DateTime? date;
+  @override
+  final String? createdBy;
+  @override
+  final String? text;
+
+  @override
+  String toString() {
+    return 'ReviewModel(rate: $rate, id: $id, date: $date, createdBy: $createdBy, text: $text)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReviewModelImpl &&
+            (identical(other.rate, rate) || other.rate == rate) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.createdBy, createdBy) ||
+                other.createdBy == createdBy) &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, rate, id, date, createdBy, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReviewModelImplCopyWith<_$ReviewModelImpl> get copyWith =>
+      __$$ReviewModelImplCopyWithImpl<_$ReviewModelImpl>(this, _$identity);
+}
+
+abstract class _ReviewModel implements ReviewModel {
+  const factory _ReviewModel(
+      {required final double rate,
+      final String? id,
+      final DateTime? date,
+      final String? createdBy,
+      final String? text}) = _$ReviewModelImpl;
+
+  factory _ReviewModel.fromJson(Map<String, dynamic> json) =
+      _$ReviewModelImpl.fromJson;
+
+  @override
+  double get rate;
+  @override
+  String? get id;
+  @override
+  DateTime? get date;
+  @override
+  String? get createdBy;
+  @override
+  String? get text;
+  @override
+  @JsonKey(ignore: true)
+  _$$ReviewModelImplCopyWith<_$ReviewModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 SectionModel _$SectionModelFromJson(Map<String, dynamic> json) {
   return _SectionModel.fromJson(json);
 }

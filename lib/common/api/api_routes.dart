@@ -74,7 +74,7 @@ class ApiRoutes {
       );
 
   static Uri book(String id) => _appUri(
-    '/books/$id',
+        '/books/$id',
       );
 
   static Uri mcqGames(McqGamesParams params) => _appUri(
@@ -83,7 +83,7 @@ class ApiRoutes {
       );
 
   static Uri mcqGame(String id) => _appUri(
-    '/mcqgames/$id',
+        '/mcqgames/$id',
       );
 
   static Uri subscribeToCourse(String courseId) => _appUri(
@@ -96,6 +96,14 @@ class ApiRoutes {
   }) =>
       _appUri(
         '/courses/$courseId/lectures/$lectureId/subscribe',
+      );
+
+  static Uri reviews({
+    required String courseId,
+    String? lectureId,
+  }) =>
+      _appUri(
+        '/courses/$courseId${lectureId != null ? '/lectures/$lectureId/reviews' : '/reviews'}',
       );
 
   static Uri watchLecture({
@@ -120,6 +128,6 @@ class ApiRoutes {
       );
 
   static Uri deposit(String cardId) => _appUri(
-    '/users/wallet/deposit/$cardId',
+        '/users/wallet/deposit/$cardId',
       );
 }

@@ -14,6 +14,7 @@ import '../../domain/use_cases/use_cases.dart';
 part 'controllers.g.dart';
 part 'course_controller.dart';
 part 'lectures_controller.dart';
+part 'reviews_controller.dart';
 part 'sections_controller.dart';
 
 @Riverpod(keepAlive: true)

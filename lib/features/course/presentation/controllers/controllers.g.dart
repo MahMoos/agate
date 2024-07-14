@@ -313,7 +313,7 @@ class _CourseControllerProviderElement
   String get id => (origin as CourseControllerProvider).id;
 }
 
-String _$lectureControllerHash() => r'66221a408282e6cbaca633b0e298c25de67fb39c';
+String _$lectureControllerHash() => r'64280a80decd0f84172ad118228a1702150e181e';
 
 abstract class _$LectureController extends BuildlessAsyncNotifier<Lecture> {
   late final String id;
@@ -640,6 +640,169 @@ class _LecturesProviderElement
   String get courseId => (origin as LecturesProvider).courseId;
   @override
   String get sectionId => (origin as LecturesProvider).sectionId;
+}
+
+String _$reviewsHash() => r'19ca31c9388758b5a477c3d62091d50bf451a9c4';
+
+abstract class _$Reviews extends BuildlessAsyncNotifier<List<Review>> {
+  late final String courseId;
+  late final String? lectureId;
+
+  FutureOr<List<Review>> build(
+    String courseId,
+    String? lectureId,
+  );
+}
+
+/// See also [Reviews].
+@ProviderFor(Reviews)
+const reviewsProvider = ReviewsFamily();
+
+/// See also [Reviews].
+class ReviewsFamily extends Family<AsyncValue<List<Review>>> {
+  /// See also [Reviews].
+  const ReviewsFamily();
+
+  /// See also [Reviews].
+  ReviewsProvider call(
+    String courseId,
+    String? lectureId,
+  ) {
+    return ReviewsProvider(
+      courseId,
+      lectureId,
+    );
+  }
+
+  @override
+  ReviewsProvider getProviderOverride(
+    covariant ReviewsProvider provider,
+  ) {
+    return call(
+      provider.courseId,
+      provider.lectureId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'reviewsProvider';
+}
+
+/// See also [Reviews].
+class ReviewsProvider extends AsyncNotifierProviderImpl<Reviews, List<Review>> {
+  /// See also [Reviews].
+  ReviewsProvider(
+    String courseId,
+    String? lectureId,
+  ) : this._internal(
+          () => Reviews()
+            ..courseId = courseId
+            ..lectureId = lectureId,
+          from: reviewsProvider,
+          name: r'reviewsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$reviewsHash,
+          dependencies: ReviewsFamily._dependencies,
+          allTransitiveDependencies: ReviewsFamily._allTransitiveDependencies,
+          courseId: courseId,
+          lectureId: lectureId,
+        );
+
+  ReviewsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.courseId,
+    required this.lectureId,
+  }) : super.internal();
+
+  final String courseId;
+  final String? lectureId;
+
+  @override
+  FutureOr<List<Review>> runNotifierBuild(
+    covariant Reviews notifier,
+  ) {
+    return notifier.build(
+      courseId,
+      lectureId,
+    );
+  }
+
+  @override
+  Override overrideWith(Reviews Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: ReviewsProvider._internal(
+        () => create()
+          ..courseId = courseId
+          ..lectureId = lectureId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        courseId: courseId,
+        lectureId: lectureId,
+      ),
+    );
+  }
+
+  @override
+  AsyncNotifierProviderElement<Reviews, List<Review>> createElement() {
+    return _ReviewsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ReviewsProvider &&
+        other.courseId == courseId &&
+        other.lectureId == lectureId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, courseId.hashCode);
+    hash = _SystemHash.combine(hash, lectureId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ReviewsRef on AsyncNotifierProviderRef<List<Review>> {
+  /// The parameter `courseId` of this provider.
+  String get courseId;
+
+  /// The parameter `lectureId` of this provider.
+  String? get lectureId;
+}
+
+class _ReviewsProviderElement
+    extends AsyncNotifierProviderElement<Reviews, List<Review>>
+    with ReviewsRef {
+  _ReviewsProviderElement(super.provider);
+
+  @override
+  String get courseId => (origin as ReviewsProvider).courseId;
+  @override
+  String? get lectureId => (origin as ReviewsProvider).lectureId;
 }
 
 String _$sectionsHash() => r'e40ab060ff1e5b008d0faf84681335f144556a5c';

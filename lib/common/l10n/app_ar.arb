@@ -56,5 +56,8 @@
   "profile": "الملف الشخصي",
   "language": "اللغة",
   "brightness": "الإضاءة",
-  "couponNotFound": "هذا الرمز غير موجود"
+  "couponNotFound": "هذا الرمز غير موجود",
+  "reviews": "المراجعات",
+  "addReview": "أضف مراجعة:",
+  "publish": "نشر"
 }

@@ -75,7 +75,18 @@ class CoursePage extends ConsumerWidget {
                       InteractionsTile(
                         rating: course.rating,
                         participants: course.participants,
-                        onTap: () {},
+                        onTap: () {
+                          showModalBottomSheet<void>(
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (BuildContext context) {
+                              return ReviewsBottomSheet(
+                                isSubscribed: course.isSubscribed,
+                                courseId: course.id,
+                              );
+                            },
+                          );
+                        },
                       ),
                       if (course.description != null &&
                           course.description!.isNotEmpty)

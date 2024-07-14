@@ -49,6 +49,16 @@ class AgateCourseRepository extends BaseRepository implements CourseRepository {
   }
 
   @override
+  Future<Review> addReview(ReviewsParams review) async {
+    return (await remote.addReview(review)).toEntity();
+  }
+
+  @override
+  Future<List<Review>> getReviews(ReviewsParams params) async {
+    return (await remote.getReviews(params)).map((e) => e.toEntity()).toList();
+  }
+
+  @override
   Future<bool> watchLecture({
     required String courseId,
     required String lectureId,

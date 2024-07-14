@@ -20,6 +20,7 @@ part 'interactions_tile.dart';
 part 'lecture_image.dart';
 part 'lecture_tile.dart';
 part 'navigation_tile.dart';
+part 'reviews_bottom_sheet.dart';
 part 'section_app_bar.dart';
 part 'section_tile.dart';
 part 'subscription_tile.dart';
