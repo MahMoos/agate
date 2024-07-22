@@ -33,6 +33,18 @@ $ flutter run --flavor production --target lib/main_production.dart
 
 _\*Agate works on iOS, Android, Web, and Windows._
 
+To release a new version using Shorebird use the following command:
+
+```sh
+$ shorebird release android --flavor production --target lib/main_production.dart --artifact apk -- --dart-define-from-file=.env/production.json
+```
+
+To patch a release using Shorebird use the following command:
+
+```sh
+$ shorebird patch android --flavor production --target lib/main_production.dart -- --dart-define-from-file=.env/production.json
+```
+
 ---
 
 ## Running Tests 🧪
