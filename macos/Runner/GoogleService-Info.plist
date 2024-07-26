@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>924971239933-j3tmsffct6roacil02fkjp2esjthjm6d.apps.googleusercontent.com</string>
+	<string>924971239933-3eimjqk2d0b8olcdcl309hbn03hqufu6.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.924971239933-j3tmsffct6roacil02fkjp2esjthjm6d</string>
+	<string>com.googleusercontent.apps.924971239933-3eimjqk2d0b8olcdcl309hbn03hqufu6</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>924971239933-jk9bgf29870ickg7fcstfds4b3sgs9c0.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDPfQQEMluzMIx8fpbH3T9ydw0IoRENg0s</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.myApp.RunnerTests</string>
+	<string>com.example.myApp</string>
 	<key>PROJECT_ID</key>
 	<string>qalam-center</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:924971239933:ios:568c40f1c0db04764b7194</string>
+	<string>1:924971239933:ios:1453bc078928291b4b7194</string>
 </dict>
 </plist>

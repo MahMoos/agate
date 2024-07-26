@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:talker_dio_logger/talker_dio_logger.dart';
 
+import '../../../common/api/api.dart';
 import '../../extensions/extensions.dart';
 import '../auth/auth_service.dart';
+import '../logger/logger.dart';
 import 'interceptors/auth_interceptor.dart';
 
 part 'dio_http_service.dart';
@@ -14,7 +16,19 @@ part 'http_service.g.dart';
 Future<HttpService> httpService(HttpServiceRef ref) async {
   final authService = await ref.watch(authServiceProvider.future);
   final service = DioHttpService()
-    ..addInterceptor(AuthInterceptor(authService));
+    ..addInterceptor(AuthInterceptor(authService))
+    ..addInterceptor(
+      TalkerDioLogger(
+        talker: talker,
+        settings: TalkerDioLoggerSettings(
+          printRequestHeaders: true,
+          printResponseHeaders: true,
+          requestFilter: (RequestOptions options) =>
+              options.uri != ApiRoutes.login &&
+              options.uri != ApiRoutes.register,
+        ),
+      ),
+    );
   return service;
 }
 

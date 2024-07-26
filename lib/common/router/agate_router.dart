@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 import '../../core/extensions/extensions.dart';
 import '../../core/services/auth/auth_service.dart';
+import '../../core/services/logger/logger.dart';
 import '../../core/widgets/widgets.dart';
 import '../../features/course/presentation/controllers/controllers.dart';
 import '../../features/course/presentation/pages/pages.dart';
@@ -25,9 +27,18 @@ class AgateRouter {
       debugLogDiagnostics: true,
       initialLocation: '/',
       observers: [
-        RouteObserver(),
+        TalkerRouteObserver(talker),
       ],
       routes: <RouteBase>[
+        GoRoute(
+          name: 'talker',
+          path: '/talker',
+          pageBuilder: (context, state) => MaterialPage(
+            key: state.pageKey,
+            name: 'Talker',
+            child: TalkerScreen(talker: talker),
+          ),
+        ),
         ShellRoute(
           navigatorKey: _shellNavigatorKey,
           builder: (context, state, child) => AppScaffold(
@@ -95,6 +106,16 @@ class AgateRouter {
                       ),
                     ),
                   ],
+                ),
+                GoRoute(
+                  parentNavigatorKey: _shellNavigatorKey,
+                  name: 'about_us',
+                  path: 'about_us',
+                  pageBuilder: (context, state) => MaterialPage(
+                    key: state.pageKey,
+                    name: context.strings.aboutUs,
+                    child: const AboutUsPage(),
+                  ),
                 ),
               ],
             ),
@@ -249,10 +270,15 @@ class AgateRouter {
         ),
       ],
       redirect: (context, state) async {
-        final user = (await ref.watch(authServiceProvider.future)).currentUser;
+        final user =
+            await (await ref.watch(authServiceProvider.future)).accessToken;
         final goingToLogin = state.fullPath == '/login';
         final goingToRegister = state.fullPath == '/register';
-        if (user == null && !goingToRegister && !goingToLogin) {
+        final goingToTalker = state.fullPath == '/talker';
+        if (user == null &&
+            !goingToRegister &&
+            !goingToLogin &&
+            !goingToTalker) {
           return '/login';
         } else if (user != null && (goingToRegister || goingToLogin)) {
           return '/';

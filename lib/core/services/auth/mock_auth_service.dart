@@ -14,7 +14,7 @@ class MockAuthService implements AuthService {
   final _userStreamController = StreamController<User?>();
 
   @override
-  String? get refreshToken => '';
+  Future<String?> get refreshToken => Future.value();
 
   @override
   Future<String?> renewToken() => Future.value('');

@@ -52,11 +52,16 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                                 data: (balance) => Text(
                                   balance.toStringFormatted(context),
                                 ),
-                                error: (_, __) =>
-                                    const CircularProgressIndicator(),
+                                error: (_, __) => IconButton(
+                                  onPressed: () => ref
+                                      .refresh(walletControllerProvider.future),
+                                  icon: const Icon(Icons.error_outline_rounded),
+                                ),
                                 loading: () =>
                                     const CircularProgressIndicator(),
                               ),
+                          contentPadding:
+                              const EdgeInsetsDirectional.fromSTEB(16, 0, 8, 0),
                           onTap: () => GoRouter.of(context).pushNamed('wallet'),
                         ),
                         const Divider(indent: 24, endIndent: 24, thickness: 2),
@@ -82,6 +87,13 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                           onTap: () => ref
                               .read(preferencesControllerProvider.notifier)
                               .toggleBrightness(),
+                        ),
+                        const Divider(indent: 24, endIndent: 24, thickness: 2),
+                        StadiumTile(
+                          prefixIcon: Icons.info_outline_rounded,
+                          label: context.strings.aboutUs,
+                          trailing: const Icon(Icons.arrow_forward_ios_rounded),
+                          onTap: () => context.pushNamed('about_us'),
                         ),
                         const Spacer(),
                         ElevatedButton.icon(

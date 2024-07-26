@@ -10,11 +10,13 @@ import '../../../../core/exceptions/http_exception.dart';
 import '../../../../core/extensions/extensions.dart';
 import '../../../../core/models/models.dart';
 import '../../../../core/services/auth/auth_service.dart';
+import '../../../../core/services/updater/updater_service.dart';
 import '../../../../core/widgets/widgets.dart';
 import '../../domain/entities/entities.dart';
 import '../controllers/controllers.dart';
 import '../widgets/widgets.dart';
 
+part 'about_us_page.dart';
 part 'deposit_page.dart';
 part 'login_page.dart';
 part 'profile_page.dart';

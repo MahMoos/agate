@@ -6,6 +6,7 @@ class StadiumTile extends StatelessWidget {
     required this.prefixIcon,
     this.trailing,
     this.onTap,
+    this.contentPadding,
     super.key,
   });
 
@@ -13,6 +14,7 @@ class StadiumTile extends StatelessWidget {
   final IconData prefixIcon;
   final Widget? trailing;
   final VoidCallback? onTap;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class StadiumTile extends StatelessWidget {
       leading: Icon(prefixIcon),
       title: Text(label, style: context.titleLarge),
       trailing: trailing,
+      contentPadding: contentPadding,
       shape: StadiumBorder(
         side: BorderSide(color: context.primaryColor),
       ),

@@ -2,9 +2,12 @@ part of 'auth_service.dart';
 
 class AgateAuthService implements AuthService {
   String? _accessToken;
+  String? _refreshToken;
+  String? _deviceId;
 
   Future<void> initialize() async {
     _accessToken = await accessToken;
+    _deviceId = await deviceId;
     if (_accessToken != null) {
       _currentUser = await _getUser();
       _userStreamController.sink.add(_currentUser);
@@ -14,7 +17,17 @@ class AgateAuthService implements AuthService {
   @override
   Future<String?> get accessToken => _accessToken != null
       ? Future.value(_accessToken)
-      : FlutterKeychain.get(key: 'token');
+      : FlutterKeychain.get(key: 'access_token');
+
+  Future<String> get deviceId async {
+    if (_deviceId != null) return Future.value(_deviceId);
+    final id = await FlutterKeychain.get(key: 'device_id');
+    if (id != null) return id;
+    const uuid = Uuid();
+    final uid = uuid.v8g();
+    await FlutterKeychain.put(key: 'device_id', value: uid);
+    return uid;
+  }
 
   User? _currentUser;
 
@@ -24,10 +37,23 @@ class AgateAuthService implements AuthService {
   final _userStreamController = StreamController<User?>();
 
   @override
-  String? get refreshToken => '';
+  Future<String?> get refreshToken => _refreshToken != null
+      ? Future.value(_refreshToken)
+      : FlutterKeychain.get(key: 'refresh_token');
 
   @override
-  Future<String?> renewToken() => Future.value('');
+  Future<String?> renewToken() async {
+    return _accessToken = await DioHttpService().post<String>(
+      ApiRoutes.refreshToken,
+      headers: {
+        'Content-Type': 'application/json',
+        if (_accessToken != null) 'Authorization': 'Bearer $_accessToken',
+        if (_refreshToken != null) 'X-RefreshToken': _refreshToken,
+        'X-DeviceId': _deviceId,
+      },
+      parser: (data) => data['token'] as String,
+    );
+  }
 
   @override
   Stream<User?> userChanges() {
@@ -40,9 +66,13 @@ class AgateAuthService implements AuthService {
       ApiRoutes.register,
       parser: (json) => User.fromJson(json as Map<String, dynamic>),
       data: user.toJson(),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-DeviceId': _deviceId,
+      },
     );
-    await _setToken(newUser.token);
-    if (_accessToken != null) {
+    await _setTokens(newUser.accessToken, newUser.refreshToken);
+    if (_accessToken != null && newUser.id != null) {
       newUser = await _getUser();
       _setUser(newUser);
     } else {
@@ -60,9 +90,12 @@ class AgateAuthService implements AuthService {
         'userName': username,
         'password': password,
       },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-DeviceId': _deviceId,
+      },
     );
-    await _setToken(_currentUser?.token);
-    _currentUser = await _getUser();
+    await _setTokens(_currentUser?.accessToken, currentUser?.refreshToken);
     _setUser(_currentUser);
     return Future.value(_currentUser);
   }
@@ -76,6 +109,7 @@ class AgateAuthService implements AuthService {
   @override
   Future<void> signOut() async {
     _setUser(null);
+    await _setTokens(null, null);
   }
 
   void _setUser(User? user) {
@@ -88,7 +122,11 @@ class AgateAuthService implements AuthService {
       final user = await DioHttpService().get<User>(
         ApiRoutes.myProfile,
         parser: (json) => User.fromJson(json as Map<String, dynamic>),
-        headers: {'Authorization': 'Bearer $_accessToken'},
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $_accessToken',
+          'X-DeviceId': _deviceId,
+        },
       );
       return user;
     } on Exception catch (e) {
@@ -100,10 +138,18 @@ class AgateAuthService implements AuthService {
     return null;
   }
 
-  Future<void> _setToken(String? token) {
-    _accessToken = token;
-    return token != null
-        ? FlutterKeychain.put(key: 'token', value: token)
-        : FlutterKeychain.remove(key: 'token');
+  Future<void> _setTokens(String? accessToken, String? refreshToken) {
+    _accessToken = accessToken;
+    _refreshToken = refreshToken;
+    return Future.wait([
+      if (accessToken != null)
+        FlutterKeychain.put(key: 'access_token', value: accessToken)
+      else
+        FlutterKeychain.remove(key: 'access_token'),
+      if (refreshToken != null)
+        FlutterKeychain.put(key: 'refresh_token', value: refreshToken)
+      else
+        FlutterKeychain.remove(key: 'refresh_token'),
+    ]);
   }
 }

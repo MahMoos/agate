@@ -1,5 +1,5 @@
 import 'app/app.dart';
 
 void main() {
-  bootstrap(() => const AuthApp());
+  bootstrap(() => const AgateApp());
 }

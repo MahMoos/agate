@@ -33,6 +33,7 @@ class StatusView extends StatelessWidget {
       padding: const EdgeInsets.all(30),
       child: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (illustration != null)
@@ -50,7 +51,7 @@ class StatusView extends StatelessWidget {
             if (title != null)
               Text(
                 title!,
-              ).fontSize(21).paddingOnly(bottom: 16),
+              ).fontSize(21).paddingOnly(bottom: 16).alignAtCenter(),
             if (message != null)
               Text(
                 message!,

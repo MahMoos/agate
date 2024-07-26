@@ -27,6 +27,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             onPressed: () => ref
@@ -50,7 +51,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Assets.images.logoTransparent.image(height: 320),
+            GestureDetector(
+              onScaleEnd: (details) {
+                context.pushNamed('talker');
+              },
+              child: Assets.images.logoTransparent.image(height: 320),
+            ),
             Text(
               context.strings.welcome,
               style: context.headlineLarge,

@@ -1,13 +1,13 @@
 part of '../app.dart';
 
-class AuthApp extends StatefulWidget {
-  const AuthApp({super.key});
+class AgateApp extends StatefulWidget {
+  const AgateApp({super.key});
 
   @override
-  State<AuthApp> createState() => _AuthAppState();
+  State<AgateApp> createState() => _AgateAppState();
 }
 
-class _AuthAppState extends State<AuthApp> {
+class _AgateAppState extends State<AgateApp> {
   @override
   Widget build(BuildContext context) {
     return Shortcuts(
@@ -51,6 +51,11 @@ class _AppState extends ConsumerState<App> {
 
   @override
   Widget build(BuildContext context) {
+    final prefsProvider = ref.watch(preferencesControllerProvider);
+    final isLight = prefsProvider.value != null &&
+            prefsProvider.requireValue.themeMode != ThemeMode.system
+        ? prefsProvider.requireValue.themeMode == ThemeMode.light
+        : Theme.of(context).brightness == Brightness.light;
     return MaterialApp.router(
       onGenerateTitle: (context) => context.strings.appName,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -58,11 +63,21 @@ class _AppState extends ConsumerState<App> {
       locale: Locale(
         ref.watch(preferencesControllerProvider).value?.language ?? 'ar',
       ),
-      builder: (context, child) => ColoredBox(
-        color: Theme.of(context).brightness == Brightness.light
-            ? AppTheme.light().scaffoldBackgroundColor
-            : AppTheme.dark().scaffoldBackgroundColor,
-        child: child,
+      builder: (context, child) => UpdateListener(
+        child: Stack(
+          children: [
+            ColoredBox(
+              color: isLight
+                  ? AppTheme.light().scaffoldBackgroundColor
+                  : AppTheme.dark().scaffoldBackgroundColor,
+              child: Center(
+                child: Assets.images.logoTransparent
+                    .image(width: context.width / 3),
+              ),
+            ),
+            if (child != null) child,
+          ],
+        ),
       ),
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),

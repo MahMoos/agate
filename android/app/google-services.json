@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "924971239933-jk9bgf29870ickg7fcstfds4b3sgs9c0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mubtakerspace.agate",
+            "certificate_hash": "21390ad091b93941e6153cfca1f3524c83ca92b7"
+          }
+        },
+        {
+          "client_id": "924971239933-u1t1kn5rbmpiu6jc45248470eq5eu5hn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mubtakerspace.agate",
+            "certificate_hash": "a05283d3b56902d11b0ec3d26316985ac1168233"
+          }
+        },
+        {
           "client_id": "924971239933-0ek3o43rj8erf2fishld2aekarq35gj4.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +45,13 @@
             {
               "client_id": "924971239933-0ek3o43rj8erf2fishld2aekarq35gj4.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "924971239933-j3tmsffct6roacil02fkjp2esjthjm6d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myApp.RunnerTests"
+              }
             }
           ]
         }

@@ -250,6 +250,10 @@
   "@brightness": {
     "description": "Brightness label"
   },
+  "aboutUs": "About Us",
+  "@aboutUs": {
+    "description": "About Us label"
+  },
   "couponNotFound": "Coupon not found",
   "@couponNotFound": {
     "description": "Coupon not found message"
@@ -265,5 +269,27 @@
   "publish": "Publish",
   "@publish": {
     "description": "Publish a Review button label"
+  },
+  "updateAvailableMsg": "An update is available!\nRestart to update the app.",
+  "@updateAvailableMsg": {
+    "description": "an update available message"
+  },
+  "restartNow": "Restart Now!",
+  "@restartNow": {
+    "description": "Restart now to update button label"
+  },
+  "checkingForUpdates": "Checking for updates...",
+  "@checkingForUpdates": {
+    "description": "Checking for updates message"
+  },
+  "copyright": "ⓒ {year} Al-Qalam Center",
+  "@copyright": {
+    "description": "Copyright message",
+    "placeholders": {
+      "year": {
+        "type": "int",
+        "example": "2024"
+      }
+    }
   }
 }

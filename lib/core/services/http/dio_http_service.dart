@@ -9,14 +9,6 @@ class DioHttpService implements HttpService {
     Dio? dioOverride,
   }) {
     dio = dioOverride ?? Dio(baseOptions);
-    dio.interceptors.add(
-      PrettyDioLogger(
-        requestBody: true,
-        requestHeader: true,
-        responseHeader: true,
-        maxWidth: 180,
-      ),
-    );
   }
 
   /// The Dio Http client

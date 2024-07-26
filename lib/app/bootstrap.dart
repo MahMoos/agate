@@ -1,31 +1,21 @@
 part of 'app.dart';
 
-class Logger extends ProviderObserver {
-  const Logger();
-
-  @override
-  void didUpdateProvider(
-    ProviderBase<Object?> provider,
-    Object? previousValue,
-    Object? newValue,
-    ProviderContainer container,
-  ) {
-    log(
-      '''
-{
-  "provider": "${provider.name ?? provider.runtimeType}",
-  "newValue": "$newValue"
-}''',
-      name: 'Riverpod Observer',
-    );
-  }
-}
-
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
-  FlutterError.onError = (details) {
-    log(details.exceptionAsString(), stackTrace: details.stack);
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
   };
 
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(ProviderScope(observers: const [Logger()], child: await builder()));
+  runApp(
+    ProviderScope(
+      observers: [TalkerRiverpodObserver(talker: talker)],
+      child: await builder(),
+    ),
+  );
 }

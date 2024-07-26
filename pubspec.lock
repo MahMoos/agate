@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "67.0.0"
+  _flutterfire_internals:
+    dependency: transitive
+    description:
+      name: _flutterfire_internals
+      sha256: b46f62516902afb04befa4b30eb6a12ac1f58ca8cb25fb9d632407259555dd3d
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.3.39"
   analyzer:
     dependency: transitive
     description:
@@ -25,6 +33,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.11.3"
+  ansicolor:
+    dependency: transitive
+    description:
+      name: ansicolor
+      sha256: "8bf17a8ff6ea17499e40a2d2542c2f481cd7615760c6d34065cb22bfd22e6880"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
   archive:
     dependency: transitive
     description:
@@ -353,6 +369,70 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
+  firebase_analytics:
+    dependency: "direct main"
+    description:
+      name: firebase_analytics
+      sha256: "2017da2cb0745fa912e13aadfc94e49691796cf6b7ed37edbca2a2388713da11"
+      url: "https://pub.dev"
+    source: hosted
+    version: "11.2.0"
+  firebase_analytics_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_analytics_platform_interface
+      sha256: "4ea00fe31ff74c92c613e082193b55bd21f0653b536dd77cc1ba4cf60771d214"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.0"
+  firebase_analytics_web:
+    dependency: transitive
+    description:
+      name: firebase_analytics_web
+      sha256: e5ce84f0c4e6fb8f8ca673d009445938a61845d8fa6b42c11913d5bbdbedf300
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.9"
+  firebase_core:
+    dependency: "direct main"
+    description:
+      name: firebase_core
+      sha256: "5159984ce9b70727473eb388394650677c02c925aaa6c9439905e1f30966a4d5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.0"
+  firebase_core_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_core_platform_interface
+      sha256: "1003a5a03a61fc9a22ef49f37cbcb9e46c86313a7b2e7029b9390cf8c6fc32cb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.1.0"
+  firebase_core_web:
+    dependency: transitive
+    description:
+      name: firebase_core_web
+      sha256: "23509cb3cddfb3c910c143279ac3f07f06d3120f7d835e4a5d4b42558e978712"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.17.3"
+  firebase_crashlytics:
+    dependency: "direct main"
+    description:
+      name: firebase_crashlytics
+      sha256: da32da3b441d1bee73ca990085a3ae174b9fb3585229f02a278a2ea42454d784
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.3"
+  firebase_crashlytics_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_crashlytics_platform_interface
+      sha256: b7567106ed57bbadaa0610774cc17a10b82ed04a1aba99790f303385ac4ba78f
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.6.39"
   fixnum:
     dependency: transitive
     description:
@@ -453,22 +533,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.4"
-  fresh:
-    dependency: transitive
-    description:
-      name: fresh
-      sha256: d0adae5799932b7aed7f17bed05862f994e4f592e9de9f8a9a513377b773fe50
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.4.2"
-  fresh_dio:
-    dependency: "direct main"
-    description:
-      name: fresh_dio
-      sha256: afa3cc9fe6189ec22d0f9a936f01c8e6724e9801b610d4709bd39945890e22ad
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.4.2"
   frontend_server_client:
     dependency: transitive
     description:
@@ -509,6 +573,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
+  group_button:
+    dependency: transitive
+    description:
+      name: group_button
+      sha256: "0610fcf28ed122bfb4b410fce161a390f7f2531d55d1d65c5375982001415940"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.3.4"
   hotreloader:
     dependency: transitive
     description:
@@ -597,6 +669,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.8.0"
+  jwt_decoder:
+    dependency: "direct main"
+    description:
+      name: jwt_decoder
+      sha256: "54774aebf83f2923b99e6416b4ea915d47af3bde56884eb622de85feabbc559f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   leak_tracker:
     dependency: transitive
     description:
@@ -822,14 +902,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.1"
-  pretty_dio_logger:
-    dependency: "direct main"
-    description:
-      name: pretty_dio_logger
-      sha256: "36f2101299786d567869493e2f5731de61ce130faa14679473b26905a92b6407"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.4.0"
   provider:
     dependency: transitive
     description:
@@ -870,6 +942,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
+  restart_app:
+    dependency: "direct main"
+    description:
+      name: restart_app
+      sha256: b37daeb1c02fcab30e19d9e30b6fdd215bd53577efd927042eb77cf6f09daadb
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.1"
   riverpod:
     dependency: transitive
     description:
@@ -1006,6 +1086,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  shorebird_code_push:
+    dependency: "direct main"
+    description:
+      name: shorebird_code_push
+      sha256: "62064dde5155e2cabef07dbc717a2ab95e9069fea2058da9cb32403fdf05038f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -1115,6 +1203,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.0+1"
+  talker:
+    dependency: "direct main"
+    description:
+      name: talker
+      sha256: "3cea253a65cccf9c9e6fd93cd689c870858860fe0b83a8bff0fdd79a132d09ca"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.4"
+  talker_dio_logger:
+    dependency: "direct main"
+    description:
+      name: talker_dio_logger
+      sha256: "66241efb90eec42f283c70b35e96b644ea822805f9c87da7bb2441054d53cfa8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.4"
+  talker_flutter:
+    dependency: "direct main"
+    description:
+      name: talker_flutter
+      sha256: "09cd58b798476789a720cfd3846e5a036ebed73036f2e202dc087cc445cc9088"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.4"
+  talker_logger:
+    dependency: transitive
+    description:
+      name: talker_logger
+      sha256: ad022c4429efe114512fe3d38f398ccae22281958e02ca1ea9df0ca9967b8e65
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.4"
+  talker_riverpod_logger:
+    dependency: "direct main"
+    description:
+      name: talker_riverpod_logger
+      sha256: "850565b426f1e1924868512b017e10c0b433c5496a8be8505b76a3e4436f926c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.4"
   term_glyph:
     dependency: transitive
     description:
@@ -1212,13 +1340,13 @@ packages:
     source: hosted
     version: "3.1.1"
   uuid:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: uuid
-      sha256: cd210a09f7c18cbe5a02511718e0334de6559871052c90a90c0cca46a4aa81c8
+      sha256: "83d37c7ad7aaf9aa8e275490669535c8080377cfa7a7004c24dfac53afffaa90"
       url: "https://pub.dev"
     source: hosted
-    version: "4.3.3"
+    version: "4.4.2"
   vector_graphics:
     dependency: transitive
     description:

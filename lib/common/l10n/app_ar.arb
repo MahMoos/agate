@@ -56,8 +56,13 @@
   "profile": "الملف الشخصي",
   "language": "اللغة",
   "brightness": "الإضاءة",
+  "aboutUs": "حولنا",
   "couponNotFound": "هذا الرمز غير موجود",
   "reviews": "المراجعات",
   "addReview": "أضف مراجعة:",
-  "publish": "نشر"
+  "publish": "نشر",
+  "updateAvailableMsg": "هنالك تحديث حديد!\nأعد تشغيل التطبيق للتحديث.",
+  "restartNow": "أعد التشغيل!",
+  "checkingForUpdates": "جاري البحث عن تحديثات...",
+  "copyright": "ⓒ {year} مركز القلم التربوي التعليمي"
 }

@@ -4,6 +4,7 @@ import 'dart:core';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_keychain/flutter_keychain.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../../common/api/api.dart';
 import '../../exceptions/http_exception.dart';
@@ -26,7 +27,7 @@ abstract class AuthService {
 
   Future<String?> get accessToken;
 
-  String? get refreshToken;
+  Future<String?> get refreshToken;
 
   Future<String?> renewToken();
 

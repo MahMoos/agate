@@ -12,6 +12,8 @@ class ApiRoutes {
 
   static Uri get login => _authUri('/login');
 
+  static Uri get refreshToken => _authUri('/refresh');
+
   static Uri get register => _authUri('/register');
 
   static Uri get home => _appUri(
@@ -116,6 +118,10 @@ class ApiRoutes {
 
   static Uri get myProfile => _appUri(
         '/users/mine',
+      );
+
+  static Uri profile(String id) => _appUri(
+        '/users/$id',
       );
 
   static Uri get wallet => _appUri(
