@@ -66,6 +66,14 @@ abstract class HttpService {
     Map<String, dynamic>? headers,
   });
 
+  /// Http patch request
+  Future<T> patch<T>(
+    Uri uri, {
+    required dynamic data,
+    required T Function(dynamic) parser,
+    Map<String, dynamic>? headers,
+  });
+
   /// Http delete request
   Future<T> delete<T>(
     Uri uri, {

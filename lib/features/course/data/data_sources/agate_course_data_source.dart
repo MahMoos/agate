@@ -95,7 +95,7 @@ class AgateCourseDataSource extends CourseDataSource {
     required Duration progress,
     required Duration duration,
   }) {
-    return client.post<bool>(
+    return client.patch<bool>(
       ApiRoutes.watchLecture(courseId: courseId, lectureId: lectureId),
       data: {
         'duration': duration.inSeconds,

@@ -86,6 +86,21 @@ class DioHttpService implements HttpService {
           .process<T>(parser);
 
   @override
+  Future<T> patch<T>(
+    Uri uri, {
+    required T Function(dynamic) parser,
+    dynamic data,
+    Map<String, dynamic>? headers,
+  }) =>
+      dio
+          .patchUri<dynamic>(
+            uri,
+            data: data,
+            options: Options(headers: headers),
+          )
+          .process<T>(parser);
+
+  @override
   Future<T> delete<T>(
     Uri uri, {
     required T Function(dynamic) parser,
