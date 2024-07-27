@@ -51,7 +51,8 @@ class AgateExploreRepository extends BaseRepository
     }
     for (final department in departments) {
       if (department.parentId != null) {
-        final parent = lookup[department.parentId]!;
+        final parent = lookup[department.parentId];
+        if (parent == null) continue;
         if (parent.subDepartments == null || parent.subDepartments!.isEmpty) {
           lookup[department.parentId!] =
               parent.copyWith(subDepartments: [department]);
