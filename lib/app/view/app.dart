@@ -34,14 +34,27 @@ class App extends ConsumerStatefulWidget {
   ConsumerState<App> createState() => _AppState();
 }
 
-class _AppState extends ConsumerState<App> {
+class _AppState extends ConsumerState<App> with WidgetsBindingObserver {
   late GoRouter _router;
+  final _noScreenshot = NoScreenshot.instance;
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    _noScreenshot.screenshotOff();
+  }
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _router = AgateRouter.router(ref);
     initApp();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 
   Future<void> initApp() async {
