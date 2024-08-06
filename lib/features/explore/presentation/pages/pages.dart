@@ -17,3 +17,5 @@ part 'my_courses_page.dart';
 part 'search_page.dart';
 part 'subject_page.dart';
 part 'subjects_page.dart';
+part 'teacher_page.dart';
+part 'teachers_page.dart';

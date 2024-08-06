@@ -20,6 +20,10 @@ abstract class ExploreDataSource extends RemoteDataSource {
 
   Future<List<SubjectModel>> getSubjects(SubjectsParams params);
 
+  Future<TeacherModel> getTeacher(String id);
+
+  Future<List<TeacherModel>> getTeachers(PaginatedParams params);
+
   Future<BookModel> getBook(String id);
 
   Future<List<BookModel>> getBooks(BooksParams params);

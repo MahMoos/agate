@@ -15,3 +15,5 @@ part 'get_mcq_games.dart';
 part 'get_my_courses.dart';
 part 'get_subject.dart';
 part 'get_subjects.dart';
+part 'get_teacher.dart';
+part 'get_teachers.dart';

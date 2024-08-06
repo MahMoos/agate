@@ -70,6 +70,15 @@ class ApiRoutes {
         '/subjects/$id',
       );
 
+  static Uri teachers(PaginatedParams params) => _appUri(
+        '/teachers',
+        params.toJson(),
+      );
+
+  static Uri teacher(String id) => _appUri(
+        '/teachers/$id',
+      );
+
   static Uri books(BooksParams params) => _appUri(
         '/books',
         params.toJson(),

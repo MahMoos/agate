@@ -35,6 +35,8 @@
   "participants": "{count, plural, =0{} =1{} =2{} other{{count} مشترك}}",
   "departments": "الاقسام",
   "library": "المكتبة",
+  "universities": "الجامعات",
+  "teachers": "الأساتذة",
   "subscribe": "إشترك",
   "showMore": "مشاهدة المزيد",
   "lectures": "المحاضرات",

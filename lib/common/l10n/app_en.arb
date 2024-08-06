@@ -158,6 +158,14 @@
   "@library": {
     "description": "library label"
   },
+  "universities": "Universities",
+  "@universities": {
+    "description": "universities label"
+  },
+  "teachers": "Teachers",
+  "@teachers": {
+    "description": "teachers label"
+  },
   "subscribe": "Subscribe",
   "@subscribe": {
     "description": "Subscribe button label"

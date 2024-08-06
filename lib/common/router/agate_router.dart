@@ -181,6 +181,31 @@ class AgateRouter {
             ),
             GoRoute(
               parentNavigatorKey: _shellNavigatorKey,
+              name: 'teachers',
+              path: '/teachers',
+              pageBuilder: (context, state) => AppTransitionPage.fadeIn(
+                key: state.pageKey,
+                name: context.strings.teachers,
+                child: const TeachersPage(),
+              ),
+              routes: [
+                GoRoute(
+                  parentNavigatorKey: _shellNavigatorKey,
+                  name: 'teacher',
+                  path: ':id',
+                  pageBuilder: (context, state) {
+                    final sectionId = state.pathParameters['id']!;
+                    return AppTransitionPage.fadeIn(
+                      key: state.pageKey,
+                      name: context.strings.teachers,
+                      child: TeacherPage(sectionId),
+                    );
+                  },
+                ),
+              ],
+            ),
+            GoRoute(
+              parentNavigatorKey: _shellNavigatorKey,
               name: 'myCourses',
               path: '/my_courses',
               pageBuilder: (context, state) => AppTransitionPage.fadeIn(

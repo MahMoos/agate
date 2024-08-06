@@ -20,6 +20,7 @@ part 'home_controller.dart';
 part 'mcqs_controller.dart';
 part 'my_courses_controller.dart';
 part 'subjects_controller.dart';
+part 'teachers_controller.dart';
 
 @Riverpod(keepAlive: true)
 Future<ExploreRepository> exploreRepository(ExploreRepositoryRef ref) async {

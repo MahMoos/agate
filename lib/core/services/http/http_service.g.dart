@@ -6,7 +6,7 @@ part of 'http_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$httpServiceHash() => r'c6460bf787de7bc6e03ac64cf01684ef01cc891d';
+String _$httpServiceHash() => r'15d3228e2d2108a30323c8f08a939840ec02e3c0';
 
 /// Provider that maps an [HttpService] interface to implementation
 ///

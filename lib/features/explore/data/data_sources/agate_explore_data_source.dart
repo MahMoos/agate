@@ -64,6 +64,22 @@ class AgateExploreDataSource extends ExploreDataSource {
   }
 
   @override
+  Future<TeacherModel> getTeacher(String id) {
+    return client.get<TeacherModel>(
+      ApiRoutes.teacher(id),
+      parser: (json) => TeacherModel.fromJson(json as Map<String, dynamic>),
+    );
+  }
+
+  @override
+  Future<List<TeacherModel>> getTeachers(PaginatedParams params) {
+    return client.getList<TeacherModel>(
+      ApiRoutes.teachers(params),
+      parser: (json) => TeacherModel.fromJson(json as Map<String, dynamic>),
+    );
+  }
+
+  @override
   Future<BookModel> getBook(String id) {
     return client.get<BookModel>(
       ApiRoutes.book(id),

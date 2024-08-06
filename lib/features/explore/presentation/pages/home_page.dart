@@ -35,7 +35,7 @@ class HomePage extends ConsumerWidget {
                       ],
                       GridView(
                         gridDelegate:
-                        const SliverGridDelegateWithMaxCrossAxisExtent(
+                            const SliverGridDelegateWithMaxCrossAxisExtent(
                           maxCrossAxisExtent: 640,
                           mainAxisExtent: 156,
                           mainAxisSpacing: 8,
@@ -46,16 +46,22 @@ class HomePage extends ConsumerWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
                           ShortcutCard(
-                            title: context.strings.departments,
+                            title: context.strings.universities,
                             imageUrl:
-                            'https://images.unsplash.com/photo-1604134967494-8a9ed3adea0d?q=80&w=480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                                'https://images.unsplash.com/photo-1604134967494-8a9ed3adea0d?q=80&w=480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                             onTap: () => context.pushNamed('departments'),
                           ),
                           ShortcutCard(
                             title: context.strings.library,
                             imageUrl:
-                            'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                                'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                             onTap: () => context.pushNamed('subjects'),
+                          ),
+                          ShortcutCard(
+                            title: context.strings.teachers,
+                            imageUrl:
+                                'https://images.unsplash.com/photo-1559223694-98ed5e272fef?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                            onTap: () => context.pushNamed('teachers'),
                           ),
                         ],
                       ),
@@ -65,7 +71,7 @@ class HomePage extends ConsumerWidget {
                           title: context.strings.specialCourses,
                           onPressed: () {
                             ref.read(coursesParamsProvider.notifier).state =
-                            const CoursesParams(isFeatured: true);
+                                const CoursesParams(isFeatured: true);
                             context.pushNamed('search');
                           },
                         ),
@@ -74,7 +80,7 @@ class HomePage extends ConsumerWidget {
                           shrinkWrap: true,
                           padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
                           gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                              const SliverGridDelegateWithMaxCrossAxisExtent(
                             maxCrossAxisExtent: 480,
                             mainAxisExtent: 272,
                             mainAxisSpacing: 8,

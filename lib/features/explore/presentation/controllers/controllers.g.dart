@@ -167,7 +167,7 @@ class _BookProviderElement extends AutoDisposeFutureProviderElement<Book>
   String get id => (origin as BookProvider).id;
 }
 
-String _$departmentHash() => r'18af0f037bf580e4df2083320ef5523468de573d';
+String _$departmentHash() => r'bbfbc0e942cb1ee1a4466867040676a707a06cd6';
 
 /// See also [department].
 @ProviderFor(department)
@@ -561,6 +561,133 @@ class _SubjectProviderElement extends AutoDisposeFutureProviderElement<Subject>
 
   @override
   String get id => (origin as SubjectProvider).id;
+}
+
+String _$teacherHash() => r'b2bc8eb7d1008427d2f185f6e63115edbb2f13de';
+
+/// See also [teacher].
+@ProviderFor(teacher)
+const teacherProvider = TeacherFamily();
+
+/// See also [teacher].
+class TeacherFamily extends Family<AsyncValue<Teacher>> {
+  /// See also [teacher].
+  const TeacherFamily();
+
+  /// See also [teacher].
+  TeacherProvider call(
+    String id,
+  ) {
+    return TeacherProvider(
+      id,
+    );
+  }
+
+  @override
+  TeacherProvider getProviderOverride(
+    covariant TeacherProvider provider,
+  ) {
+    return call(
+      provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'teacherProvider';
+}
+
+/// See also [teacher].
+class TeacherProvider extends AutoDisposeFutureProvider<Teacher> {
+  /// See also [teacher].
+  TeacherProvider(
+    String id,
+  ) : this._internal(
+          (ref) => teacher(
+            ref as TeacherRef,
+            id,
+          ),
+          from: teacherProvider,
+          name: r'teacherProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$teacherHash,
+          dependencies: TeacherFamily._dependencies,
+          allTransitiveDependencies: TeacherFamily._allTransitiveDependencies,
+          id: id,
+        );
+
+  TeacherProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.id,
+  }) : super.internal();
+
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<Teacher> Function(TeacherRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: TeacherProvider._internal(
+        (ref) => create(ref as TeacherRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Teacher> createElement() {
+    return _TeacherProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is TeacherProvider && other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin TeacherRef on AutoDisposeFutureProviderRef<Teacher> {
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _TeacherProviderElement extends AutoDisposeFutureProviderElement<Teacher>
+    with TeacherRef {
+  _TeacherProviderElement(super.provider);
+
+  @override
+  String get id => (origin as TeacherProvider).id;
 }
 
 String _$booksHash() => r'2e4c2c6e447f5f9b6e7f531d4d395c2016351a43';
@@ -1153,5 +1280,21 @@ class _SubjectsProviderElement
   @override
   SubjectsParams get params => (origin as SubjectsProvider).params;
 }
+
+String _$teachersHash() => r'764fa2b476c9a13d145b1da29c0415152fcc37e1';
+
+/// See also [Teachers].
+@ProviderFor(Teachers)
+final teachersProvider =
+    AsyncNotifierProvider<Teachers, List<Teacher>>.internal(
+  Teachers.new,
+  name: r'teachersProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$teachersHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$Teachers = AsyncNotifier<List<Teacher>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
