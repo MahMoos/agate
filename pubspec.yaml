@@ -58,6 +58,7 @@ dependencies:
   restart_app: ^1.2.1
   jwt_decoder: ^2.0.1
   uuid: ^4.4.2
+  no_screenshot: ^0.2.0
 
   # UI
   flutter_image_slideshow: ^0.1.6
