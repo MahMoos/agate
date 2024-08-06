@@ -291,5 +291,9 @@
         "example": "2024"
       }
     }
+  },
+  "agreementTileLabel": "I agree to the terms and conditions",
+  "@agreementTileLabel": {
+    "description": "User agreement CheckboxListTile label"
   }
 }

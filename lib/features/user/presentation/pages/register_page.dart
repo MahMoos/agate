@@ -26,6 +26,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       'username': ['', Validators.required, Validators.maxLength(16)],
       'password': ['', Validators.required, Validators.minLength(8)],
       'passwordConfirmation': '',
+      'agreement': [false, Validators.requiredTrue],
     }, [
       const MustMatchValidator('password', 'passwordConfirmation', true),
     ]);
@@ -128,6 +129,11 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     obscureText: true,
                     onSubmitted: (_) => form.valid ? _submit() : null,
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
+                  ReactiveCheckboxListTile(
+                    formControlName: 'agreement',
+                    title: Text(context.strings.agreementTileLabel),
+                    controlAffinity: ListTileControlAffinity.leading,
+                  ),
                   if (!_isLoading)
                     ReactiveFormConsumer(
                       builder: (context, form, child) {

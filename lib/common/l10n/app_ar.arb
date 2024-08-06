@@ -64,5 +64,6 @@
   "updateAvailableMsg": "هنالك تحديث حديد!\nأعد تشغيل التطبيق للتحديث.",
   "restartNow": "أعد التشغيل!",
   "checkingForUpdates": "جاري البحث عن تحديثات...",
-  "copyright": "ⓒ {year} مركز القلم التربوي التعليمي"
+  "copyright": "ⓒ {year} مركز القلم التربوي التعليمي",
+  "agreementTileLabel": "أوافق على الشروط والأحكام"
 }
