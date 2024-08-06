@@ -43,6 +43,23 @@ class AgateExploreRepository extends BaseRepository
     return (await remote.getDepartment(id)).toEntity();
   }
 
+  Department? buildTreeRecursive(
+    String id,
+    Map<String, Department> departments,
+  ) {
+    final department = departments[id];
+    if (department == null) {
+      return null;
+    }
+    return department.copyWith(
+      subDepartments: department.subDepartments
+          ?.map(
+            (department) => buildTreeRecursive(department.id, departments)!,
+          )
+          .toList(),
+    );
+  }
+
   List<Department> _processDepartments(List<Department> departments) {
     if (departments.isEmpty) return departments;
     final lookup = <String, Department>{};
@@ -68,6 +85,8 @@ class AgateExploreRepository extends BaseRepository
     }
     return lookup.values
         .where((department) => department.parentId == null)
+        .toList()
+        .map((root) => buildTreeRecursive(root.id, lookup)!)
         .toList();
   }
 

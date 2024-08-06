@@ -24,8 +24,20 @@ Future<Department> department(DepartmentRef ref, String id) async {
   final department = ref
       .watch(departmentsProvider.notifier)
       .data
-      ?.firstWhereOrNull((department) => department.id == id);
+      ?.flattenTree()
+      .firstWhereOrNull((department) => department.id == id);
   return department != null
       ? Future.value(department)
       : GetDepartment(repo).call(id);
+}
+
+extension ListExtension on List<Department> {
+  List<Department> flattenTree() {
+    return map(
+      (department) => [
+        department,
+        ...?department.subDepartments?.flattenTree(),
+      ],
+    ).flattened.toList();
+  }
 }
