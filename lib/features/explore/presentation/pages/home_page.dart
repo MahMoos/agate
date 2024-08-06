@@ -57,12 +57,12 @@ class HomePage extends ConsumerWidget {
                                 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                             onTap: () => context.pushNamed('subjects'),
                           ),
-                          // ShortcutCard(
-                          //   title: context.strings.teachers,
-                          //   imageUrl:
-                          //       'https://images.unsplash.com/photo-1559223694-98ed5e272fef?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                          //   onTap: () => context.pushNamed('teachers'),
-                          // ),
+                          ShortcutCard(
+                            title: context.strings.teachers,
+                            imageUrl:
+                                'https://images.unsplash.com/photo-1559223694-98ed5e272fef?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                            onTap: () => context.pushNamed('teachers'),
+                          ),
                         ],
                       ),
                       if (data.specialCourses != null &&

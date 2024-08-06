@@ -70,13 +70,16 @@ class ApiRoutes {
         '/subjects/$id',
       );
 
-  static Uri teachers(PaginatedParams params) => _appUri(
-        '/teachers',
-        params.toJson(),
-      );
+  static Uri teachers(PaginatedParams params) {
+    final p = params.toJson()..putIfAbsent('Type', () => '1');
+    return _appUri(
+      '/users',
+      p,
+    );
+  }
 
   static Uri teacher(String id) => _appUri(
-        '/teachers/$id',
+        '/users/$id',
       );
 
   static Uri books(BooksParams params) => _appUri(
