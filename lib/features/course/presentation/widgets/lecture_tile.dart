@@ -23,7 +23,7 @@ class LectureTile extends StatelessWidget {
         ).withHero(
           '${lecture.id}-name',
         ),
-        subtitle: lecture.isSubscribed
+        subtitle: lecture.isSubscribed && lecture.duration?.inSeconds != 0
             ? LinearProgressIndicator(
                 value: (lecture.completedDuration?.inSeconds ?? 0) /
                     (lecture.duration?.inSeconds ?? 1),
