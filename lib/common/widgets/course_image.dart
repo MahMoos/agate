@@ -21,7 +21,8 @@ class CourseImage extends StatelessWidget {
             ? const ColorFilter.mode(Colors.transparent, BlendMode.overlay)
             : ColorFilter.mode(Colors.grey.shade300, BlendMode.srcIn),
         child: CachedNetworkImage(
-          imageUrl: imageUrl ?? 'https://i.imgur.com/NOM85VI.png',
+          imageUrl: imageUrl ??
+              'https://qalam-center.s3.eu-central-1.amazonaws.com/logo_transparent.png',
           fit: imageUrl != null ? BoxFit.cover : BoxFit.contain,
           height: height,
           width: double.infinity,
