@@ -3,24 +3,24 @@ part of '../api.dart';
 class BooksParams extends PaginatedParams {
   const BooksParams({
     super.page,
-    this.subjectId,
+    this.categoryId,
     this.title,
     this.author,
   });
 
-  final String? subjectId;
+  final String? categoryId;
   final String? title;
   final String? author;
 
   BooksParams copyWith({
     int? page,
-    String? subjectId,
+    String? categoryId,
     String? title,
     String? author,
   }) =>
       BooksParams(
         page: page ?? super.page,
-        subjectId: subjectId ?? this.subjectId,
+        categoryId: categoryId ?? this.categoryId,
         title: title ?? this.title,
         author: author ?? this.author,
       );
@@ -28,7 +28,7 @@ class BooksParams extends PaginatedParams {
   @override
   Map<String, dynamic> toJson() => {
         ...super.toJson(),
-        if (subjectId != null) 'SubjectId': subjectId,
+        if (categoryId != null) 'BookCategoryId': categoryId,
         if (title != null) 'Title': title,
         if (author != null) 'Author': author,
       };

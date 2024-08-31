@@ -142,13 +142,58 @@ class AgateRouter {
                 GoRoute(
                   parentNavigatorKey: _shellNavigatorKey,
                   name: 'department',
-                  path: ':id',
+                  path: ':departmentId',
                   pageBuilder: (context, state) {
-                    final departmentId = state.pathParameters['id']!;
+                    final departmentId = state.pathParameters['departmentId']!;
                     return AppTransitionPage.fadeIn(
                       key: state.pageKey,
                       name: context.strings.departments,
                       child: DepartmentPage(departmentId),
+                    );
+                  },
+                  routes: [
+                    GoRoute(
+                      parentNavigatorKey: _shellNavigatorKey,
+                      name: 'departmentSubject',
+                      path: 'subjects/:subjectId',
+                      pageBuilder: (context, state) {
+                        final departmentId =
+                            state.pathParameters['departmentId'];
+                        final subjectId = state.pathParameters['subjectId']!;
+                        return AppTransitionPage.fadeIn(
+                          key: state.pageKey,
+                          name: context.strings.departments,
+                          child: SubjectPage(
+                            subjectId: subjectId,
+                            departmentId: departmentId,
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            GoRoute(
+              parentNavigatorKey: _shellNavigatorKey,
+              name: 'bookCategories',
+              path: '/books/categories',
+              pageBuilder: (context, state) => AppTransitionPage.fadeIn(
+                key: state.pageKey,
+                name: context.strings.books,
+                child: const BookCategoriesPage(),
+              ),
+              routes: [
+                GoRoute(
+                  parentNavigatorKey: _shellNavigatorKey,
+                  name: 'bookCategory',
+                  path: ':id',
+                  pageBuilder: (context, state) {
+                    final categoryId = state.pathParameters['id']!;
+                    return AppTransitionPage.fadeIn(
+                      key: state.pageKey,
+                      name: context.strings.books,
+                      child: BookCategoryPage(categoryId),
                     );
                   },
                 ),
@@ -169,11 +214,11 @@ class AgateRouter {
                   name: 'subject',
                   path: ':id',
                   pageBuilder: (context, state) {
-                    final sectionId = state.pathParameters['id']!;
+                    final subjectId = state.pathParameters['id']!;
                     return AppTransitionPage.fadeIn(
                       key: state.pageKey,
                       name: context.strings.departments,
-                      child: SubjectPage(sectionId),
+                      child: SubjectPage(subjectId: subjectId),
                     );
                   },
                 ),

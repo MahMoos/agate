@@ -26,6 +26,10 @@ abstract class ExploreRepository {
 
   Future<List<Book>> getBooks(BooksParams params);
 
+  Future<Subject> getBookCategory(String id);
+
+  Future<List<Subject>> getBookCategories(PaginatedParams params);
+
   Future<McqGame> getMcqGame(String id);
 
   Future<List<McqGame>> getMcqGames(McqGamesParams params);

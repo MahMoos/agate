@@ -12,6 +12,7 @@ import '../../domain/entities/entities.dart';
 import '../../domain/repositories/explore_repository.dart';
 import '../../domain/use_cases/use_cases.dart';
 
+part 'book_categories_controller.dart';
 part 'books_controller.dart';
 part 'controllers.g.dart';
 part 'courses_controller.dart';

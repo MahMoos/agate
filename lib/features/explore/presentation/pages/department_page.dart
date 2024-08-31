@@ -65,49 +65,7 @@ class _DepartmentPageState extends State<DepartmentPage>
                 ),
               );
             }
-            return DefaultTabController(
-              length: 2,
-              child: Scaffold(
-                appBar: AppBar(
-                  title: Text(department.name),
-                  bottom: TabBar(
-                    tabs: [
-                      Tab(child: Text(context.strings.subjects)),
-                      Tab(child: Text(context.strings.courses)),
-                    ],
-                  ),
-                ),
-                body: TabBarView(
-                  children: [
-                    EndlessAnimatedListView(
-                      provider: subjectsProvider(
-                        SubjectsParams(divisionId: widget.id),
-                      ),
-                      itemBuilder: (context, subject) => SizedBox(
-                        height: 178,
-                        child: ShortcutCard(
-                          title: subject.name,
-                          imageUrl: subject.imageUrl,
-                          imageFit: BoxFit.contain,
-                          imageAlignment: context.isRTL
-                              ? Alignment.centerLeft
-                              : Alignment.centerRight,
-                          onTap: () => context.push('/subjects/${subject.id}'),
-                        ).paddingSymmetric(horizontal: 12, vertical: 4),
-                      ),
-                    ),
-                    EndlessAnimatedListView(
-                      provider: coursesProvider(
-                        CoursesParams(divisionIds: [department.id]),
-                      ),
-                      itemBuilder: (context, course) => CourseCard(
-                        details: course,
-                      ).paddingSymmetric(horizontal: 12, vertical: 4),
-                    ),
-                  ],
-                ),
-              ),
-            );
+            return DepartmentSubjectsView(departmentId: widget.id);
           },
           error: (err, stack) => StatusView.anErrorOccurred(
             action: () => ref.refresh(departmentProvider(widget.id).future),

@@ -20,6 +20,7 @@ part 'ad_slide.dart';
 part 'ad_slider.dart';
 part 'book_tile.dart';
 part 'course_card.dart';
+part 'department_subjects_view.dart';
 part 'filters_bottom_sheet.dart';
 part 'mcq_view.dart';
 part 'my_course_card.dart';

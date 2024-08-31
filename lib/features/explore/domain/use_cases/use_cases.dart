@@ -5,6 +5,8 @@ import '../entities/entities.dart';
 import '../repositories/explore_repository.dart';
 
 part 'get_book.dart';
+part 'get_book_categories.dart';
+part 'get_book_category.dart';
 part 'get_books.dart';
 part 'get_courses.dart';
 part 'get_department.dart';

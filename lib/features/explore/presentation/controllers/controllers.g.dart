@@ -21,7 +21,7 @@ final exploreRepositoryProvider = FutureProvider<ExploreRepository>.internal(
 );
 
 typedef ExploreRepositoryRef = FutureProviderRef<ExploreRepository>;
-String _$bookHash() => r'9deafaaf0a2fa9527dcac7c6edbb0e86552aa8cf';
+String _$bookCategoryHash() => r'6e440e3a137c34d157707dfe388c65922177f759';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -43,6 +43,134 @@ class _SystemHash {
     return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
   }
 }
+
+/// See also [bookCategory].
+@ProviderFor(bookCategory)
+const bookCategoryProvider = BookCategoryFamily();
+
+/// See also [bookCategory].
+class BookCategoryFamily extends Family<AsyncValue<Subject>> {
+  /// See also [bookCategory].
+  const BookCategoryFamily();
+
+  /// See also [bookCategory].
+  BookCategoryProvider call(
+    String id,
+  ) {
+    return BookCategoryProvider(
+      id,
+    );
+  }
+
+  @override
+  BookCategoryProvider getProviderOverride(
+    covariant BookCategoryProvider provider,
+  ) {
+    return call(
+      provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'bookCategoryProvider';
+}
+
+/// See also [bookCategory].
+class BookCategoryProvider extends AutoDisposeFutureProvider<Subject> {
+  /// See also [bookCategory].
+  BookCategoryProvider(
+    String id,
+  ) : this._internal(
+          (ref) => bookCategory(
+            ref as BookCategoryRef,
+            id,
+          ),
+          from: bookCategoryProvider,
+          name: r'bookCategoryProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$bookCategoryHash,
+          dependencies: BookCategoryFamily._dependencies,
+          allTransitiveDependencies:
+              BookCategoryFamily._allTransitiveDependencies,
+          id: id,
+        );
+
+  BookCategoryProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.id,
+  }) : super.internal();
+
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<Subject> Function(BookCategoryRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: BookCategoryProvider._internal(
+        (ref) => create(ref as BookCategoryRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Subject> createElement() {
+    return _BookCategoryProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is BookCategoryProvider && other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin BookCategoryRef on AutoDisposeFutureProviderRef<Subject> {
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _BookCategoryProviderElement
+    extends AutoDisposeFutureProviderElement<Subject> with BookCategoryRef {
+  _BookCategoryProviderElement(super.provider);
+
+  @override
+  String get id => (origin as BookCategoryProvider).id;
+}
+
+String _$bookHash() => r'9deafaaf0a2fa9527dcac7c6edbb0e86552aa8cf';
 
 /// See also [book].
 @ProviderFor(book)
@@ -688,6 +816,148 @@ class _TeacherProviderElement extends AutoDisposeFutureProviderElement<Teacher>
 
   @override
   String get id => (origin as TeacherProvider).id;
+}
+
+String _$bookCategoriesHash() => r'421cb8257a194ff59e208bde1a2af828ffcea6b6';
+
+abstract class _$BookCategories extends BuildlessAsyncNotifier<List<Subject>> {
+  late final PaginatedParams params;
+
+  FutureOr<List<Subject>> build(
+    PaginatedParams params,
+  );
+}
+
+/// See also [BookCategories].
+@ProviderFor(BookCategories)
+const bookCategoriesProvider = BookCategoriesFamily();
+
+/// See also [BookCategories].
+class BookCategoriesFamily extends Family<AsyncValue<List<Subject>>> {
+  /// See also [BookCategories].
+  const BookCategoriesFamily();
+
+  /// See also [BookCategories].
+  BookCategoriesProvider call(
+    PaginatedParams params,
+  ) {
+    return BookCategoriesProvider(
+      params,
+    );
+  }
+
+  @override
+  BookCategoriesProvider getProviderOverride(
+    covariant BookCategoriesProvider provider,
+  ) {
+    return call(
+      provider.params,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'bookCategoriesProvider';
+}
+
+/// See also [BookCategories].
+class BookCategoriesProvider
+    extends AsyncNotifierProviderImpl<BookCategories, List<Subject>> {
+  /// See also [BookCategories].
+  BookCategoriesProvider(
+    PaginatedParams params,
+  ) : this._internal(
+          () => BookCategories()..params = params,
+          from: bookCategoriesProvider,
+          name: r'bookCategoriesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$bookCategoriesHash,
+          dependencies: BookCategoriesFamily._dependencies,
+          allTransitiveDependencies:
+              BookCategoriesFamily._allTransitiveDependencies,
+          params: params,
+        );
+
+  BookCategoriesProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.params,
+  }) : super.internal();
+
+  final PaginatedParams params;
+
+  @override
+  FutureOr<List<Subject>> runNotifierBuild(
+    covariant BookCategories notifier,
+  ) {
+    return notifier.build(
+      params,
+    );
+  }
+
+  @override
+  Override overrideWith(BookCategories Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: BookCategoriesProvider._internal(
+        () => create()..params = params,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        params: params,
+      ),
+    );
+  }
+
+  @override
+  AsyncNotifierProviderElement<BookCategories, List<Subject>> createElement() {
+    return _BookCategoriesProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is BookCategoriesProvider && other.params == params;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, params.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin BookCategoriesRef on AsyncNotifierProviderRef<List<Subject>> {
+  /// The parameter `params` of this provider.
+  PaginatedParams get params;
+}
+
+class _BookCategoriesProviderElement
+    extends AsyncNotifierProviderElement<BookCategories, List<Subject>>
+    with BookCategoriesRef {
+  _BookCategoriesProviderElement(super.provider);
+
+  @override
+  PaginatedParams get params => (origin as BookCategoriesProvider).params;
 }
 
 String _$booksHash() => r'2e4c2c6e447f5f9b6e7f531d4d395c2016351a43';

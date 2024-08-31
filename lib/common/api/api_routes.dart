@@ -91,6 +91,15 @@ class ApiRoutes {
         '/books/$id',
       );
 
+  static Uri bookCategories(PaginatedParams params) => _appUri(
+        '/bookCategories',
+        params.toJson(),
+      );
+
+  static Uri bookCategory(String id) => _appUri(
+        '/bookCategories/$id',
+      );
+
   static Uri mcqGames(McqGamesParams params) => _appUri(
         '/mcqgames',
         params.toJson(),
