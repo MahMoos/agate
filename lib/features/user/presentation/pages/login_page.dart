@@ -70,7 +70,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     formControlName: 'username',
                     autofillHints: const [AutofillHints.username],
                     decoration: InputDecoration(
-                      hintText: context.strings.username,
+                      hintText: context.strings.loginText,
                       prefixIcon: const Icon(Icons.alternate_email_rounded),
                     ),
                     onSubmitted: (_) => form.focus('password'),
@@ -126,7 +126,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       if (mounted) {
         context.showSnackBarMessage(
           e is HttpException && e.statusCode == 400
-              ? context.strings.wrongCredentials
+              ? e.message?.contains('User is not verified') ?? false
+                  ? context.strings.notVerified
+                  : context.strings.wrongCredentials
               : context.strings.errorOccurred,
         );
       }

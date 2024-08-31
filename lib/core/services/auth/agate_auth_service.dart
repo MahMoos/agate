@@ -87,7 +87,7 @@ class AgateAuthService implements AuthService {
       ApiRoutes.login,
       parser: (json) => User.fromJson(json as Map<String, dynamic>),
       data: {
-        'userName': username,
+        'loginText': username,
         'password': password,
       },
       headers: {

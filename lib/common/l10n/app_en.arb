@@ -92,6 +92,14 @@
   "@wrongCredentials": {
     "description": "Wrong credentials message"
   },
+  "notVerified": "Account is not verified yet. Please wait until we verify your account.",
+  "@notVerified": {
+    "description": "Account not verified message"
+  },
+  "loginText": "Username, phone or email",
+  "@loginText": {
+    "description": "Login text field hint"
+  },
   "viewAll": "View All",
   "@viewAll": {
     "description": "View All label"
