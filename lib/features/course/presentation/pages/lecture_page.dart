@@ -33,7 +33,7 @@ class LecturePageState extends ConsumerState<LecturePage> {
               body: ListView(
                 children: [
                   if (lecture.isSubscribed && lecture.videoUrl != null)
-                    VideoPlayer(
+                    VideoPlayerView(
                       videoUrl: lecture.videoUrl!,
                       imageUrl: lecture.imageUrl,
                       completedDuration: lecture.completedDuration,

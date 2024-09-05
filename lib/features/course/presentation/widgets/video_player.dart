@@ -1,7 +1,7 @@
 part of 'widgets.dart';
 
-class VideoPlayer extends StatefulWidget {
-  const VideoPlayer({
+class VideoPlayerView extends StatefulWidget {
+  const VideoPlayerView({
     required this.videoUrl,
     required this.onProgress,
     this.imageUrl,
@@ -15,69 +15,45 @@ class VideoPlayer extends StatefulWidget {
   final void Function(Duration watchedDuration) onProgress;
 
   @override
-  State<VideoPlayer> createState() => _VideoPlayerState();
+  State<VideoPlayerView> createState() => _VideoPlayerViewState();
 }
 
-class _VideoPlayerState extends State<VideoPlayer> {
-  late VideoPlayerController videoPlayerController;
-  late ChewieController chewieController;
+class _VideoPlayerViewState extends State<VideoPlayerView> {
+  late FlickManager flickManager;
 
   @override
   void initState() {
-    videoPlayerController = VideoPlayerController.networkUrl(
-      Uri.parse(widget.videoUrl),
+    flickManager = FlickManager(
+      videoPlayerController: VideoPlayerController.networkUrl(
+        Uri.parse(widget.videoUrl),
+      ),
     );
     super.initState();
   }
 
-  Future<ChewieController> get initializeController async {
-    await videoPlayerController.initialize();
-    videoPlayerController.addListener(() {
-      widget.onProgress(videoPlayerController.value.position);
-    });
-    return ChewieController(
-      videoPlayerController: videoPlayerController,
-      autoPlay: true,
-      placeholder: LectureImage(imageUrl: widget.imageUrl),
-      allowedScreenSleep: false,
-      autoInitialize: true,
-      startAt: widget.completedDuration,
-    );
-  }
-
   @override
   void dispose() {
-    videoPlayerController.dispose();
-    chewieController.dispose();
+    flickManager.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 16 / 9,
-      child: FutureBuilder(
-        future: initializeController,
-        builder: (context, snapshot) => switch (snapshot) {
-          (final AsyncSnapshot<ChewieController> snapshot)
-              when snapshot.hasData =>
-            Builder(
-              builder: (context) {
-                chewieController = snapshot.data!;
-                return Chewie(controller: chewieController);
-              },
-            ),
-          (final AsyncSnapshot<ChewieController> snapshot)
-              when !snapshot.hasError =>
-            Stack(
-              children: [
-                LectureImage(imageUrl: widget.imageUrl, width: context.width),
-                Expanded(child: Container(color: Colors.black54)),
-                const StatusView.loading(),
-              ],
-            ),
-          (_) => Center(child: Text(context.strings.errorOccurred)),
-        },
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: FlickVideoPlayer(
+        flickManager: flickManager,
+        flickVideoWithControls: const FlickVideoWithControls(
+          controls: FlickPortraitControls(iconSize: 32),
+          watermark: BouncingUsername(),
+        ),
+        flickVideoWithControlsFullscreen: const Directionality(
+          textDirection: TextDirection.ltr,
+          child: FlickVideoWithControls(
+            controls: FlickLandscapeControls(),
+            watermark: BouncingUsername(isFullscreen: true),
+          ),
+        ),
       ),
     );
   }

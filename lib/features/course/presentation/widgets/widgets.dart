@@ -1,5 +1,8 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:chewie/chewie.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,10 +13,12 @@ import 'package:video_player/video_player.dart';
 
 import '../../../../common/widgets/widgets.dart';
 import '../../../../core/extensions/extensions.dart';
+import '../../../../core/services/auth/auth_service.dart';
 import '../../../../core/widgets/widgets.dart';
 import '../../domain/entities/entities.dart';
 import '../controllers/controllers.dart';
 
+part 'bouncing_username.dart';
 part 'description_paragraph.dart';
 part 'file_tile.dart';
 part 'interactions_tile.dart';
