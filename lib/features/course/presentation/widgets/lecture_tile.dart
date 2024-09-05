@@ -48,7 +48,7 @@ class LectureTile extends StatelessWidget {
         titleAlignment: ListTileTitleAlignment.top,
         onTap: () {
           context.push(
-            '/courses/$courseId/sections/${lecture.sectionId}/lectures/${lecture.id}',
+            '/courses/$courseId/lectures/${lecture.id}',
           );
         },
       ),

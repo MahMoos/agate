@@ -17,7 +17,7 @@ class CourseDetails extends Course {
     this.isSubscribed = false,
     this.subjects,
     this.language = 'ar',
-    this.sections,
+    this.lectures,
     this.completedLectures,
     this.currentLectureId,
     this.currentSectionId,
@@ -28,7 +28,7 @@ class CourseDetails extends Course {
   final bool isSubscribed;
   final List<Subject>? subjects;
   final String language;
-  final List<Section>? sections;
+  final List<Lecture>? lectures;
   final int? completedLectures;
 
   final String? currentLectureId;

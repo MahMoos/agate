@@ -3,13 +3,11 @@ part of 'pages.dart';
 class LecturePage extends ConsumerStatefulWidget {
   const LecturePage({
     required this.courseId,
-    required this.sectionId,
     required this.lectureId,
     super.key,
   });
 
   final String courseId;
-  final String sectionId;
   final String lectureId;
 
   @override

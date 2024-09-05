@@ -4,7 +4,6 @@ part of 'models.dart';
 class LectureModel with _$LectureModel {
   const factory LectureModel({
     required String id,
-    required String sectionId,
     required String name,
     String? subjectId,
     String? description,
@@ -34,7 +33,6 @@ extension LectureModelEx on LectureModel {
         description: description,
         imageUrl: imageUrl,
         videoUrl: videoUrl,
-        sectionId: sectionId,
         subjectId: subjectId,
         files: files?.map((file) => file.toEntity()).toList(),
         mcqGames: mcqGames?.map((mcqGame) => mcqGame.toEntity()).toList(),

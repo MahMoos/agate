@@ -93,17 +93,20 @@ class CoursePage extends ConsumerWidget {
                         DescriptionParagraph(description: course.description!),
                       const Divider(),
                       SectionTitle(
-                        title: context.strings.sections,
+                        title: context.strings.lectures,
                         onPressed: () =>
-                            context.push('/courses/${course.id}/sections'),
+                            context.push('/courses/${course.id}/lectures'),
                       ),
-                      if (course.sections == null)
+                      if (course.lectures == null)
                         const StatusView(
                           illustration: UnDrawIllustration.blank_canvas,
                         ),
-                      if (course.sections != null)
-                        ...course.sections!.map(
-                          (section) => SectionTile(section: section),
+                      if (course.lectures != null)
+                        ...course.lectures!.map(
+                          (lecture) => LectureTile(
+                            lecture: lecture,
+                            courseId: courseId,
+                          ),
                         ),
                     ],
                   ),

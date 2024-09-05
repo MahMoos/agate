@@ -22,8 +22,8 @@ _$CourseDetailsModelImpl _$$CourseDetailsModelImplFromJson(
       discount: (json['discount'] as num?)?.toDouble(),
       participants: (json['participants'] as num?)?.toInt() ?? 0,
       rating: (json['rating'] as num?)?.toDouble(),
-      sections: (json['sections'] as List<dynamic>?)
-          ?.map((e) => SectionModel.fromJson(e as Map<String, dynamic>))
+      lectures: (json['lectures'] as List<dynamic>?)
+          ?.map((e) => LectureModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       currentLectureId: json['currentLectureId'] as String?,
       currentSectionId: json['currentSectionId'] as String?,
@@ -55,7 +55,6 @@ Map<String, dynamic> _$$LectureFileModelImplToJson(
 _$LectureModelImpl _$$LectureModelImplFromJson(Map<String, dynamic> json) =>
     _$LectureModelImpl(
       id: json['id'] as String,
-      sectionId: json['sectionId'] as String,
       name: json['name'] as String,
       subjectId: json['subjectId'] as String?,
       description: json['description'] as String?,

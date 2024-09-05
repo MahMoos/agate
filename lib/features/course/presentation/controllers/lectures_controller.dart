@@ -46,13 +46,10 @@ class Lectures extends _$Lectures with PaginationController<Lecture> {
   late GetLectures _getLectures;
 
   @override
-  Future<List<Lecture>> build({
-    required String courseId,
-    required String sectionId,
-  }) async {
+  Future<List<Lecture>> build(String courseId) async {
     _getLectures =
         GetLectures(await ref.watch(courseRepositoryProvider.future));
-    paginatedParams = LecturesParams(courseId: courseId, sectionId: sectionId);
+    paginatedParams = LecturesParams(courseId: courseId);
     return loadData();
   }
 

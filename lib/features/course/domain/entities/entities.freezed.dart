@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Lecture {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  String get sectionId => throw _privateConstructorUsedError;
   String? get subjectId => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get videoUrl => throw _privateConstructorUsedError;
@@ -47,7 +46,6 @@ abstract class $LectureCopyWith<$Res> {
   $Res call(
       {String id,
       String title,
-      String sectionId,
       String? subjectId,
       String? description,
       String? videoUrl,
@@ -80,7 +78,6 @@ class _$LectureCopyWithImpl<$Res, $Val extends Lecture>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? sectionId = null,
     Object? subjectId = freezed,
     Object? description = freezed,
     Object? videoUrl = freezed,
@@ -105,10 +102,6 @@ class _$LectureCopyWithImpl<$Res, $Val extends Lecture>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      sectionId: null == sectionId
-          ? _value.sectionId
-          : sectionId // ignore: cast_nullable_to_non_nullable
               as String,
       subjectId: freezed == subjectId
           ? _value.subjectId
@@ -184,7 +177,6 @@ abstract class _$$LectureImplCopyWith<$Res> implements $LectureCopyWith<$Res> {
   $Res call(
       {String id,
       String title,
-      String sectionId,
       String? subjectId,
       String? description,
       String? videoUrl,
@@ -215,7 +207,6 @@ class __$$LectureImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? sectionId = null,
     Object? subjectId = freezed,
     Object? description = freezed,
     Object? videoUrl = freezed,
@@ -240,10 +231,6 @@ class __$$LectureImplCopyWithImpl<$Res>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      sectionId: null == sectionId
-          ? _value.sectionId
-          : sectionId // ignore: cast_nullable_to_non_nullable
               as String,
       subjectId: freezed == subjectId
           ? _value.subjectId
@@ -315,7 +302,6 @@ class _$LectureImpl implements _Lecture {
   const _$LectureImpl(
       {required this.id,
       required this.title,
-      required this.sectionId,
       this.subjectId,
       this.description,
       this.videoUrl,
@@ -338,8 +324,6 @@ class _$LectureImpl implements _Lecture {
   final String id;
   @override
   final String title;
-  @override
-  final String sectionId;
   @override
   final String? subjectId;
   @override
@@ -393,7 +377,7 @@ class _$LectureImpl implements _Lecture {
 
   @override
   String toString() {
-    return 'Lecture(id: $id, title: $title, sectionId: $sectionId, subjectId: $subjectId, description: $description, videoUrl: $videoUrl, imageUrl: $imageUrl, files: $files, mcqGames: $mcqGames, duration: $duration, completedDuration: $completedDuration, isCompleted: $isCompleted, price: $price, currency: $currency, discount: $discount, isSubscribed: $isSubscribed, rating: $rating, participants: $participants)';
+    return 'Lecture(id: $id, title: $title, subjectId: $subjectId, description: $description, videoUrl: $videoUrl, imageUrl: $imageUrl, files: $files, mcqGames: $mcqGames, duration: $duration, completedDuration: $completedDuration, isCompleted: $isCompleted, price: $price, currency: $currency, discount: $discount, isSubscribed: $isSubscribed, rating: $rating, participants: $participants)';
   }
 
   @override
@@ -403,8 +387,6 @@ class _$LectureImpl implements _Lecture {
             other is _$LectureImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.sectionId, sectionId) ||
-                other.sectionId == sectionId) &&
             (identical(other.subjectId, subjectId) ||
                 other.subjectId == subjectId) &&
             (identical(other.description, description) ||
@@ -438,7 +420,6 @@ class _$LectureImpl implements _Lecture {
       runtimeType,
       id,
       title,
-      sectionId,
       subjectId,
       description,
       videoUrl,
@@ -466,7 +447,6 @@ abstract class _Lecture implements Lecture {
   const factory _Lecture(
       {required final String id,
       required final String title,
-      required final String sectionId,
       final String? subjectId,
       final String? description,
       final String? videoUrl,
@@ -487,8 +467,6 @@ abstract class _Lecture implements Lecture {
   String get id;
   @override
   String get title;
-  @override
-  String get sectionId;
   @override
   String? get subjectId;
   @override

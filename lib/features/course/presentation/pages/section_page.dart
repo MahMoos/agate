@@ -14,8 +14,7 @@ class SectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return EndlessAnimatedListView(
       provider: lecturesProvider(
-        courseId: courseId,
-        sectionId: sectionId,
+        courseId,
       ),
       sliverAppBar: SectionAppBar(sectionId: sectionId),
       itemBuilder: (context, lecture) =>

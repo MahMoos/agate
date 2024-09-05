@@ -478,16 +478,14 @@ class _LectureControllerProviderElement
   String get courseId => (origin as LectureControllerProvider).courseId;
 }
 
-String _$lecturesHash() => r'c541f53a831635c6b9578983b0a279286455a9c8';
+String _$lecturesHash() => r'fffc37be93dd1ecec19d2e09089a5004a7b9da0c';
 
 abstract class _$Lectures extends BuildlessAsyncNotifier<List<Lecture>> {
   late final String courseId;
-  late final String sectionId;
 
-  FutureOr<List<Lecture>> build({
-    required String courseId,
-    required String sectionId,
-  });
+  FutureOr<List<Lecture>> build(
+    String courseId,
+  );
 }
 
 /// See also [Lectures].
@@ -500,13 +498,11 @@ class LecturesFamily extends Family<AsyncValue<List<Lecture>>> {
   const LecturesFamily();
 
   /// See also [Lectures].
-  LecturesProvider call({
-    required String courseId,
-    required String sectionId,
-  }) {
+  LecturesProvider call(
+    String courseId,
+  ) {
     return LecturesProvider(
-      courseId: courseId,
-      sectionId: sectionId,
+      courseId,
     );
   }
 
@@ -515,8 +511,7 @@ class LecturesFamily extends Family<AsyncValue<List<Lecture>>> {
     covariant LecturesProvider provider,
   ) {
     return call(
-      courseId: provider.courseId,
-      sectionId: provider.sectionId,
+      provider.courseId,
     );
   }
 
@@ -539,13 +534,10 @@ class LecturesFamily extends Family<AsyncValue<List<Lecture>>> {
 class LecturesProvider
     extends AsyncNotifierProviderImpl<Lectures, List<Lecture>> {
   /// See also [Lectures].
-  LecturesProvider({
-    required String courseId,
-    required String sectionId,
-  }) : this._internal(
-          () => Lectures()
-            ..courseId = courseId
-            ..sectionId = sectionId,
+  LecturesProvider(
+    String courseId,
+  ) : this._internal(
+          () => Lectures()..courseId = courseId,
           from: lecturesProvider,
           name: r'lecturesProvider',
           debugGetCreateSourceHash:
@@ -555,7 +547,6 @@ class LecturesProvider
           dependencies: LecturesFamily._dependencies,
           allTransitiveDependencies: LecturesFamily._allTransitiveDependencies,
           courseId: courseId,
-          sectionId: sectionId,
         );
 
   LecturesProvider._internal(
@@ -566,19 +557,16 @@ class LecturesProvider
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.courseId,
-    required this.sectionId,
   }) : super.internal();
 
   final String courseId;
-  final String sectionId;
 
   @override
   FutureOr<List<Lecture>> runNotifierBuild(
     covariant Lectures notifier,
   ) {
     return notifier.build(
-      courseId: courseId,
-      sectionId: sectionId,
+      courseId,
     );
   }
 
@@ -587,16 +575,13 @@ class LecturesProvider
     return ProviderOverride(
       origin: this,
       override: LecturesProvider._internal(
-        () => create()
-          ..courseId = courseId
-          ..sectionId = sectionId,
+        () => create()..courseId = courseId,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         courseId: courseId,
-        sectionId: sectionId,
       ),
     );
   }
@@ -608,16 +593,13 @@ class LecturesProvider
 
   @override
   bool operator ==(Object other) {
-    return other is LecturesProvider &&
-        other.courseId == courseId &&
-        other.sectionId == sectionId;
+    return other is LecturesProvider && other.courseId == courseId;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, courseId.hashCode);
-    hash = _SystemHash.combine(hash, sectionId.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -626,9 +608,6 @@ class LecturesProvider
 mixin LecturesRef on AsyncNotifierProviderRef<List<Lecture>> {
   /// The parameter `courseId` of this provider.
   String get courseId;
-
-  /// The parameter `sectionId` of this provider.
-  String get sectionId;
 }
 
 class _LecturesProviderElement
@@ -638,8 +617,6 @@ class _LecturesProviderElement
 
   @override
   String get courseId => (origin as LecturesProvider).courseId;
-  @override
-  String get sectionId => (origin as LecturesProvider).sectionId;
 }
 
 String _$reviewsHash() => r'19ca31c9388758b5a477c3d62091d50bf451a9c4';

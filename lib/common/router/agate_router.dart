@@ -300,24 +300,22 @@ class AgateRouter {
                 ),
               ),
             ),
-            // GoRoute(
-            //   parentNavigatorKey: _shellNavigatorKey,
-            //   name: 'lectures',
-            //   path: '/courses/:courseId/sections/:sectionId/lectures',
-            //   pageBuilder: (context, state) => MaterialPage(
-            //     key: state.pageKey,
-            //     name: 'Lectures',
-            //     child: LecturesPage(
-            //       courseId: state.pathParameters['courseId']!,
-            //       sectionId: state.pathParameters['sectionId']!,
-            //     ),
-            //   ),
-            // ),
+            GoRoute(
+              parentNavigatorKey: _shellNavigatorKey,
+              name: 'lectures',
+              path: '/courses/:courseId/lectures',
+              pageBuilder: (context, state) => MaterialPage(
+                key: state.pageKey,
+                name: 'Lectures',
+                child: LecturesPage(
+                  courseId: state.pathParameters['courseId']!,
+                ),
+              ),
+            ),
             GoRoute(
               parentNavigatorKey: _shellNavigatorKey,
               name: 'lecture',
-              path:
-                  '/courses/:courseId/sections/:sectionId/lectures/:lectureId',
+              path: '/courses/:courseId/lectures/:lectureId',
               pageBuilder: (context, state) => MaterialPage(
                 key: state.pageKey,
                 name: ref
@@ -331,7 +329,6 @@ class AgateRouter {
                     ?.title,
                 child: LecturePage(
                   courseId: state.pathParameters['courseId']!,
-                  sectionId: state.pathParameters['sectionId']!,
                   lectureId: state.pathParameters['lectureId']!,
                 ),
               ),

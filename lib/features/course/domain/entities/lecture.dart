@@ -5,7 +5,6 @@ class Lecture with _$Lecture {
   const factory Lecture({
     required String id,
     required String title,
-    required String sectionId,
     String? subjectId,
     String? description,
     String? videoUrl,

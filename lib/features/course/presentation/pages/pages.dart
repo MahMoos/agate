@@ -13,5 +13,6 @@ import '../widgets/widgets.dart';
 
 part 'course_page.dart';
 part 'lecture_page.dart';
+part 'lectures_page.dart';
 part 'section_page.dart';
 part 'sections_page.dart';
