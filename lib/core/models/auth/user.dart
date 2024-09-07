@@ -9,6 +9,8 @@ enum SupportedLanguages {
   final String value;
 }
 
+enum AcademicStage { first, second, third, fourth, fifth, sixth }
+
 class User {
   const User({
     this.id,
@@ -20,23 +22,47 @@ class User {
     this.password,
     this.photoUrl,
     this.phoneNumber,
+    this.telegramUsername,
+    this.address,
+    this.birthday,
+    this.stage = AcademicStage.first,
     this.language = SupportedLanguages.ar,
   });
 
   // fromJson
   factory User.fromJson(Map<String, dynamic> json) {
+    final info = (json['user'] ?? json) as Map<String, dynamic>;
     return User(
-      id: (json['id'] ?? json['user']?['id']) as String?,
+      id: info['id'] as String?,
       accessToken: json['token'] as String?,
       refreshToken: json['refresh'] as String?,
-      email: (json['email'] ?? json['user']?['email']) as String?,
-      name: (json['name'] ?? json['user']?['name']) as String?,
-      username: (json['userName'] ?? json['user']?['userName']) as String?,
-      password: (json['password'] ?? json['user']?['password']) as String?,
-      photoUrl: (json['imageUrl'] ?? json['user']?['imageUrl']) as String?,
-      phoneNumber: (json['phone'] ?? json['user']?['phone']) as String?,
-      language: SupportedLanguages
-          .values[(json['language'] ?? json['user']?['language']) as int? ?? 0],
+      email: info['email'] as String?,
+      name: info['name'] as String?,
+      username: info['userName'] as String?,
+      password: info['password'] as String?,
+      photoUrl: info['imageUrl'] as String?,
+      phoneNumber: info['phone'] as String?,
+      telegramUsername: (info['data'] as List<dynamic>?)
+              ?.firstWhereOrNull((e) => e['key'] == 'telegram')?['stringValue']
+          as String?,
+      birthday: DateTime.tryParse(
+        (info['data'] as List<dynamic>?)?.firstWhereOrNull(
+              (e) => e['key'] == 'birthday',
+            )?['stringValue'] as String? ??
+            '',
+      ),
+      address: (info['data'] as List<dynamic>?)
+              ?.firstWhereOrNull((e) => e['key'] == 'address')?['stringValue']
+          as String?,
+      stage: AcademicStage.values.firstWhereOrNull(
+            (e) =>
+                e.name ==
+                (info['data'] as List<dynamic>?)?.firstWhereOrNull(
+                  (e) => e['key'] == 'stage',
+                )?['stringValue'] as String?,
+          ) ??
+          AcademicStage.first,
+      language: SupportedLanguages.values[info['language'] as int? ?? 0],
     );
   }
 
@@ -49,6 +75,10 @@ class User {
   final String? email;
   final String? photoUrl;
   final String? phoneNumber;
+  final String? telegramUsername;
+  final DateTime? birthday;
+  final String? address;
+  final AcademicStage stage;
   final SupportedLanguages language;
 
   Map<String, dynamic> toJson() {
@@ -62,6 +92,27 @@ class User {
       if (email != null) 'email': email,
       if (photoUrl != null) 'imageUrl': photoUrl,
       if (phoneNumber != null) 'phone': phoneNumber,
+      'data': [
+        if (telegramUsername != null)
+          {
+            'key': 'telegram',
+            'stringValue': telegramUsername,
+          },
+        if (address != null)
+          {
+            'key': 'address',
+            'stringValue': address,
+          },
+        if (birthday != null)
+          {
+            'key': 'birthday',
+            'stringValue': birthday!.toIso8601String(),
+          },
+        {
+          'key': 'stage',
+          'stringValue': stage.name,
+        },
+      ],
       'language': language.index,
     };
   }

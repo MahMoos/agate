@@ -1,3 +1,5 @@
+import 'package:reactive_image_picker/reactive_image_picker.dart';
+
 import '../../../../common/api/api.dart';
 import '../../../../core/models/models.dart';
 import '../../domain/entities/entities.dart';
@@ -38,5 +40,10 @@ class AgateUserRepository extends BaseRepository implements UserRepository {
     return (await remote.getTransactions(params))
         .map((e) => e.toEntity())
         .toList();
+  }
+
+  @override
+  Future<String> uploadPhoto(XFile file) async {
+    return remote.uploadPhoto(file);
   }
 }

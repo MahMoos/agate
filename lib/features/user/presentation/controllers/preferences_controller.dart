@@ -4,12 +4,14 @@ part of 'controllers.dart';
 class PreferencesController extends _$PreferencesController {
   late SetPreferences _setPreferences;
   late GetPreferences _getPreferences;
+  late UploadPhoto _uploadPhoto;
 
   @override
   Future<Preferences> build() async {
     final repository = await ref.read(userRepositoryProvider.future);
     _setPreferences = SetPreferences(repository);
     _getPreferences = GetPreferences(repository);
+    _uploadPhoto = UploadPhoto(repository);
     return getPreferences();
   }
 
@@ -56,6 +58,8 @@ class PreferencesController extends _$PreferencesController {
       ),
     );
   }
+
+  Future<String> uploadPhoto(XFile file) => _uploadPhoto(file);
 
   void _updatePrivateParams(Preferences preferences) {
     _themeMode = preferences.themeMode;

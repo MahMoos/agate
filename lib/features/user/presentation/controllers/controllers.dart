@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:reactive_image_picker/reactive_image_picker.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../common/api/api.dart';

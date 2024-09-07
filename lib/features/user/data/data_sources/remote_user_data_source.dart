@@ -46,4 +46,24 @@ class RemoteUserDataSource extends UserDataSource implements RemoteDataSource {
       parser: (json) => TransactionModel.fromJson(json as Map<String, dynamic>),
     );
   }
+
+  Future<String> uploadPhoto(XFile file) async {
+    final multipartFile = await MultipartFile.fromFile(
+      file.path,
+      filename: file.name,
+    );
+    final formData = FormData.fromMap({
+      'File': multipartFile,
+      'Type': '1',
+    });
+    return client.post<String>(
+      ApiRoutes.resources,
+      data: formData,
+      headers: {
+        'accept': 'application/json',
+        'Content-Type': 'multipart/form-data',
+      },
+      parser: (data) => data as String,
+    );
+  }
 }

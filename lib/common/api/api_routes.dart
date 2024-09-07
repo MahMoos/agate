@@ -157,4 +157,8 @@ class ApiRoutes {
   static Uri deposit(String cardId) => _appUri(
         '/users/wallet/deposit/$cardId',
       );
+
+  static Uri get resources => _appUri(
+        '/resources',
+      );
 }
