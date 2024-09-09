@@ -20,6 +20,7 @@ import '../widgets/widgets.dart';
 
 part 'about_us_page.dart';
 part 'deposit_page.dart';
+part 'edit_profile_page.dart';
 part 'login_page.dart';
 part 'profile_page.dart';
 part 'register_page.dart';

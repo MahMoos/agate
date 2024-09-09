@@ -58,4 +58,10 @@ class MockAuthService implements AuthService {
     _currentUser = user;
     _userStreamController.sink.add(user);
   }
+
+  @override
+  Future<User?> updateProfile(User user) {
+    _setUser(user);
+    return Future.value(user);
+  }
 }

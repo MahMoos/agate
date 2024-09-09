@@ -51,6 +51,7 @@ class RemoteUserDataSource extends UserDataSource implements RemoteDataSource {
     final multipartFile = await MultipartFile.fromFile(
       file.path,
       filename: file.name,
+      contentType: DioMediaType.parse('image/${file.name.split('.').last}'),
     );
     final formData = FormData.fromMap({
       'File': multipartFile,

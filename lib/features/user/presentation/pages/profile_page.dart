@@ -40,6 +40,22 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                                   auth.currentUser?.email ?? '',
                                   style: context.labelLarge,
                                 ),
+                                ElevatedButton(
+                                  onPressed: () =>
+                                      context.pushNamed('edit_profile'),
+                                  style: const ButtonStyle(
+                                    minimumSize: WidgetStatePropertyAll(
+                                      Size(98, 32),
+                                    ),
+                                    maximumSize: WidgetStatePropertyAll(
+                                      Size(220, 32),
+                                    ),
+                                    padding: WidgetStatePropertyAll(
+                                      EdgeInsets.symmetric(horizontal: 8),
+                                    ),
+                                  ),
+                                  child: Text(context.strings.editProfile),
+                                ),
                               ],
                             ).paddingSymmetric(vertical: 24),
                           ],

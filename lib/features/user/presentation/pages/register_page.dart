@@ -191,23 +191,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     obscureText: true,
                     onSubmitted: (_) => form.valid ? _submit() : null,
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
-                  ReactiveImagePicker(
-                    formControlName: 'photo',
-                    decoration: InputDecoration(
-                      hintText: context.strings.personalPhoto,
-                      prefixIcon: const Icon(Icons.photo_camera_front_outlined),
-                    ),
-                    preprocessError: (e) async {
-                      if (e is PlatformException) {
-                        await _photoDenied(context, e.code);
-                      }
-                    },
-                    inputBuilder: (onPressed) => TextButton.icon(
-                      onPressed: onPressed,
-                      icon: const Icon(Icons.add),
-                      label: Text(context.strings.selectPhoto),
-                    ),
-                  ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveCheckboxListTile(
                     formControlName: 'agreement',
                     title: Text(context.strings.agreementTileLabel),
@@ -252,12 +235,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     final preferences = await ref.watch(preferencesControllerProvider.future);
     try {
       setState(() => _isLoading = true);
-      final photos = form.control('photo').value as List<SelectedFile>;
-      final photoId = photos.isNotEmpty && photos.first.file != null
-          ? await ref
-              .watch(preferencesControllerProvider.notifier)
-              .uploadPhoto(photos.first.file!)
-          : null;
       await auth.register(
         User(
           name: form.control('name').value as String,
@@ -271,7 +248,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           stage: AcademicStage.values.firstWhere(
             (stage) => stage.name == form.control('stage').value as String,
           ),
-          photoUrl: photoId,
           language: SupportedLanguages.values
               .firstWhere((e) => e.name == preferences.language),
         ),
@@ -289,39 +265,4 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       setState(() => _isLoading = false);
     }
   }
-
-  Future<void> _photoDenied(BuildContext context, String errorCode) =>
-      showDialog<void>(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: errorCode == 'photo_access_denied'
-                ? const Text('Photo access required')
-                : const Text('Camera access required'),
-            content: const SingleChildScrollView(
-              child: ListBody(
-                children: <Widget>[
-                  Text(
-                    'Open settings to allow access',
-                  ),
-                ],
-              ),
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: const Text('Cancel'),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-              TextButton(
-                child: const Text('Settings'),
-                onPressed: () async {
-                  await AppSettings.openAppSettings();
-                  context.pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
 }

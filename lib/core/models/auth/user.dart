@@ -38,7 +38,7 @@ class User {
       refreshToken: json['refresh'] as String?,
       email: info['email'] as String?,
       name: info['name'] as String?,
-      username: info['userName'] as String?,
+      username: (info['username'] ?? info['userName']) as String?,
       password: info['password'] as String?,
       photoUrl: info['imageUrl'] as String?,
       phoneNumber: info['phone'] as String?,
@@ -90,7 +90,7 @@ class User {
       if (username != null) 'username': username,
       if (password != null) 'password': password,
       if (email != null) 'email': email,
-      if (photoUrl != null) 'imageUrl': photoUrl,
+      if (photoUrl != null) 'imageId': photoUrl,
       if (phoneNumber != null) 'phone': phoneNumber,
       'data': [
         if (telegramUsername != null)

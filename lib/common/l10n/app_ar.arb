@@ -65,6 +65,7 @@
   "availableBalance": "الرصيد المتوفر",
   "depositSuccessfully": "تم شحن مبلغ {balance} بنجاح. الرصيد الجديد: {amount}",
   "profile": "الملف الشخصي",
+  "editProfile": "تعديل الملف الشخصي",
   "language": "اللغة",
   "brightness": "الإضاءة",
   "aboutUs": "حولنا",

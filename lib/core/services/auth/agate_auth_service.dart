@@ -152,4 +152,20 @@ class AgateAuthService implements AuthService {
         FlutterKeychain.remove(key: 'refresh_token'),
     ]);
   }
+
+  @override
+  Future<User?> updateProfile(User user) async {
+    final updatedUser = await DioHttpService().put<User>(
+      ApiRoutes.profile(user.id!),
+      parser: (json) => User.fromJson(json as Map<String, dynamic>),
+      data: user.toJson(),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-DeviceId': _deviceId,
+        'Authorization': 'Bearer $_accessToken',
+      },
+    );
+    _setUser(updatedUser);
+    return updatedUser;
+  }
 }

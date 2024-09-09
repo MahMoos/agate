@@ -137,25 +137,28 @@ class ApiRoutes {
         '/courses/$courseId/lectures/$lectureId/watch',
       );
 
-  static Uri get myProfile => _appUri(
-        '/users/mine',
+  static Uri _usersUri(String path, [Map<String, dynamic>? queryParameters]) =>
+      _appUri('/users$path', queryParameters);
+
+  static Uri get myProfile => _usersUri(
+        '/mine',
       );
 
-  static Uri profile(String id) => _appUri(
-        '/users/$id',
+  static Uri profile(String id) => _usersUri(
+        '/$id',
       );
 
-  static Uri get wallet => _appUri(
-        '/users/wallet',
+  static Uri get wallet => _usersUri(
+        '/wallet',
       );
 
-  static Uri transactions(TransactionsParams params) => _appUri(
-        '/users/wallet/transactions',
+  static Uri transactions(TransactionsParams params) => _usersUri(
+        '/wallet/transactions',
         params.toJson(),
       );
 
-  static Uri deposit(String cardId) => _appUri(
-        '/users/wallet/deposit/$cardId',
+  static Uri deposit(String cardId) => _usersUri(
+        '/wallet/deposit/$cardId',
       );
 
   static Uri get resources => _appUri(

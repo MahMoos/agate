@@ -39,5 +39,7 @@ abstract class AuthService {
 
   Future<User?> signInWithProvider(AuthProviders provider);
 
+  Future<User?> updateProfile(User user);
+
   Future<void> signOut();
 }

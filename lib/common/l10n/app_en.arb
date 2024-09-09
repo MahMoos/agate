@@ -292,6 +292,10 @@
   "@profile": {
     "description": "Profile title"
   },
+  "editProfile": "Edit Profile",
+  "@editProfile": {
+    "description": "Edit Profile title"
+  },
   "language": "Language",
   "@language": {
     "description": "Language label"

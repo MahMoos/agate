@@ -109,6 +109,16 @@ class AgateRouter {
                 ),
                 GoRoute(
                   parentNavigatorKey: _shellNavigatorKey,
+                  name: 'edit_profile',
+                  path: 'edit',
+                  pageBuilder: (context, state) => MaterialPage(
+                    key: state.pageKey,
+                    name: context.strings.editProfile,
+                    child: const EditProfilePage(),
+                  ),
+                ),
+                GoRoute(
+                  parentNavigatorKey: _shellNavigatorKey,
                   name: 'about_us',
                   path: 'about_us',
                   pageBuilder: (context, state) => MaterialPage(
