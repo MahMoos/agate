@@ -349,5 +349,9 @@
   "agreementTileLabel": "I agree to the terms and conditions",
   "@agreementTileLabel": {
     "description": "User agreement CheckboxListTile label"
+  },
+  "contactUs": "Contact Us",
+  "@contactUs": {
+    "description": "Contact Us label"
   }
 }

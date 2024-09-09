@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -25,6 +26,7 @@ part 'filters_bottom_sheet.dart';
 part 'mcq_view.dart';
 part 'my_course_card.dart';
 part 'my_courses_slider.dart';
+part 'network_svg_icon_button.dart';
 part 'search_app_bar.dart';
 part 'shortcut_card.dart';
 part 'title_checkbox.dart';

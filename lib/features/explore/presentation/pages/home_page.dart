@@ -91,6 +91,41 @@ class HomePage extends ConsumerWidget {
                           itemCount: data.specialCourses!.length,
                         ),
                       ],
+                      Row(
+                        children: [
+                          Text(context.strings.contactUs),
+                          const Spacer(),
+                          IconButton(
+                            onPressed: () =>
+                                launchUrl(Uri.parse('tel:+9647864606888')),
+                            icon: Icon(
+                              Icons.phone,
+                              color: context.theme.textTheme.titleLarge?.color,
+                            ),
+                          ),
+                          NetworkSvgIconButton(
+                            onPressed: () =>
+                                launchUrl(Uri.parse('https://t.me/AQE_2024')),
+                            url:
+                                'https://www.svgrepo.com/download/447150/telegram-outline.svg',
+                          ),
+                          NetworkSvgIconButton(
+                            onPressed: () =>
+                                launchUrl(Uri.parse('https://t.me/alqalam_ac')),
+                            url:
+                                'https://www.svgrepo.com/download/473804/telegram.svg',
+                          ),
+                          NetworkSvgIconButton(
+                            onPressed: () => launchUrl(
+                              Uri.parse(
+                                'https://youtube.com/@alqalamoacademy4725?si=TdVGqA5NKrQMsdLi',
+                              ),
+                            ),
+                            url:
+                                'https://www.svgrepo.com/download/473495/youtube.svg',
+                          ),
+                        ],
+                      ).paddingOnly(left: 16, top: 16, right: 16),
                     ],
                   ),
                 ),

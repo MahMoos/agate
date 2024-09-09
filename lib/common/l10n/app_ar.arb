@@ -77,5 +77,6 @@
   "restartNow": "أعد التشغيل!",
   "checkingForUpdates": "جاري البحث عن تحديثات...",
   "copyright": "ⓒ {year} مركز القلم التربوي التعليمي",
-  "agreementTileLabel": "أوافق على الشروط والأحكام"
+  "agreementTileLabel": "أوافق على الشروط والأحكام",
+  "contactUs": "تواصل معنا"
 }
