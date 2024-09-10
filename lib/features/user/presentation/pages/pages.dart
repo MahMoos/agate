@@ -1,4 +1,5 @@
 import 'package:app_settings/app_settings.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,4 +25,5 @@ part 'edit_profile_page.dart';
 part 'login_page.dart';
 part 'profile_page.dart';
 part 'register_page.dart';
+part 'terms_page.dart';
 part 'wallet_page.dart';

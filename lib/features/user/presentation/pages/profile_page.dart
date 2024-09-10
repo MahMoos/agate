@@ -42,7 +42,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                                 ),
                                 ElevatedButton(
                                   onPressed: () =>
-                                      context.pushNamed('edit_profile'),
+                                      context.pushNamed('editProfile'),
                                   style: const ButtonStyle(
                                     minimumSize: WidgetStatePropertyAll(
                                       Size(98, 32),
@@ -109,7 +109,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                           prefixIcon: Icons.info_outline_rounded,
                           label: context.strings.aboutUs,
                           trailing: const Icon(Icons.arrow_forward_ios_rounded),
-                          onTap: () => context.pushNamed('about_us'),
+                          onTap: () => context.pushNamed('aboutUs'),
                         ),
                         const Spacer(),
                         ElevatedButton.icon(

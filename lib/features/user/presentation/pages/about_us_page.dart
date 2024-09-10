@@ -25,6 +25,11 @@ class AboutUsPage extends StatelessWidget {
             style: context.headlineLarge,
             textAlign: TextAlign.center,
           ).paddingAll(32),
+          Text(
+            context.strings.appDescription,
+            style: context.bodyLarge,
+            textAlign: TextAlign.center,
+          ).paddingAll(16),
           Consumer(
             builder: (BuildContext context, WidgetRef ref, Widget? child) {
               return Text(

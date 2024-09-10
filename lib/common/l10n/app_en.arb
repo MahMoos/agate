@@ -4,6 +4,10 @@
   "@appName": {
     "description": "App name label"
   },
+  "appDescription": "Qalam Academy, where you will find all your educational requirements met with proficiency and excellence",
+  "@appDescription": {
+    "description": "App Description"
+  },
   "currency": "{currency, select, USD {USD} IQD {IQD} other {#}}",
   "@currency": {
     "description": "Currency label",
@@ -346,9 +350,23 @@
       }
     }
   },
-  "agreementTileLabel": "I agree to the terms and conditions",
+  "agreementTileLabel": "I agree to the ",
   "@agreementTileLabel": {
     "description": "User agreement CheckboxListTile label"
+  },
+  "termsAndConditions": "Terms and Conditions",
+  "@termsAndConditions": {
+    "description": "Terms and Conditions label"
+  },
+  "term": "{term, select, 1 {I certify that all information provided in this registration is accurate.} 2 {All subscriber information is kept strictly confidential.} 3 {I pledge not to publish or share any content within the application in any form, and all content within the application is registered intellectual property.} 4 {In the event of a violation of any clause, legal action will be taken against the individual.} 5 {In case of any registration issues, please contact the technical team.} other { }}",
+  "@term": {
+    "description": "Currency label",
+    "placeholders": {
+      "term": {
+        "type": "String",
+        "example": "1"
+      }
+    }
   },
   "contactUs": "Contact Us",
   "@contactUs": {

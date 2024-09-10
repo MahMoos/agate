@@ -193,7 +193,27 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   ).paddingSymmetric(vertical: 8, horizontal: 16),
                   ReactiveCheckboxListTile(
                     formControlName: 'agreement',
-                    title: Text(context.strings.agreementTileLabel),
+                    title: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: context.strings.agreementTileLabel,
+                            style: context.labelLarge,
+                          ),
+                          TextSpan(
+                            text: context.strings.termsAndConditions,
+                            style: context.labelLarge?.copyWith(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                context.pushNamed('terms');
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
                     controlAffinity: ListTileControlAffinity.leading,
                   ),
                   if (!_isLoading)

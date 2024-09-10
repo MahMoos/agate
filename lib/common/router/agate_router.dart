@@ -61,7 +61,7 @@ class AgateRouter {
               path: '/login',
               pageBuilder: (context, state) => MaterialPage(
                 key: state.pageKey,
-                name: 'Login',
+                name: context.strings.login,
                 child: const LoginPage(),
               ),
             ),
@@ -71,8 +71,18 @@ class AgateRouter {
               path: '/register',
               pageBuilder: (context, state) => MaterialPage(
                 key: state.pageKey,
-                name: 'Register',
+                name: context.strings.register,
                 child: const RegisterPage(),
+              ),
+            ),
+            GoRoute(
+              parentNavigatorKey: _shellNavigatorKey,
+              name: 'terms',
+              path: '/terms',
+              pageBuilder: (context, state) => MaterialPage(
+                key: state.pageKey,
+                name: context.strings.termsAndConditions,
+                child: const TermsPage(),
               ),
             ),
             GoRoute(
@@ -81,7 +91,7 @@ class AgateRouter {
               path: '/profile',
               pageBuilder: (context, state) => MaterialPage(
                 key: state.pageKey,
-                name: 'Profile',
+                name: context.strings.profile,
                 child: const ProfilePage(),
               ),
               routes: [
@@ -109,7 +119,7 @@ class AgateRouter {
                 ),
                 GoRoute(
                   parentNavigatorKey: _shellNavigatorKey,
-                  name: 'edit_profile',
+                  name: 'editProfile',
                   path: 'edit',
                   pageBuilder: (context, state) => MaterialPage(
                     key: state.pageKey,
@@ -119,8 +129,8 @@ class AgateRouter {
                 ),
                 GoRoute(
                   parentNavigatorKey: _shellNavigatorKey,
-                  name: 'about_us',
-                  path: 'about_us',
+                  name: 'aboutUs',
+                  path: 'about-us',
                   pageBuilder: (context, state) => MaterialPage(
                     key: state.pageKey,
                     name: context.strings.aboutUs,
@@ -275,7 +285,12 @@ class AgateRouter {
               path: '/courses/:id',
               pageBuilder: (context, state) => MaterialPage(
                 key: state.pageKey,
-                name: 'Course',
+                name: ref
+                    .watch(
+                      courseControllerProvider(state.pathParameters['id']!),
+                    )
+                    .value
+                    ?.name,
                 fullscreenDialog: true,
                 child: CoursePage(
                   courseId: state.pathParameters['id']!,
@@ -288,7 +303,7 @@ class AgateRouter {
               path: '/courses/:id/sections',
               pageBuilder: (context, state) => MaterialPage(
                 key: state.pageKey,
-                name: 'Sections',
+                name: context.strings.sections,
                 child: SectionsPage(
                   courseId: state.pathParameters['id']!,
                 ),
@@ -316,7 +331,7 @@ class AgateRouter {
               path: '/courses/:courseId/lectures',
               pageBuilder: (context, state) => MaterialPage(
                 key: state.pageKey,
-                name: 'Lectures',
+                name: context.strings.lectures,
                 child: LecturesPage(
                   courseId: state.pathParameters['courseId']!,
                 ),
@@ -352,10 +367,12 @@ class AgateRouter {
         final goingToLogin = state.fullPath == '/login';
         final goingToRegister = state.fullPath == '/register';
         final goingToTalker = state.fullPath == '/talker';
+        final goingToTerms = state.fullPath == '/terms';
         if (user == null &&
             !goingToRegister &&
             !goingToLogin &&
-            !goingToTalker) {
+            !goingToTalker &&
+            !goingToTerms) {
           return '/login';
         } else if (user != null && (goingToRegister || goingToLogin)) {
           return '/';
