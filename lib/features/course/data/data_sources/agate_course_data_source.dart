@@ -70,7 +70,7 @@ class AgateCourseDataSource extends CourseDataSource {
 
   @override
   Future<ReviewModel> addReview(ReviewsParams review) {
-    return client.post<ReviewModel>(
+    return client.patch<ReviewModel>(
       ApiRoutes.reviews(courseId: review.courseId, lectureId: review.lectureId),
       data: {
         'rate': review.rating,

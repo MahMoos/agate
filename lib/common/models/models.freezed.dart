@@ -542,7 +542,6 @@ mixin _$FileModel {
   String? get description => throw _privateConstructorUsedError;
   String? get extension => throw _privateConstructorUsedError;
   double? get size => throw _privateConstructorUsedError;
-  FileType? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -561,8 +560,7 @@ abstract class $FileModelCopyWith<$Res> {
       String? name,
       String? description,
       String? extension,
-      double? size,
-      FileType? type});
+      double? size});
 }
 
 /// @nodoc
@@ -584,7 +582,6 @@ class _$FileModelCopyWithImpl<$Res, $Val extends FileModel>
     Object? description = freezed,
     Object? extension = freezed,
     Object? size = freezed,
-    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -611,10 +608,6 @@ class _$FileModelCopyWithImpl<$Res, $Val extends FileModel>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as double?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as FileType?,
     ) as $Val);
   }
 }
@@ -633,8 +626,7 @@ abstract class _$$FileModelImplCopyWith<$Res>
       String? name,
       String? description,
       String? extension,
-      double? size,
-      FileType? type});
+      double? size});
 }
 
 /// @nodoc
@@ -654,7 +646,6 @@ class __$$FileModelImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? extension = freezed,
     Object? size = freezed,
-    Object? type = freezed,
   }) {
     return _then(_$FileModelImpl(
       id: null == id
@@ -681,10 +672,6 @@ class __$$FileModelImplCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as double?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as FileType?,
     ));
   }
 }
@@ -698,8 +685,7 @@ class _$FileModelImpl implements _FileModel {
       this.name,
       this.description,
       this.extension,
-      this.size,
-      this.type});
+      this.size});
 
   factory _$FileModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$FileModelImplFromJson(json);
@@ -716,12 +702,10 @@ class _$FileModelImpl implements _FileModel {
   final String? extension;
   @override
   final double? size;
-  @override
-  final FileType? type;
 
   @override
   String toString() {
-    return 'FileModel(id: $id, url: $url, name: $name, description: $description, extension: $extension, size: $size, type: $type)';
+    return 'FileModel(id: $id, url: $url, name: $name, description: $description, extension: $extension, size: $size)';
   }
 
   @override
@@ -736,14 +720,13 @@ class _$FileModelImpl implements _FileModel {
                 other.description == description) &&
             (identical(other.extension, extension) ||
                 other.extension == extension) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.size, size) || other.size == size));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, url, name, description, extension, size, type);
+  int get hashCode =>
+      Object.hash(runtimeType, id, url, name, description, extension, size);
 
   @JsonKey(ignore: true)
   @override
@@ -766,8 +749,7 @@ abstract class _FileModel implements FileModel {
       final String? name,
       final String? description,
       final String? extension,
-      final double? size,
-      final FileType? type}) = _$FileModelImpl;
+      final double? size}) = _$FileModelImpl;
 
   factory _FileModel.fromJson(Map<String, dynamic> json) =
       _$FileModelImpl.fromJson;
@@ -784,8 +766,6 @@ abstract class _FileModel implements FileModel {
   String? get extension;
   @override
   double? get size;
-  @override
-  FileType? get type;
   @override
   @JsonKey(ignore: true)
   _$$FileModelImplCopyWith<_$FileModelImpl> get copyWith =>
@@ -1190,7 +1170,8 @@ SubjectModel _$SubjectModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SubjectModel {
   String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
 
@@ -1206,7 +1187,12 @@ abstract class $SubjectModelCopyWith<$Res> {
           SubjectModel value, $Res Function(SubjectModel) then) =
       _$SubjectModelCopyWithImpl<$Res, SubjectModel>;
   @useResult
-  $Res call({String id, String name, String? description, String? imageUrl});
+  $Res call(
+      {String id,
+      String? name,
+      String? title,
+      String? description,
+      String? imageUrl});
 }
 
 /// @nodoc
@@ -1223,7 +1209,8 @@ class _$SubjectModelCopyWithImpl<$Res, $Val extends SubjectModel>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? name = freezed,
+    Object? title = freezed,
     Object? description = freezed,
     Object? imageUrl = freezed,
   }) {
@@ -1232,10 +1219,14 @@ class _$SubjectModelCopyWithImpl<$Res, $Val extends SubjectModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -1256,7 +1247,12 @@ abstract class _$$SubjectModelImplCopyWith<$Res>
       __$$SubjectModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String? description, String? imageUrl});
+  $Res call(
+      {String id,
+      String? name,
+      String? title,
+      String? description,
+      String? imageUrl});
 }
 
 /// @nodoc
@@ -1271,7 +1267,8 @@ class __$$SubjectModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? name = freezed,
+    Object? title = freezed,
     Object? description = freezed,
     Object? imageUrl = freezed,
   }) {
@@ -1280,10 +1277,14 @@ class __$$SubjectModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -1300,7 +1301,11 @@ class __$$SubjectModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SubjectModelImpl implements _SubjectModel {
   const _$SubjectModelImpl(
-      {required this.id, required this.name, this.description, this.imageUrl});
+      {required this.id,
+      this.name,
+      this.title,
+      this.description,
+      this.imageUrl});
 
   factory _$SubjectModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SubjectModelImplFromJson(json);
@@ -1308,7 +1313,9 @@ class _$SubjectModelImpl implements _SubjectModel {
   @override
   final String id;
   @override
-  final String name;
+  final String? name;
+  @override
+  final String? title;
   @override
   final String? description;
   @override
@@ -1316,7 +1323,7 @@ class _$SubjectModelImpl implements _SubjectModel {
 
   @override
   String toString() {
-    return 'SubjectModel(id: $id, name: $name, description: $description, imageUrl: $imageUrl)';
+    return 'SubjectModel(id: $id, name: $name, title: $title, description: $description, imageUrl: $imageUrl)';
   }
 
   @override
@@ -1326,6 +1333,7 @@ class _$SubjectModelImpl implements _SubjectModel {
             other is _$SubjectModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.imageUrl, imageUrl) ||
@@ -1334,7 +1342,8 @@ class _$SubjectModelImpl implements _SubjectModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, description, imageUrl);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, title, description, imageUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -1353,7 +1362,8 @@ class _$SubjectModelImpl implements _SubjectModel {
 abstract class _SubjectModel implements SubjectModel {
   const factory _SubjectModel(
       {required final String id,
-      required final String name,
+      final String? name,
+      final String? title,
       final String? description,
       final String? imageUrl}) = _$SubjectModelImpl;
 
@@ -1363,7 +1373,9 @@ abstract class _SubjectModel implements SubjectModel {
   @override
   String get id;
   @override
-  String get name;
+  String? get name;
+  @override
+  String? get title;
   @override
   String? get description;
   @override

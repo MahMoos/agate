@@ -14,6 +14,12 @@ class CourseController extends _$CourseController {
   }
 
   Future<bool> subscribe() async {
-    return _subscribeToCourse(id);
+    final result = await _subscribeToCourse(id);
+    if (result) {
+      ref
+        ..invalidateSelf()
+        ..invalidate(lectureControllerProvider);
+    }
+    return result;
   }
 }

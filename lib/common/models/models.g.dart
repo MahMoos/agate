@@ -60,7 +60,6 @@ _$FileModelImpl _$$FileModelImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       extension: json['extension'] as String?,
       size: (json['size'] as num?)?.toDouble(),
-      type: $enumDecodeNullable(_$FileTypeEnumMap, json['type']),
     );
 
 Map<String, dynamic> _$$FileModelImplToJson(_$FileModelImpl instance) =>
@@ -71,14 +70,7 @@ Map<String, dynamic> _$$FileModelImplToJson(_$FileModelImpl instance) =>
       'description': instance.description,
       'extension': instance.extension,
       'size': instance.size,
-      'type': _$FileTypeEnumMap[instance.type],
     };
-
-const _$FileTypeEnumMap = {
-  FileType.document: 'document',
-  FileType.image: 'image',
-  FileType.video: 'video',
-};
 
 _$MyCourseModelImpl _$$MyCourseModelImplFromJson(Map<String, dynamic> json) =>
     _$MyCourseModelImpl(
@@ -117,7 +109,8 @@ Map<String, dynamic> _$$MyCourseModelImplToJson(_$MyCourseModelImpl instance) =>
 _$SubjectModelImpl _$$SubjectModelImplFromJson(Map<String, dynamic> json) =>
     _$SubjectModelImpl(
       id: json['id'] as String,
-      name: json['name'] as String,
+      name: json['name'] as String?,
+      title: json['title'] as String?,
       description: json['description'] as String?,
       imageUrl: json['imageUrl'] as String?,
     );
@@ -126,6 +119,7 @@ Map<String, dynamic> _$$SubjectModelImplToJson(_$SubjectModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'title': instance.title,
       'description': instance.description,
       'imageUrl': instance.imageUrl,
     };

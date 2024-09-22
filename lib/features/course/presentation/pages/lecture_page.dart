@@ -58,7 +58,7 @@ class LecturePageState extends ConsumerState<LecturePage> {
                       imageUrl: lecture.imageUrl,
                       width: context.width,
                     ),
-                  if (!lecture.isSubscribed)
+                  if (!lecture.isSubscribed || lecture.price == 0)
                     SubscriptionTile(
                       price: lecture.price,
                       currency: lecture.currency,

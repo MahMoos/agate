@@ -4,7 +4,8 @@ part of 'models.dart';
 class SubjectModel with _$SubjectModel {
   const factory SubjectModel({
     required String id,
-    required String name,
+    String? name,
+    String? title,
     String? description,
     String? imageUrl,
   }) = _SubjectModel;
@@ -16,7 +17,7 @@ class SubjectModel with _$SubjectModel {
 extension SubjectModelEx on SubjectModel {
   Subject toEntity() => Subject(
         id: id,
-        name: name,
+        name: title ?? name ?? '',
         description: description,
         imageUrl: imageUrl,
       );

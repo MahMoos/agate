@@ -23,7 +23,7 @@ class LectureController extends _$LectureController {
       LectureParams(lectureId: id, courseId: _courseId),
     );
     if (result) {
-      ref.invalidate(lectureControllerProvider(id, _courseId));
+      ref.invalidateSelf();
     }
     return result;
   }

@@ -22,7 +22,7 @@ final userRepositoryProvider = FutureProvider<UserRepository>.internal(
 
 typedef UserRepositoryRef = FutureProviderRef<UserRepository>;
 String _$preferencesControllerHash() =>
-    r'8f113fd6108a8352cc86f50090c6bdc5365cf7d1';
+    r'2b45f7e8cd7a65e04efd7c5c5b943da46658a3da';
 
 /// See also [PreferencesController].
 @ProviderFor(PreferencesController)

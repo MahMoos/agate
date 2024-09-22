@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../common/api/api.dart';
@@ -35,7 +36,7 @@ FutureOr<Null> handleSubscriptionException(Object e) {
         content: Text(context.strings.walletEmpty),
         action: SnackBarAction(
           label: context.strings.deposit,
-          onPressed: () {},
+          onPressed: () => context.pushNamed('deposit'),
         ),
       ),
     );

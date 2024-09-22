@@ -44,7 +44,7 @@ class CoursePage extends ConsumerWidget {
                             bio: teacher.specialization,
                           ).paddingSymmetric(horizontal: 8, vertical: 4),
                         ),
-                      if (!course.isSubscribed)
+                      if (!course.isSubscribed || course.price == 0)
                         SubscriptionTile(
                           price: course.price,
                           currency: course.currency,

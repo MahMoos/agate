@@ -11,7 +11,7 @@ class FileModel with _$FileModel {
     String? description,
     String? extension,
     double? size,
-    FileType? type,
+    // FileType? type,
   }) = _FileModel;
 
   factory FileModel.fromJson(Map<String, dynamic> json) =>

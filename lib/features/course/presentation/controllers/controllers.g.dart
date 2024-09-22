@@ -169,7 +169,7 @@ class _SectionProviderElement extends FutureProviderElement<Section>
   String get id => (origin as SectionProvider).id;
 }
 
-String _$courseControllerHash() => r'59746ec30dba58a964a90bd3812b6435e8d2f5a6';
+String _$courseControllerHash() => r'3844ad253c0d13c21612f33a6374b14c8b768bf4';
 
 abstract class _$CourseController
     extends BuildlessAsyncNotifier<CourseDetails> {
@@ -313,7 +313,7 @@ class _CourseControllerProviderElement
   String get id => (origin as CourseControllerProvider).id;
 }
 
-String _$lectureControllerHash() => r'64280a80decd0f84172ad118228a1702150e181e';
+String _$lectureControllerHash() => r'edf28fbc1a35897a0ae7b9c983bc31296b98ac20';
 
 abstract class _$LectureController extends BuildlessAsyncNotifier<Lecture> {
   late final String id;
