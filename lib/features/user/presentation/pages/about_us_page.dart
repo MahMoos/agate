@@ -12,13 +12,8 @@ class AboutUsPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          GestureDetector(
-            onScaleEnd: (details) {
-              context.pushNamed('talker');
-            },
-            child: Assets.images.logoTransparent.image(
-              width: context.width / 2,
-            ),
+          Assets.images.logoTransparent.image(
+            width: context.width / 2,
           ),
           Text(
             context.strings.appName,

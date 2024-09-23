@@ -51,12 +51,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            GestureDetector(
-              onScaleEnd: (details) {
-                context.pushNamed('talker');
-              },
-              child: Assets.images.logoTransparent.image(height: 320),
-            ),
+            Assets.images.logoTransparent.image(height: 320),
             Text(
               context.strings.welcome,
               style: context.headlineLarge,
