@@ -7,6 +7,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../common/api/api.dart';
+import '../../../common/entities/entities.dart';
+import '../../../common/models/models.dart';
 import '../../exceptions/http_exception.dart';
 import '../../models/models.dart';
 import '../http/http_service.dart';

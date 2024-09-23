@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:reactive_image_picker/reactive_image_picker.dart';
 
+import '../../../../common/entities/entities.dart';
 import '../../../../common/gen/assets.gen.dart';
 import '../../../../common/widgets/widgets.dart';
 import '../../../../core/exceptions/http_exception.dart';

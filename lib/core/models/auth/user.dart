@@ -11,6 +11,27 @@ enum SupportedLanguages {
 
 enum AcademicStage { first, second, third, fourth, fifth, sixth }
 
+enum Governorate {
+  alAnbar,
+  babil,
+  baghdad,
+  basra,
+  dhiQar,
+  alQadisiyyah,
+  diyala,
+  duhok,
+  erbil,
+  karbala,
+  kirkuk,
+  maysan,
+  muthanna,
+  najaf,
+  ninawa,
+  salahAlDin,
+  sulaymaniyah,
+  wasit;
+}
+
 class User {
   const User({
     this.id,
@@ -23,8 +44,10 @@ class User {
     this.photoUrl,
     this.phoneNumber,
     this.telegramUsername,
+    this.governorate,
     this.address,
     this.birthday,
+    this.universityId,
     this.stage = AcademicStage.first,
     this.language = SupportedLanguages.ar,
   });
@@ -42,6 +65,7 @@ class User {
       password: info['password'] as String?,
       photoUrl: info['imageUrl'] as String?,
       phoneNumber: info['phone'] as String?,
+      universityId: info['universityId'] as String?,
       telegramUsername: (info['data'] as List<dynamic>?)
               ?.firstWhereOrNull((e) => e['key'] == 'telegram')?['stringValue']
           as String?,
@@ -62,6 +86,13 @@ class User {
                 )?['stringValue'] as String?,
           ) ??
           AcademicStage.first,
+      governorate: Governorate.values.firstWhereOrNull(
+        (e) =>
+            e.name ==
+            (info['data'] as List<dynamic>?)?.firstWhereOrNull(
+              (e) => e['key'] == 'governorate',
+            )?['stringValue'] as String?,
+      ),
       language: SupportedLanguages.values[info['language'] as int? ?? 0],
     );
   }
@@ -77,7 +108,9 @@ class User {
   final String? phoneNumber;
   final String? telegramUsername;
   final DateTime? birthday;
+  final Governorate? governorate;
   final String? address;
+  final String? universityId;
   final AcademicStage stage;
   final SupportedLanguages language;
 
@@ -92,11 +125,17 @@ class User {
       if (email != null) 'email': email,
       if (photoUrl != null) 'imageId': photoUrl,
       if (phoneNumber != null) 'phone': phoneNumber,
+      if (universityId != null) 'universityId': universityId,
       'data': [
         if (telegramUsername != null)
           {
             'key': 'telegram',
             'stringValue': telegramUsername,
+          },
+        if (governorate != null)
+          {
+            'key': 'governorate',
+            'stringValue': governorate!.name,
           },
         if (address != null)
           {

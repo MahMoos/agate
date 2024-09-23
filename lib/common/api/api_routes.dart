@@ -61,6 +61,10 @@ class ApiRoutes {
         '/divisions/$id',
       );
 
+  static Uri get universities => _appUri(
+        '/divisions/universities',
+      );
+
   static Uri subjects(PaginatedParams params) => _appUri(
         '/subjects',
         params.toJson(),

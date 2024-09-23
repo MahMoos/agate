@@ -20,9 +20,12 @@
   "confirmPassword": "تأكيد كلمة المرور",
   "email": "البريد الإلكتروني",
   "phone": "رقم الهاتف",
-  "address": "Address",
+  "governorate": "المحافظة",
+  "governorates": "{governorate, select, alAnbar {الأنبار}  babil {بابل}  baghdad {بغداد}  basra {البصرة}  dhiQar {ذي قار}  alQadisiyyah {القادسية}  diyala {ديالى}  duhok {دهوك}  erbil {اربيل}  karbala {كربلاء}  kirkuk {كركوك}  maysan {ميسان}  muthanna {المثنى}  najaf {النجف}  ninawa {نينوى}  salahAlDin {صلاح الدين}  sulaymaniyah {السليمانية}  wasit {واسط} other {#}}",
+  "address": "العنوان",
   "telegramUsername": "معرف تلجرام",
   "birthday": "تاريخ الولادة",
+  "university": "الجامعة",
   "academicStage": "المرحلة الدراسية",
   "stage": "{stage, select, first {الأولى} second {الثانية} third {الثالثة} fourth {الرابعة} fifth {الخامسة} sixth {السادسة} other {#}}",
   "personalPhoto": "الصورة الشخصية",
@@ -81,5 +84,11 @@
   "agreementTileLabel": "أوافق على ",
   "termsAndConditions": "الشروط والأحكام",
   "term": "{term, select, 1 {أتعهد بصحة جميع المعلومات الواردة في التسجيل.} 2 {في حال الأخلال بأي بند سيتم اتخاذ الاجرائات القانونية بحق الشخص.} 3 { أتعهد بعدم القيام بنشر او مشاركة اي محتوى في التطبيق بأي شكل من الأشكال وجميع محتوايات التطبيق ملكية فكرية مسجلة.} 4 {جميع معلومات المشتركين محفوظة بسرية تامة.} 5 {في حال حدوث اي مشكلة في التسجيل يمكنكم التواصل مع الفريق الفني.} other { }}",
-  "contactUs": "تواصل معنا"
+  "contactUs": "تواصل معنا",
+  "fieldRequired": "الحقل يجب أن لا يبقى فارغا",
+  "emailInvalid": "البريد إلكتروني غير صحيح",
+  "passwordMismatch": "كلمة المرور غير متطابقة",
+  "passwordTooShort": "كلمة المرور يجب أن يكون طولها ٨ على الأقل",
+  "usernameTooLong": "اسم المستخدم يجب أن لا يتجاوز ٣٢ بالطول",
+  "phoneIncorrect": "رقم الهاتف غير صحيح"
 }

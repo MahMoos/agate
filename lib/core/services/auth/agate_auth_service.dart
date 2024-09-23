@@ -4,13 +4,15 @@ class AgateAuthService implements AuthService {
   String? _accessToken;
   String? _refreshToken;
   String? _deviceId;
-
+  List<Department> _universities = [];
   Future<void> initialize() async {
     _accessToken = await accessToken;
     _deviceId = await deviceId;
     if (_accessToken != null) {
       _currentUser = await _getUser();
       _userStreamController.sink.add(_currentUser);
+    } else {
+      _universities = await getUniversities();
     }
   }
 
@@ -168,4 +170,19 @@ class AgateAuthService implements AuthService {
     _setUser(updatedUser);
     return updatedUser;
   }
+
+  Future<List<Department>> getUniversities() async {
+    return (await DioHttpService().getList<DepartmentModel>(
+      ApiRoutes.universities,
+      parser: (json) => DepartmentModel.fromJson(json as Map<String, dynamic>),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-DeviceId': _deviceId,
+      },
+    ))
+        .map((e) => e.toEntity())
+        .toList();
+  }
+
+  List<Department> get universites => _universities;
 }

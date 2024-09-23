@@ -92,6 +92,20 @@
   "@phone": {
     "description": "Phone Number label"
   },
+  "governorate": "Governorate",
+  "@governorate": {
+    "description": "Governorate Selector label"
+  },
+  "governorates": "{governorate, select, alAnbar {Al-Anbar}  babil {Babil}  baghdad {Baghdad}  basra {Basra}  dhiQar {Dhi Qar}  alQadisiyyah {Al-Qādisiyyah}  diyala {Diyala}  duhok {Duhok}  erbil {Erbil}  karbala {Karbala}  kirkuk {Kirkuk}  maysan {Maysan}  muthanna {Muthanna}  najaf {Najaf}  ninawa {Ninawa}  salahAlDin {Salah Al-Din}  sulaymaniyah {Sulaymaniyah}  wasit {Wasit} other {#}}",
+  "@governorates": {
+    "description": "Governorate label",
+    "placeholders": {
+      "governorate": {
+        "type": "String",
+        "example": "Baghdad"
+      }
+    }
+  },
   "address": "Address",
   "@address": {
     "description": "Address TextField label"
@@ -103,6 +117,10 @@
   "birthday": "Birthday",
   "@birthday": {
     "description": "Birthday TextField label"
+  },
+  "university": "University",
+  "@university": {
+    "description": "University Selector label"
   },
   "academicStage": "Academic Stage",
   "@academicStage": {
@@ -371,5 +389,29 @@
   "contactUs": "Contact Us",
   "@contactUs": {
     "description": "Contact Us label"
+  },
+  "fieldRequired": "Field must not be empty",
+  "@fieldRequired": {
+    "description": "Required field error message"
+  },
+  "emailInvalid": "Email address is invalid",
+  "@emailInvalid": {
+    "description": "Email invalid error message"
+  },
+  "passwordMismatch": "Passwords entered does not match",
+  "@passwordMismatch": {
+    "description": "Password mismatch error message"
+  },
+  "passwordTooShort": "Password must contain 8 characters minimum",
+  "@passwordTooShort": {
+    "description": "Password too short error message"
+  },
+  "usernameTooLong": "Username must not exceed 32 characters",
+  "@usernameTooLong": {
+    "description": "Username too long error message"
+  },
+  "phoneInvalid": "Phone number is invalid",
+  "@phoneInvalid": {
+    "description": "Phone number invalid error message"
   }
 }

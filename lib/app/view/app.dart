@@ -88,7 +88,22 @@ class _AppState extends ConsumerState<App> with WidgetsBindingObserver {
                     .image(width: context.width / 3),
               ),
             ),
-            if (child != null) child,
+            if (child != null)
+              ReactiveFormConfig(
+                validationMessages: {
+                  ValidationMessage.required: (error) =>
+                      context.strings.fieldRequired,
+                  ValidationMessage.email: (error) =>
+                      context.strings.emailInvalid,
+                  ValidationMessage.mustMatch: (error) =>
+                      context.strings.passwordMismatch,
+                  ValidationMessage.minLength: (error) =>
+                      context.strings.passwordTooShort,
+                  ValidationMessage.maxLength: (error) =>
+                      context.strings.usernameTooLong,
+                },
+                child: child,
+              ),
           ],
         ),
       ),
