@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ms_undraw/ms_undraw.dart';
 
 import '../../../../common/widgets/widgets.dart';
+import '../../../../core/exceptions/exception.dart';
 import '../../../../core/extensions/extensions.dart';
 import '../../../../core/widgets/widgets.dart';
 import '../../../explore/presentation/widgets/widgets.dart';

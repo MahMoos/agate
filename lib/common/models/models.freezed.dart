@@ -1173,7 +1173,11 @@ mixin _$SubjectModel {
   String? get name => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
+  String get currency => throw _privateConstructorUsedError;
+  double? get discount => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
+  bool get isSubscribed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1192,7 +1196,11 @@ abstract class $SubjectModelCopyWith<$Res> {
       String? name,
       String? title,
       String? description,
-      String? imageUrl});
+      double price,
+      String currency,
+      double? discount,
+      String? imageUrl,
+      bool isSubscribed});
 }
 
 /// @nodoc
@@ -1212,7 +1220,11 @@ class _$SubjectModelCopyWithImpl<$Res, $Val extends SubjectModel>
     Object? name = freezed,
     Object? title = freezed,
     Object? description = freezed,
+    Object? price = null,
+    Object? currency = null,
+    Object? discount = freezed,
     Object? imageUrl = freezed,
+    Object? isSubscribed = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -1231,10 +1243,26 @@ class _$SubjectModelCopyWithImpl<$Res, $Val extends SubjectModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSubscribed: null == isSubscribed
+          ? _value.isSubscribed
+          : isSubscribed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -1252,7 +1280,11 @@ abstract class _$$SubjectModelImplCopyWith<$Res>
       String? name,
       String? title,
       String? description,
-      String? imageUrl});
+      double price,
+      String currency,
+      double? discount,
+      String? imageUrl,
+      bool isSubscribed});
 }
 
 /// @nodoc
@@ -1270,7 +1302,11 @@ class __$$SubjectModelImplCopyWithImpl<$Res>
     Object? name = freezed,
     Object? title = freezed,
     Object? description = freezed,
+    Object? price = null,
+    Object? currency = null,
+    Object? discount = freezed,
     Object? imageUrl = freezed,
+    Object? isSubscribed = null,
   }) {
     return _then(_$SubjectModelImpl(
       id: null == id
@@ -1289,10 +1325,26 @@ class __$$SubjectModelImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSubscribed: null == isSubscribed
+          ? _value.isSubscribed
+          : isSubscribed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1305,7 +1357,11 @@ class _$SubjectModelImpl implements _SubjectModel {
       this.name,
       this.title,
       this.description,
-      this.imageUrl});
+      this.price = 0,
+      this.currency = 'IQD',
+      this.discount,
+      this.imageUrl,
+      this.isSubscribed = false});
 
   factory _$SubjectModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SubjectModelImplFromJson(json);
@@ -1319,11 +1375,22 @@ class _$SubjectModelImpl implements _SubjectModel {
   @override
   final String? description;
   @override
+  @JsonKey()
+  final double price;
+  @override
+  @JsonKey()
+  final String currency;
+  @override
+  final double? discount;
+  @override
   final String? imageUrl;
+  @override
+  @JsonKey()
+  final bool isSubscribed;
 
   @override
   String toString() {
-    return 'SubjectModel(id: $id, name: $name, title: $title, description: $description, imageUrl: $imageUrl)';
+    return 'SubjectModel(id: $id, name: $name, title: $title, description: $description, price: $price, currency: $currency, discount: $discount, imageUrl: $imageUrl, isSubscribed: $isSubscribed)';
   }
 
   @override
@@ -1336,14 +1403,21 @@ class _$SubjectModelImpl implements _SubjectModel {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.currency, currency) ||
+                other.currency == currency) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            (identical(other.isSubscribed, isSubscribed) ||
+                other.isSubscribed == isSubscribed));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, title, description, imageUrl);
+  int get hashCode => Object.hash(runtimeType, id, name, title, description,
+      price, currency, discount, imageUrl, isSubscribed);
 
   @JsonKey(ignore: true)
   @override
@@ -1365,7 +1439,11 @@ abstract class _SubjectModel implements SubjectModel {
       final String? name,
       final String? title,
       final String? description,
-      final String? imageUrl}) = _$SubjectModelImpl;
+      final double price,
+      final String currency,
+      final double? discount,
+      final String? imageUrl,
+      final bool isSubscribed}) = _$SubjectModelImpl;
 
   factory _SubjectModel.fromJson(Map<String, dynamic> json) =
       _$SubjectModelImpl.fromJson;
@@ -1379,7 +1457,15 @@ abstract class _SubjectModel implements SubjectModel {
   @override
   String? get description;
   @override
+  double get price;
+  @override
+  String get currency;
+  @override
+  double? get discount;
+  @override
   String? get imageUrl;
+  @override
+  bool get isSubscribed;
   @override
   @JsonKey(ignore: true)
   _$$SubjectModelImplCopyWith<_$SubjectModelImpl> get copyWith =>

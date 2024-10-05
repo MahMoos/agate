@@ -56,6 +56,15 @@ class AgateExploreDataSource extends ExploreDataSource {
   }
 
   @override
+  Future<bool> subscribeToSubject(String id) {
+    return client.post<bool>(
+      ApiRoutes.subscribeToSubject(id),
+      data: null,
+      parser: (data) => true,
+    );
+  }
+
+  @override
   Future<List<SubjectModel>> getSubjects(SubjectsParams params) {
     return client.getList<SubjectModel>(
       ApiRoutes.subjects(params),

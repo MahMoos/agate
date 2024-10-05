@@ -564,133 +564,6 @@ class _McqGameProviderElement extends AutoDisposeFutureProviderElement<McqGame>
   String get id => (origin as McqGameProvider).id;
 }
 
-String _$subjectHash() => r'f907f1016575b0d852dc7b307d4bb6d5b844f5be';
-
-/// See also [subject].
-@ProviderFor(subject)
-const subjectProvider = SubjectFamily();
-
-/// See also [subject].
-class SubjectFamily extends Family<AsyncValue<Subject>> {
-  /// See also [subject].
-  const SubjectFamily();
-
-  /// See also [subject].
-  SubjectProvider call(
-    String id,
-  ) {
-    return SubjectProvider(
-      id,
-    );
-  }
-
-  @override
-  SubjectProvider getProviderOverride(
-    covariant SubjectProvider provider,
-  ) {
-    return call(
-      provider.id,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'subjectProvider';
-}
-
-/// See also [subject].
-class SubjectProvider extends AutoDisposeFutureProvider<Subject> {
-  /// See also [subject].
-  SubjectProvider(
-    String id,
-  ) : this._internal(
-          (ref) => subject(
-            ref as SubjectRef,
-            id,
-          ),
-          from: subjectProvider,
-          name: r'subjectProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$subjectHash,
-          dependencies: SubjectFamily._dependencies,
-          allTransitiveDependencies: SubjectFamily._allTransitiveDependencies,
-          id: id,
-        );
-
-  SubjectProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.id,
-  }) : super.internal();
-
-  final String id;
-
-  @override
-  Override overrideWith(
-    FutureOr<Subject> Function(SubjectRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: SubjectProvider._internal(
-        (ref) => create(ref as SubjectRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        id: id,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<Subject> createElement() {
-    return _SubjectProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is SubjectProvider && other.id == id;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, id.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin SubjectRef on AutoDisposeFutureProviderRef<Subject> {
-  /// The parameter `id` of this provider.
-  String get id;
-}
-
-class _SubjectProviderElement extends AutoDisposeFutureProviderElement<Subject>
-    with SubjectRef {
-  _SubjectProviderElement(super.provider);
-
-  @override
-  String get id => (origin as SubjectProvider).id;
-}
-
 String _$teacherHash() => r'b2bc8eb7d1008427d2f185f6e63115edbb2f13de';
 
 /// See also [teacher].
@@ -1549,6 +1422,148 @@ class _SubjectsProviderElement
 
   @override
   SubjectsParams get params => (origin as SubjectsProvider).params;
+}
+
+String _$subjectControllerHash() => r'b22978dc02240c477da6e58f1b1cbd26b340ea0a';
+
+abstract class _$SubjectController extends BuildlessAsyncNotifier<Subject> {
+  late final String id;
+
+  FutureOr<Subject> build(
+    String id,
+  );
+}
+
+/// See also [SubjectController].
+@ProviderFor(SubjectController)
+const subjectControllerProvider = SubjectControllerFamily();
+
+/// See also [SubjectController].
+class SubjectControllerFamily extends Family<AsyncValue<Subject>> {
+  /// See also [SubjectController].
+  const SubjectControllerFamily();
+
+  /// See also [SubjectController].
+  SubjectControllerProvider call(
+    String id,
+  ) {
+    return SubjectControllerProvider(
+      id,
+    );
+  }
+
+  @override
+  SubjectControllerProvider getProviderOverride(
+    covariant SubjectControllerProvider provider,
+  ) {
+    return call(
+      provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'subjectControllerProvider';
+}
+
+/// See also [SubjectController].
+class SubjectControllerProvider
+    extends AsyncNotifierProviderImpl<SubjectController, Subject> {
+  /// See also [SubjectController].
+  SubjectControllerProvider(
+    String id,
+  ) : this._internal(
+          () => SubjectController()..id = id,
+          from: subjectControllerProvider,
+          name: r'subjectControllerProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$subjectControllerHash,
+          dependencies: SubjectControllerFamily._dependencies,
+          allTransitiveDependencies:
+              SubjectControllerFamily._allTransitiveDependencies,
+          id: id,
+        );
+
+  SubjectControllerProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.id,
+  }) : super.internal();
+
+  final String id;
+
+  @override
+  FutureOr<Subject> runNotifierBuild(
+    covariant SubjectController notifier,
+  ) {
+    return notifier.build(
+      id,
+    );
+  }
+
+  @override
+  Override overrideWith(SubjectController Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: SubjectControllerProvider._internal(
+        () => create()..id = id,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AsyncNotifierProviderElement<SubjectController, Subject> createElement() {
+    return _SubjectControllerProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is SubjectControllerProvider && other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin SubjectControllerRef on AsyncNotifierProviderRef<Subject> {
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _SubjectControllerProviderElement
+    extends AsyncNotifierProviderElement<SubjectController, Subject>
+    with SubjectControllerRef {
+  _SubjectControllerProviderElement(super.provider);
+
+  @override
+  String get id => (origin as SubjectControllerProvider).id;
 }
 
 String _$teachersHash() => r'764fa2b476c9a13d145b1da29c0415152fcc37e1';

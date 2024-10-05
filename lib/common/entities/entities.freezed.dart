@@ -231,7 +231,11 @@ mixin _$Subject {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
+  String get currency => throw _privateConstructorUsedError;
+  double? get discount => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
+  bool get isSubscribed => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SubjectCopyWith<Subject> get copyWith => throw _privateConstructorUsedError;
@@ -242,7 +246,15 @@ abstract class $SubjectCopyWith<$Res> {
   factory $SubjectCopyWith(Subject value, $Res Function(Subject) then) =
       _$SubjectCopyWithImpl<$Res, Subject>;
   @useResult
-  $Res call({String id, String name, String? description, String? imageUrl});
+  $Res call(
+      {String id,
+      String name,
+      String? description,
+      double price,
+      String currency,
+      double? discount,
+      String? imageUrl,
+      bool isSubscribed});
 }
 
 /// @nodoc
@@ -261,7 +273,11 @@ class _$SubjectCopyWithImpl<$Res, $Val extends Subject>
     Object? id = null,
     Object? name = null,
     Object? description = freezed,
+    Object? price = null,
+    Object? currency = null,
+    Object? discount = freezed,
     Object? imageUrl = freezed,
+    Object? isSubscribed = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -276,10 +292,26 @@ class _$SubjectCopyWithImpl<$Res, $Val extends Subject>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSubscribed: null == isSubscribed
+          ? _value.isSubscribed
+          : isSubscribed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -291,7 +323,15 @@ abstract class _$$SubjectImplCopyWith<$Res> implements $SubjectCopyWith<$Res> {
       __$$SubjectImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String? description, String? imageUrl});
+  $Res call(
+      {String id,
+      String name,
+      String? description,
+      double price,
+      String currency,
+      double? discount,
+      String? imageUrl,
+      bool isSubscribed});
 }
 
 /// @nodoc
@@ -308,7 +348,11 @@ class __$$SubjectImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? description = freezed,
+    Object? price = null,
+    Object? currency = null,
+    Object? discount = freezed,
     Object? imageUrl = freezed,
+    Object? isSubscribed = null,
   }) {
     return _then(_$SubjectImpl(
       id: null == id
@@ -323,10 +367,26 @@ class __$$SubjectImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      isSubscribed: null == isSubscribed
+          ? _value.isSubscribed
+          : isSubscribed // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -335,7 +395,14 @@ class __$$SubjectImplCopyWithImpl<$Res>
 
 class _$SubjectImpl implements _Subject {
   const _$SubjectImpl(
-      {required this.id, required this.name, this.description, this.imageUrl});
+      {required this.id,
+      required this.name,
+      this.description,
+      this.price = 0,
+      this.currency = 'IQD',
+      this.discount,
+      this.imageUrl,
+      this.isSubscribed = false});
 
   @override
   final String id;
@@ -344,11 +411,22 @@ class _$SubjectImpl implements _Subject {
   @override
   final String? description;
   @override
+  @JsonKey()
+  final double price;
+  @override
+  @JsonKey()
+  final String currency;
+  @override
+  final double? discount;
+  @override
   final String? imageUrl;
+  @override
+  @JsonKey()
+  final bool isSubscribed;
 
   @override
   String toString() {
-    return 'Subject(id: $id, name: $name, description: $description, imageUrl: $imageUrl)';
+    return 'Subject(id: $id, name: $name, description: $description, price: $price, currency: $currency, discount: $discount, imageUrl: $imageUrl, isSubscribed: $isSubscribed)';
   }
 
   @override
@@ -360,12 +438,20 @@ class _$SubjectImpl implements _Subject {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.currency, currency) ||
+                other.currency == currency) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            (identical(other.isSubscribed, isSubscribed) ||
+                other.isSubscribed == isSubscribed));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, description, imageUrl);
+  int get hashCode => Object.hash(runtimeType, id, name, description, price,
+      currency, discount, imageUrl, isSubscribed);
 
   @JsonKey(ignore: true)
   @override
@@ -379,7 +465,11 @@ abstract class _Subject implements Subject {
       {required final String id,
       required final String name,
       final String? description,
-      final String? imageUrl}) = _$SubjectImpl;
+      final double price,
+      final String currency,
+      final double? discount,
+      final String? imageUrl,
+      final bool isSubscribed}) = _$SubjectImpl;
 
   @override
   String get id;
@@ -388,7 +478,15 @@ abstract class _Subject implements Subject {
   @override
   String? get description;
   @override
+  double get price;
+  @override
+  String get currency;
+  @override
+  double? get discount;
+  @override
   String? get imageUrl;
+  @override
+  bool get isSubscribed;
   @override
   @JsonKey(ignore: true)
   _$$SubjectImplCopyWith<_$SubjectImpl> get copyWith =>

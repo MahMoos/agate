@@ -19,3 +19,4 @@ part 'get_subject.dart';
 part 'get_subjects.dart';
 part 'get_teacher.dart';
 part 'get_teachers.dart';
+part 'subscribe_to_subject.dart';

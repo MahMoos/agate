@@ -1,9 +1,5 @@
 part of 'extensions.dart';
 
-typedef PaginableController<T>
-// ignore: invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
-    = AsyncNotifierProviderBase<PaginationController<T>, List<T>>;
-
 extension DebounceAndCancelExtension<T> on Ref<T> {
   /// Wait for [duration] (defaults to 500ms), and then return a [HttpService]
   /// which can be used to make a request.
@@ -22,17 +18,16 @@ extension DebounceAndCancelExtension<T> on Ref<T> {
   }
 }
 
+typedef PaginableController<T>
+// ignore: invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+    = AsyncNotifierProviderBase<PaginationController<T>, List<T>>;
+
 // ignore: invalid_use_of_internal_member
 mixin PaginationController<T> on AsyncNotifierBase<List<T>> {
   PaginatedParams paginatedParams = const PaginatedParams();
 
   List<T>? get data {
-    try {
-      return state.requireValue;
-      // ignore: avoid_catching_errors
-    } on StateError {
-      return null;
-    }
+    return state.value;
   }
 
   int get pageSize => paginatedParams.pageSize;

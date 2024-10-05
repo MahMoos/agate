@@ -1,5 +1,7 @@
 part of 'widgets.dart';
 
+typedef ErrorBuilder = Widget Function(BuildContext, Object error, StackTrace)?;
+
 class EndlessAnimatedListView<T> extends ConsumerStatefulWidget {
   const EndlessAnimatedListView({
     required this.provider,
@@ -26,9 +28,8 @@ class EndlessAnimatedListView<T> extends ConsumerStatefulWidget {
   final Widget noItemsView;
   final Widget loadingView;
   final Widget loadingMore;
-  final Widget Function(BuildContext, Object error, StackTrace)? errorBuilder;
-  final Widget Function(BuildContext, Object error, StackTrace)?
-      loadingMoreErrorBuilder;
+  final ErrorBuilder errorBuilder;
+  final ErrorBuilder loadingMoreErrorBuilder;
   final Widget? endOfItemsWidget;
   final List<Widget>? persistentFooterButtons;
 

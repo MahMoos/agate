@@ -28,5 +28,4 @@ part 'navigation_tile.dart';
 part 'reviews_bottom_sheet.dart';
 part 'section_app_bar.dart';
 part 'section_tile.dart';
-part 'subscription_tile.dart';
 part 'video_player.dart';

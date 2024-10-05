@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../common/api/api.dart';
 import '../../../../common/widgets/widgets.dart';
+import '../../../../core/exceptions/exception.dart';
 import '../../../../core/extensions/extensions.dart';
 import '../../../../core/models/models.dart';
 import '../../../../core/widgets/widgets.dart';

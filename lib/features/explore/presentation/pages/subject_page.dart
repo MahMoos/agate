@@ -14,13 +14,44 @@ class SubjectPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final subject = ref.watch(subjectProvider(subjectId));
+        final subject = ref.watch(subjectControllerProvider(subjectId));
         return subject.when(
           data: (subject) => Scaffold(
             appBar: AppBar(
               title: Text(subject.name),
             ),
             body: EndlessAnimatedListView(
+              sliverAppBar: (!subject.isSubscribed)
+                  ? SliverToBoxAdapter(
+                      child: SubscriptionTile(
+                        price: subject.price,
+                        currency: subject.currency,
+                        discount: subject.discount,
+                        onSubscribed: () {
+                          context.showSnackBar(
+                            const SnackBar(
+                              content: LinearProgressIndicator(),
+                            ),
+                          );
+                          ref
+                              .read(
+                                subjectControllerProvider(subjectId).notifier,
+                              )
+                              .subscribe()
+                              .then((result) {
+                            if (result) {
+                              context.showSnackBarMessage(
+                                context.strings.subscriptionSuccessful,
+                              );
+                              ref.invalidate(
+                                subjectControllerProvider(subjectId),
+                              );
+                            }
+                          }).catchError(handleSubscriptionException);
+                        },
+                      ),
+                    )
+                  : null,
               provider: coursesProvider(
                 CoursesParams(
                   subjectIds: [subjectId],
@@ -33,7 +64,8 @@ class SubjectPage extends StatelessWidget {
             ),
           ),
           error: (err, stack) => StatusView.anErrorOccurred(
-            action: () => ref.refresh(subjectProvider(subjectId).future),
+            action: () =>
+                ref.refresh(subjectControllerProvider(subjectId).future),
           ),
           loading: () => const Center(child: CircularProgressIndicator()),
         );

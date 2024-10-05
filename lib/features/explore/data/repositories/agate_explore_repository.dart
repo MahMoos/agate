@@ -96,6 +96,11 @@ class AgateExploreRepository extends BaseRepository
   }
 
   @override
+  Future<bool> subscribeToSubject(String id) async {
+    return remote.subscribeToSubject(id);
+  }
+
+  @override
   Future<List<Subject>> getSubjects(SubjectsParams params) async {
     return (await remote.getSubjects(params)).map((e) => e.toEntity()).toList();
   }

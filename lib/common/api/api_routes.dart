@@ -74,6 +74,10 @@ class ApiRoutes {
         '/subjects/$id',
       );
 
+  static Uri subscribeToSubject(String id) => _appUri(
+        '/subjects/$id/subscribe',
+      );
+
   static Uri teachers(PaginatedParams params) {
     final p = params.toJson()..putIfAbsent('Type', () => '1');
     return _appUri(

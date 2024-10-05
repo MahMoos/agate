@@ -16,6 +16,8 @@ abstract class ExploreRepository {
 
   Future<Subject> getSubject(String id);
 
+  Future<bool> subscribeToSubject(String id);
+
   Future<List<Subject>> getSubjects(SubjectsParams params);
 
   Future<Teacher> getTeacher(String id);

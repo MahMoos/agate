@@ -112,7 +112,11 @@ _$SubjectModelImpl _$$SubjectModelImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String?,
       title: json['title'] as String?,
       description: json['description'] as String?,
+      price: (json['price'] as num?)?.toDouble() ?? 0,
+      currency: json['currency'] as String? ?? 'IQD',
+      discount: (json['discount'] as num?)?.toDouble(),
       imageUrl: json['imageUrl'] as String?,
+      isSubscribed: json['isSubscribed'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$SubjectModelImplToJson(_$SubjectModelImpl instance) =>
@@ -121,7 +125,11 @@ Map<String, dynamic> _$$SubjectModelImplToJson(_$SubjectModelImpl instance) =>
       'name': instance.name,
       'title': instance.title,
       'description': instance.description,
+      'price': instance.price,
+      'currency': instance.currency,
+      'discount': instance.discount,
       'imageUrl': instance.imageUrl,
+      'isSubscribed': instance.isSubscribed,
     };
 
 _$TeacherModelImpl _$$TeacherModelImplFromJson(Map<String, dynamic> json) =>

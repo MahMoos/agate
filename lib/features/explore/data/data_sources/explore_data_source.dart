@@ -18,6 +18,8 @@ abstract class ExploreDataSource extends RemoteDataSource {
 
   Future<SubjectModel> getSubject(String id);
 
+  Future<bool> subscribeToSubject(String id);
+
   Future<List<SubjectModel>> getSubjects(SubjectsParams params);
 
   Future<TeacherModel> getTeacher(String id);
